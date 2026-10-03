@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Miside Streaming — Просмотр</title>
+  <link rel="icon" href="img/anime-logotip-1.webp" type="image/webp">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* === ПЕРЕМЕННЫЕ И ОСНОВА === */
+    :root {
+      --accent: #ff3366;
+      --accent-hover: #ff5580;
+      --bg-deep: #050508;
+      --panel-bg: rgba(15, 15, 25, 0.95);
+      --glass: rgba(255, 255, 255, 0.03);
+    }
+
+    * { box-sizing: border-box; }
+
+    /* Кастомный скроллбар */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #000; }
+    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
+
+    body {
+      margin: 0;
+      background: var(--bg-deep) url('img/mita-miside-thumb.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #eee;
+      font-family: 'Roboto', sans-serif;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: radial-gradient(circle, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.95) 100%);
+      backdrop-filter: blur(12px);
+      z-index: -1;
+    }
+
+    /* === НАВИГАЦИЯ === */
+    nav {
+      background: rgba(0, 0, 0, 0.8);
+      border-bottom: 1px solid rgba(255, 51, 102, 0.3);
+      padding: 10px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo { font-family: 'Orbitron'; color: var(--accent); font-weight: 700; font-size: 1.5rem; text-decoration: none; }
+
+    .nav-links a {
+      color: #ccc;
+      text-decoration: none;
+      font-family: 'Orbitron';
+      font-size: 0.8rem;
+      margin-left: 25px;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--accent); text-shadow: 0 0 10px var(--accent); }
+
+    /* === ГЛАВНЫЙ КОНТЕНТ === */
+    .wrapper {
+      max-width: 1500px;
+      margin: 40px auto;
+      padding: 0 30px;
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 30px;
+    }
+
+    /* Левая часть */
+    .main-content { display: flex; flex-direction: column; gap: 25px; }
+
+    /* Плеер */
+    .player-box {
+      background: #000;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid #333;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+    }
+
+    video { width: 100%; aspect-ratio: 16/9; display: block; box-shadow: inset 0 0 100px #000; }
+
+    .player-ui {
+      background: #111;
+      padding: 15px 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #222;
+    }
+
+    /* Инфо-панель */
+    .video-details {
+      background: var(--panel-bg);
+      padding: 35px;
+      border-radius: 20px;
+      border: 1px solid var(--glass);
+    }
+
+    .video-details h1 { font-family: 'Orbitron'; color: #fff; margin: 0 0 15px 0; font-size: 1.8rem; }
+
+    .stats { display: flex; gap: 20px; color: #888; font-size: 0.9rem; margin-bottom: 20px; }
+    .stats span { display: flex; align-items: center; gap: 5px; }
+    .live-dot { height: 8px; width: 8px; background: #00ff00; border-radius: 50%; box-shadow: 0 0 10px #00ff00; }
+
+    .actions { display: flex; gap: 15px; margin: 25px 0; }
+    .act-btn {
+      background: var(--glass);
+      border: 1px solid #444;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .act-btn:hover { background: var(--accent); border-color: var(--accent); transform: translateY(-2px); }
+
+    /* === КОММЕНТАРИИ === */
+    .comments-section {
+      background: var(--panel-bg);
+      padding: 35px;
+      border-radius: 20px;
+    }
+
+    .comment-input-area { display: flex; gap: 15px; margin-bottom: 30px; }
+    .avatar { width: 50px; height: 50px; background: #333; border-radius: 50%; border: 2px solid var(--accent); }
+    
+    textarea {
+      flex: 1;
+      background: #0a0a0a;
+      border: 1px solid #333;
+      color: #fff;
+      border-radius: 10px;
+      padding: 15px;
+      resize: none;
+    }
+
+    .comment-list { display: flex; flex-direction: column; gap: 20px; }
+    .comment-item { display: flex; gap: 15px; padding: 15px; border-radius: 10px; background: rgba(255,255,255,0.02); }
+    .comment-item b { color: var(--accent); display: block; margin-bottom: 5px; }
+
+    /* === САЙДБАР === */
+    .playlist-sidebar { display: flex; flex-direction: column; gap: 25px; }
+
+    .card { background: var(--panel-bg); border-radius: 20px; border: 1px solid var(--glass); overflow: hidden; }
+    .card-head { padding: 20px; background: rgba(255, 51, 102, 0.1); font-family: 'Orbitron'; font-weight: 700; text-align: center; }
+
+    .ep-item {
+      padding: 15px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      cursor: pointer;
+      transition: 0.3s;
+      border-bottom: 1px solid #222;
+    }
+
+    .ep-item:hover { background: rgba(255, 51, 102, 0.1); }
+    .ep-item.active { background: rgba(255, 51, 102, 0.2); border-left: 5px solid var(--accent); }
+    .ep-thumb { width: 80px; height: 45px; background: #000; border-radius: 5px; }
+
+    /* Утилиты */
+    .server-tag { font-size: 10px; padding: 3px 8px; border-radius: 4px; background: #333; }
+    .active-tag { background: var(--accent); }
+
+    @media (max-width: 1100px) { .wrapper { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="page.html" class="logo">ANIME FAN.TV</a>
+  <div class="nav-links">
+    <a href="page.html">ГЛАВНАЯ</a>
+    <a href="page2.html">СЮЖЕТ</a>
+    <a href="page4.html">ПЕРСОНАЖИ</a>
+  </div>
+</nav>
+
+<div class="wrapper">
+  
+  <main class="main-content">
+    
+    <div class="player-box">
+      <video id="proPlayer" controls poster="img/mita-miside-thumb.jpg">
+        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+      </video>
+      <div class="player-ui">
+        <div style="display: flex; gap: 10px;">
+          <button class="act-btn" style="padding: 5px 15px;" onclick="setServer(1)">Server 1</button>
+          <button class="act-btn" style="padding: 5px 15px;" onclick="setServer(2)">Server 2</button>
+        </div>
+        <div id="currentTime" style="font-family: 'Orbitron'; color: var(--accent);">00:00:00</div>
+      </div>
+    </div>
+
+    <div class="video-details">
+      <div class="stats">
+        <span><div class="live-dot"></div> 1,420 сейчас смотрят</span>
+        <span>👁 125,402 просмотров</span>
+        <span>📅 2025</span>
+      </div>
+      <h1 id="epName">Эпизод 1: Пробуждение в коде</h1>
+      <p id="epDesc" style="color: #aaa; line-height: 1.6;">
+        Игрок оказывается запертым в цифровом пространстве. Мита начинает вести себя странно, 
+        а границы между игрой и реальностью стираются. Сможет ли он найти выход до того, как система обновится?
+      </p>
+
+      <div class="actions">
+        <button class="act-btn" onclick="alert('Добавлено в избранное!')">❤ В избранное</button>
+        <button class="act-btn" onclick="alert('Начинаем загрузку...')">📥 Скачать MP4</button>
+        <button class="act-btn">🔗 Поделиться</button>
+      </div>
+    </div>
+
+    <div class="comments-section">
+      <h3 style="font-family: 'Orbitron'; margin-bottom: 25px;">Комментарии (24)</h3>
+      <div class="comment-input-area">
+        <div class="avatar"></div>
+        <textarea placeholder="Написать комментарий как Игрок_1..."></textarea>
+      </div>
+      
+      <div class="comment-list" id="comments">
+        <div class="comment-item">
+          <div class="avatar" style="background: url('img/anime-logotip-1.webp') center/cover;"></div>
+          <div>
+            <b>Mita_Lover</b>
+            <span>О боже, на 12-й минуте просто мурашки! Рисовка 10/10.</span>
+          </div>
+        </div>
+        <div class="comment-item">
+          <div class="avatar" style="background: #444;"></div>
+          <div>
+            <b>Dev_Null</b>
+            <span>Кто-нибудь понял концовку этой серии? Она его реально удалила?</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <aside class="playlist-sidebar">
+    <div class="card">
+      <div class="card-head">ЭПИЗОДЫ</div>
+      <div class="ep-item active" onclick="loadVideo(1, 'Пробуждение в коде', 'Начало приключений.')">
+        <div class="ep-thumb" style="background: url('img/фон.jpg') center/cover;"></div>
+        <div>
+          <div style="font-size: 0.8rem; font-weight: bold;">Серия 01</div>
+          <div style="font-size: 0.7rem; color: #777;">Пробуждение</div>
+        </div>
+      </div>
+      <div class="ep-item" onclick="loadVideo(2, 'Цифровой лабиринт', 'Поиск выхода из дома Миты.')">
+        <div class="ep-thumb" style="background: url('img/фон 2.jpg') center/cover;"></div>
+        <div>
+          <div style="font-size: 0.8rem; font-weight: bold;">Серия 02</div>
+          <div style="font-size: 0.7rem; color: #777;">Лабиринт</div>
+        </div>
+      </div>
+      <div class="ep-item" onclick="loadVideo(3, 'Системная ошибка', 'Появление Безумной Миты.')">
+        <div class="ep-thumb" style="background: url('img/мита маленькая.jpg') center/cover;"></div>
+        <div>
+          <div style="font-size: 0.8rem; font-weight: bold;">Серия 03</div>
+          <div style="font-size: 0.7rem; color: #777;">Ошибка</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="padding: 20px;">
+      <h4 style="font-family: 'Orbitron'; font-size: 0.8rem; margin: 0 0 10px 0; color: var(--accent);">СЛЕДУЮЩИЙ ЭПИЗОД</h4>
+      <p style="font-size: 0.8rem; color: #666;">Автовоспроизведение включено. Следующая серия начнется через 10 секунд после завершения текущей.</p>
+    </div>
+  </aside>
+</div>
+
+<script>
+  const player = document.getElementById('proPlayer');
+  const epName = document.getElementById('epName');
+  const epDesc = document.getElementById('epDesc');
+  const timer = document.getElementById('currentTime');
+
+  // Логика смены видео
+  function loadVideo(id, name, desc) {
+    // В реальной базе тут были бы ссылки
+    const sources = {
+      1: "https://www.w3schools.com/html/mov_bbb.mp4",
+      2: "https://www.w3schools.com/html/movie.mp4",
+      3: "https://www.w3schools.com/html/mov_bbb.mp4"
+    };
+    
+    player.src = sources[id];
+    epName.innerText = `Эпизод ${id}: ${name}`;
+    epDesc.innerText = desc;
+    
+    // Обновление активного элемента в списке
+    document.querySelectorAll('.ep-item').forEach((el, idx) => {
+      el.classList.toggle('active', idx === id - 1);
+    });
+
+    player.play();
+  }
+
+  function setServer(num) {
+    const time = player.currentTime;
+    // Имитация смены сервера
+    player.load();
+    player.onloadedmetadata = () => {
+      player.currentTime = time;
+      player.play();
+      alert('Переключено на сервер ' + num);
+    };
+  }
+
+  // Обновление таймера
+  player.addEventListener('timeupdate', () => {
+    const s = Math.floor(player.currentTime % 60);
+    const m = Math.floor((player.currentTime / 60) % 60);
+    const h = Math.floor(player.currentTime / 3600);
+    timer.innerText = `${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
+  });
+
+  // Автопереход
+  player.onended = () => {
+    alert('Переходим к следующей серии...');
+    loadVideo(2, 'Цифровой лабиринт', 'Поиск выхода из дома Миты.');
+  };
+</script>
+
+</body>
+</html>

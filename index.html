@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anime Fan Club</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #0d0d2b;
+      color: #fff;
+      overflow-x: hidden;
+      transition: opacity 0.6s ease;
+    }
+    body.fade-in { opacity: 0; animation: fadeIn 1s forwards ease; }
+    @keyframes fadeIn { to { opacity: 1; } }
+    a { text-decoration: none; color: inherit; cursor: pointer; }
+
+    /* --- ШАПКА --- */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: rgba(26,26,77,0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      padding: 0 30px;
+      height: 70px;
+      display: flex;
+      flex-direction: row; 
+      align-items: center;
+      justify-content: space-between;
+      z-index: 1000;
+    }
+
+    .logo h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 24px;
+      color: #ff3366;
+      margin: 0;
+      white-space: nowrap;
+    }
+
+    /* Навигация строго по центру */
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    /* Стили ссылок */
+    nav a, .dropdown > a, .portal > a, .video > a {
+      color: #ddd;
+      font-weight: bold;
+      padding: 10px 5px;
+      font-size: 15px;
+      position: relative;
+      transition: color 0.3s;
+      white-space: nowrap;
+    }
+
+    nav a:hover, .dropdown > a:hover, .portal > a:hover, .video > a:hover { 
+      color: #33ccff; 
+      text-shadow: 0 0 8px rgba(51, 204, 255, 0.6); 
+    }
+
+    /* Подчеркивание при наведении */
+    nav a::after, .dropdown > a::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: 0;
+      width: 0%; height: 2px;
+      background: #ff0055;
+      transition: width 0.3s;
+      box-shadow: 0 0 5px #ff0055;
+    }
+    nav a:hover::after, .dropdown > a:hover::after { width: 100%; }
+
+    /* Дропдауны */
+    .dropdown { position: relative; }
+    
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%; 
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(18, 18, 50, 0.98);
+      padding: 10px 0;
+      border-radius: 8px;
+      min-width: 200px; /* Немного расширил для длинных названий */
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      border: 1px solid rgba(255,255,255,0.1);
+      z-index: 999;
+    }
+
+    .dropdown.active > .dropdown-content { display: block; }
+    
+    .dropdown-content a {
+      display: block;
+      color: #ccc;
+      padding: 10px 20px;
+      text-align: left;
+    }
+    .dropdown-content a:hover { background: rgba(255, 51, 102, 0.2); color: #fff; }
+
+    /* Вложенные дропдауны */
+    .dropdown-content .dropdown { width: 100%; }
+    .dropdown-content .dropdown-content {
+      top: 0; 
+      left: 100%;
+      transform: none;
+      margin-left: 5px;
+    }
+
+    /* Баннер */
+    .banner {
+      margin-top: 70px;
+      background-image: url('https://images.unsplash.com/photo-1598298203625-8b4f73c8c2b4?auto=format&fit=crop&w=1600&q=80');
+      background-size: cover;
+      background-position: center;
+      text-align: center;
+      padding: 120px 20px;
+      position: relative;
+    }
+    .banner::before {
+        content: ''; position: absolute; top:0; left:0; right:0; bottom:0;
+        background: rgba(0,0,0,0.5);
+    }
+    .banner-content { position: relative; z-index: 2; }
+
+    .banner h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 48px;
+      color: #ff3366;
+      margin: 0 0 20px;
+      text-shadow: 0 0 10px rgba(255,51,102,0.5);
+    }
+    .banner p { font-size: 20px; color: #fff; }
+
+    /* Популярные аниме */
+    .anime-section { padding: 60px 20px; text-align: center; position: relative; z-index: 2; }
+    .anime-section h2 { font-family: 'Orbitron', sans-serif; font-size: 36px; margin-bottom: 40px; color: #33ccff; }
+    .anime-cards { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
+    .anime-card {
+      background-color: rgba(26, 26, 77, 0.8);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 12px;
+      overflow: hidden;
+      width: 280px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .anime-card:hover { 
+        transform: translateY(-10px); 
+        box-shadow: 0 15px 30px rgba(255, 51, 102, 0.3);
+        border-color: #ff3366;
+    }
+    .anime-card img { width: 100%; height: 160px; object-fit: cover; display: block; }
+    .anime-card h3 { font-family: 'Orbitron', sans-serif; font-size: 20px; margin: 15px 10px; color: #ff3366; }
+    .anime-card p { font-size: 14px; margin: 0 15px 20px; color: #bbb; line-height: 1.5; }
+
+    /* Новости */
+    .news-section { background-color: #111144; padding: 60px 20px; text-align: center; position: relative; z-index: 2; }
+    .news-section h2 { font-family: 'Orbitron', sans-serif; font-size: 36px; margin-bottom: 30px; color: #ff3366; }
+    .news-item {
+      background: linear-gradient(45deg, #1a1a4d, #242460);
+      border-left: 4px solid #33ccff;
+      border-radius: 8px;
+      margin: 20px auto;
+      padding: 25px;
+      max-width: 700px;
+      text-align: left;
+      transition: transform 0.2s;
+    }
+    .news-item:hover { transform: translateX(10px); }
+    .news-item h3 { font-family: 'Orbitron', sans-serif; margin-top: 0; color: #33ccff; }
+
+    /* Подвал */
+    footer { background-color: #08081a; text-align: center; padding: 30px; color: #888; font-size: 14px; position: relative; z-index: 2;}
+    footer a { color: #ff3366; }
+
+    /* Canvas для звезд */
+    #stars { position: fixed; top: 0; left: 0; z-index: 0; pointer-events: none; }
+
+    /* --- МОБИЛЬНЫЙ АДАПТИВ --- */
+    @media (max-width: 1150px) { 
+        header { flex-direction: column; height: auto; padding: 15px; }
+        nav { position: static; transform: none; flex-direction: column; width: 100%; margin-top: 15px; gap: 10px; }
+        .dropdown-content { position: static; transform: none; background: rgba(255,255,255,0.03); box-shadow: none; min-width: 100%; text-align: center; }
+        .dropdown-content a { padding-left: 30px; } /* Отступ для мобильных */
+        .banner { margin-top: 180px; }
+    }
+  </style>
+</head>
+<body class="fade-in">
+
+  <header>
+    <div class="logo"><h1>Anime Fan Club</h1></div>
+    
+    <nav>
+      <a href="#">Главная</a>
+      <a href="#">Фильмы</a>
+      
+      <div class="dropdown">
+        <a href="#">Аниме игры ▾</a>
+        <div class="dropdown-content">
+          <a href="page.html">Miside</a>
+          <a href="#">Honkai Impact 3rd</a>
+          <a href="#">Genshin Impact</a>
+          <a href="#">Doki Doki Literature Club!</a>
+        </div>
+      </div>
+
+      <div class="video">
+        <a href="video/your-video.mp4/video pleer.html">Видео</a>
+      </div>
+
+      <div class="dropdown">
+        <a href="#">Жанры ▾</a>
+        <div class="dropdown-content">
+          
+          <div class="dropdown">
+            <a href="#">Сёнэн ▸</a>
+            <div class="dropdown-content">
+              <a href="boevye-iskusstva.html">Боевые искусства</a>
+              <a href="priklyucheniya.html">Приключения</a>
+              <a href="fantastika.html">Фантастика</a>
+              <a href="sverhestestvennoe.html">Сверхъестественное</a>
+            </div>
+          </div>
+
+          <div class="dropdown">
+            <a href="#">Сёдзё ▸</a>
+            <div class="dropdown-content">
+              <a href="syojo-romantika.html">Романтика</a>
+              <a href="syojo-shkola.html">Школа</a>
+              <a href="syojo-muzyka.html">Музыка</a>
+            </div>
+          </div>
+
+          <div class="dropdown">
+            <a href="#">Сэйнэн ▸</a>
+            <div class="dropdown-content">
+              <a href="psihologiya.html">Психология</a>
+              <a href="uzhasy.html">Ужасы</a>
+              <a href="detektiv.html">Детектив</a>
+            </div>
+          </div>
+
+          <div class="dropdown">
+            <a href="#">Дзёсэй ▸</a>
+            <div class="dropdown-content">
+              <a href="drama.html">Драма</a>
+              <a href="povsednevnost.html">Повседневность</a>
+              <a href="realizm.html">Реализм</a>
+            </div>
+          </div>
+
+          <div class="dropdown">
+            <a href="#">Кодомомукэ ▸</a>
+            <div class="dropdown-content">
+              <a href="obuchayushchee.html">Обучающее</a>
+              <a href="fantasy-kids.html">Фэнтези</a>
+              <a href="zhivotnye.html">Животные</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <a href="favorites.html">Избранное</a>
+      <a href="#">Контакты</a>
+    </nav>
+  </header>
+
+  <section class="banner">
+    <div class="banner-content">
+        <h2 id="greeting">Добро пожаловать</h2>
+        <p>Твой проводник в мир японской анимации. Новости, обзоры и сообщество фанатов.</p>
+    </div>
+  </section>
+
+  <section class="anime-section">
+    <h2>Популярные аниме</h2>
+    <div class="anime-cards">
+      <div class="anime-card">
+        <img src="https://images.unsplash.com/photo-1624652922540-d623a18ef447?auto=format&fit=crop&w=400&q=80" alt="Naruto">
+        <h3>Naruto</h3>
+        <p>История о мальчике-ниндзя, который мечтает стать сильнейшим в своём мире.</p>
+      </div>
+      <div class="anime-card">
+        <img src="https://images.unsplash.com/photo-1616587893986-ccaa7c4e77d5?auto=format&fit=crop&w=400&q=80" alt="Attack on Titan">
+        <h3>Attack on Titan</h3>
+        <p>Борьба человечества за выживание против гигантских существ — титанов.</p>
+      </div>
+      <div class="anime-card">
+        <img src="https://images.unsplash.com/photo-1616432610847-d1c47d2b66e6?auto=format&fit=crop&w=400&q=80" alt="Demon Slayer">
+        <h3>Demon Slayer</h3>
+        <p>Мальчик сражается с демонами, чтобы спасти сестру и отомстить за семью.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="news-section">
+    <h2>Новости аниме</h2>
+    <div class="news-item">
+      <h3>Новый сезон My Hero Academia</h3>
+      <p>Стартовал новый сезон популярного аниме про молодых супергероев. Следи за эпизодами!</p>
+    </div>
+    <div class="news-item">
+      <h3>Фестиваль аниме в Токио</h3>
+      <p>Лучшие косплееры, выставки и премьерные показы — события, которые нельзя пропустить.</p>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Anime Fan Club. Контакты: <a href="#">info@animefan.com</a>
+  </footer>
+
+  <canvas id="stars"></canvas>
+
+  <script>
+    // Приветствие
+    const now = new Date().getHours();
+    let greeting = "Добро пожаловать";
+    if (now >= 6 && now < 12) greeting = "Доброе утро";
+    else if (now >= 12 && now < 18) greeting = "Добрый день";
+    else if (now >= 18 && now < 22) greeting = "Добрый вечер";
+    else greeting = "Доброй ночи";
+    document.getElementById("greeting").textContent = `${greeting} фанат аниме!`;
+
+    // Звезды
+    const canvas = document.getElementById("stars");
+    const ctx = canvas.getContext("2d");
+    
+    function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    const stars = Array.from({ length: 120 }, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      size: Math.random() * 2,
+      speed: Math.random() * 0.5 + 0.1
+    }));
+
+    function drawStars() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      stars.forEach(s => {
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, 255, 255, ${Math.random() * 0.5 + 0.5})`; // Мерцание
+        ctx.fill();
+        s.y -= s.speed; // Летят вверх
+        if (s.y < 0) s.y = canvas.height;
+      });
+      requestAnimationFrame(drawStars);
+    }
+    drawStars();
+
+    // Дропдауны
+    document.querySelectorAll('.dropdown > a').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        e.stopPropagation(); // Важно: предотвращаем всплытие клика
+        
+        const parent = link.parentElement;
+        const grandParent = parent.parentElement;
+        const isActive = parent.classList.contains('active');
+
+        // Логика закрытия соседних меню
+        if(grandParent.tagName === 'NAV') {
+             // Если кликнули на главное меню, закрываем другие главные
+             document.querySelectorAll('nav > .dropdown').forEach(d => {
+                 if(d !== parent) d.classList.remove('active');
+             });
+        } else if (grandParent.classList.contains('dropdown-content')) {
+             // Если кликнули на подкатегорию (Сёнэн), закрываем соседние (Сёдзё)
+             grandParent.querySelectorAll('.dropdown').forEach(d => {
+                 if(d !== parent) d.classList.remove('active');
+             });
+        }
+
+        // Переключаем состояние
+        if(isActive) {
+            parent.classList.remove('active');
+        } else {
+            parent.classList.add('active');
+        }
+      });
+    });
+
+    // Закрытие при клике вне
+    document.addEventListener('click', e => {
+      if (!e.target.closest('.dropdown')) {
+        document.querySelectorAll('.dropdown.active').forEach(dd => dd.classList.remove('active'));
+      }
+    });
+  </script>
+
+</body>
+</html>

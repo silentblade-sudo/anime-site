@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Избранное — Anime Fan Club</title>
+  <link rel="icon" href="img/anime-logotip-1.webp" type="image/webp">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent-red: #ff5656;
+      --accent-gold: #ffd700;
+      --bg-dark: #0d0d1a;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background: var(--bg-dark);
+      color: #fff;
+      background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url("img/фон%20аниме.jpg");
+      background-size: cover;
+      background-attachment: fixed;
+    }
+
+    header {
+      padding: 30px 20px;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+    }
+
+    h1 {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 32px;
+      color: var(--accent-gold);
+      text-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+    }
+
+    a.back {
+      display: inline-block;
+      margin-top: 15px;
+      color: #bbb;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    a.back:hover { color: var(--accent-red); }
+
+    .anime-list {
+      max-width: 900px;
+      margin: 40px auto;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(15px);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .anime-item {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      padding: 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    .anime-poster {
+      width: 100px;
+      height: 140px;
+      border-radius: 10px;
+      object-fit: cover;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+    }
+
+    .anime-info { flex: 1; }
+
+    .anime-title {
+      font-size: 20px;
+      font-family: 'Orbitron', sans-serif;
+      color: var(--accent-gold);
+      margin-bottom: 10px;
+    }
+
+    .remove-btn {
+      background: transparent;
+      border: 1px solid var(--accent-red);
+      color: var(--accent-red);
+      padding: 8px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .remove-btn:hover {
+      background: var(--accent-red);
+      color: white;
+      box-shadow: 0 0 10px var(--accent-red);
+    }
+
+    .empty-message {
+      text-align: center;
+      padding: 50px;
+      font-size: 20px;
+      color: #888;
+    }
+
+    /* Анимация удаления */
+    .fade-out {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+  </style>
+</head>
+<body>
+
+  <header>w
+    <h1>★ Избранное</h1>
+    <a class="back" href="index.html">← Вернуться на главную</a>
+  </header>
+
+  <section class="anime-list" id="favoritesContainer"></section>
+
+  <script>
+    // База данных остаётся твоя (сократил для примера)
+    const animeDatabase = {
+      // Боевые искусства
+  "Наруто": { img: "img/постер наруто.jpg" },
+      "Клинок рассекающий демонов": { img: "img/постер клинок рассекающий демонов.jpeg" },
+      "Баки": { img: "img/постер баки.jpeg" },
+      "Кенган Ашура": { img: "img/постер кенган ашура.jpg" },
+      "Hajime no Ippo": { img: "img/постер ippo.jpeg" },
+      "Сильнейший в истории ученик Кэнити": { img: "img/постер кеничи.jpeg" },
+      "Самурай чамплу": { img: "img/постер самурай чамплу.jpeg" },
+      "Кулак Полярной звезды": { img: "img/постер кулака.jpeg" },
+      "Руруни Кеншин": { img: "img/постер руруни кеншин.jpeg" },
+      "Убей или умри": { img: "img/постер убей или умри.jpg" },
+      "Уличный боец 2": { img: "img/постер уличный боец 2.jpg" },
+
+      // Приключения
+  "Ван-Пис": { img: "img/постер ван-пис.jpg" },
+"Хантер Х Хантер": { img: "img/постер хантер х хантер.jpeg" },
+"Созданный в бездне": { img: "img/постер созданный в бездне.jpeg" },
+"Маги: Лабиринт магии": { img: "img/постер маги лабиринт магии.jpg" },
+"Нет игры - нет жизни": { img: "img/постер нет игры - нет жизни.jpg" },
+"Мастера меча онлайн": { img: "img/постер мастера меча онлайн.jpg" },
+"Восхождение героя щита": { img: "img/постер восхождение героя щита.jpg" },
+"Убийца Акаме": { img: "img/постер убийца акаме.jpeg" },
+"Стальной алхимик": { img: "img/постер стальной алхимик.jpg" },
+"Атака титанов": { img: "img/постер атака титанов.jpg" },
+
+  // Фантастика
+  "Врата Штейна": { img: "img/постер врата штейна.jpg" },
+"Психопаспорт": { img: "img/постер психопаспорт.jpeg" },
+"Эрго Прокси": { img: "img/постер эрго прокси.jpg" },
+"Призрак в доспехах": { img: "img/постер призрак в доспехах.jpg" },
+"Евангелион": { img: "img/постер евангелион.jpg" },
+"Гуррен-Лаганн": { img: "img/постер гуррен-лаганн.jpg" },
+"Эксперименты Лэйн": { img: "img/постер эксперименты лэйн.jpg" },
+"Блам!": { img: "img/постер блам.jpg" },
+"Паразит": { img: "img/постер паразит.jpg" },
+"Доктор Стоун": { img: "img/постер доктор стоун.jpg" },
+
+  // Сверхъестественное
+  "Магическая битва": { img: "img/постер магическая битва.jpg" },
+"Блич": { img: "img/постер блич.jpg" },
+"Бездомный бог": { img: "img/постер бездомный бог.jpg" },
+"Тетрадь смерти": { img: "img/постер тетрадь смерти.jpg" },
+"Синий экзорцист": { img: "img/постер синий экзорцист.jpg" },
+"Моб Психо 100": { img: "img/постер моб психо 100.jpg" },
+"Токийский гуль": { img: "img/постер токийский гуль.jpg" },
+"Ди.Грэй-мен": { img: "img/постер ди грэй-мен.jpg" },
+"Король-шаман": { img: "img/постер король-шаман.jpg" },
+"Адская девочка": { img: "img/постер адская девочка.jpg" },
+"Чёрный клевер": { img: "img/постер чёрный клевер.jpg" },
+"Клеймор": { img: "img/постер клеймор.jpg" },
+
+// Романтика
+"Корзинка фруктов": { img: "img/постер корзинка фруктов.jpg" },
+      "Трогательный комплекс": { img: "img/постер трогательный комплекс.jpg" },
+      "Дорога юности": { img: "img/постер дорога юности.jpg" },
+      "Чудовище за соседней партой": { img: "img/постер чудовище за соседней партой.jpg" },
+      "Дотянуться до тебя": { img: "img/постер дотянуться до тебя.jpg" },
+      "Твоё имя": { img: "img/постер твоё имя.jpg" },
+      "Торадора!": { img: "img/постер торадора.jpg" },
+      "Кланнад": { img: "img/постер кланнад.jpg" },
+      "Хоримия": { img: "img/постер хоримия.jpg" },
+      "Пять сантиметров в секунду": { img: "img/постер пять сантиметров в секунду.jpg" },
+      "My Little Monster": { img: "img/постер my little monster.jpg" },
+      "Пять невест": { img: "img/постер пять невест.jpg" },
+
+  // Школа
+  "Школа Элис": { img: "img/постер школа элис.jpg" },
+"Спецкласс А": { img: "img/постер спецкласс а.jpg" },
+"Не сдавайся!": { img: "img/постер не сдавайся.jpg" },
+"Сакура, собирательница карт": { img: "img/постер сакура, собирательница карт.jpg" },
+"ReLIFE": { img: "img/постер relife.jpg" },
+"Крутой учитель Онидзука": { img: "img/постер крутой учитель онидзука.jpg" },
+"Класс убийц": { img: "img/постер класс убийц.jpg" },
+"Безумный азарт": { img: "img/постер безумный азарт.jpg" },
+"Класс превосходства": { img: "img/постер класс превосходства .jpg" },
+"Ангельские ритмы!": { img: "img/постер ангельские ритмы.jpg" },
+"Другая": { img: "img/постер другая.jpg" },
+"Ох уж этот экстрасенс Сайки Кусуо!": { img: "img/постер ох уж этот экстрасенс сайки кусуо.jpg" },
+"K-On!": { img: "img/постер k-on.jpg" },
+"Скейт: бесконечность": { img: "img/постер скейт бесконечность.jpg" },
+
+// Музыка
+"Нана": { img: "img/posters/нана.jpg" },
+"Дарованный": { img: "img/posters/дарованный.jpg" },
+"Поющий принц: Реально 1000% любовь": { img: "img/posters/поющий принц реально любовь.jpg" },
+"В поисках полной луны": { img: "img/posters/в поисках полной луны.jpg" },
+"Живая любовь! Проект «Школьный идол»": { img: "img/posters/живая любовь проект школьный идол.jpg" },
+"Твоя апрельская ложь": { img: "img/posters/твоя апрельская ложь.jpg" },
+"Бек": { img: "img/posters/бек.jpg" },
+"Детройт, город металла": { img: "img/posters/детройт город металла.jpg" },
+"Кэрол и Тьюсдей": { img: "img/posters/кэрол и тьюсдей.jpg" },
+ 
+  //Психология
+  "Монстр": { img: "img/posters/монстр.jpg" },
+"Эрго Прокси": { img: "img/posters/эрго прокси.jpg" },
+"Эксперименты Лэйн": { img: "img/posters/эксперименты лэйн.jpg" },
+"Агент Паранойи": { img: "img/posters/агент паранойи.jpg" },
+"Технолайз": { img: "img/posters/технолайз.jpg" },
+
+  //Ужасы
+  "Театр тьмы": { img: "img/posters/театр тьмы.jpg" },
+"Другая": { img: "img/posters/другая.jpg" },
+"Усопшие": { img: "img/posters/усопшие.jpg" },
+"Когда плачут цикады": { img: "img/posters/когда плачут цикады.jpg" },
+"Хеллсинг": { img: "img/posters/хеллсинг.jpg" },
+
+  //Детектив
+  "Детектив Конан": { img: "img/posters/детектив конан.jpg" },
+"Тетрадь смерти": { img: "img/posters/тетрадь смерти.jpg" },
+"Монстр": { img: "img/posters/монстр.jpg" },
+"Призрак в доспехах": { img: "img/posters/призрак в доспехах.jpg" },
+"Психопаспорт": { img: "img/posters/психопаспорт.jpg" },
+
+//Драма
+"Your Lie in April": { img: "img/posters/yourLieinapril.jpg" },
+"Clannad: After Story": { img: "img/posters/clannadafterstory.jpg" },
+"Plastic Memories": { img: "img/posters/plasticmemories.jpg" },
+"Angel Beats!": { img: "img/posters/angelbeats.jpg" },
+"Anohana": { img: "img/posters/Anohana.jpg" },
+
+//Повседневность
+"Barakamon": { img: "img/posters/barakamon.jpg" },
+  "Usagi Drop": { img: "img/posters/usagidrop.jpg" },
+  "Non Non Biyori": { img: "img/posters/nonnonbiyori.jpg" },
+  "ReLIFE": { img: "img/posters/relife.jpg" },
+  "Azumanga Daioh": { img: "img/posters/azumangadaioh.jpg" },
+
+  //Реализм
+  "Shouwa Genroku Rakugo Shinjuu": {
+    img: "img/posters/shouwagenrokurakugoshinjuu.jpg",
+  },
+  "March Comes in Like a Lion": {
+    img: "img/posters/marchcomesinlikealion.jpg",
+  },
+  "Nana": {
+    img: "img/posters/nana.jpg",
+  },
+  "Beck": {
+    img: "img/posters/beck.jpg",
+  },
+  "Honey and Clover": {
+    img: "img/posters/honeyandclover.jpg",
+  },
+
+//Фантастика
+"Anohana": {
+  img: "img/posters/Anohana.jpg",
+},
+
+"Anohana": {
+  img: "img/posters/Anohana.jpg",
+},
+
+"Anohana": {
+  img: "img/posters/Anohana.jpg",
+},
+
+"Anohana": {
+  img: "img/posters/Anohana.jpg",
+},
+
+"Anohana": {
+  img: "img/posters/Anohana.jpg",
+},
+
+//Обучающее
+"Doraemon": {
+  img: "img/posters/doraemon.jpg",
+},
+
+"Nintama Rantarou": {
+  img: "img/posters/nintamarantarou.jpg",
+},
+
+"Chis Sweet Home": {
+  img: "img/posters/chissweethome.jpg",
+},
+
+"Cells at Work!": {
+  img: "img/posters/cellsatwork!.jpg",
+},
+
+"Shokugeki no Souma": {
+  img: "img/posters/shokugekinosouma.jpg",
+},
+
+//Фэнтези
+"Fullmetal Alchemist: Brotherhood": {
+  img: "img/posters/fullmetalalchemistbrotherhood.jpg",
+},
+
+"Made in Abyss": {
+  img: "img/posters/madeinabyss.jpg",
+},
+
+"Re:Zero": {
+  img: "img/posters/rezero.jpg",
+},
+
+"KonoSuba": {
+  img: "img/posters/konosuba.jpg",
+},
+
+"Youjo Senki": {
+  img: "img/posters/youjosenki.jpg",
+},
+
+//Животные
+"Chis Sweet Home": {
+  img: "img/posters/chissweethome.jpg",
+},
+
+"Gugure! Kokkuri-san": {
+  img: "img/posters/gugurekokkurisan.jpg",
+},
+
+"Natsume Yuujinchou": {
+  img: "img/posters/natsumeyuujinchou.jpg",
+},
+
+"Kemono Friends": {
+  img: "img/posters/kemonofriends.jpg",
+},
+
+"Bananya": {
+  img: "img/posters/bananya.jpg",
+},
+    };
+
+    function renderFavorites() {
+  const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+  const container = document.getElementById('favoritesContainer');
+  container.innerHTML = "";
+
+  if (favorites.length === 0) {
+    container.innerHTML = '<div class="empty-message">Тут пока пусто. Добавьте что-нибудь интересное!</div>';
+    return;
+  }
+
+  favorites.forEach(title => {
+    // ЗАЩИТА: Если вдруг в список попал null или пустота, пропускаем его
+    if (!title || title === "null") return;
+
+    // Поиск данных в базе (учитываем регистр)
+    const data = animeDatabase[title] || { img: "img/anime-logotip-1.webp" }; 
+    
+    const item = document.createElement('div');
+    item.className = 'anime-item';
+    // Используем специальные кавычки для удаления, чтобы названия с пробелами не ломались
+    item.innerHTML = `
+      <img src="${data.img}" alt="${title}" class="anime-poster" onerror="this.src='img/anime-logotip-1.webp'">
+      <div class="anime-info">
+        <div class="anime-title">${title}</div>
+        <button class="remove-btn" onclick="removeItem(this, \`${title}\`)">Удалить из списка</button>
+      </div>
+    `;
+    container.appendChild(item);
+  });
+}
+
+function removeItem(btn, title) {
+  const item = btn.closest('.anime-item');
+  item.classList.add('fade-out');
+
+  setTimeout(() => {
+    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    // Удаляем именно то название, на которое нажали
+    favorites = favorites.filter(t => t !== title);
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+    renderFavorites();
+  }, 400);
+}
+
+    renderFavorites();
+  </script>
+</body>
+</html>

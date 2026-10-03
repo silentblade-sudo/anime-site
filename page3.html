@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Miside — Тьма зовёт</title>
+  <link rel="icon" href="img/anime-logotip-1.webp" type="image/webp">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+
+    /* === ФОН И ОСНОВА === */
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: radial-gradient(circle at center, #100014 0%, #050008 100%);
+      background-attachment: fixed;
+      color: #e6e6e6;
+      overflow-x: hidden;
+    }
+
+    /* === АНИМАЦИИ === */
+    @keyframes glowPulse {
+      0%, 100% { text-shadow: 0 0 10px #ff0066, 0 0 20px #ff0066; }
+      50% { text-shadow: 0 0 20px #ff3385, 0 0 40px #ff0066; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes flicker {
+      0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+      20%, 24%, 55% { opacity: 0.4; }
+    }
+
+    @keyframes glitch {
+      0% { transform: translate(0); }
+      20% { transform: translate(-3px, 3px); color: #33ccff; }
+      40% { transform: translate(-3px, -3px); color: #ff0066; }
+      60% { transform: translate(3px, 3px); text-shadow: 2px 2px #ff0066; }
+      80% { transform: translate(3px, -3px); text-shadow: -2px -2px #33ccff; }
+      100% { transform: translate(0); }
+    }
+
+    /* === ШАПКА === */
+    header {
+      background: rgba(0, 0, 0, 0.7);
+      text-align: center;
+      padding: 60px 20px;
+      border-bottom: 1px solid rgba(255, 0, 90, 0.3);
+      box-shadow: 0 0 30px rgba(255, 0, 90, 0.3);
+      position: relative;
+    }
+
+    header::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent 0%, rgba(255,0,100,0.05) 50%, transparent 100%);
+      animation: flicker 4s infinite linear;
+      pointer-events: none;
+    }
+
+    header h1 {
+      font-size: 64px;
+      color: #ff0066;
+      margin: 0;
+      cursor: help;
+      position: relative;
+      display: inline-block;
+      animation: glowPulse 3s infinite ease-in-out;
+    }
+
+    /* Глитч при наведении на заголовок */
+    header h1:hover {
+      animation: glitch 0.3s infinite;
+    }
+
+    header p {
+      font-size: 18px;
+      color: #aaa;
+      margin-top: 15px;
+      letter-spacing: 2px;
+    }
+
+    header a.back-link {
+      display: inline-block;
+      margin-top: 25px;
+      color: #33ccff;
+      text-decoration: none;
+      font-size: 14px;
+      border: 1px solid #33ccff;
+      padding: 8px 15px;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+
+    header a.back-link:hover {
+      background: rgba(51, 204, 255, 0.2);
+      box-shadow: 0 0 15px #33ccff;
+      color: #fff;
+    }
+
+    /* === НАВИГАЦИЯ === */
+    nav {
+      display: flex;
+      justify-content: center;
+      background: rgba(15, 0, 25, 0.9);
+      border-bottom: 1px solid rgba(255, 0, 90, 0.2);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+    }
+
+    nav a {
+      color: #eee;
+      padding: 18px 30px;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 13px;
+      letter-spacing: 2px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      background: rgba(255, 0, 85, 0.3);
+      color: #ff66aa;
+      text-shadow: 0 0 5px #ff66aa;
+    }
+
+    /* === КОНТЕНТ === */
+    .container {
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 0 20px;
+      animation: fadeIn 1s ease-out;
+    }
+
+    .content-box {
+      background: rgba(20, 0, 30, 0.6);
+      border: 1px solid rgba(255, 0, 90, 0.2);
+      border-radius: 20px;
+      padding: 40px;
+      text-align: center;
+      backdrop-filter: blur(5px);
+    }
+
+    .content-box h2 {
+      color: #33ccff;
+      font-size: 32px;
+      margin-bottom: 40px;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+    }
+
+    /* === ГАЛЕРЕЯ === */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .gallery-item {
+      overflow: hidden;
+      border-radius: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      height: 200px; /* Фиксированная высота для ровной сетки */
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Картинка заполняет блок без искажений */
+      transition: transform 0.5s, filter 0.5s;
+      filter: grayscale(40%) brightness(0.8);
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.1) rotate(1deg);
+      filter: grayscale(0%) brightness(1.1);
+    }
+
+    /* === ФУТЕР === */
+    footer {
+      text-align: center;
+      padding: 40px;
+      background: #050008;
+      border-top: 1px solid rgba(255, 0, 90, 0.2);
+      font-size: 12px;
+      color: #666;
+    }
+
+    footer a { color: #ff0066; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Miside</h1>
+    <p>ОНА СЛЕДИТ ЗА ТОБОЙ...</p>
+    <a href="index.html" class="back-link">⬅ ВЕРНУТЬСЯ В РЕАЛЬНОСТЬ</a>
+  </header>
+
+  <nav>
+    <a href="page.html">Главная</a>
+    <a href="page4.html">Персонажи</a>
+    <a href="page2.html">Об игре</a>
+  </nav>
+
+  <div class="container">
+    <section class="content-box">
+      <h2>АРХИВ ИЗОБРАЖЕНИЙ</h2>
+      
+      <div class="gallery">
+        <div class="gallery-item">
+          <img src="img/фон.jpg" alt="Miside 1">
+        </div>
+        <div class="gallery-item">
+          <img src="img/фон 2.jpg" alt="Miside 2">
+        </div>
+        <div class="gallery-item">
+          <img src="img/mita-glitching-miside-thumb.jpg" alt="Miside 3">
+        </div>
+        <div class="gallery-item">
+          <img src="img/ef43518b80_mitosis-miside.webp" alt="Miside 4">
+        </div>
+      </div>
+      
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 PROJECT MISIDE. СИСТЕМА ИСПРАВНА. | <a href="#">AIHASTO</a></p>
+  </footer>
+
+</body>
+</html>

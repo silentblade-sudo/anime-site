@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Miside — Главная</title>
+  <link rel="icon" href="img/anime-logotip-1.webp" type="image/webp">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --main-bg: rgba(0, 0, 0, 0.75);
+      --accent: #ff3366;
+      --accent-hover: #ff5580;
+      --text-color: #f0f0f0;
+      --shadow: 0 0 15px rgba(255, 51, 102, 0.4);
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      font-family: 'Roboto', sans-serif;
+      background: url(img/mita-miside-thumb.jpg) center/cover no-repeat fixed;
+      color: var(--text-color);
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--main-bg);
+      z-index: -1;
+    }
+
+    /* --- Шапка --- */
+    header {
+      background: rgba(15, 15, 20, 0.9);
+      padding: 40px 20px;
+      text-align: center;
+      border-bottom: 2px solid var(--accent);
+      box-shadow: var(--shadow);
+    }
+
+    header h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3em;
+      margin: 0;
+      letter-spacing: 4px;
+      color: var(--accent);
+      text-shadow: 0 0 15px var(--accent);
+    }
+
+    header a {
+      display: inline-block;
+      margin-top: 15px;
+      color: #33ccff;
+      text-decoration: none;
+      font-size: 0.9em;
+      transition: 0.3s;
+    }
+
+    header a:hover { color: #fff; text-shadow: 0 0 10px #33ccff; }
+
+    /* --- Навигация --- */
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: rgba(0, 0, 0, 0.8);
+      border-bottom: 1px solid #333;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      font-family: 'Orbitron', sans-serif;
+      color: #aaa;
+      padding: 16px 25px;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 0.85em;
+      transition: 0.3s;
+      letter-spacing: 1px;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+      text-shadow: 0 0 10px var(--accent);
+      background: rgba(255, 51, 102, 0.05);
+    }
+
+    /* --- Контейнер --- */
+    .container {
+      flex: 1;
+      max-width: 850px;
+      margin: 60px auto;
+      padding: 45px;
+      background: rgba(20, 20, 25, 0.9);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 51, 102, 0.2);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+      backdrop-filter: blur(8px);
+      text-align: center;
+      animation: fadeIn 1s ease-out;
+    }
+
+    h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.2em;
+      color: #fff;
+      margin-bottom: 25px;
+    }
+
+    p {
+      line-height: 1.8;
+      font-size: 1.1em;
+      color: #ccc;
+      margin-bottom: 30px;
+    }
+
+    /* Кнопка действия */
+    .cta-btn {
+      display: inline-block;
+      padding: 15px 35px;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-family: 'Orbitron', sans-serif;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: 0.3s;
+      box-shadow: 0 5px 15px rgba(255, 51, 102, 0.3);
+    }
+
+    .cta-btn:hover {
+      background: var(--accent-hover);
+      transform: scale(1.05);
+      box-shadow: 0 0 20px var(--accent);
+    }
+
+    /* --- Футер --- */
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #555;
+      background: #0a0a0a;
+      border-top: 1px solid #222;
+      margin-top: auto;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>MISIDE</h1>
+    <p>Твоя виртуальная реальность. Твой личный кошмар.</p>
+    <a href="index.html">⬅ Назад в Аниме-мир</a>
+  </header>
+
+  <nav>
+    <a href="page2.html">Сюжет</a>
+    <a href="page4.html">Персонажи</a>
+    <a href="page3.html">Галерея</a>
+  </nav>
+
+  <div class="container">
+    <section id="home">
+      <h2>Добро пожаловать в систему</h2>
+      <p>
+        MiSide — это уникальный психологический хоррор, замаскированный под милый симулятор свиданий. 
+        Оказавшись по ту сторону экрана, вы поймете: ваша виртуальная подруга Мита готова на все, 
+        чтобы вы никогда не покидали её дом. 
+      </p>
+      <p>
+        Исследуйте комнаты, решайте загадки и помните — каждое ваше решение ведет к одной из нескольких концовок. 
+        Удастся ли вам перезагрузить систему или вы станете частью её кода навсегда?
+      </p>
+      <a href="page2.html" class="cta-btn">Узнать больше о сюжете</a>
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Miside Protocol. Все права защищены.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Miside — Все Персонажи</title>
+  <link rel="icon" href="img/anime-logotip-1.webp" type="image/webp">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #0d0d1a;
+      color: #e0e0e0;
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('img/фон.jpg');
+      background-size: cover;
+      background-position: center;
+      padding: 60px 20px;
+      text-align: center;
+      border-bottom: 2px solid #ff944d;
+    }
+
+    header h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(35px, 8vw, 65px);
+      color: #ff944d;
+      margin: 0;
+      text-shadow: 0 0 20px rgba(255, 148, 77, 0.4);
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-top: 20px;
+      color: #33ccff;
+      text-decoration: none;
+      border: 1px solid #33ccff;
+      padding: 8px 20px;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+
+    .back-btn:hover { background: rgba(51, 204, 255, 0.1); box-shadow: 0 0 10px #33ccff; }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(20, 20, 40, 0.95);
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 10px;
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #333;
+    }
+
+    nav a {
+      color: #afafaf;
+      padding: 10px 15px;
+      text-decoration: none;
+      font-size: 12px;
+      font-family: 'Orbitron', sans-serif;
+      transition: 0.3s;
+    }
+
+    nav a:hover { color: #ff944d; }
+
+    .character-menu {
+      background: rgba(255, 255, 255, 0.03);
+      padding: 20px;
+      text-align: center;
+      margin: 20px auto;
+      max-width: 1100px;
+      border-radius: 15px;
+      border: 1px solid #222;
+    }
+
+    .character-menu a {
+      display: inline-block;
+      margin: 5px 8px;
+      color: #ff944d;
+      text-decoration: none;
+      font-size: 13px;
+      transition: 0.3s;
+    }
+
+    .character-menu a:hover { color: #fff; text-shadow: 0 0 8px #ff944d; }
+
+    .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+
+    .character-block {
+      background: #161625;
+      border-radius: 20px;
+      padding: 40px;
+      margin-bottom: 60px;
+      border: 1px solid #2a2a3a;
+      transition: 0.4s;
+    }
+
+    .character-block:hover { border-color: #ff944d; transform: translateY(-5px); }
+
+    .character-block h2 {
+      font-family: 'Orbitron', sans-serif;
+      color: #ff944d;
+      font-size: 28px;
+      margin-top: 0;
+      border-left: 4px solid #ff944d;
+      padding-left: 20px;
+    }
+
+    .character-block i {
+      display: block;
+      margin-bottom: 25px;
+      color: #bbb;
+      text-align: justify;
+    }
+
+    .img-wrapper {
+      text-align: center;
+      background: #000;
+      padding: 15px;
+      border-radius: 12px;
+      border: 1px solid #333;
+    }
+
+    .character-block img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+
+    #top-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #ff944d;
+      color: #000;
+      width: 45px;
+      height: 45px;
+      line-height: 45px;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 50%;
+      font-weight: bold;
+      z-index: 101;
+    }
+
+    footer { padding: 40px; text-align: center; background: #050505; color: #555; font-size: 14px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Архив Персонажей</h1>
+  <a href="index.html" class="back-btn">⬅ Назад в Аниме мир</a>
+</header>
+
+<nav>
+  <a href="page.html">Главная</a>
+  <a href="page2.html">Об игре</a>
+  <a href="page3.html">Галерея</a>
+</nav>
+
+<div class="container">
+  <div class="character-menu">
+    <a href="#mita-crazy">Безумная</a> | <a href="#mita-kind">Добрая</a> | <a href="#mita-cap">Кепочка</a> | 
+    <a href="#mita-small">Маленькая</a> | <a href="#mita-chibi">Чиби</a> | <a href="#mita-core">Ядро</a> | 
+    <a href="#mita-short">Короткая</a> | <a href="#mita-mannequin">Манекен</a> | <a href="#mita-ghost">Призрак</a> | 
+    <a href="#mita-sleepy">Сонная</a> | <a href="#mita-2d">2D</a> | <a href="#mila">Мила</a> | <a href="#mita-creepy">Жуткая</a>
+  </div>
+
+  <section class="character-block" id="mita-crazy">
+    <h2>Безумная Мита</h2>
+    <i>Безумная мита в игре "Мисайд" может быть персонажем с хаотичной, непредсказуемой и даже опасной натурой. Она представляет тёмную и непостоянную сторону магического мира, где её действия часто не поддаются логике. Её поведение переменчиво: в один момент она может быть дружелюбной, но в следующий — внезапно превратиться в угрозу, создавая хаос.</i>
+    <div class="img-wrapper"><img src="img/фон 2.jpg" alt="Безумная Мита"></div>
+  </section>
+
+  <section class="character-block" id="mita-kind">
+    <h2>Добрая Мита</h2>
+    <i>Олицетворяет светлую сторону магии и служит помощником игрока. Излучает спокойствие и тепло, её внешность гармонична: светящаяся аура и мягкие крылья. Добрая мита всегда поддерживает игрока, подсказывая верные пути и леча от ран.</i>
+    <div class="img-wrapper"><img src="img/Добрая Мита.png" alt="Добрая Мита"></div>
+  </section>
+
+  <section class="character-block" id="mita-cap">
+    <h2>Мита Кепочка</h2>
+    <i>Юмористический персонаж, добавляющий элемент абсурда. Носит шапку, которая явно больше её самой. Шапка может менять вид: от шляпы с перьями до магического капюшона. Она всегда готова предложить необычные решения головоломок.</i>
+    <div class="img-wrapper"><img src="img/кепочка.jpg" alt="Мита Кепочка"></div>
+  </section>
+
+  <section class="character-block" id="mita-small">
+    <h2>Мита Маленькая</h2>
+    <i>Милый и невинный персонаж размером не больше ладони. Её движения быстрые, а голосок тонкий. Она помогает по мелочам: подсвечивает темные углы и указывает на спрятанные предметы, проникая туда, где другие не пройдут.</i>
+    <div class="img-wrapper"><img src="img/мита маленькая.jpg" alt="Маленькая Мита"></div>
+  </section>
+
+  <section class="character-block" id="mita-chibi">
+    <h2>Мита Чиби</h2>
+    <i>Персонаж в чиби-формате с огромной головой и выразительными глазами. Воплощение веселья и позитива. Её способности связаны с созданием комичных эффектов и изменением обстановки на более яркую и красочную.</i>
+    <div class="img-wrapper"><img src="img/чиби Мита.jpeg" alt="Чиби Мита"></div>
+  </section>
+
+  <section class="character-block" id="mita-core">
+    <h2>Мита Ядро</h2>
+    <i>Технологическая версия персонажа из гладкого металла. Её глаза — светящиеся датчики. Запрограммирована помогать игроку, используя анализ данных. Обладает встроенными сканерами и защитными барьерами.</i>
+    <div class="img-wrapper"><img src="img/Мита ядро.webp" alt="Мита Ядро"></div>
+  </section>
+
+  <section class="character-block" id="mita-short">
+    <h2>Мита Коротковолосая</h2>
+    <i>Сочетает утонченность и практичность. Решительна, независима и остра на язык. Её способности ориентированы на скорость и молниеносные удары. Предпочитает активные действия длинным размышлениям.</i>
+    <div class="img-wrapper"><img src="img/Mita_short.webp" alt="Коротковолосая Мита"></div>
+  </section>
+
+  <section class="character-block" id="mita-mannequin">
+    <h2>Мита Манекен</h2>
+    <i>Персонаж с кукольной эстетикой и шарнирами в суставах. Двигается неестественно плавно или резко. Использует магию кукольных нитей и может манипулировать окружающей средой, создавая ловушки.</i>
+    <div class="img-wrapper"><img src="img/MitaManeken.webp" alt="Мита Манекен"></div>
+  </section>
+
+  <section class="character-block" id="mita-ghost">
+    <h2>Мита Призрачная</h2>
+    <i>Эфемерный персонаж из полупрозрачного тумана. Умеет проходить сквозь стены и вести игрока через миры духов. Её голос звучит как далекое эхо, а магия направлена на скрытность и невидимость.</i>
+    <div class="img-wrapper"><img src="img/Мита призрачная.webp" alt="Призрачная Мита"></div>
+  </section>
+
+  <section class="character-block" id="mita-sleepy">
+    <h2>Мита Сонная</h2>
+    <i>Всегда пребывает в состоянии полусна, одета в уютную пижаму. Владеет магией сна: может усыплять врагов или перемещать игрока в мир сновидений для поиска ответов на загадки.</i>
+    <div class="img-wrapper"><img src="img/Мита сонная.jpg" alt="Сонная Мита"></div>
+  </section>
+
+  <section class="character-block" id="mita-2d">
+    <h2>Мита 2D</h2>
+    <i>Выглядит как плоская нарисованная иллюстрация. Способна скользить по поверхностям стен и "складывать" окружающий мир как лист бумаги. Видит скрытые плоские проходы, недоступные 3D персонажам.</i>
+    <div class="img-wrapper"><img src="img/Мита 2D.webp" alt="Мита 2D"></div>
+  </section>
+
+  <section class="character-block" id="mila">
+    <h2>Мила</h2>
+    <i>Олицетворяет доброту и заботу. Её магия направлена на исцеление и создание защитных щитов. Мила — символ надежды, верящий, что сострадание может победить даже самые темные силы.</i>
+    <div class="img-wrapper"><img src="img/Mila.webp" alt="Мила"></div>
+  </section>
+
+  <section class="character-block" id="mita-creepy">
+    <h2>Мита Жуткая</h2>
+    <i>Вызывает тревогу своим видом: бледная кожа, черные глаза и зловещая улыбка. Владеет силами тьмы и страха, создавая кошмары, которые парализуют сознание врагов. Самый загадочный и опасный образ.</i>
+    <div class="img-wrapper"><img src="img/Мита жуткая.jpeg" alt="Жуткая Мита"></div>
+  </section>
+
+</div>
+
+<a href="#" id="top-btn">↑</a>
+
+<footer>
+  <p>&copy; 2025 Miside Game Database. Все права на персонажей принадлежат их создателям.</p>
+</footer>
+
+</body>
+</html>

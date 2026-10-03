@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Аниме — Повседневность</title>
+  <link rel="icon" href="img/anime-logotip-1.webp" type="image/webp">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent-green: #a1e8af;
+      --hover-green: #62da7a;
+      --bg-dark: #0a0d0a;
+      --glass: rgba(15, 25, 15, 0.85);
+    }
+
+    body {
+      margin: 0; padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background: var(--bg-dark);
+      color: #fff;
+      background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url("img/фон%20аниме.jpg");
+      background-size: cover;
+      background-attachment: fixed;
+    }
+
+    header {
+      padding: 30px 20px;
+      text-align: center;
+      background: var(--glass);
+      backdrop-filter: blur(10px);
+      border-bottom: 2px solid var(--accent-green);
+    }
+
+    h1 {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 32px;
+      color: var(--accent-green);
+      text-shadow: 0 0 15px rgba(161, 232, 175, 0.4);
+    }
+
+    .nav-box { margin-top: 15px; }
+
+    a.back {
+      display: inline-block;
+      margin: 0 15px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+      font-size: 14px;
+    }
+
+    a.back:hover { color: var(--accent-green); }
+
+    /* --- ОВАЛЬНЫЙ ПОИСК --- */
+    .search-wrapper { margin: 25px auto 0; max-width: 500px; position: relative; }
+
+    #animeSearch {
+      width: 100%;
+      padding: 12px 25px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 2px solid rgba(161, 232, 175, 0.3);
+      border-radius: 30px;
+      color: #fff;
+      font-size: 16px;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    #animeSearch:focus {
+      border-color: var(--accent-green);
+      box-shadow: 0 0 15px rgba(161, 232, 175, 0.3);
+    }
+
+    #otherCategoryHint {
+      max-width: 900px;
+      margin: 20px auto -20px;
+      padding: 15px;
+      background: rgba(161, 232, 175, 0.1);
+      border: 1px dashed var(--accent-green);
+      border-radius: 12px;
+      text-align: center;
+      display: none;
+    }
+    #otherCategoryHint a { color: var(--accent-green); font-weight: bold; }
+
+    .anime-list {
+      max-width: 900px;
+      margin: 40px auto;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+    }
+
+    .anime-item {
+      display: flex; gap: 25px; padding: 20px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      transition: 0.3s;
+    }
+
+    .anime-item:hover { transform: translateX(10px); background: rgba(161, 232, 175, 0.03); }
+
+    .anime-poster {
+      flex-shrink: 0; width: 140px; height: 200px;
+      border-radius: 12px; object-fit: cover;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .anime-title {
+      font-size: 22px;
+      font-family: 'Orbitron', sans-serif;
+      color: var(--accent-green);
+      margin-bottom: 8px;
+    }
+
+    .anime-desc { color: #ccc; line-height: 1.6; font-size: 14px; }
+
+    .favorite-button {
+      background: transparent; border: 2px solid var(--accent-green);
+      padding: 8px 18px; color: var(--accent-green);
+      border-radius: 6px; cursor: pointer; font-weight: bold;
+      margin-top: 15px; transition: 0.3s;
+    }
+
+    .favorite-button:hover { background: var(--accent-green); color: #000; }
+    .favorite-button.added { background: #2ecc71; border-color: #2ecc71; color: #fff; }
+
+    #top-btn {
+      position: fixed; bottom: 30px; right: 30px;
+      width: 50px; height: 50px; background: var(--accent-green);
+      color: #000; border: none; border-radius: 50%;
+      font-size: 20px; cursor: pointer; display: none;
+    }
+
+    #noResults { text-align: center; padding: 40px; display: none; color: #777; font-style: italic; }
+
+    @media (max-width: 650px) {
+      .anime-item { flex-direction: column; align-items: center; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Повседневность</h1>
+  <div class="nav-box">
+    <a class="back" href="index.html">← На главную</a>
+    <a class="back" href="favorites.html">★ Моё избранное</a>
+  </div>
+  <div class="search-wrapper">
+    <input type="text" id="animeSearch" placeholder="Найти уютное аниме..." onkeyup="filterAnime()">
+  </div>
+</header>
+
+<div id="otherCategoryHint"></div>
+
+<section class="anime-list" id="animeContainer">
+  <div id="noResults">В этой реальности ничего не найдено... 🌿</div>
+
+  <div class="anime-item">
+    <img src="img/posters/barakamon.jpg" alt="Barakamon" class="anime-poster">
+    <div class="anime-info">
+      <div class="anime-title">Баракамон</div>
+      <div class="anime-desc">Молодой и вспыльчивый каллиграф отправляется на отдаленный остров. Среди простых сельских жителей и назойливых детей он учится находить свой собственный стиль.</div>
+      <button class="favorite-button" onclick="addToFavorites(this, 'Баракамон')">★ В избранное</button>
+    </div>
+  </div>
+
+  <div class="anime-item">
+    <img src="img/posters/usagi.jpg" alt="Usagi Drop" class="anime-poster">
+    <div class="anime-info">
+      <div class="anime-title">Брошенный кролик</div>
+      <div class="anime-desc">30-летний холостяк Дайкити решает взять на воспитание Рин, незаконнорожденную дочь своего дедушки, оставшуюся в одиночестве после его смерти.</div>
+      <button class="favorite-button" onclick="addToFavorites(this, 'Брошенный кролик')">★ В избранное</button>
+    </div>
+  </div>
+
+  <div class="anime-item">
+    <img src="img/posters/nonnon.jpg" alt="Non Non Biyori" class="anime-poster">
+    <div class="anime-info">
+      <div class="anime-title">Глухомань</div>
+      <div class="anime-desc">История о пяти ученицах разного возраста, которые ходят в одну и ту же маленькую школу в далекой японской деревне. Настоящее воплощение покоя.</div>
+      <button class="favorite-button" onclick="addToFavorites(this, 'Глухомань')">★ В избранное</button>
+    </div>
+  </div>
+
+  <div class="anime-item">
+    <img src="img/posters/relife.jpg" alt="ReLIFE" class="anime-poster">
+    <div class="anime-info">
+      <div class="anime-title">Повторная жизнь</div>
+      <div class="anime-desc">27-летнему безработному предлагают участие в эксперименте: принять таблетку, помолодеть на 10 лет и снова отучиться последний год в школе.</div>
+      <button class="favorite-button" onclick="addToFavorites(this, 'Повторная жизнь')">★ В избранное</button>
+    </div>
+  </div>
+
+  <div class="anime-item">
+    <img src="img/posters/azumanga.jpg" alt="Azumanga" class="anime-poster">
+    <div class="anime-info">
+      <div class="anime-title">Адзуманга Дайо</div>
+      <div class="anime-desc">Абсурдные и невероятно смешные будни группы старшеклассниц и их весьма эксцентричных учителей. Классика комедийной повседневности.</div>
+      <button class="favorite-button" onclick="addToFavorites(this, 'Адзуманга Дайо')">★ В избранное</button>
+    </div>
+  </div>
+</section>
+
+<button id="top-btn" onclick="scrollToTop()">↑</button>
+
+<script>
+  function addToFavorites(btn, title) {
+    let favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+    
+    if (!favorites.includes(title)) {
+      favorites.push(title);
+      localStorage.setItem("favorites", JSON.stringify(favorites));
+      
+      // Эффект на кнопке
+      btn.textContent = "✓ Добавлено";
+      btn.classList.add("added");
+      
+      // Через 2 секунды возвращаем текст (опционально)
+      setTimeout(() => {
+          btn.textContent = "★ В избранное";
+          btn.classList.remove("added");
+      }, 2000);
+    } else {
+      alert(title + " уже в вашем списке избранного!");
+    }
+  }
+
+  function filterAnime() {
+    let input = document.getElementById('animeSearch').value.toLowerCase();
+    let items = document.getElementsByClassName('anime-item');
+    let hintBox = document.getElementById('otherCategoryHint');
+    let noResults = document.getElementById('noResults');
+    
+    // База данных внешних ссылок
+    const externalAnime = {
+
+      // Приключения
+      "атака титанов": { category: "Приключения", link: "priklyucheniya.html" },
+      "ван-пис": { category: "Приключения", link: "priklyucheniya.html" },
+      "стальной алхимик": { category: "Приключения", link: "priklyucheniya.html" },
+      "хантер х хантер": { category: "Приключения", link: "priklyucheniya.html" },
+      "созданный в бездне": { category: "Приключения", link: "priklyucheniya.html" },
+      "маги": { category: "Приключения", link: "priklyucheniya.html" },
+      "нет игры нет жизни": { category: "Приключения", link: "priklyucheniya.html" },
+      "мастера меча онлайн": { category: "Приключения", link: "priklyucheniya.html" },
+      "герой щита": { category: "Приключения", link: "priklyucheniya.html" },
+      "убийца акаме": { category: "Приключения", link: "priklyucheniya.html" },
+
+      // Боевые искусства
+      "наруто": { category: "Боевые искусства", link: "boevye-iskusstva.html" }, 
+      "баки": { category: "Боевые искусства", link: "boevye-iskusstva.html" },
+      "клинок рассекающий демонов": { category: "Боевые искусства", link: "boevye-iskusstva.html" },
+      "кенган ашура": { category: "Боевые искусства", link: "boevye-iskusstva.html" },
+      "hajime no ippo": { category: "Боевые искусства", link: "boevye-iskusstva.html" },
+      "кеничи": { category: "Боевые искусства", link: "boevye-iskusstva.html" },
+      "самурай чамплу": { category: "Боевые искусства", link: "boevye-iskusstva.html" },
+      "кулак полярной звезды": { category: "Боевые искусства", link: "boevye-iskusstva.html" },
+      "руруни кеншин": { category: "Боевые искусства", link: "boevye-iskusstva.html" },
+      "убей или умри": { category: "Боевые искусства", link: "boevye-iskusstva.html" },
+      "уличный боец 2": { category: "Боевые искусства", link: "boevye-iskusstva.html" },
+
+      // Фантастика
+      "врата штейна": { category: "Фантастика", link: "fantastika.html"},
+      "психопаспорт": { category: "Фантастика", link: "fantastika.html"},
+      "эрго прокси": { category: "Фантастика", link: "fantastika.html"},
+      "призрак в доспехах": { category: "Фантастика", link: "fantastika.html"},
+      "евангелион": { category: "Фантастика", link: "fantastika.html"},
+      "гуррен-Лаганн": { category: "Фантастика", link: "fantastika.html"},
+      "эксперименты Лэйн": { category: "Фантастика", link: "fantastika.html"},
+      "блам!": { category: "Фантастика", link: "fantastika.html"},
+      "паразит": { category: "Фантастика", link: "fantastika.html"},
+      "доктор стоун": { category: "Фантастика", link: "fantastika.html"},
+
+      // Сверхъестественное
+      "магическая битва": { category: "Сверхъестественное", link: "sverhestestvennoe.html"},
+      "блич": { category: "Сверхъестественное", link: "sverhestestvennoe.html"},
+      "бездомный бог": { category: "Сверхъестественное", link: "sverhestestvennoe.html"},
+      "тетрадь смерти": { category: "Сверхъестественное", link: "sverhestestvennoe.html"},
+      "синий экзорцист": { category: "Сверхъестественное", link: "sverhestestvennoe.html"},
+      "моб Психо 100": { category: "Сверхъестественное", link: "sverhestestvennoe.html"},
+      "токийский гуль": { category: "Сверхъестественное", link: "sverhestestvennoe.html"},
+      "ди.Грэй-мен": { category: "Сверхъестественное", link: "sverhestestvennoe.html"},
+      "король-шаман": { category: "Сверхъестественное", link: "sverhestestvennoe.html"},
+      "адская девочка": { category: "Сверхъестественное", link: "sverhestestvennoe.html"},
+      "клинок рассекающий демонов": { category: "Сверхъестественное", link: "sverhestestvennoe.html"},
+      "чёрный клевер": { category: "Сверхъестественное", link: "sverhestestvennoe.html"},
+      "клеймор": { category: "Сверхъестественное", link: "sverhestestvennoe.html"},
+
+      // Романтика
+    "корзинка фруктов": { category: "Романтика", link: "syojo-romantika.html"},
+    "трогательный комплекс": { category: "Романтика", link: "syojo-romantika.html"},
+    "дорога юности": { category: "Романтика", link: "syojo-romantika.html"},
+    "чудовище за соседней партой": { category: "Романтика", link: "syojo-romantika.html"},
+    "дотянуться до тебя": { category: "Романтика", link: "syojo-romantika.html"},
+    "твоё имя": { category: "Романтика", link: "syojo-romantika.html"},
+    "торадора!": { category: "Романтика", link: "syojo-romantika.html"},
+    "кланнад": { category: "Романтика", link: "syojo-romantika.html"},
+    "хоримия": { category: "Романтика", link: "syojo-romantika.html"},
+    "пять сантиметров в секунду": { category: "Романтика", link: "syojo-romantika.html"},
+    "my Little Monster": { category: "Романтика", link: "syojo-romantika.html"},
+    "пять невест": { category: "Романтика", link: "syojo-romantika.html"},
+
+    // Школа
+    "школа Элис": { category: "Школа", link: "syojo-shkola.html"},
+    "спецкласс А": { category: "Школа", link: "syojo-shkola.html"},
+    "не сдавайся!": { category: "Школа", link: "syojo-shkola.html"},
+    "сакура, собирательница карт": { category: "Школа", link: "syojo-shkola.html"},
+    "reLIFE": { category: "Школа", link: "syojo-shkola.html"},
+    "крутой учитель Онидзука": { category: "Школа", link: "syojo-shkola.html"},
+    "класс убийц": { category: "Школа", link: "syojo-shkola.html"},
+    "безумный азарт": { category: "Школа", link: "syojo-shkola.html"},
+    "класс превосходства": { category: "Школа", link: "syojo-shkola.html"},
+    "ангельские ритмы!": { category: "Школа", link: "syojo-shkola.html"},
+    "другая": { category: "Школа", link: "syojo-shkola.html"},
+    "ох уж этот экстрасенс Сайки Кусуо!": { category: "Школа", link: "syojo-shkola.html"},
+    "k-On!": { category: "Школа", link: "syojo-shkola.html"},
+    "скейт: бесконечность": { category: "Школа", link: "syojo-shkola.html"},
+
+    // Музыка
+    "нана": { category: "Музыка", link: "syojo-muzyka.html"},
+      "дарованный": { category: "Музыка", link: "syojo-muzyka.html"},
+      "поющий принц: Реально 1000% любовь": { category: "Музыка", link: "syojo-muzyka.html"},
+      "в поисках полной луны": { category: "Музыка", link: "syojo-muzyka.html"},
+      "живая любовь! Проект «Школьный идол»": { category: "Музыка", link: "syojo-muzyka.html"},
+      "твоя апрельская ложь": { category: "Музыка", link: "syojo-muzyka.html"},
+      "бек": { category: "Музыка", link: "syojo-muzyka.html"},
+      "детройт, город металла": { category: "Музыка", link: "syojo-muzyka.html"},
+      "кэрол и Тьюсдей": { category: "Музыка", link: "syojo-muzyka.html"},
+
+      //Психология
+      "монстр": { category: "Психология", link: "psihologiya.html"},
+      "эрго Прокси": { category: "Психология", link: "psihologiya.html"},
+      "эксперименты Лэйн": { category: "Психология", link: "psihologiya.html"},
+      "агент Паранойи": { category: "Психология", link: "psihologiya.html"},
+      "технолайз": { category: "Психология", link: "psihologiya.html"},
+
+      //Ужасы
+      "театр тьмы": { category: "Ужасы", link: "uzhasy.html"},
+      "другая": { category: "Ужасы", link: "uzhasy.html"},
+      "усопшие": { category: "Ужасы", link: "uzhasy.html"},
+      "когда плачут цикады": { category: "Ужасы", link: "uzhasy.html"},
+      "хеллсинг": { category: "Ужасы", link: "uzhasy.html"},
+
+      //Драма
+      "Твоя апрельская ложь": { category: "Драма", link: "drama.html"},
+      "кланнад: Продолжение истории": { category: "Драма", link: "drama.html"},
+      "пластиковые воспоминания": { category: "Драма", link: "drama.html"},
+      "ангельские ритмы!": { category: "Драма", link: "drama.html"},
+      "невиданный цветок": { category: "Драма", link: "drama.html"},
+      
+      //Повседневность
+      "баракамон": { category: "Повседневность", link: "povsednevnost.html"},
+      "брошенный кролик": { category: "Повседневность", link: "drama.html"},
+      "глухомань": { category: "Повседневность", link: "drama.html"},
+      "повторная жизнь": { category: "Повседневность", link: "drama.html"},
+      "адзуманга Дайо": { category: "Повседневность", link: "drama.html"},
+
+      //Реализм
+      "сказ о поднебесной: Ракуго": { category: "Реализм", link: "realizm.html"},
+      "мартовский лев": { category: "Реализм", link: "realizm.html"},
+      "нана": { category: "Реализм", link: "realizm.html"},
+      "бек": { category: "Реализм", link: "realizm.html"},
+      "мёд и клевер": { category: "Реализм", link: "realizm.html"},
+
+      //Обучающее
+      "дораэмон": { category: "Обучающее", link: "obuchayushchee.html"},
+      "нинтама Рантаро": { category: "Обучающее", link: "obuchayushchee.html"},
+      "милый дом Чи": { category: "Обучающее", link: "obuchayushchee.html"},
+      "клетки за работой!": { category: "Обучающее", link: "obuchayushchee.html"},
+      "повар-боец Сома": { category: "Обучающее", link: "obuchayushchee.html"},
+
+      //Фэнтези
+      "стальной алхимик: Братство": { category: "Фэнтези", link: "fantasy-kids.html"},
+      "созданный в Бездне": { category: "Фэнтези", link: "fantasy-kids.html"},
+      "re:Zero — Жизнь с нуля": { category: "Фэнтези", link: "fantasy-kids.html"},
+      "коносуба": { category: "Фэнтези", link: "fantasy-kids.html"},
+      "военная хроника маленькой девочки": { category: "Фэнтези", link: "fantasy-kids.html"},
+
+      //Животные
+      "милый дом Чи": { category: "Животные", link: "zhivotnye.html"},
+      "загугли это, Коккури-сан!": { category: "Животные", link: "zhivotnye.html"},
+      "тетрадь дружбы Нацумэ": { category: "Животные", link: "zhivotnye.html"},
+      "друзья-звери": { category: "Животные", link: "zhivotnye.html"},
+      "бананя": { category: "Животные", link: "zhivotnye.html"},
+    };
+
+    let foundOnPage = false;
+    let externalMatch = null;
+    let fullTitle = "";
+
+    // 1. Фильтрация карточек на текущей странице
+    for (let i = 0; i < items.length; i++) {
+      let title = items[i].querySelector('.anime-title').textContent.toLowerCase();
+      if (input !== "" && title.includes(input)) {
+        items[i].style.display = "flex";
+        foundOnPage = true;
+      } else if (input === "") {
+        items[i].style.display = "flex";
+      } else {
+        items[i].style.display = "none";
+      }
+    }
+
+    // 2. Поиск совпадений во внешней базе (если не нашли на этой странице)
+    if (!foundOnPage && input.length >= 2) {
+      for (let key in externalAnime) {
+        if (key.includes(input)) {
+          externalMatch = externalAnime[key];
+          fullTitle = key; // Сохраняем полное красивое название из базы
+          break; 
+        }
+      }
+    }
+
+    // 3. Управление отображением подсказок и сообщения "Ничего не найдено"
+    if (externalMatch) {
+      // Делаем первую букву заглавной для красоты
+      let capitalizedTitle = fullTitle.charAt(0).toUpperCase() + fullTitle.slice(1);
+      
+      hintBox.innerHTML = `🔍 Аниме <b>"${capitalizedTitle}"</b> найдено в разделе <a href="${externalMatch.link}">${externalMatch.category}</a>`;
+      hintBox.style.display = "block";
+      noResults.style.display = "none";
+    } else {
+      hintBox.style.display = "none";
+      // Если совсем ничего нет и поиск не пустой - пишем "ничего не найдено"
+      if (!foundOnPage && input !== "") {
+        noResults.style.display = "block";
+      } else {
+        noResults.style.display = "none";
+      }
+    }
+  }
+</script>
+
+</body>
+</html>
