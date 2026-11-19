@@ -1,0 +1,49 @@
+/* Общие стили страниц: boevye-iskusstva.html, fantastika.html, priklyucheniya.html, sverhestestvennoe.html
+   Вынесено из <style> этих страниц; страничные правила остаются в самих страницах. */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background: var(--bg-dark);
+  color: #fff;
+  background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("../img/фон%20аниме.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.nav-box { margin-top: 15px; }
+
+.anime-info { flex: 1; }
+
+.search-wrapper {
+  margin: 20px auto 0;
+  max-width: 500px;
+  position: relative;
+}
+
+#noResults {
+  text-align: center;
+  padding: 40px;
+  display: none;
+  color: #bbb;
+  font-style: italic;
+}
+
+#otherCategoryHint {
+    text-align: center;
+    padding: 15px;
+    margin: 10px auto;
+    max-width: 600px;
+    background: rgba(255, 190, 77, 0.15); /* Цвет под золото */
+    border: 1px dashed var(--accent-gold);
+    border-radius: 10px;
+    display: none; /* Скрыто по умолчанию */
+    color: #ffbe4d;
+}
+
+#otherCategoryHint a {
+    color: #fff;
+    text-decoration: underline;
+    font-weight: bold;
+}

@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Anime Fan Club</title>
+  <link rel="icon" href="img/anime-logotip-1.webp" type="image/webp">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; }
@@ -119,18 +120,32 @@
     }
 
     /* Баннер */
+    /* Фото баннера показывается целиком (contain), а поля по бокам/сверху
+       заполняет та же картинка, размытая и затемнённая, — без пустых полос и обрезки */
     .banner {
+      --banner-img: url('img/обои на сайт.webp');
       margin-top: 70px;
-      background-image: url('https://images.unsplash.com/photo-1598298203625-8b4f73c8c2b4?auto=format&fit=crop&w=1600&q=80');
-      background-size: cover;
-      background-position: center;
+      background-color: #1a1a4d;
       text-align: center;
-      padding: 120px 20px;
+      padding: 60px 20px;
+      min-height: clamp(340px, 40vw, 620px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
       position: relative;
+      overflow: hidden;
+      isolation: isolate;
     }
     .banner::before {
-        content: ''; position: absolute; top:0; left:0; right:0; bottom:0;
-        background: rgba(0,0,0,0.5);
+        content: ''; position: absolute; inset: -30px; z-index: 0;
+        background: var(--banner-img) center / cover no-repeat;
+        filter: blur(22px) brightness(0.45) saturate(1.2);
+    }
+    .banner::after {
+        content: ''; position: absolute; inset: 0; z-index: 1;
+        background:
+          linear-gradient(rgba(0,0,0,0.38), rgba(0,0,0,0.38)),
+          var(--banner-img) center / contain no-repeat;
     }
     .banner-content { position: relative; z-index: 2; }
 
@@ -160,7 +175,7 @@
         box-shadow: 0 15px 30px rgba(255, 51, 102, 0.3);
         border-color: #ff3366;
     }
-    .anime-card img { width: 100%; height: 160px; object-fit: cover; display: block; }
+    .anime-card img { width: 100%; height: 160px; object-fit: cover; object-position: center 25%; display: block; }
     .anime-card h3 { font-family: 'Orbitron', sans-serif; font-size: 20px; margin: 15px 10px; color: #ff3366; }
     .anime-card p { font-size: 14px; margin: 0 15px 20px; color: #bbb; line-height: 1.5; }
 
@@ -187,29 +202,127 @@
     /* Canvas для звезд */
     #stars { position: fixed; top: 0; left: 0; z-index: 0; pointer-events: none; }
 
+    /* Правая часть шапки: кнопка «Вход» и бургер */
+    .header-actions { display: flex; align-items: center; gap: 10px; }
+
+    .login-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      min-height: 40px; padding: 0 18px;
+      border: 1px solid #ff3366; border-radius: 999px;
+      color: #fff; font-weight: bold; font-size: 15px; white-space: nowrap;
+      transition: background 0.3s, box-shadow 0.3s;
+    }
+    .login-btn svg { flex-shrink: 0; color: #33ccff; }
+    .login-btn:hover { background: rgba(255, 51, 102, 0.2); box-shadow: 0 0 12px rgba(255, 51, 102, 0.6); }
+
+    /* Кнопка-бургер (видна только на узких экранах) */
+    .burger { display: none; }
+
+    /* Узкий десктоп: чуть плотнее меню, чтобы оно не наезжало на логотип */
+    @media (min-width: 1151px) and (max-width: 1365px) {
+      .logo h1 { font-size: 20px; }
+      nav { gap: 14px; }
+      nav a, .dropdown > a, .portal > a, .video > a { font-size: 14px; }
+      .login-btn { padding: 0 14px; font-size: 14px; }
+    }
+
     /* --- МОБИЛЬНЫЙ АДАПТИВ --- */
-    @media (max-width: 1150px) { 
-        header { flex-direction: column; height: auto; padding: 15px; }
-        nav { position: static; transform: none; flex-direction: column; width: 100%; margin-top: 15px; gap: 10px; }
-        .dropdown-content { position: static; transform: none; background: rgba(255,255,255,0.03); box-shadow: none; min-width: 100%; text-align: center; }
-        .dropdown-content a { padding-left: 30px; } /* Отступ для мобильных */
-        .banner { margin-top: 180px; }
+    /* До 1150px меню не помещается в строку: прячем его под бургер */
+    @media (max-width: 1150px) {
+        header { flex-direction: row; height: 60px; padding: 0 16px; }
+        .logo h1 { font-size: 20px; }
+
+        /* «Вход» — круглая иконка рядом с бургером */
+        .login-btn { width: 44px; height: 44px; padding: 0; justify-content: center; }
+        .login-btn svg { width: 20px; height: 20px; }
+        .login-text { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+        .burger {
+          display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 5px;
+          width: 44px; height: 44px; padding: 0;
+          background: transparent; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px;
+          cursor: pointer; -webkit-tap-highlight-color: transparent;
+        }
+        .burger span { display: block; width: 22px; height: 2px; background: #fff; border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
+        header.nav-open .burger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        header.nav-open .burger span:nth-child(2) { opacity: 0; }
+        header.nav-open .burger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        /* Выпадающая панель меню под шапкой */
+        nav {
+          display: none;
+          position: absolute; top: 100%; left: 0; right: 0;
+          transform: none;
+          flex-direction: column; align-items: stretch; gap: 0;
+          max-height: calc(100vh - 60px); overflow-y: auto; overscroll-behavior: contain;
+          padding: 6px 0 12px;
+          background: rgba(18, 18, 50, 0.98);
+          border-bottom: 1px solid rgba(255,255,255,0.1);
+          box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+        }
+        header.nav-open nav { display: flex; }
+
+        header nav a,
+        header nav .dropdown > a,
+        header nav .video > a { display: block; padding: 14px 20px; font-size: 16px; white-space: normal; }
+        header nav a::after { display: none; }
+
+        .dropdown-content {
+          position: static; transform: none; min-width: 0;
+          padding: 0; border: none; border-radius: 0; box-shadow: none;
+          background: rgba(255,255,255,0.04); text-align: left;
+        }
+        .dropdown-content .dropdown-content { margin-left: 0; background: rgba(255,255,255,0.04); }
+        header nav .dropdown-content a { padding: 12px 20px 12px 36px; font-size: 15px; }
+        header nav .dropdown-content .dropdown-content a { padding-left: 52px; }
+
+        .banner { margin-top: 60px; }
+    }
+
+    /* Телефоны и небольшие планшеты */
+    @media (max-width: 768px) {
+        .banner { padding: 70px 16px; }
+        .banner h2 { font-size: clamp(26px, 8vw, 40px); overflow-wrap: break-word; }
+        .banner p { font-size: 16px; line-height: 1.5; }
+
+        .anime-section, .news-section { padding: 40px 16px; }
+        .anime-section h2, .news-section h2 { font-size: clamp(24px, 7vw, 30px); margin-bottom: 24px; }
+        .anime-cards { gap: 20px; }
+        .anime-card { width: 100%; max-width: 360px; }
+        .anime-card img { height: 180px; }
+
+        .news-item { padding: 18px; margin: 16px 0; }
+        .news-item:hover { transform: none; }
+
+        footer { padding: 24px 16px; }
+        footer a { display: inline-block; padding: 10px 4px; }
     }
   </style>
+  <link rel="stylesheet" href="css/watch-links.css">
 </head>
 <body class="fade-in">
 
   <header>
     <div class="logo"><h1>Anime Fan Club</h1></div>
-    
-    <nav>
+
+    <div class="header-actions">
+      <a class="login-btn" href="pages/login.html" aria-label="Вход и регистрация">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <span class="login-text">Вход</span>
+      </a>
+      <button class="burger" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <nav id="main-nav">
       <a href="#">Главная</a>
       <a href="#">Фильмы</a>
       
       <div class="dropdown">
         <a href="#">Аниме игры ▾</a>
         <div class="dropdown-content">
-          <a href="page.html">Miside</a>
+          <a href="pages/page.html">Miside</a>
           <a href="#">Honkai Impact 3rd</a>
           <a href="#">Genshin Impact</a>
           <a href="#">Doki Doki Literature Club!</a>
@@ -217,7 +330,7 @@
       </div>
 
       <div class="video">
-        <a href="video/your-video.mp4/video pleer.html">Видео</a>
+        <a href="pages/video%20pleer.html">Видео</a>
       </div>
 
       <div class="dropdown">
@@ -227,53 +340,54 @@
           <div class="dropdown">
             <a href="#">Сёнэн ▸</a>
             <div class="dropdown-content">
-              <a href="boevye-iskusstva.html">Боевые искусства</a>
-              <a href="priklyucheniya.html">Приключения</a>
-              <a href="fantastika.html">Фантастика</a>
-              <a href="sverhestestvennoe.html">Сверхъестественное</a>
+              <a href="pages/boevye-iskusstva.html">Боевые искусства</a>
+              <a href="pages/priklyucheniya.html">Приключения</a>
+              <a href="pages/fantastika.html">Фантастика</a>
+              <a href="pages/sverhestestvennoe.html">Сверхъестественное</a>
             </div>
           </div>
 
           <div class="dropdown">
             <a href="#">Сёдзё ▸</a>
             <div class="dropdown-content">
-              <a href="syojo-romantika.html">Романтика</a>
-              <a href="syojo-shkola.html">Школа</a>
-              <a href="syojo-muzyka.html">Музыка</a>
+              <a href="pages/syojo-romantika.html">Романтика</a>
+              <a href="pages/syojo-shkola.html">Школа</a>
+              <a href="pages/syojo-muzyka.html">Музыка</a>
             </div>
           </div>
 
           <div class="dropdown">
             <a href="#">Сэйнэн ▸</a>
             <div class="dropdown-content">
-              <a href="psihologiya.html">Психология</a>
-              <a href="uzhasy.html">Ужасы</a>
-              <a href="detektiv.html">Детектив</a>
+              <a href="pages/psihologiya.html">Психология</a>
+              <a href="pages/uzhasy.html">Ужасы</a>
+              <a href="pages/detektiv.html">Детектив</a>
             </div>
           </div>
 
           <div class="dropdown">
             <a href="#">Дзёсэй ▸</a>
             <div class="dropdown-content">
-              <a href="drama.html">Драма</a>
-              <a href="povsednevnost.html">Повседневность</a>
-              <a href="realizm.html">Реализм</a>
+              <a href="pages/drama.html">Драма</a>
+              <a href="pages/povsednevnost.html">Повседневность</a>
+              <a href="pages/realizm.html">Реализм</a>
             </div>
           </div>
 
           <div class="dropdown">
             <a href="#">Кодомомукэ ▸</a>
             <div class="dropdown-content">
-              <a href="obuchayushchee.html">Обучающее</a>
-              <a href="fantasy-kids.html">Фэнтези</a>
-              <a href="zhivotnye.html">Животные</a>
+              <a href="pages/obuchayushchee.html">Обучающее</a>
+              <a href="pages/fantasy-kids.html">Фэнтези</a>
+              <a href="pages/zhivotnye.html">Животные</a>
             </div>
           </div>
 
         </div>
       </div>
 
-      <a href="favorites.html">Избранное</a>
+      <a href="pages/favorites.html">Избранное</a>
+      <a href="pages/ssylky.html">AnimeVerse</a>
       <a href="#">Контакты</a>
     </nav>
   </header>
@@ -289,17 +403,17 @@
     <h2>Популярные аниме</h2>
     <div class="anime-cards">
       <div class="anime-card">
-        <img src="https://images.unsplash.com/photo-1624652922540-d623a18ef447?auto=format&fit=crop&w=400&q=80" alt="Naruto">
+        <img src="img/постер наруто.jpg" alt="Naruto" loading="lazy">
         <h3>Naruto</h3>
         <p>История о мальчике-ниндзя, который мечтает стать сильнейшим в своём мире.</p>
       </div>
       <div class="anime-card">
-        <img src="https://images.unsplash.com/photo-1616587893986-ccaa7c4e77d5?auto=format&fit=crop&w=400&q=80" alt="Attack on Titan">
+        <img src="img/постер Атака титанов.jpg" alt="Attack on Titan" loading="lazy">
         <h3>Attack on Titan</h3>
         <p>Борьба человечества за выживание против гигантских существ — титанов.</p>
       </div>
       <div class="anime-card">
-        <img src="https://images.unsplash.com/photo-1616432610847-d1c47d2b66e6?auto=format&fit=crop&w=400&q=80" alt="Demon Slayer">
+        <img src="img/постер клинок рассекающий демонов.jpeg" alt="Demon Slayer" loading="lazy">
         <h3>Demon Slayer</h3>
         <p>Мальчик сражается с демонами, чтобы спасти сестру и отомстить за семью.</p>
       </div>
@@ -404,7 +518,40 @@
         document.querySelectorAll('.dropdown.active').forEach(dd => dd.classList.remove('active'));
       }
     });
+
+    // Мобильное меню (бургер)
+    const siteHeader = document.querySelector('header');
+    const burger = document.querySelector('.burger');
+
+    function setMenu(open) {
+      siteHeader.classList.toggle('nav-open', open);
+      burger.setAttribute('aria-expanded', open);
+      burger.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
+    }
+
+    burger.addEventListener('click', e => {
+      e.stopPropagation();
+      setMenu(!siteHeader.classList.contains('nav-open'));
+    });
+
+    // Закрываем меню при переходе по настоящей ссылке, клике вне шапки, Esc и на широком экране
+    document.querySelectorAll('#main-nav a').forEach(a => {
+      a.addEventListener('click', () => {
+        if (a.getAttribute('href') !== '#') setMenu(false);
+      });
+    });
+    document.addEventListener('click', e => {
+      if (!e.target.closest('header')) setMenu(false);
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') setMenu(false);
+    });
+    window.matchMedia('(min-width: 1151px)').addEventListener('change', e => {
+      if (e.matches) setMenu(false);
+    });
   </script>
 
+<script src="js/watch-links.js"></script>
+<script src="js/poster-fallback.js"></script>
 </body>
 </html>

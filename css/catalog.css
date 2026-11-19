@@ -1,0 +1,300 @@
+/* Каталог жанра (js/catalog-page.js): строка загрузки, счётчик и кнопка «Показать ещё».
+   Сами карточки свёрстаны стилями страницы — здесь только дополнения. */
+
+/* На страницах .anime-item { display: flex } перекрывает атрибут hidden */
+.anime-item[hidden],
+.catalog-more[hidden],
+.catalog-more-btn[hidden] { display: none !important; }
+
+.catalog-status {
+  padding: 40px 10px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+  font-style: italic;
+}
+
+/* Описания из каталога длиннее прежних — показываем до 5 строк */
+.anime-item[data-anime-id] .anime-desc {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.catalog-more {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 26px 0 6px;
+}
+
+.catalog-counter {
+  margin: 0;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.catalog-more-btn {
+  min-height: 44px;
+  padding: 10px 28px;
+  border: 2px solid #33ccff;
+  border-radius: 999px;
+  background: transparent;
+  color: #33ccff;
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+}
+.catalog-more-btn:hover,
+.catalog-more-btn:focus-visible {
+  background: #33ccff;
+  color: #0d0d2b;
+  box-shadow: 0 0 14px rgba(51, 204, 255, 0.55);
+}
+
+@media (max-width: 480px) {
+  .catalog-more-btn { width: 100%; }
+}
+
+/* ───────── Фильтр по году рядом с поиском (js/catalog-page.js) ─────────
+   Класс has-year-filter ставит скрипт, только когда список годов создан. */
+.search-wrapper.has-year-filter {
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+  max-width: 660px;
+}
+.search-wrapper.has-year-filter #animeSearch {
+  flex: 1 1 auto;
+  min-width: 0;
+  box-sizing: border-box;
+  width: auto;
+}
+.year-filter {
+  flex: 0 0 auto;
+  width: 160px;
+  min-height: 44px;
+  margin: 0;
+  padding: 0 38px 0 18px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.07)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%2333ccff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
+    no-repeat right 16px center;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  box-sizing: border-box;
+  transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s;
+}
+.year-filter:hover { border-color: rgba(51, 204, 255, 0.6); }
+.year-filter:focus-visible {
+  outline: none;
+  border-color: #33ccff;
+  box-shadow: 0 0 12px rgba(51, 204, 255, 0.35);
+}
+/* выпадающий список браузера — тёмный и читаемый */
+.year-filter option { background: #14143a; color: #fff; }
+
+@media (max-width: 768px) {
+  .year-filter { font-size: 16px; } /* 16px — iOS не увеличивает страницу при выборе */
+}
+/* узкие экраны: год под строкой поиска во всю ширину */
+@media (max-width: 420px) {
+  .search-wrapper.has-year-filter { flex-direction: column; gap: 8px; }
+  .year-filter { width: 100%; }
+}
+
+/* Год выхода под названием (js/catalog-page.js). Если года в каталоге нет — элемента нет. */
+.anime-item .anime-year {
+  display: inline-block;
+  margin: -2px 0 10px;
+  padding: 2px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.75);
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+/* Одинаковый расчёт размеров для кнопок в ряду: на страницах без общего box-sizing: border-box
+   ссылка «В ссылки» (min-height 36px + отступы) получалась выше соседних кнопок */
+.card-actions .watch-link,
+.card-actions .watch-now-btn { box-sizing: border-box; }
+
+/* ───────── Кнопка «▶ Смотреть» (js/watch-modal.js) ─────────
+   Размеры повторяют .watch-link из css/watch-links.css, цвет — розовый акцент сайта. */
+.watch-now-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  margin: 0;
+  padding: 7px 16px;
+  border: 2px solid #ff3366;
+  border-radius: 6px;
+  background: transparent;
+  color: #ff5c85;
+  font-family: 'Roboto', sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 1.2;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+}
+.watch-now-btn:hover,
+.watch-now-btn:focus-visible {
+  background: #ff3366;
+  color: #fff;
+  box-shadow: 0 0 14px rgba(255, 51, 102, 0.55);
+  outline: none;
+}
+
+@media (max-width: 768px) {
+  .watch-now-btn { min-height: 44px; font-size: 14px; padding: 10px 18px; }
+}
+/* до 420px .card-actions из watch-links.css ставит кнопки в столбец на всю ширину — кнопка тоже */
+
+/* ───────── Окно выбора площадки ───────── */
+dialog.watch-modal {
+  width: min(560px, calc(100vw - 24px));
+  max-width: none;
+  max-height: calc(100dvh - 24px);
+  margin: auto;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #fff;
+  overflow: visible;
+}
+dialog.watch-modal::backdrop {
+  background: rgba(5, 5, 20, 0.72);
+  backdrop-filter: blur(4px);
+}
+
+.watch-modal-box {
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100dvh - 24px);
+  background: linear-gradient(160deg, rgba(30, 28, 82, 0.98), rgba(13, 13, 43, 0.98));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), 0 0 30px rgba(255, 51, 102, 0.15);
+  font-family: 'Roboto', sans-serif;
+  text-align: left;
+}
+
+.watch-modal-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 20px 20px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.watch-modal-titles { flex: 1; min-width: 0; }
+.watch-modal-kicker {
+  margin: 0 0 4px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #33ccff;
+}
+.watch-modal-title {
+  margin: 0;
+  font-family: 'Orbitron', 'Roboto', sans-serif;
+  font-size: 20px;
+  line-height: 1.3;
+  color: #fff;
+  overflow-wrap: anywhere;
+}
+.watch-modal-sub {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+  overflow-wrap: anywhere;
+}
+.watch-modal-close {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.watch-modal-close:hover,
+.watch-modal-close:focus-visible { background: #ff3366; border-color: #ff3366; outline: none; }
+
+.watch-modal-body {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 8px 20px 4px;
+}
+.watch-group { margin: 12px 0 14px; }
+.watch-group-title {
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.75);
+}
+.watch-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 8px;
+}
+.watch-platform {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  text-decoration: none;
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+}
+.watch-platform:hover,
+.watch-platform:focus-visible {
+  border-color: #33ccff;
+  background: rgba(51, 204, 255, 0.1);
+  box-shadow: 0 0 12px rgba(51, 204, 255, 0.3);
+  outline: none;
+}
+.watch-platform-name { font-size: 14px; font-weight: bold; }
+.watch-platform-note { font-size: 11px; color: rgba(255, 255, 255, 0.55); }
+
+.watch-modal-foot {
+  margin: 0;
+  padding: 10px 20px 16px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 420px) {
+  .watch-modal-head { padding: 16px 14px 10px; }
+  .watch-modal-title { font-size: 17px; }
+  .watch-modal-body { padding: 4px 14px 2px; }
+  .watch-grid { grid-template-columns: 1fr 1fr; }
+  .watch-modal-foot { padding: 8px 14px 14px; }
+}

@@ -1,0 +1,45 @@
+/* Общие стили страниц: detektiv.html, drama.html, fantasy-kids.html, obuchayushchee.html, povsednevnost.html, realizm.html, zhivotnye.html
+   Вынесено из <style> этих страниц; страничные правила остаются в самих страницах. */
+
+body {
+  margin: 0; padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background: var(--bg-dark);
+  color: #fff;
+  background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url("../img/фон%20аниме.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.nav-box { margin-top: 15px; }
+
+a.back {
+  display: inline-block;
+  margin: 0 15px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+  font-size: 14px;
+}
+
+.anime-list {
+  max-width: 900px;
+  margin: 40px auto;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+}
+
+.anime-item {
+  display: flex; gap: 25px; padding: 20px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  transition: 0.3s;
+}
+
+#noResults { text-align: center; padding: 40px; display: none; color: #777; font-style: italic; }
+
+@media (max-width: 650px) {
+  .anime-item { flex-direction: column; align-items: center; text-align: center; }
+}

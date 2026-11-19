@@ -1,0 +1,72 @@
+/* Общие стили страниц: syojo-muzyka.html, syojo-romantika.html, syojo-shkola.html
+   Вынесено из <style> этих страниц; страничные правила остаются в самих страницах. */
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url("../img/фон%20аниме.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  color: #fff;
+}
+
+header {
+  padding: 30px 20px;
+  text-align: center;
+  background: var(--glass);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,143,212,0.3);
+}
+
+h1 {
+  margin: 0;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 32px;
+  color: var(--accent-pink);
+  text-shadow: 0 0 15px rgba(255,143,212,0.6);
+}
+
+.nav-box { margin-top: 15px; }
+
+a.back { margin: 0 15px; color: #fff; text-decoration: none; font-weight: bold; font-size: 14px; transition: .3s; }
+
+a.back:hover { color: var(--accent-pink); text-shadow: 0 0 8px var(--accent-pink); }
+
+.search-wrapper { margin: 20px auto 0; max-width: 500px; position: relative; }
+
+.anime-list {
+  max-width: 900px;
+  margin: 40px auto;
+  background: rgba(20,8,30,.75);
+  backdrop-filter: blur(12px);
+  padding: 30px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,143,212,.1);
+  box-shadow: 0 0 30px rgba(255,143,212,.15);
+}
+
+.anime-item { display: flex; gap: 25px; padding: 25px 0; border-bottom: 1px solid rgba(255,143,212,.1); transition: .3s; }
+
+.anime-item:hover { background: rgba(255,143,212,.05); transform: scale(1.02); border-radius: 10px; }
+
+.anime-item:last-child { border-bottom: none; }
+
+.anime-poster { width: 140px; height: 200px; border-radius: 10px; object-fit: cover; box-shadow: 0 5px 15px rgba(0,0,0,.5); }
+
+.anime-title { font-family: 'Orbitron', sans-serif; font-size: 22px; color: var(--accent-pink); margin-bottom: 8px; }
+
+.anime-desc { font-size: 14px; color: #ccc; line-height: 1.6; margin-bottom: 15px; }
+
+.favorite-button {
+  background: transparent; border: 2px solid var(--accent-pink);
+  padding: 8px 18px; color: var(--accent-pink); border-radius: 6px;
+  cursor: pointer; font-weight: bold; font-size: 12px; transition: .3s;
+}
+
+.favorite-button:hover { background: var(--accent-pink); color: #fff; box-shadow: 0 0 15px var(--accent-pink); }
+
+.favorite-button.added { background: var(--accent-green); border-color: var(--accent-green); color: #fff; }
+
+#noResults { text-align: center; padding: 40px; display: none; color: #bbb; font-style: italic; }
+
+#otherCategoryHint a { color: #fff; text-decoration: underline; font-weight: bold; }

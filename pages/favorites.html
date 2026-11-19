@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Избранное — Anime Fan Club</title>
+  <link rel="icon" href="../img/anime-logotip-1.webp" type="image/webp">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent-red: #ff5656;
+      --accent-gold: #ffd700;
+      --bg-dark: #0d0d1a;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background: var(--bg-dark);
+      color: #fff;
+      background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url("../img/фон%20аниме.jpg");
+      background-size: cover;
+      background-attachment: fixed;
+    }
+
+    header {
+      padding: 30px 20px;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+    }
+
+    h1 {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 32px;
+      color: var(--accent-gold);
+      text-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+    }
+
+    a.back {
+      display: inline-block;
+      margin-top: 15px;
+      color: #bbb;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    a.back:hover { color: var(--accent-red); }
+
+    .anime-list {
+      max-width: 900px;
+      margin: 40px auto;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(15px);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .anime-item {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      padding: 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    .anime-poster {
+      width: 100px;
+      height: 140px;
+      border-radius: 10px;
+      object-fit: cover;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+    }
+
+    .anime-info { flex: 1; }
+
+    .anime-title {
+      font-size: 20px;
+      font-family: 'Orbitron', sans-serif;
+      color: var(--accent-gold);
+      margin-bottom: 10px;
+    }
+
+    .remove-btn {
+      background: transparent;
+      border: 1px solid var(--accent-red);
+      color: var(--accent-red);
+      padding: 8px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .remove-btn:hover {
+      background: var(--accent-red);
+      color: white;
+      box-shadow: 0 0 10px var(--accent-red);
+    }
+
+    .empty-message {
+      text-align: center;
+      padding: 50px;
+      font-size: 20px;
+      color: #888;
+    }
+
+    /* Анимация удаления */
+    .fade-out {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+  </style>
+  <link rel="stylesheet" href="../css/mobile.css">
+</head>
+<body>
+
+  <header>  
+    <h1>★ Избранное</h1>
+    <a class="back" href="../index.html">← Вернуться на главную</a>
+  </header>
+
+  <section class="anime-list" id="favoritesContainer"></section>
+
+  <script>
+    // База данных остаётся твоя (сократил для примера)
+    // Заглушка для тайтлов, чьих постеров пока нет в img/ (тот же файл, что на жанровых страницах)
+    const POSTER_PLACEHOLDER = "../img/poster-placeholder.svg";
+
+    const animeDatabase = {
+      // Боевые искусства
+  "Наруто": { img: "../img/постер наруто.jpg" },
+      "Клинок рассекающий демонов": { img: "../img/постер клинок рассекающий демонов.jpeg" },
+      "Баки": { img: "../img/постер баки.jpeg" },
+      "Кенган Ашура": { img: "../img/постер кенган ашура.jpg" },
+      "Hajime no Ippo": { img: "../img/постер ippo.jpeg" },
+      "Сильнейший в истории ученик Кэнити": { img: "../img/постер кеничи.jpeg" },
+      "Самурай чамплу": { img: "../img/постер самурай чамплу.jpeg" },
+      "Кулак Полярной звезды": { img: "../img/постер кулака.jpeg" },
+      "Руруни Кеншин": { img: "../img/постер руруни кеншин.jpeg" },
+      "Убей или умри": { img: "../img/постер убей или умри.jpg" },
+      "Уличный боец 2": { img: "../img/постер уличный боец 2.jpg" },
+
+      // Приключения
+  "Ван-Пис": { img: "../img/постер Ван-Пис.jpg" },
+"Хантер Х Хантер": { img: "../img/постер Хантер Х Хантер.jpeg" },
+"Созданный в бездне": { img: "../img/постер Созданный в бездне.jpeg" },
+"Маги: Лабиринт магии": { img: "../img/постер Маги лабиринт магии.jpg" },
+"Нет игры - нет жизни": { img: "../img/постер Нет игры - нет жизни.jpg" },
+"Мастера меча онлайн": { img: "../img/постер Мастера меча онлайн.jpg" },
+"Восхождение героя щита": { img: "../img/постер Восхождение героя щита.jpg" },
+"Убийца Акаме": { img: "../img/постер Убийца Акаме.jpeg" },
+"Стальной алхимик": { img: "../img/постер Стальной алхимик.jpg" },
+"Атака титанов": { img: "../img/постер Атака титанов.jpg" },
+
+  // Фантастика
+  "Врата Штейна": { img: "../img/постер Врата Штейна.jpg" },
+"Психопаспорт": { img: "../img/постер Психопаспорт.jpeg" },
+"Эрго Прокси": { img: "../img/постер Эрго Прокси.jpg" },
+"Призрак в доспехах": { img: "../img/постер Призрак в доспехах.jpg" },
+"Евангелион": { img: "../img/постер Евангелион.jpg" },
+"Гуррен-Лаганн": { img: "../img/постер Гуррен-Лаганн.jpg" },
+"Эксперименты Лэйн": { img: "../img/постер Эксперименты Лэйн.jpg" },
+"Блам!": { img: "../img/постер Блам!.jpg" },
+"Паразит": { img: "../img/постер Паразит.jpg" },
+"Доктор Стоун": { img: "../img/постер Доктор Стоун.jpg" },
+
+  // Сверхъестественное
+  "Магическая битва": { img: "../img/постер Магическая битва.jpeg" },
+"Блич": { img: "../img/постер Блич.jpg" },
+"Бездомный бог": { img: "../img/постер Бездомный бог.jpg" },
+"Тетрадь смерти": { img: "../img/постер Тетрадь смерти.jpg" },
+"Синий экзорцист": { img: "../img/постер Синий экзорцист.jpeg" },
+"Моб Психо 100": { img: "../img/постер Моб Психо 100.jpg" },
+"Токийский гуль": { img: "../img/постер Токийский гуль.jpg" },
+"Ди.Грэй-мен": { img: "../img/постер Ди.Грэй-мен.jpg" },
+"Король-шаман": { img: "../img/постер Король-шаман.jpg" },
+"Адская девочка": { img: "../img/постер Адская девочка.jpg" },
+"Чёрный клевер": { img: POSTER_PLACEHOLDER },
+"Клеймор": { img: POSTER_PLACEHOLDER },
+
+// Романтика
+"Корзинка фруктов": { img: "../img/постер Корзинка фруктов.jpg" },
+      "Трогательный комплекс": { img: "../img/постер Трогательный комплекс.jpg" },
+      "Дорога юности": { img: "../img/постер Дорога юности.jpg" },
+      "Чудовище за соседней партой": { img: "../img/постер Чудовище за соседней партой.jpg" },
+      "Дотянуться до тебя": { img: "../img/постер Дотянуться до тебя.jpg" },
+      "Твоё имя": { img: "../img/постер Твоё имя.jpg" },
+      "Торадора!": { img: "../img/постер Торадора!.jpg" },
+      "Кланнад": { img: "../img/постер Кланнад.jpg" },
+      "Хоримия": { img: "../img/постер Хоримия.jpg" },
+      "Пять сантиметров в секунду": { img: "../img/постер Пять сантиметров в секунду.jpg" },
+      "My Little Monster": { img: "../img/постер Чудовище за соседней партой.jpg" },
+      "Пять невест": { img: "../img/постер Пять невест.jpg" },
+
+  // Школа
+  "Школа Элис": { img: "../img/постер Школа Элис.jpeg" },
+"Спецкласс А": { img: "../img/постер Спецкласс А.jpg" },
+"Не сдавайся!": { img: "../img/постер Не сдавайся!.jpeg" },
+"Сакура, собирательница карт": { img: "../img/постер Сакура, собирательница карт.jpg" },
+"ReLIFE": { img: POSTER_PLACEHOLDER },
+"Крутой учитель Онидзука": { img: "../img/постер Крутой учитель Онидзука.jpg" },
+"Класс убийц": { img: "../img/постер Класс убийц.jpg" },
+"Безумный азарт": { img: "../img/постер Безумный азарт.jpg" },
+"Класс превосходства": { img: "../img/постер Класс превосходства.jpg" },
+"Ангельские ритмы!": { img: "../img/постер Ангельские ритмы.jpg" },
+"Другая": { img: "../img/постер Другая.jpg" },
+"Ох уж этот экстрасенс Сайки Кусуо!": { img: "../img/постер Ох уж этот экстрасенс Сайки Кусуо!.jpg" },
+"K-On!": { img: "../img/постер K-On!.jpeg" },
+"Скейт: бесконечность": { img: "../img/постер Скейт бесконечность.jpg" },
+
+// Музыка
+"Нана": { img: "../img/постер Нана.jpg" },
+"Дарованный": { img: "../img/постер Дарованный.jpeg" },
+"Поющий принц: Реально 1000% любовь": { img: "../img/постер Поющий принц реально любовь.jpg" },
+"В поисках полной луны": { img: "../img/постер В поисках полной луны.jpg" },
+"Живая любовь! Проект «Школьный идол»": { img: "../img/постер Живая любовь! Проект «Школьный идол».jpg" },
+"Твоя апрельская ложь": { img: "../img/постер Твоя апрельская ложь.jpg" },
+"Бек": { img: "../img/постер Бек.jpeg" },
+"Детройт, город металла": { img: "../img/постер Детройт, город металла.jpg" },
+"Кэрол и Тьюсдей": { img: "../img/постер Кэрол и Тьюсдей.jpg" },
+ 
+  //Психология
+  "Монстр": { img: "../img/постер Монстр.jpg" },
+"Эрго Прокси": { img: "../img/постер Эрго Прокси.jpg" },
+"Эксперименты Лэйн": { img: "../img/постер Эксперименты Лэйн.jpg" },
+"Агент Паранойи": { img: "../img/постер Агент Паранойи.jpg" },
+"Технолайз": { img: "../img/постер Технолайз.jpg" },
+
+  //Ужасы
+  "Театр тьмы": { img: "../img/постер Театр тьмы.jpg" },
+"Другая": { img: "../img/постер Другая.jpg" },
+"Усопшие": { img: "../img/постер Усопшие.jpg" },
+"Когда плачут цикады": { img: "../img/постер Когда плачут цикады.jpg" },
+"Хеллсинг": { img: "../img/постер Хеллсинг.jpg" },
+
+  //Детектив
+  "Детектив Конан": { img: "../img/постер Детектив Конан.jpg" },
+"Тетрадь смерти": { img: "../img/постер Тетрадь смерти.jpg" },
+"Монстр": { img: "../img/постер Монстр.jpg" },
+"Призрак в доспехах": { img: "../img/постер Призрак в доспехах.jpg" },
+"Психопаспорт": { img: "../img/постер Психопаспорт.jpeg" },
+
+// Ключи — точные названия из кнопок «В избранное» на жанровых страницах.
+// Постера нет в img/ → заглушка POSTER_PLACEHOLDER.
+
+//Сокращённые названия, под которыми эти тайтлы сохраняют жанровые страницы
+"Поющий принц": { img: "../img/постер Поющий принц реально любовь.jpg" },
+"Love Live!": { img: "../img/постер Живая любовь! Проект «Школьный идол».jpg" },
+"Сайки Кусуо": { img: "../img/постер Ох уж этот экстрасенс Сайки Кусуо!.jpg" },
+
+//Драма
+"Твоя апрельская ложь": { img: "../img/постер Твоя апрельская ложь.jpg" },
+"Кланнад: Продолжение истории": { img: "../img/постер Кланнад.jpg" },
+"Пластиковые воспоминания": { img: POSTER_PLACEHOLDER },
+"Ангельские ритмы!": { img: "../img/постер Ангельские ритмы.jpg" },
+"Невиданный цветок": { img: POSTER_PLACEHOLDER },
+
+//Повседневность
+"Баракамон": { img: POSTER_PLACEHOLDER },
+"Брошенный кролик": { img: POSTER_PLACEHOLDER },
+"Глухомань": { img: POSTER_PLACEHOLDER },
+"Повторная жизнь": { img: POSTER_PLACEHOLDER },
+"Адзуманга Дайо": { img: POSTER_PLACEHOLDER },
+
+//Реализм
+"Сказ о поднебесной: Ракуго": { img: POSTER_PLACEHOLDER },
+"Мартовский лев": { img: POSTER_PLACEHOLDER },
+"Нана": { img: "../img/постер Нана.jpg" },
+"Бек": { img: "../img/постер Бек.jpeg" },
+"Мёд и клевер": { img: POSTER_PLACEHOLDER },
+
+//Обучающее
+"Дораэмон": { img: POSTER_PLACEHOLDER },
+"Нинтама Рантаро": { img: POSTER_PLACEHOLDER },
+"Милый дом Чи": { img: POSTER_PLACEHOLDER },
+"Клетки за работой!": { img: POSTER_PLACEHOLDER },
+"Повар-боец Сома": { img: POSTER_PLACEHOLDER },
+
+//Фэнтези
+"Стальной алхимик: Братство": { img: "../img/постер Стальной алхимик.jpg" },
+"Созданный в Бездне": { img: "../img/постер Созданный в бездне.jpeg" },
+"Re:Zero — Жизнь с нуля": { img: POSTER_PLACEHOLDER },
+"Коносуба": { img: POSTER_PLACEHOLDER },
+"Военная хроника маленькой девочки": { img: POSTER_PLACEHOLDER },
+
+//Животные
+"Загугли это, Коккури-сан!": { img: POSTER_PLACEHOLDER },
+"Тетрадь дружбы Нацумэ": { img: POSTER_PLACEHOLDER },
+"Друзья-звери": { img: POSTER_PLACEHOLDER },
+"Бананя": { img: POSTER_PLACEHOLDER },
+    };
+
+    function renderFavorites() {
+  const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+  const container = document.getElementById('favoritesContainer');
+  container.innerHTML = "";
+
+  if (favorites.length === 0) {
+    container.innerHTML = '<div class="empty-message">Тут пока пусто. Добавьте что-нибудь интересное!</div>';
+    return;
+  }
+
+  // Постеры тайтлов из каталога (data/anime.json) запоминает js/catalog-page.js при нажатии «В избранное»
+  let catalogMeta = {};
+  try { catalogMeta = JSON.parse(localStorage.getItem('animeverse_favorites_meta') || '{}') || {}; } catch (e) {}
+
+  favorites.forEach(title => {
+    // ЗАЩИТА: Если вдруг в список попал null или пустота, пропускаем его
+    if (!title || title === "null") return;
+
+    // Поиск постера: своя база → данные каталога → заглушка
+    const meta = catalogMeta[title];
+    const poster = (animeDatabase[title] && animeDatabase[title].img)
+      || (meta && /^(https:\/\/|\.\.\/img\/)/.test(meta.poster) ? meta.poster : null)
+      || POSTER_PLACEHOLDER;
+
+    // Собираем карточку через DOM: названия из каталога могут содержать кавычки и спецсимволы
+    const item = document.createElement('div');
+    item.className = 'anime-item';
+
+    const img = document.createElement('img');
+    img.className = 'anime-poster';
+    img.alt = title;
+    img.loading = 'lazy';
+    img.addEventListener('error', function onErr() {
+      img.removeEventListener('error', onErr);
+      img.src = POSTER_PLACEHOLDER;
+    });
+    img.src = poster;
+
+    const info = document.createElement('div');
+    info.className = 'anime-info';
+    const titleEl = document.createElement('div');
+    titleEl.className = 'anime-title';
+    titleEl.textContent = title;
+    const removeBtn = document.createElement('button');
+    removeBtn.className = 'remove-btn';
+    removeBtn.textContent = 'Удалить из списка';
+    removeBtn.addEventListener('click', () => removeItem(removeBtn, title));
+
+    info.append(titleEl, removeBtn);
+    item.append(img, info);
+    container.appendChild(item);
+  });
+}
+
+function removeItem(btn, title) {
+  const item = btn.closest('.anime-item');
+  item.classList.add('fade-out');
+
+  setTimeout(() => {
+    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    // Удаляем именно то название, на которое нажали
+    favorites = favorites.filter(t => t !== title);
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+    renderFavorites();
+  }, 400);
+}
+
+    renderFavorites();
+  </script>
+</body>
+</html>

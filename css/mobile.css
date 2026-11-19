@@ -1,0 +1,86 @@
+/* Мобильная адаптация жанровых страниц и избранного (pages/*.html).
+   Подключается ПОСЛЕ блока <style> страницы, чтобы переопределять его правила.
+   Все правила — только внутри медиазапросов: десктопная вёрстка (от 769px) не меняется. */
+
+@media (max-width: 768px) {
+  /* --- Шапка --- */
+  header { padding: 20px 12px; }
+
+  h1 {
+    font-size: clamp(22px, 7vw, 30px);
+    letter-spacing: 1px;
+    line-height: 1.2;
+    overflow-wrap: break-word;
+  }
+
+  .nav-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px 10px;
+    margin-top: 12px;
+  }
+
+  /* Ссылки «На главную» / «Избранное» — удобная зона нажатия (44px) */
+  a.back {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    margin: 0;
+    padding: 0 12px;
+    font-size: 15px;
+  }
+
+  /* --- Поиск --- */
+  .search-wrapper { width: 100%; margin-top: 14px; }
+  #animeSearch {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    min-height: 44px;
+    font-size: 16px; /* 16px — iOS не увеличивает страницу при фокусе */
+  }
+
+  #otherCategoryHint { margin-left: 12px; margin-right: 12px; font-size: 15px; }
+  #otherCategoryHint a { display: inline-block; padding: 6px 2px; }
+
+  /* --- Список аниме --- */
+  .anime-list {
+    margin: 16px 10px;
+    padding: 12px 16px;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .anime-item { gap: 16px; }
+  .anime-poster { max-width: 100%; }
+  .anime-info { min-width: 0; }
+  .anime-title { font-size: 20px; overflow-wrap: break-word; }
+  .anime-desc { font-size: 15px; }
+
+  .favorite-button,
+  .remove-btn {
+    min-height: 44px;
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  #noResults { padding: 24px 10px; }
+  .empty-message { padding: 30px 10px; font-size: 17px; }
+
+  /* Кнопка «наверх» не перекрывает контент */
+  #top-btn { bottom: 16px; right: 16px; width: 44px; height: 44px; }
+}
+
+/* Избранное: строка «постер + текст» на узких экранах */
+@media (max-width: 480px) {
+  #favoritesContainer .anime-item { padding: 14px 4px; gap: 14px; }
+  #favoritesContainer .anime-poster { width: 80px; height: 112px; flex-shrink: 0; }
+  #favoritesContainer .anime-title { font-size: 17px; }
+}
+
+/* На сенсорных экранах «залипающий» hover не сдвигает карточки вбок */
+@media (hover: none) and (max-width: 768px) {
+  .anime-item:hover { transform: none; }
+}

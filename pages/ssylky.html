@@ -1,0 +1,3923 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AnimeVerse - Врата в мир аниме (Cloud)</title>
+
+<!-- ========== PWA META TAGS ========== -->
+<meta name="theme-color" content="#1a1a2e">
+<meta name="description" content="Твоя личная коллекция аниме в облаке">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="AnimeVerse">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='40' fill='%231a1a2e'/%3E%3Ctext x='90' y='120' font-size='100' text-anchor='middle'%3E🎌%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231a1a2e'/%3E%3Ctext x='32' y='44' font-size='36' text-anchor='middle'%3E🎌%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link href="https://cdn.jsdelivr.net/fontsource/fonts/montserrat@latest/latin-400-normal.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/fontsource/fonts/montserrat@latest/latin-600-normal.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/fontsource/fonts/montserrat@latest/latin-700-normal.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/fontsource/fonts/montserrat@latest/latin-800-normal.css" rel="stylesheet">
+
+<style>
+:root {
+  --primary: #ff6b6b;
+  --primary-glow: rgba(255, 107, 107, 0.5);
+  --secondary: #4ecdc4;
+  --accent: #a8e6cf;
+  --dark: #2c3e50;
+  --darker: #1a2634;
+  --light: #f7f9fc;
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --shadow-neon: 0 0 20px rgba(255, 107, 107, 0.5);
+  --shadow-neon-blue: 0 0 20px rgba(78, 205, 196, 0.5);
+  --text-primary: #2c3e50;
+  --text-secondary: #636e72;
+  --watching: #54a0ff;
+  --want: #feca57;
+  --watched: #1dd1a1;
+  --other: #8395a7;
+  --cloud: #9b59b6;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  min-height: 100vh;
+  color: white;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.chakra-particles {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: -2;
+  pointer-events: none;
+}
+.chakra-particles::before {
+  content: '';
+  position: absolute;
+  width: 100%; height: 100%;
+  background: radial-gradient(circle at 20% 50%, rgba(255,107,107,0.15) 0%, transparent 50%),
+              radial-gradient(circle at 80% 80%, rgba(78,205,196,0.15) 0%, transparent 50%),
+              radial-gradient(circle at 50% 20%, rgba(168,230,207,0.1) 0%, transparent 50%);
+  animation: particleFloat 20s infinite linear;
+}
+@keyframes particleFloat {
+  0% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.1) rotate(180deg); }
+  100% { transform: scale(1) rotate(360deg); }
+}
+
+.floating-characters {
+  position: fixed;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+.character {
+  position: absolute;
+  font-size: 100px;
+  opacity: 0.08;
+  animation: float 15s infinite ease-in-out;
+}
+.character.naruto { top: 10%; left: 5%; }
+.character.totoro { bottom: 15%; right: 8%; animation-delay: -5s; }
+.character.pikachu { top: 40%; right: 15%; animation-delay: -2s; }
+.character.sakura { top: 70%; left: 20%; animation-delay: -8s; }
+.character.dragon { top: 20%; right: 30%; animation-delay: -12s; }
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-30px) rotate(5deg); }
+}
+
+.gradient-text {
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #a8e6cf);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: gradientShift 5s ease infinite;
+}
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.page { display: none; }
+.page.active { display: block; }
+
+.anime-verse {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+.anime-reg-container {
+  width: 100%;
+  max-width: 600px;
+  z-index: 10;
+}
+.anime-reg-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 30px;
+  padding: 40px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.anime-logo { text-align: center; margin-bottom: 30px; }
+.logo-icon {
+  font-size: 64px;
+  display: block;
+  margin-bottom: 10px;
+  animation: bounce 2s infinite;
+}
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.anime-logo h1 {
+  font-size: 42px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: var(--text-primary);
+}
+.subtitle {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 16px;
+}
+
+.cloud-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 15px 0;
+  padding: 10px;
+  background: rgba(155, 89, 182, 0.1);
+  border-radius: 15px;
+  font-size: 13px;
+  color: var(--cloud);
+}
+.cloud-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--cloud);
+  animation: pulse-dot 2s infinite;
+}
+.cloud-dot.connected { background: #1dd1a1; }
+.cloud-dot.error { background: #ff6b6b; animation: none; }
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.3); }
+}
+
+.auth-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
+  background: #f0f0f0;
+  padding: 5px;
+  border-radius: 50px;
+}
+.auth-tab {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 50px;
+  background: transparent;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: all 0.3s;
+  font-family: inherit;
+  font-size: 14px;
+}
+.auth-tab.active {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  box-shadow: var(--shadow-neon);
+}
+
+.form-group { margin-bottom: 20px; position: relative; }
+.floating-label { position: relative; }
+.floating-label input {
+  width: 100%;
+  padding: 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 50px;
+  font-size: 16px;
+  background: white;
+  transition: all 0.3s ease;
+  color: var(--text-primary);
+}
+.floating-label input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.1);
+}
+.floating-label label {
+  position: absolute;
+  left: 15px; top: 15px;
+  color: #999;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  background: white;
+  padding: 0 5px;
+}
+.floating-label input:focus + label,
+.floating-label input:not(:placeholder-shown) + label {
+  transform: translateY(-25px) scale(0.9);
+  color: var(--primary);
+}
+.error-message {
+  color: #ff6b6b;
+  font-size: 12px;
+  margin-top: 5px;
+  display: block;
+}
+
+.password-strength { margin-top: 10px; }
+.strength-bar {
+  height: 5px;
+  background: #ddd;
+  border-radius: 10px;
+  width: 0%;
+  transition: all 0.3s ease;
+}
+.strength-text {
+  font-size: 12px;
+  color: #666;
+  margin-top: 5px;
+  display: block;
+}
+
+.glowing-label {
+  display: block;
+  margin-bottom: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.genre-pills { display: flex; flex-wrap: wrap; gap: 10px; }
+.pill { cursor: pointer; }
+.pill input { display: none; }
+.pill-content {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #f0f0f0;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  color: var(--text-primary);
+}
+.pill input:checked + .pill-content {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  box-shadow: var(--shadow-neon);
+  transform: scale(1.05);
+}
+
+.futuristic-checkbox { margin: 20px 0; }
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+.checkbox-label input { display: none; }
+.checkbox-custom {
+  width: 20px; height: 20px;
+  border: 2px solid var(--primary);
+  border-radius: 5px;
+  position: relative;
+}
+.checkbox-label input:checked + .checkbox-custom::after {
+  content: '✓';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--primary);
+  font-size: 14px;
+}
+.checkbox-text { color: var(--text-primary); font-size: 14px; }
+.checkbox-text a { color: var(--primary); text-decoration: none; }
+
+.anime-btn {
+  position: relative;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  font-family: inherit;
+}
+.anime-btn-primary {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  box-shadow: var(--shadow-neon);
+}
+.anime-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
+}
+.anime-btn-secondary { background: var(--dark); color: white; }
+.anime-btn-link {
+  background: none;
+  color: var(--primary);
+  box-shadow: none;
+  padding: 10px;
+}
+.pulse-animation { animation: pulse 2s infinite; }
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+.form-footer { text-align: center; margin-top: 20px; }
+
+.anime-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.8);
+  backdrop-filter: blur(5px);
+}
+.anime-modal-content {
+  background: white;
+  margin: 5% auto;
+  padding: 40px;
+  border-radius: 30px;
+  width: 90%;
+  max-width: 800px;
+  position: relative;
+  animation: slideUp 0.4s ease;
+  color: var(--text-primary);
+  max-height: 80vh;
+  overflow-y: auto;
+}
+@keyframes slideUp {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+.close {
+  position: absolute;
+  right: 25px; top: 20px;
+  font-size: 30px;
+  cursor: pointer;
+  color: #999;
+  z-index: 10;
+}
+.close:hover { color: var(--primary); }
+.rule-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 15px;
+  margin: 10px 0;
+}
+.rule-number {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+/* ========== ГЛАВНАЯ ========== */
+.anime-verse-main { padding: 20px; }
+.anime-container { max-width: 1400px; margin: 0 auto; }
+
+.anime-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  margin-bottom: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 24px;
+  font-weight: 800;
+}
+.nav-logo .logo-icon { font-size: 32px; margin: 0; }
+.nav-logo span span { color: var(--primary); }
+.nav-cloud-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  background: rgba(155, 89, 182, 0.2);
+  border: 1px solid var(--cloud);
+  border-radius: 50px;
+  font-size: 12px;
+  color: white;
+  margin-left: 10px;
+}
+.nav-search {
+  flex: 1;
+  max-width: 500px;
+  margin: 0 20px;
+  min-width: 200px;
+}
+.nav-search input {
+  width: 100%;
+  padding: 12px 20px;
+  border: 2px solid rgba(255,255,255,0.2);
+  border-radius: 50px;
+  background: rgba(255,255,255,0.1);
+  color: white;
+  font-size: 16px;
+}
+.nav-search input::placeholder { color: rgba(255,255,255,0.6); }
+.nav-search input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+.nav-user { display: flex; align-items: center; gap: 15px; }
+.user-level { text-align: right; }
+.level-badge {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--primary);
+}
+.exp-bar {
+  width: 120px; height: 6px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.exp-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  border-radius: 10px;
+  transition: width 0.5s ease;
+}
+
+/* ========== АВАТАРКА ========== */
+.user-avatar {
+  position: relative;
+  width: 45px; height: 45px;
+  border-radius: 50%;
+  border: 3px solid var(--primary);
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+.user-avatar:hover {
+  transform: scale(1.1);
+  box-shadow: var(--shadow-neon);
+}
+.user-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.avatar-upload-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 16px;
+}
+.user-avatar:hover .avatar-upload-overlay {
+  opacity: 1;
+}
+#avatar-input { display: none; }
+
+/* ========== МОДАЛКА АВАТАРА ========== */
+.avatar-modal {
+  display: none;
+  position: fixed;
+  z-index: 1001;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.8);
+  backdrop-filter: blur(5px);
+  justify-content: center;
+  align-items: center;
+}
+.avatar-modal.active { display: flex; }
+.avatar-modal-content {
+  background: white;
+  border-radius: 30px;
+  padding: 30px;
+  max-width: 400px;
+  width: 90%;
+  color: var(--text-primary);
+  animation: slideUp 0.3s ease;
+}
+.avatar-modal-content h3 {
+  margin-bottom: 20px;
+  color: var(--primary);
+  text-align: center;
+}
+.avatar-preview {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 60px;
+  overflow: hidden;
+  border: 4px solid var(--primary);
+}
+.avatar-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.avatar-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.avatar-actions button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  font-family: inherit;
+  font-size: 14px;
+  transition: all 0.3s;
+}
+.avatar-btn-upload {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+}
+.avatar-btn-remove {
+  background: #ff6b6b;
+  color: white;
+}
+.avatar-btn-cancel {
+  background: #e0e0e0;
+  color: var(--text-primary);
+}
+
+/* ========== КНОПКА УСТАНОВКИ PWA ========== */
+.install-pwa-btn {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: var(--shadow-neon);
+  z-index: 99;
+  display: none;
+  align-items: center;
+  gap: 8px;
+  font-family: inherit;
+  font-size: 14px;
+  animation: pulse 2s infinite;
+}
+.install-pwa-btn.visible {
+  display: flex;
+}
+.install-pwa-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
+}
+
+.hero-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px;
+  margin-bottom: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hero-title { font-size: 36px; margin-bottom: 15px; }
+.hero-subtitle {
+  font-size: 18px;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 30px;
+}
+.hero-stats { display: flex; gap: 30px; }
+.hero-stat { text-align: center; }
+.stat-number {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--primary);
+  display: block;
+}
+.stat-label {
+  font-size: 14px;
+  color: rgba(255,255,255,0.7);
+}
+.hero-character {
+  width: 200px; height: 200px;
+  font-size: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: float 3s infinite ease-in-out;
+}
+
+.dashboard-section { margin-bottom: 30px; max-width: 1400px; margin-left: auto; margin-right: auto; }
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.dashboard-card {
+  padding: 25px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+}
+.dashboard-card h3 {
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: var(--primary);
+}
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+.mini-stat { text-align: center; }
+.mini-value {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--secondary);
+  display: block;
+}
+.mini-stat span:last-child {
+  font-size: 12px;
+  color: rgba(255,255,255,0.7);
+}
+.progress-item { margin-bottom: 15px; }
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+.progress-track {
+  height: 8px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.progress-value {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  border-radius: 10px;
+  transition: width 0.5s ease;
+}
+
+.achievements-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.achievement-badge {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  background: linear-gradient(135deg, gold, orange);
+  border-radius: 15px;
+  min-width: 80px;
+  text-align: center;
+}
+.achievement-badge.locked {
+  filter: grayscale(1);
+  opacity: 0.5;
+  background: linear-gradient(135deg, #666, #999);
+}
+.achievement-name {
+  font-size: 11px;
+  margin-top: 5px;
+  color: white;
+  font-weight: 600;
+}
+
+.add-anime-section {
+  padding: 30px;
+  margin-bottom: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.section-title {
+  font-size: 24px;
+  margin-bottom: 30px;
+  color: var(--primary);
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+.form-group-main { margin-bottom: 15px; }
+.form-group-main label {
+  display: block;
+  margin-bottom: 8px;
+  color: rgba(255,255,255,0.9);
+  font-size: 14px;
+}
+.form-group-main input,
+.form-group-main select,
+.form-group-main textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid rgba(255,255,255,0.1);
+  border-radius: 50px;
+  background: rgba(255,255,255,0.05);
+  color: white;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+.form-group-main textarea {
+  border-radius: 20px;
+  resize: vertical;
+  min-height: 80px;
+}
+.form-group-main input:focus,
+.form-group-main select:focus,
+.form-group-main textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+.form-group-main input::placeholder,
+.form-group-main textarea::placeholder {
+  color: rgba(255,255,255,0.3);
+}
+.form-group-main select option { background: #1a1a2e; color: white; }
+.form-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.voice-selector-wrapper { position: relative; }
+.voice-selector-toggle {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid rgba(255,255,255,0.1);
+  border-radius: 50px;
+  background: rgba(255,255,255,0.05);
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s;
+  font-family: inherit;
+}
+.voice-selector-toggle:hover { border-color: var(--secondary); }
+.voice-selector-toggle.open {
+  border-color: var(--secondary);
+  border-radius: 20px 20px 10px 10px;
+}
+.voice-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0; right: 0;
+  background: rgba(26, 26, 46, 0.98);
+  backdrop-filter: blur(20px);
+  border: 2px solid var(--secondary);
+  border-radius: 10px 10px 20px 20px;
+  padding: 10px;
+  z-index: 100;
+  max-height: 300px;
+  overflow-y: auto;
+  margin-top: -5px;
+}
+.voice-dropdown.open {
+  display: block;
+  animation: slideDown 0.2s ease;
+}
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.voice-search {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 50px;
+  background: rgba(255,255,255,0.05);
+  color: white;
+  font-size: 13px;
+  margin-bottom: 10px;
+  font-family: inherit;
+}
+.voice-search::placeholder { color: rgba(255,255,255,0.4); }
+.voice-list { display: flex; flex-direction: column; gap: 5px; }
+.voice-option {
+  padding: 10px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.2s;
+  font-size: 14px;
+}
+.voice-option:hover { background: rgba(255,255,255,0.1); }
+.voice-option.selected {
+  background: linear-gradient(135deg, rgba(78,205,196,0.2), rgba(29,209,161,0.2));
+  color: var(--secondary);
+  font-weight: 600;
+}
+.voice-option-icon { font-size: 18px; }
+.voice-option-info { flex: 1; }
+.voice-option-name { display: block; font-weight: 600; }
+.voice-option-desc { display: block; font-size: 11px; opacity: 0.6; }
+.voice-option-check { opacity: 0; color: var(--secondary); }
+.voice-option.selected .voice-option-check { opacity: 1; }
+.selected-voices-display { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+.selected-voice-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 12px;
+  background: linear-gradient(135deg, var(--secondary), #1dd1a1);
+  border-radius: 50px;
+  font-size: 12px;
+  color: white;
+}
+.selected-voice-tag .remove-voice {
+  cursor: pointer;
+  opacity: 0.7;
+  font-size: 14px;
+}
+.selected-voice-tag .remove-voice:hover { opacity: 1; }
+
+.rating-stars { display: flex; gap: 5px; font-size: 24px; }
+.rating-stars span {
+  cursor: pointer;
+  transition: transform 0.2s;
+  color: #ffd700;
+  user-select: none;
+}
+.rating-stars span:hover { transform: scale(1.2); }
+
+.genre-tags-container { display: flex; flex-wrap: wrap; gap: 8px; }
+.genre-tag {
+  display: inline-block;
+  padding: 8px 16px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 13px;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+.genre-tag:hover { background: rgba(255,255,255,0.2); }
+.genre-tag.selected {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  box-shadow: var(--shadow-neon);
+  border-color: transparent;
+}
+
+.filter-sort-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: center;
+  margin-bottom: 25px;
+  padding: 15px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 20px;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.filter-sort-bar select,
+.filter-sort-bar input {
+  padding: 8px 15px;
+  border-radius: 50px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.1);
+  color: white;
+  font-size: 14px;
+  font-family: inherit;
+}
+.filter-sort-bar select option { background: #1a1a2e; }
+.filter-sort-bar .sort-btn {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 50px;
+  background: rgba(255,255,255,0.1);
+  color: white;
+  cursor: pointer;
+  font-family: inherit;
+}
+.filter-sort-bar .sort-btn:hover { background: rgba(255,255,255,0.2); }
+.filter-sort-bar .sort-btn.active {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+}
+
+.view-switcher {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
+  justify-content: center;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  flex-wrap: wrap;
+}
+.view-btn {
+  padding: 10px 25px;
+  border: none;
+  border-radius: 50px;
+  background: rgba(255,255,255,0.1);
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: inherit;
+}
+.view-btn:hover { background: rgba(255,255,255,0.2); }
+.view-btn.active {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  box-shadow: var(--shadow-neon);
+}
+
+.anime-columns {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 30px;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.anime-column {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  overflow: hidden;
+}
+.column-header {
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+.column-header.watching { background: var(--watching); }
+.column-header.want { background: var(--want); }
+.column-header.watched { background: var(--watched); }
+.column-header.other { background: var(--other); }
+.column-header h3 { font-size: 16px; font-weight: 600; }
+.column-count {
+  background: rgba(255,255,255,0.2);
+  padding: 3px 10px;
+  border-radius: 50px;
+  font-size: 12px;
+}
+.anime-grid { padding: 15px; max-height: 600px; overflow-y: auto; }
+
+.anime-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 15px;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.anime-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--primary);
+  box-shadow: var(--shadow-neon);
+}
+.anime-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.anime-card-header h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  flex: 1;
+  margin-right: 10px;
+}
+.anime-status-badge {
+  font-size: 18px;
+  width: 30px; height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+}
+.anime-card-info p {
+  margin-bottom: 8px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.8);
+}
+.info-label {
+  color: var(--primary);
+  font-weight: 600;
+  display: inline-block;
+  width: 75px;
+}
+.anime-card-info .anime-link {
+  display: inline-block;
+  padding: 5px 12px;
+  background: var(--primary);
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-size: 12px;
+  margin-top: 5px;
+}
+.anime-card-info .anime-link:hover { background: #ff5252; }
+.anime-card .genre-tag-small {
+  display: inline-block;
+  background: rgba(255,255,255,0.1);
+  padding: 2px 10px;
+  border-radius: 50px;
+  font-size: 10px;
+  margin-right: 4px;
+  color: var(--secondary);
+}
+.anime-card .voice-tag-small {
+  display: inline-block;
+  background: rgba(78,205,196,0.2);
+  border: 1px solid var(--secondary);
+  padding: 2px 10px;
+  border-radius: 50px;
+  font-size: 10px;
+  margin-right: 4px;
+  margin-top: 3px;
+  color: var(--secondary);
+}
+.anime-card .rating-stars-small {
+  color: #ffd700;
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+.anime-card .anime-comment {
+  font-style: italic;
+  opacity: 0.8;
+  margin-top: 8px;
+  padding: 8px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 10px;
+}
+.anime-actions { display: flex; gap: 8px; margin-top: 12px; }
+.anime-actions button {
+  flex: 1;
+  padding: 6px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 600;
+  font-family: inherit;
+}
+.edit-btn { background: var(--want); color: white; }
+.edit-btn:hover { background: #ff9f43; }
+.delete-btn { background: var(--primary); color: white; }
+.delete-btn:hover { background: #ff5252; }
+
+.empty-column {
+  text-align: center;
+  padding: 30px 20px;
+  color: rgba(255,255,255,0.5);
+  font-size: 14px;
+}
+.empty-state {
+  text-align: center;
+  padding: 60px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 30px;
+  margin: 30px auto;
+  max-width: 1400px;
+}
+.empty-state p:first-child { font-size: 24px; margin-bottom: 10px; }
+.empty-state p:last-child { color: rgba(255,255,255,0.6); }
+
+.load-more-btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 50px;
+  background: rgba(255,255,255,0.1);
+  color: white;
+  cursor: pointer;
+  font-size: 12px;
+  font-family: inherit;
+}
+.load-more-btn:hover { background: rgba(255,255,255,0.2); }
+
+.anime-grid-view {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.grid-item {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 20px;
+  cursor: pointer;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.grid-item:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-neon);
+  border-color: var(--primary);
+}
+.grid-item h3 { font-size: 16px; margin-bottom: 10px; }
+.grid-item p { font-size: 14px; color: rgba(255,255,255,0.7); margin-bottom: 10px; }
+.grid-item .rating {
+  display: inline-block;
+  padding: 3px 10px;
+  background: var(--primary);
+  border-radius: 50px;
+  font-size: 12px;
+}
+
+.anime-list-view {
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+}
+.anime-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(255,255,255,0.1);
+  border-radius: 15px;
+  overflow: hidden;
+}
+.anime-table th {
+  padding: 15px;
+  text-align: left;
+  background: rgba(255,255,255,0.2);
+  font-weight: 600;
+}
+.anime-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.9);
+}
+.anime-table td a { color: var(--secondary); text-decoration: none; font-size: 18px; }
+.anime-table td button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 2px;
+  font-family: inherit;
+}
+.status-badge {
+  padding: 3px 10px;
+  border-radius: 50px;
+  font-size: 12px;
+  color: white;
+}
+.status-badge.watching { background: var(--watching); }
+.status-badge.want { background: var(--want); }
+.status-badge.watched { background: var(--watched); }
+.status-badge.dropped, .status-badge.onhold, .status-badge.rewatching { background: var(--other); }
+
+.random-anime-widget {
+  position: fixed;
+  bottom: 100px; right: 20px;
+  width: 250px;
+  padding: 15px;
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  z-index: 99;
+  color: var(--text-primary);
+}
+.random-btn {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 10px;
+  font-family: inherit;
+}
+.random-btn:hover { transform: scale(1.05); box-shadow: var(--shadow-neon); }
+.random-result { color: var(--text-primary); }
+.random-anime-card { text-align: center; }
+.random-anime-card h4 { color: var(--primary); margin-bottom: 5px; font-size: 14px; }
+.random-anime-card p { color: var(--text-secondary); font-size: 12px; margin-bottom: 10px; }
+.random-anime-card a {
+  display: inline-block;
+  padding: 5px 15px;
+  background: var(--primary);
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-size: 12px;
+}
+
+.anime-detail { padding: 20px; color: var(--text-primary); }
+.anime-detail h2 { color: var(--primary); margin-bottom: 20px; }
+.anime-detail p { margin: 10px 0; line-height: 1.6; }
+.anime-detail a { color: var(--secondary); text-decoration: none; }
+.anime-detail a:hover { text-decoration: underline; }
+
+.custom-scroll::-webkit-scrollbar { width: 6px; }
+.custom-scroll::-webkit-scrollbar-track { background: rgba(255,255,255,0.1); border-radius: 10px; }
+.custom-scroll::-webkit-scrollbar-thumb { background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 10px; }
+
+#cancel-edit { display: none; }
+
+.custom-notification {
+  position: fixed;
+  top: 20px; right: 20px;
+  padding: 15px 25px;
+  border-radius: 50px;
+  background: var(--primary);
+  color: white;
+  font-weight: 600;
+  z-index: 9999;
+  box-shadow: var(--shadow-neon);
+  animation: slideInRight 0.3s ease;
+  max-width: 350px;
+}
+@keyframes slideInRight {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.loading-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(5px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9998;
+  flex-direction: column;
+  gap: 20px;
+}
+.loading-overlay.active { display: flex; }
+.loading-spinner {
+  width: 60px; height: 60px;
+  border: 4px solid rgba(255,255,255,0.2);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.loading-text { color: white; font-size: 18px; }
+
+.config-info {
+  background: #fff3cd;
+  border: 1px solid #ffc107;
+  color: #856404;
+  padding: 15px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.config-info strong { color: #d63031; }
+.config-info code {
+  background: rgba(0,0,0,0.05);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+@media (max-width: 1200px) {
+  .dashboard-grid { grid-template-columns: repeat(2, 1fr); }
+  .anime-columns { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 992px) {
+  .anime-nav { flex-direction: column; gap: 15px; }
+  .nav-search { max-width: 100%; margin: 10px 0; }
+  .hero-section { flex-direction: column; text-align: center; }
+  .hero-stats { justify-content: center; }
+}
+@media (max-width: 768px) {
+  .dashboard-grid { grid-template-columns: 1fr; }
+  .anime-columns { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .nav-user { width: 100%; justify-content: space-between; flex-wrap: wrap; }
+  .random-anime-widget { bottom: 80px; right: 10px; width: 200px; }
+  .install-pwa-btn { bottom: 80px; left: 10px; font-size: 12px; padding: 10px 15px; }
+}
+/* ========== Ссылка «← На сайт» (возврат на Anime Fan Club) ========== */
+.site-back-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  min-height: 40px; padding: 8px 16px;
+  border-radius: 999px;
+  font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 600;
+  text-decoration: none; white-space: nowrap;
+  color: var(--dark);
+  background: rgba(44, 62, 80, 0.06);
+  border: 1px solid rgba(44, 62, 80, 0.15);
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+}
+.site-back-link:hover { background: var(--primary); border-color: var(--primary); color: #fff; box-shadow: var(--shadow-neon); }
+.anime-reg-card > .site-back-link { margin-bottom: 10px; }
+.anime-nav .site-back-link { color: #fff; background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.25); }
+
+/* ========== ⚡ Продолжить просмотр ========== */
+.continue-watching {
+  max-width: 1400px;
+  margin: 0 auto 30px;
+  padding: 20px 24px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+}
+.continue-watching[hidden] { display: none; }
+.continue-head { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 4px 16px; margin-bottom: 14px; }
+.continue-head .section-title { margin: 0; }
+.continue-hint { font-size: 13px; color: rgba(255, 255, 255, 0.65); }
+.continue-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+.continue-item {
+  display: flex; flex-direction: column; gap: 8px;
+  padding: 14px 16px;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: 4px solid var(--watching);
+  border-radius: 14px;
+  min-width: 0;
+}
+.continue-item.status-want { border-left-color: var(--want); }
+.continue-item.status-watched { border-left-color: var(--watched); }
+.continue-title { font-weight: 700; font-size: 15px; line-height: 1.3; overflow-wrap: anywhere; cursor: pointer; }
+.continue-title:hover { color: var(--secondary); }
+.continue-meta { font-size: 12px; color: rgba(255, 255, 255, 0.65); }
+.continue-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; }
+.continue-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 40px; padding: 8px 16px;
+  border: none; border-radius: 50px;
+  background: var(--primary); color: #fff;
+  font: 600 14px 'Montserrat', sans-serif;
+  text-decoration: none; cursor: pointer;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+.continue-btn:hover { background: #ff5252; box-shadow: var(--shadow-neon); }
+.continue-btn.secondary { background: rgba(255, 255, 255, 0.12); }
+.continue-btn.secondary:hover { background: rgba(255, 255, 255, 0.22); box-shadow: none; }
+
+/* Подсветка формы, заполненной по ссылке из каталога */
+.add-anime-section.prefilled { box-shadow: 0 0 0 3px var(--secondary), var(--shadow-neon-blue); transition: box-shadow 0.4s; }
+
+.pending-add-hint {
+  margin-bottom: 16px; padding: 12px 14px;
+  border-radius: 14px;
+  background: rgba(78, 205, 196, 0.15);
+  border: 1px solid rgba(78, 205, 196, 0.5);
+  color: var(--dark); font-size: 14px; line-height: 1.5;
+}
+.pending-add-hint[hidden] { display: none; }
+
+/* ========== Вход через Google ========== */
+.auth-divider {
+  display: flex; align-items: center; gap: 12px;
+  margin: 22px 0 16px; color: var(--text-secondary); font-size: 14px;
+}
+.auth-divider::before, .auth-divider::after { content: ''; flex: 1; height: 1px; background: #e0e6eb; }
+.google-btn {
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+  width: 100%; min-height: 52px; padding: 12px 20px;
+  border: 2px solid #e0e6eb; border-radius: 50px; background: #fff;
+  color: var(--text-primary); font: 600 16px 'Montserrat', sans-serif;
+  cursor: pointer; transition: border-color 0.3s, box-shadow 0.3s, transform 0.2s;
+}
+.google-btn:hover { border-color: var(--secondary); box-shadow: var(--shadow-neon-blue); transform: translateY(-1px); }
+.google-btn:disabled { opacity: 0.6; cursor: wait; transform: none; }
+.google-icon { flex-shrink: 0; }
+.google-error { display: block; text-align: center; margin-top: 8px; }
+
+/* ========== 📌 Модальное окно «Кнопка для закладок» ========== */
+.bm-content { max-width: 680px; padding: 36px 36px 30px; }
+.bm-content:focus { outline: none; }
+.bm-close { background: none; border: none; line-height: 1; padding: 0; font-family: inherit; }
+.bm-title { font-size: 26px; font-weight: 800; line-height: 1.25; margin: 0 40px 12px 0; }
+.bm-lead { color: var(--text-secondary); margin-bottom: 20px; }
+.bm-lead b { color: var(--text-primary); }
+.bm-drag-zone {
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  padding: 22px 16px; margin-bottom: 20px;
+  border: 2px dashed rgba(78, 205, 196, 0.6); border-radius: 20px;
+  background: linear-gradient(135deg, rgba(255, 107, 107, 0.06), rgba(78, 205, 196, 0.08));
+}
+.bm-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 28px; border-radius: 50px;
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
+  color: #fff; font-weight: 700; font-size: 17px; text-decoration: none;
+  box-shadow: var(--shadow-neon); cursor: grab; user-select: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.bm-link:hover { transform: translateY(-2px) scale(1.03); box-shadow: 0 0 30px var(--primary-glow); }
+.bm-link:active { cursor: grabbing; }
+.bm-drag-hint { font-size: 13px; color: var(--text-secondary); text-align: center; }
+.bm-steps { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 18px; }
+.bm-step-card { padding: 16px 18px; border-radius: 18px; background: #f8f9fa; border: 1px solid #edf0f3; }
+.bm-step-card h3 { font-size: 16px; margin-bottom: 8px; color: var(--text-primary); }
+.bm-step-card ol { padding-left: 20px; font-size: 14px; color: var(--text-secondary); }
+.bm-step-card li { margin-bottom: 6px; }
+.bm-step-card kbd {
+  display: inline-block; padding: 1px 6px; border-radius: 5px;
+  background: #fff; border: 1px solid #d5dbe1; box-shadow: 0 1px 0 #d5dbe1;
+  font: 600 12px 'Montserrat', sans-serif; color: var(--text-primary);
+}
+.bm-code-label { display: block; font-size: 13px; font-weight: 600; color: var(--text-secondary); margin-bottom: 6px; }
+.bm-code {
+  width: 100%; resize: none; padding: 12px 14px;
+  border: 2px solid #e0e6eb; border-radius: 14px; background: #f8f9fa;
+  font: 12px/1.45 Consolas, 'Courier New', monospace; color: var(--text-primary);
+  word-break: break-all;
+}
+.bm-code:focus { outline: none; border-color: var(--secondary); }
+.bm-actions { display: flex; justify-content: center; margin-top: 14px; }
+.bm-copy { min-width: 260px; }
+.bm-copy.copied { background: linear-gradient(45deg, var(--watched), var(--secondary)); }
+.bm-note {
+  margin-top: 16px; padding: 12px 14px; border-radius: 14px;
+  background: rgba(254, 202, 87, 0.18); border: 1px solid rgba(254, 202, 87, 0.7);
+  color: #7a5a00; font-size: 13px; line-height: 1.5;
+}
+.bm-note[hidden] { display: none; }
+body.modal-open { overflow: hidden; }
+
+.pending-add-hint .hint-guest-btn {
+  display: inline-flex; align-items: center; margin-top: 8px;
+  min-height: 36px; padding: 6px 16px; border: none; border-radius: 50px;
+  background: var(--secondary); color: #fff; font: 600 14px 'Montserrat', sans-serif; cursor: pointer;
+}
+.pending-add-hint .hint-guest-btn:hover { box-shadow: var(--shadow-neon-blue); }
+
+@media (max-width: 640px) {
+  .bm-modal .bm-content {
+    width: auto; margin: 12px; padding: 24px 16px 20px;
+    border-radius: 22px; max-height: calc(100vh - 24px); max-height: calc(100dvh - 24px);
+  }
+  .bm-modal .close { right: 14px; top: 10px; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; }
+  .bm-title { font-size: 21px; margin-right: 44px; }
+  .bm-steps { grid-template-columns: 1fr; }
+  .bm-copy { min-width: 0; width: 100%; min-height: 48px; }
+  .bm-link { font-size: 16px; padding: 13px 24px; }
+}
+
+/* Телефоны: карточка входа и заголовок помещаются в экран */
+@media (max-width: 480px) {
+  .anime-verse { padding: 12px; }
+  .anime-reg-card { padding: 24px 18px; border-radius: 22px; }
+  .anime-logo { margin-bottom: 20px; }
+  .anime-logo h1 { font-size: 34px; overflow-wrap: break-word; }
+  .logo-icon { font-size: 52px; }
+
+  /* Шапка коллекции: логотип с бейджем облака переносится, а не уходит за край */
+  .anime-nav { padding: 12px 14px; }
+  .nav-logo { flex-wrap: wrap; justify-content: center; font-size: 20px; max-width: 100%; }
+
+  .continue-watching { padding: 16px 14px; border-radius: 16px; margin-bottom: 20px; }
+  .continue-list { grid-template-columns: 1fr; }
+  .continue-btn { flex: 1 1 auto; min-height: 44px; }
+}
+</style>
+</head>
+<body>
+
+<div class="chakra-particles"></div>
+<div class="floating-characters">
+  <div class="character naruto">🍥</div>
+  <div class="character totoro">🐱</div>
+  <div class="character pikachu">⚡</div>
+  <div class="character sakura">🌸</div>
+  <div class="character dragon">🐉</div>
+</div>
+
+<div class="loading-overlay" id="loading-overlay">
+  <div class="loading-spinner"></div>
+  <div class="loading-text" id="loading-text">Подключение к облаку...</div>
+</div>
+
+<!-- ========== КНОПКА УСТАНОВКИ PWA ========== -->
+<button class="install-pwa-btn" id="install-pwa-btn">
+  📱 Установить приложение
+</button>
+
+<!-- ========== МОДАЛКА АВАТАРА ========== -->
+<div class="avatar-modal" id="avatar-modal">
+  <div class="avatar-modal-content">
+    <h3>🎭 Твой аватар</h3>
+    <div class="avatar-preview" id="avatar-preview">🎭</div>
+    <div class="avatar-actions">
+      <button class="avatar-btn-upload" id="avatar-upload-btn">📷 Загрузить фото</button>
+      <button class="avatar-btn-remove" id="avatar-remove-btn">🗑️ Удалить</button>
+      <button class="avatar-btn-cancel" id="avatar-cancel-btn">✖ Закрыть</button>
+    </div>
+    <input type="file" id="avatar-file-input" accept="image/*" style="display:none">
+  </div>
+</div>
+
+<!-- ========== 📌 БЫСТРОЕ СОХРАНЕНИЕ С ДРУГИХ САЙТОВ (букмарклет) ========== -->
+<div class="anime-modal bm-modal" id="bookmarklet-modal" role="dialog" aria-modal="true" aria-labelledby="bm-title" aria-hidden="true">
+  <div class="anime-modal-content bm-content" tabindex="-1">
+    <button type="button" class="close bm-close" aria-label="Закрыть">&times;</button>
+    <h2 class="bm-title gradient-text" id="bm-title">📌 Быстрое сохранение с других сайтов</h2>
+    <p class="bm-lead">Нашёл аниме на любом сайте? Нажми эту закладку — AnimeVerse откроется в новой вкладке с уже подставленными <b>названием</b> и <b>ссылкой</b>. Останется проверить и нажать «✨ Добавить».</p>
+
+    <div class="bm-drag-zone">
+      <a class="bm-link" id="bm-link" href="#" draggable="true" title="Перетащи меня на панель закладок">📌 В AnimeVerse</a>
+      <span class="bm-drag-hint">Перетащи эту кнопку на панель закладок браузера</span>
+    </div>
+
+    <div class="bm-steps">
+      <div class="bm-step-card">
+        <h3>💻 На компьютере</h3>
+        <ol>
+          <li>Включи панель закладок: <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd> (на Mac — <kbd>⌘</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd>).</li>
+          <li>Перетащи на неё кнопку «📌 В AnimeVerse».</li>
+          <li>На странице аниме нажми закладку.</li>
+        </ol>
+      </div>
+      <div class="bm-step-card">
+        <h3>📱 На телефоне</h3>
+        <ol>
+          <li>Нажми «Скопировать код закладки».</li>
+          <li>Добавь в закладки любую страницу, затем измени закладку: название — <b>AnimeVerse</b>, вместо адреса вставь код.</li>
+          <li>На странице аниме начни вводить «AnimeVerse» в адресной строке и выбери закладку.</li>
+        </ol>
+      </div>
+    </div>
+
+    <label class="bm-code-label" for="bm-code">Код закладки</label>
+    <textarea class="bm-code" id="bm-code" rows="3" readonly spellcheck="false"></textarea>
+    <div class="bm-actions">
+      <button type="button" class="anime-btn anime-btn-primary bm-copy" id="bm-copy">📋 Скопировать код закладки</button>
+    </div>
+    <p class="bm-note" id="bm-note" hidden></p>
+  </div>
+</div>
+
+<!-- ========== СТРАНИЦА АВТОРИЗАЦИИ ========== -->
+<div id="page-register" class="page active">
+  <div class="anime-verse">
+    <div class="anime-reg-container">
+      <div class="anime-reg-card">
+        <a href="../index.html" class="site-back-link">← На сайт</a>
+        <div class="anime-logo">
+          <span class="logo-icon">🎌</span>
+          <h1 class="gradient-text">AnimeVerse</h1>
+          <p class="subtitle">Твоя вселенная аниме в облаке ☁️</p>
+        </div>
+
+        <div class="pending-add-hint" id="pending-add-hint" hidden></div>
+
+        <div class="cloud-status" id="cloud-status">
+          <span class="cloud-dot" id="cloud-dot"></span>
+          <span id="cloud-status-text">Проверка подключения...</span>
+        </div>
+
+        <div class="config-info" id="config-info" style="display:none">
+          <strong>⚠️ Firebase не настроен!</strong><br>
+          Открой код и замени <code>firebaseConfig</code> своими ключами из Firebase Console.
+          Без этого облачная синхронизация работать не будет.
+        </div>
+
+        <div class="auth-tabs">
+          <button class="auth-tab active" data-tab="login">🔐 Вход</button>
+          <button class="auth-tab" data-tab="register">✨ Регистрация</button>
+        </div>
+
+        <form id="login-form">
+          <div class="form-group">
+            <div class="floating-label">
+              <input type="email" id="login-email" placeholder=" " required>
+              <label>E-mail</label>
+            </div>
+            <span class="error-message" id="login-email-error"></span>
+          </div>
+          <div class="form-group">
+            <div class="floating-label">
+              <input type="password" id="login-password" placeholder=" " required>
+              <label>Пароль</label>
+            </div>
+            <span class="error-message" id="login-password-error"></span>
+          </div>
+          <button type="submit" class="anime-btn anime-btn-primary pulse-animation" style="width:100%">
+            🚀 Войти в облако
+          </button>
+          <div class="form-footer">
+            <a href="#" id="guest-mode-btn" class="anime-btn anime-btn-link">👤 Гостевой режим (локально)</a>
+          </div>
+        </form>
+
+        <form id="registration-form" style="display:none">
+          <div class="form-group">
+            <div class="floating-label">
+              <input type="text" id="username" placeholder=" " required>
+              <label>Имя пользователя</label>
+            </div>
+            <span class="error-message" id="username-error"></span>
+          </div>
+          <div class="form-group">
+            <div class="floating-label">
+              <input type="email" id="email" placeholder=" " required>
+              <label>E-mail</label>
+            </div>
+            <span class="error-message" id="email-error"></span>
+          </div>
+          <div class="form-group">
+            <div class="floating-label">
+              <input type="password" id="password" placeholder=" " required>
+              <label>Пароль</label>
+            </div>
+            <span class="error-message" id="password-error"></span>
+            <div class="password-strength">
+              <div class="strength-bar"></div>
+              <span class="strength-text"></span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="glowing-label">🎭 Любимый жанр</label>
+            <div class="genre-pills">
+              <label class="pill"><input type="radio" name="favorite-genre" value="shonen" checked><span class="pill-content">🔥 Сёнэн</span></label>
+              <label class="pill"><input type="radio" name="favorite-genre" value="shojo"><span class="pill-content">💖 Сёдзё</span></label>
+              <label class="pill"><input type="radio" name="favorite-genre" value="seinen"><span class="pill-content">🥋 Сэйнэн</span></label>
+              <label class="pill"><input type="radio" name="favorite-genre" value="slice-of-life"><span class="pill-content">☕ Повседневность</span></label>
+            </div>
+          </div>
+          <div class="futuristic-checkbox">
+            <label class="checkbox-label">
+              <input type="checkbox" id="rules">
+              <span class="checkbox-custom"></span>
+              <span class="checkbox-text">Я принимаю <a href="#" id="rules-link">Правила Аниме-Вселенной</a></span>
+            </label>
+            <span class="error-message" id="rules-error"></span>
+          </div>
+          <button type="submit" class="anime-btn anime-btn-primary pulse-animation" style="width:100%">
+            ✨ Создать аккаунт в облаке
+          </button>
+        </form>
+
+        <div class="auth-divider"><span>или</span></div>
+        <button type="button" class="google-btn" id="google-login-btn">
+          <svg class="google-icon" viewBox="0 0 48 48" width="20" height="20" aria-hidden="true">
+            <path fill="#FFC107" d="M43.6 20.1H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.6-.4-3.9z"/>
+            <path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/>
+            <path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-7.9l-6.5 5C9.5 39.6 16.2 44 24 44z"/>
+            <path fill="#1976D2" d="M43.6 20.1H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.6-.4-3.9z"/>
+          </svg>
+          <span>Войти через Google</span>
+        </button>
+        <span class="error-message google-error" id="google-login-error" role="alert"></span>
+      </div>
+    </div>
+  </div>
+
+  <div id="rules-modal" class="anime-modal">
+    <div class="anime-modal-content">
+      <span class="close">&times;</span>
+      <h2 style="color:var(--text-primary);margin-bottom:20px">📜 Конституция Аниме-Вселенной</h2>
+      <div class="rule-item"><span class="rule-number">01</span><span>Не спамить и не токсичить</span></div>
+      <div class="rule-item"><span class="rule-number">02</span><span>Уважать чужой вкус</span></div>
+      <div class="rule-item"><span class="rule-number">03</span><span>Делиться годнотой</span></div>
+      <div class="rule-item"><span class="rule-number">04</span><span>Не спойлерить без предупреждения</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== ГЛАВНАЯ ========== -->
+<div id="page-main" class="page">
+  <div class="anime-verse-main">
+    <div class="anime-container">
+
+      <nav class="anime-nav">
+        <div class="nav-logo">
+          <span class="logo-icon">🎌</span>
+          <span>Anime<span>Verse</span></span>
+          <div class="nav-cloud-badge" id="nav-cloud-badge">
+            <span class="cloud-dot connected"></span>
+            <span>☁️ Cloud</span>
+          </div>
+        </div>
+        <div class="nav-search">
+          <input type="text" id="search-anime" placeholder="🔍 Поиск аниме...">
+        </div>
+        <div class="nav-user">
+          <div class="user-level">
+            <span class="level-badge">LVL 1</span>
+            <div class="exp-bar"><div class="exp-fill" style="width:0%"></div></div>
+          </div>
+          <div class="user-avatar" id="user-avatar" title="Нажми чтобы изменить аватар">
+            🎭
+            <div class="avatar-upload-overlay">📷</div>
+          </div>
+          <a href="../index.html" class="site-back-link">← На сайт</a>
+          <button class="logout-btn" id="logout-btn">🚪 Выйти</button>
+        </div>
+      </nav>
+
+      <section class="hero-section">
+        <div>
+          <h1 class="hero-title gradient-text" id="hero-greeting">Добро пожаловать!</h1>
+          <p class="hero-subtitle">Твоя коллекция синхронизирована в облаке ☁️</p>
+          <div class="hero-stats">
+            <div class="hero-stat"><span class="stat-number" id="total-hours">0</span><span class="stat-label">Часов</span></div>
+            <div class="hero-stat"><span class="stat-number" id="total-episodes">0</span><span class="stat-label">Эпизодов</span></div>
+            <div class="hero-stat"><span class="stat-number" id="total-anime-header">0</span><span class="stat-label">Тайтлов</span></div>
+          </div>
+        </div>
+        <div class="hero-character">⚔️</div>
+      </section>
+
+      <section class="dashboard-section">
+        <div class="dashboard-grid">
+          <div class="dashboard-card">
+            <h3>📊 Статистика</h3>
+            <div class="stat-grid">
+              <div class="mini-stat"><span class="mini-value" id="total-anime">0</span><span>Всего</span></div>
+              <div class="mini-stat"><span class="mini-value" id="avg-rating">0.0</span><span>Ср. оценка</span></div>
+              <div class="mini-stat"><span class="mini-value" id="unique-studios">0</span><span>Студий</span></div>
+            </div>
+          </div>
+          <div class="dashboard-card">
+            <h3>🎯 Достижения</h3>
+            <div class="achievements-container" id="achievements-list"></div>
+          </div>
+          <div class="dashboard-card">
+            <h3>🔥 Прогресс</h3>
+            <div class="progress-item">
+              <div class="progress-label"><span>Просмотрено</span><span id="watched-percent">0%</span></div>
+              <div class="progress-track"><div class="progress-value" id="watched-bar" style="width:0%"></div></div>
+            </div>
+            <div class="progress-item">
+              <div class="progress-label"><span>В планах</span><span id="want-count-header">0</span></div>
+              <div class="progress-track"><div class="progress-value" id="want-bar" style="width:0%;background:var(--want)"></div></div>
+            </div>
+          </div>
+          <div class="dashboard-card">
+            <h3>☁️ Облако</h3>
+            <p style="color:rgba(255,255,255,0.8);font-size:14px" id="cloud-info">Синхронизация активна</p>
+            <p style="color:rgba(255,255,255,0.6);font-size:12px;margin-top:10px" id="last-sync">Последняя: —</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="add-anime-section">
+        <h2 class="section-title">➕ Добавить в коллекцию</h2>
+        <form id="anime-form">
+          <div class="form-row">
+            <div class="form-group-main">
+              <label>📺 Название (рус) *</label>
+              <input type="text" id="anime-title-ru" placeholder="Атака титанов" required>
+            </div>
+            <div class="form-group-main">
+              <label>📺 Название (ориг)</label>
+              <input type="text" id="anime-title-en" placeholder="Shingeki no Kyojin">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group-main">
+              <label>🔗 Ссылка на просмотр</label>
+              <input type="url" id="anime-url" placeholder="https://...">
+            </div>
+            <div class="form-group-main">
+              <label>🎬 Студия</label>
+              <input type="text" id="anime-studio" placeholder="MAPPA">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group-main">
+              <label>📅 Год</label>
+              <input type="text" id="anime-year" placeholder="2023">
+            </div>
+            <div class="form-group-main">
+              <label>📺 Серий</label>
+              <input type="text" id="anime-episodes" placeholder="24">
+            </div>
+          </div>
+
+          <div class="form-group-main">
+            <label>🎙️ Озвучка (можно выбрать несколько)</label>
+            <div class="voice-selector-wrapper">
+              <button type="button" class="voice-selector-toggle" id="voice-toggle">
+                <span id="voice-toggle-text">🎙️ Выбери озвучку...</span>
+                <span>▼</span>
+              </button>
+              <div class="voice-dropdown" id="voice-dropdown">
+                <input type="text" class="voice-search" id="voice-search" placeholder="🔍 Поиск озвучки...">
+                <div class="voice-list" id="voice-list"></div>
+              </div>
+            </div>
+            <div class="selected-voices-display" id="selected-voices-display"></div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group-main">
+              <label>📊 Статус</label>
+              <select id="anime-status">
+                <option value="want">⏳ Хочу посмотреть</option>
+                <option value="watching">📺 Смотрю</option>
+                <option value="watched">✅ Просмотрено</option>
+                <option value="rewatching">🔄 Пересматриваю</option>
+                <option value="dropped">⛔ Брошено</option>
+              </select>
+            </div>
+            <div class="form-group-main">
+              <label>⭐ Моя оценка</label>
+              <div class="rating-stars" id="rating-stars"></div>
+            </div>
+          </div>
+
+          <div class="form-group-main">
+            <label>🎭 Жанры</label>
+            <div class="genre-tags-container" id="genre-tags"></div>
+          </div>
+
+          <div class="form-group-main">
+            <label>📝 Заметки</label>
+            <textarea id="anime-personal-notes" placeholder="Твои впечатления..."></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="anime-btn anime-btn-primary">✨ Добавить</button>
+            <button type="button" id="cancel-edit" class="anime-btn anime-btn-secondary">❌ Отмена</button>
+            <button type="button" id="export-btn" class="anime-btn anime-btn-secondary">📤 Экспорт</button>
+            <button type="button" id="import-btn" class="anime-btn anime-btn-secondary">📥 Импорт</button>
+            <button type="button" id="bookmarklet-btn" class="anime-btn anime-btn-secondary" aria-haspopup="dialog">📌 Кнопка для закладок</button>
+            <input type="file" id="import-file" accept=".json" style="display:none">
+          </div>
+        </form>
+      </section>
+
+      <div class="filter-sort-bar">
+        <select id="filter-status">
+          <option value="all">Все статусы</option>
+          <option value="watching">📺 Смотрю</option>
+          <option value="want">⏳ Хочу</option>
+          <option value="watched">✅ Просмотрено</option>
+          <option value="rewatching">🔄 Пересматриваю</option>
+          <option value="dropped">⛔ Брошено</option>
+        </select>
+        <select id="filter-genre">
+          <option value="all">Все жанры</option>
+          <option value="shonen">🔥 Сёнэн</option>
+          <option value="shojo">💖 Сёдзё</option>
+          <option value="seinen">🥋 Сэйнэн</option>
+          <option value="slice-of-life">☕ Повседневность</option>
+          <option value="fantasy">⚔️ Фэнтези</option>
+          <option value="scifi">🚀 Sci-Fi</option>
+          <option value="romance">💕 Романтика</option>
+          <option value="comedy">😄 Комедия</option>
+          <option value="drama">🎭 Драма</option>
+          <option value="horror">👻 Хоррор</option>
+        </select>
+        <select id="filter-voice">
+          <option value="all">Все озвучки</option>
+        </select>
+        <select id="sort-select">
+          <option value="title">🔽 По названию</option>
+          <option value="year">📅 По году</option>
+          <option value="rating">⭐ По оценке</option>
+          <option value="dateAdded">📆 По дате</option>
+        </select>
+        <button class="sort-btn" id="sort-order-btn">⬆️ Возр.</button>
+      </div>
+
+      <section class="continue-watching" id="continue-watching" hidden>
+        <div class="continue-head">
+          <h2 class="section-title">⚡ Продолжить просмотр</h2>
+          <span class="continue-hint">Последние тайтлы, которые ты открывал</span>
+        </div>
+        <div class="continue-list" id="continue-list"></div>
+      </section>
+
+      <div class="view-switcher">
+        <button class="view-btn active" data-view="columns">📱 Колонки</button>
+        <button class="view-btn" data-view="grid">🔲 Сетка</button>
+        <button class="view-btn" data-view="list">📋 Список</button>
+      </div>
+
+      <div class="anime-columns" id="columns-view">
+        <div class="anime-column">
+          <div class="column-header watching"><h3>📺 Смотрю</h3><span class="column-count" id="watching-count">0</span></div>
+          <div class="anime-grid custom-scroll" id="watching-list"></div>
+        </div>
+        <div class="anime-column">
+          <div class="column-header want"><h3>⏳ Хочу</h3><span class="column-count" id="want-count">0</span></div>
+          <div class="anime-grid custom-scroll" id="want-list"></div>
+        </div>
+        <div class="anime-column">
+          <div class="column-header watched"><h3>✅ Просмотрено</h3><span class="column-count" id="watched-count">0</span></div>
+          <div class="anime-grid custom-scroll" id="watched-list"></div>
+        </div>
+        <div class="anime-column">
+          <div class="column-header other"><h3>🔄 Другое</h3><span class="column-count" id="other-count">0</span></div>
+          <div class="anime-grid custom-scroll" id="other-list"></div>
+        </div>
+      </div>
+
+      <div class="anime-grid-view" id="grid-view" style="display:none"></div>
+      <div class="anime-list-view" id="list-view" style="display:none"></div>
+      <div class="empty-state" id="empty-state" style="display:none">
+        <p>📭 В твоей коллекции пока нет аниме</p>
+        <p>Добавь первый тайтл через форму выше! ✨</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="anime-detail-modal" class="anime-modal">
+    <div class="anime-modal-content">
+      <span class="close">&times;</span>
+      <div class="anime-detail-container"></div>
+    </div>
+  </div>
+
+  <div class="random-anime-widget">
+    <button class="random-btn" id="random-anime-btn">🎲 Случайное</button>
+    <div class="random-result" id="random-result"></div>
+  </div>
+</div>
+
+<!-- FIREBASE SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+<script src="../js/firebase-config.js"></script>
+
+<script>
+// ============================================================
+// 🔥 FIREBASE: проект anime-world-3a951
+// ============================================================
+// Настройки лежат в ../js/firebase-config.js — общем файле для этой страницы
+// и pages/login.html, чтобы вход на обеих страницах шёл в один и тот же проект.
+const firebaseConfig = window.ANIME_FIREBASE_CONFIG || {};
+
+// ============================================================
+// 🔗 СВЯЗЬ С КАТАЛОГОМ САЙТА (Anime Fan Club)
+// ============================================================
+// ssylky.html?add=1&title=Наруто&url=https://...  → форма добавления заполняется сама.
+// Каталог читает «справочник ссылок» из localStorage и пишет очередь просмотров.
+const SITE_LINKS_KEY = 'animeverse_links';        // { нормализованное название: { title, url } }
+const WATCH_QUEUE_KEY = 'animeverse_watch_queue'; // [{ title, ts }] — «Смотреть» нажали в каталоге
+
+function normalizeTitle(s) {
+  return String(s || '').toLowerCase().replace(/ё/g, 'е').replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
+}
+function isHttpUrl(s) {
+  try { const u = new URL(s); return u.protocol === 'http:' || u.protocol === 'https:'; } catch (_) { return false; }
+}
+
+// Очистка document.title внешних аниме-сайтов от «мусора» (сайт, «смотреть онлайн», номер серии)
+function cleanPageTitle(raw) {
+  const src = String(raw || '').replace(/[\u200B-\u200D\uFEFF]/g, '').replace(/\s+/g, ' ').trim();
+  if (!src) return '';
+
+  const JUNK = /(смотр|онлайн|бесплатн|качеств|озвучк|субтитр|русск\w* язык|все серии|все сезоны|серия|серии|эпизод|anime|аниме\s*(онлайн|портал|сайт)|watch|online|episode|stream|subbed|dubbed|\b(hd|fullhd|1080p?|720p?)\b|\.(ru|com|net|tv|org|me|to|io|su|cc|pro|club|online|site)\b)/i;
+  const hasCyr = s => /[а-яё]/i.test(s);
+
+  // 1) Части через разделители « | », « — », « - », « :: », « • »
+  const parts = src.split(/\s+[|•·]\s+|\s+[—–-]\s+|\s+::\s+|\s*\|\s*/).map(s => s.trim()).filter(Boolean);
+  const kept = [parts[0]];
+  for (let i = 1; i < parts.length; i++) {
+    const p = parts[i];
+    const words = p.split(' ').length;
+    const looksLikeSite = JUNK.test(p) || (words <= 2 && !hasCyr(p) && hasCyr(parts[0]));
+    if (looksLikeSite) break;
+    kept.push(p);
+  }
+  let t = kept.join(' — ');
+
+  // 2) Мусор в начале: «Смотреть аниме …», «Аниме …»
+  t = t.replace(/^(смотреть|смотри|watch)\s+(аниме|anime|сериал|мультсериал|мультфильм)?\s*(онлайн|online)?\s*/i, '');
+  t = t.replace(/^(аниме|anime)\s+(?=\S)/i, '');
+
+  // 3) Мусор в конце: с первого «смотреть / онлайн / N серия / episode N …»
+  // (\b в JS не видит границы кириллических слов, поэтому граница — «дальше не буква/цифра»)
+  t = t.replace(/\s*[(\[]?\s*(\d+\s*(-?я)?\s*(серия|эпизод)|(серия|эпизод|episode|ep\.?)\s*\d+|смотреть|смотри|онлайн|online|бесплатно|в хорошем качестве|все серии|все сезоны|с озвучкой|с субтитрами|на русском|watch)(?![\p{L}\p{N}]).*$/iu, '');
+
+  // 4) Кавычки, тире и знаки по краям
+  t = t.replace(/^[\s«"'„“\-–—:|,.]+|[\s»"'“”\-–—:|,.]+$/g, '').replace(/\s+/g, ' ').trim();
+
+  return (t.length >= 2 ? t : src).slice(0, 200);
+}
+
+const MAX_LINK_LENGTH = 4000; // длиннее — почти наверняка мусор (трекинг-параметры и т.п.)
+
+function readSearchParams() {
+  // URLSearchParams сам декодирует %D0%... (кириллица) и «+»; на битой кодировке не падает
+  try { return new URLSearchParams(location.search); } catch (_) { return new URLSearchParams(); }
+}
+
+const pendingAdd = (() => {
+  const p = readSearchParams();
+  if (p.get('add') !== '1') return null;
+  const fromBookmarklet = p.get('src') === 'bm';
+  // символ замены U+FFFD от битой кодировки, плюс управляющие символы
+  const rawTitle = (p.get('title') || '').replace(/[\u0000-\u001F\u007F\uFFFD]/g, '').replace(/\s+/g, ' ').trim();
+  const title = (fromBookmarklet ? cleanPageTitle(rawTitle) : rawTitle).slice(0, 200);
+  let url = (p.get('url') || '').trim();
+  const urlTooLong = url.length > MAX_LINK_LENGTH;
+  if (urlTooLong || !isHttpUrl(url)) url = '';
+  if (!title && !url && !urlTooLong) return null;
+  return { title, url, rawTitle, fromBookmarklet, urlTooLong, titleCleaned: fromBookmarklet && title !== rawTitle.slice(0, 200) };
+})();
+
+let firebaseApp = null, firebaseAuth = null, firebaseDb = null;
+let isFirebaseConfigured = false;
+
+try {
+  if (firebaseConfig.apiKey && !firebaseConfig.apiKey.includes("YOUR_")) {
+    firebaseApp = firebase.initializeApp(firebaseConfig);
+    firebaseAuth = firebase.auth();
+    firebaseDb = firebase.firestore();
+    isFirebaseConfigured = true;
+    console.log('✅ Firebase инициализирован');
+  }
+} catch (e) {
+  console.error('❌ Ошибка Firebase:', e);
+}
+
+// ============================================================
+// 📱 PWA - УСТАНОВКА НА ГЛАВНЫЙ ЭКРАН
+// ============================================================
+let deferredInstallPrompt = null;
+const installBtn = document.getElementById('install-pwa-btn');
+
+// Генерация manifest.json на лету
+const manifestData = {
+  name: 'AnimeVerse - Врата в мир аниме',
+  short_name: 'AnimeVerse',
+  description: 'Твоя личная коллекция аниме в облаке',
+  start_url: '.',
+  display: 'standalone',
+  background_color: '#1a1a2e',
+  theme_color: '#ff6b6b',
+  orientation: 'portrait',
+  icons: [
+    {
+      src: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='40' fill='%231a1a2e'/%3E%3Ctext x='96' y='130' font-size='110' text-anchor='middle'%3E🎌%3C/text%3E%3C/svg%3E",
+      sizes: '192x192',
+      type: 'image/svg+xml',
+      purpose: 'any maskable'
+    },
+    {
+      src: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='100' fill='%231a1a2e'/%3E%3Ctext x='256' y='350' font-size='280' text-anchor='middle'%3E🎌%3C/text%3E%3C/svg%3E",
+      sizes: '512x512',
+      type: 'image/svg+xml',
+      purpose: 'any maskable'
+    }
+  ]
+};
+
+const manifestBlob = new Blob([JSON.stringify(manifestData)], { type: 'application/json' });
+const manifestURL = URL.createObjectURL(manifestBlob);
+const manifestLink = document.createElement('link');
+manifestLink.rel = 'manifest';
+manifestLink.href = manifestURL;
+document.head.appendChild(manifestLink);
+
+// Service Worker: браузеры не разрешают регистрировать его из blob:-адреса
+// (прежний код здесь всегда падал и только писал предупреждение в консоль).
+// Для офлайн-режима нужен отдельный файл, например pages/sw.js, и вызов
+// navigator.serviceWorker.register('sw.js'). Поведение страницы от удаления не изменилось.
+
+// Обработка события beforeinstallprompt
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredInstallPrompt = e;
+  installBtn.classList.add('visible');
+  console.log('📱 PWA установка доступна');
+});
+
+// Клик по кнопке установки
+installBtn.addEventListener('click', async () => {
+  if (!deferredInstallPrompt) {
+    showInstallInstructions();
+    return;
+  }
+  deferredInstallPrompt.prompt();
+  const { outcome } = await deferredInstallPrompt.userChoice;
+  if (outcome === 'accepted') {
+    showNotification('✅ Приложение установлено!');
+  }
+  deferredInstallPrompt = null;
+  installBtn.classList.remove('visible');
+});
+
+function showInstallInstructions() {
+  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+  const isAndroid = /Android/.test(navigator.userAgent);
+  let message = '';
+  if (isIOS) {
+    message = '📱 Для установки на iPhone/iPad:\n\n1. Нажми кнопку "Поделиться" (квадрат со стрелкой)\n2. Выбери "На экран Домой"\n3. Нажми "Добавить"';
+  } else if (isAndroid) {
+    message = '📱 Для установки на Android:\n\n1. Нажми меню браузера (⋮)\n2. Выбери "Добавить на главный экран"\n3. Подтверди установку';
+  } else {
+    message = '📱 Для установки на ПК:\n\n1. Нажми на иконку установки в адресной строке браузера\n2. Или: Меню → "Установить приложение"';
+  }
+  alert(message);
+}
+
+// ============================================================
+// 🎭 АВАТАРКА
+// ============================================================
+const avatarModal = document.getElementById('avatar-modal');
+const avatarPreview = document.getElementById('avatar-preview');
+const userAvatar = document.getElementById('user-avatar');
+const avatarFileInput = document.getElementById('avatar-file-input');
+
+function loadAvatar() {
+  const saved = localStorage.getItem('userAvatar');
+  if (saved) {
+    avatarPreview.innerHTML = `<img src="${saved}" alt="Аватар">`;
+    userAvatar.innerHTML = `<img src="${saved}" alt="Аватар"><div class="avatar-upload-overlay">📷</div>`;
+  } else {
+    avatarPreview.innerHTML = '🎭';
+    userAvatar.innerHTML = '🎭<div class="avatar-upload-overlay">📷</div>';
+  }
+}
+
+function saveAvatar(base64) {
+  localStorage.setItem('userAvatar', base64);
+  loadAvatar();
+  showNotification('✅ Аватар сохранён!');
+}
+
+function removeAvatar() {
+  localStorage.removeItem('userAvatar');
+  loadAvatar();
+  showNotification('🗑️ Аватар удалён');
+  avatarModal.classList.remove('active');
+}
+
+// Открытие модалки аватара
+userAvatar.addEventListener('click', () => {
+  avatarModal.classList.add('active');
+});
+
+// Закрытие модалки
+document.getElementById('avatar-cancel-btn').addEventListener('click', () => {
+  avatarModal.classList.remove('active');
+});
+
+// Кнопка загрузки
+document.getElementById('avatar-upload-btn').addEventListener('click', () => {
+  avatarFileInput.click();
+});
+
+// Выбор файла
+avatarFileInput.addEventListener('change', (e) => {
+  const file = e.target.files[0];
+  if (!file) return;
+  if (!file.type.startsWith('image/')) {
+    showNotification('❌ Выбери изображение!', 'error');
+    return;
+  }
+  if (file.size > 2 * 1024 * 1024) {
+    showNotification('⚠️ Файл слишком большой (макс. 2MB)!', 'error');
+    return;
+  }
+  const reader = new FileReader();
+  reader.onload = (ev) => {
+    const base64 = ev.target.result;
+    const img = new Image();
+    img.onload = () => {
+      const canvas = document.createElement('canvas');
+      const size = 200;
+      canvas.width = size;
+      canvas.height = size;
+      const ctx = canvas.getContext('2d');
+      const minSide = Math.min(img.width, img.height);
+      const sx = (img.width - minSide) / 2;
+      const sy = (img.height - minSide) / 2;
+      ctx.drawImage(img, sx, sy, minSide, minSide, 0, 0, size, size);
+      const compressed = canvas.toDataURL('image/jpeg', 0.8);
+      saveAvatar(compressed);
+      avatarModal.classList.remove('active');
+    };
+    img.src = base64;
+  };
+  reader.readAsDataURL(file);
+  avatarFileInput.value = '';
+});
+
+// Удаление аватара
+document.getElementById('avatar-remove-btn').addEventListener('click', removeAvatar);
+
+// Закрытие по клику вне модалки
+avatarModal.addEventListener('click', (e) => {
+  if (e.target === avatarModal) {
+    avatarModal.classList.remove('active');
+  }
+});
+
+// Загружаем аватар при старте
+loadAvatar();
+
+// ============================================================
+// ☁️ FIREBASE SERVICE
+// ============================================================
+class FirebaseService {
+  constructor() {
+    this.isAvailable = isFirebaseConfigured && firebaseAuth && firebaseDb;
+    this.currentUser = null;
+    this.unsubscribe = null;
+  }
+
+  async register(email, password, userData) {
+    if (!this.isAvailable) throw new Error('Firebase не настроен');
+    const cred = await firebaseAuth.createUserWithEmailAndPassword(email, password);
+    await cred.user.updateProfile({ displayName: userData.username });
+    await firebaseDb.collection('users').doc(cred.user.uid).set({
+      username: userData.username,
+      email: email,
+      favoriteGenre: userData.favoriteGenre || 'shonen',
+      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+      anime: []
+    }, { merge: true });
+    return cred.user;
+  }
+
+  async login(email, password) {
+    if (!this.isAvailable) throw new Error('Firebase не настроен');
+    const cred = await firebaseAuth.signInWithEmailAndPassword(email, password);
+    return cred.user;
+  }
+
+  // Вход через Google: всплывающее окно, а если браузер его заблокировал — переход на страницу Google
+  async loginWithGoogle() {
+    if (!this.isAvailable) throw new Error('Firebase не настроен');
+    const provider = new firebase.auth.GoogleAuthProvider();
+    provider.setCustomParameters({ prompt: 'select_account' });
+    firebaseAuth.languageCode = 'ru';
+    try {
+      const cred = await firebaseAuth.signInWithPopup(provider);
+      return cred.user;
+    } catch (err) {
+      if (err.code === 'auth/popup-blocked') {
+        window.markGoogleRedirect();
+        try {
+          await firebaseAuth.signInWithRedirect(provider);
+        } catch (redirectErr) {
+          window.takeGoogleRedirectFlag();
+          throw redirectErr;
+        }
+        return null; // страница уйдёт на Google и вернётся сюда
+      }
+      throw err;
+    }
+  }
+
+  async logout() {
+    if (!this.isAvailable) return;
+    if (this.unsubscribe) this.unsubscribe();
+    await firebaseAuth.signOut();
+  }
+
+  onAuthStateChanged(callback) {
+    if (!this.isAvailable) return;
+    firebaseAuth.onAuthStateChanged((user) => {
+      this.currentUser = user;
+      callback(user);
+    });
+  }
+
+  subscribeToAnime(callback) {
+    if (!this.isAvailable || !this.currentUser) return;
+    if (this.unsubscribe) this.unsubscribe();
+    
+    this.unsubscribe = firebaseDb
+      .collection('users')
+      .doc(this.currentUser.uid)
+      .onSnapshot((doc) => {
+        if (doc.exists) {
+          const data = doc.data();
+          console.log('📥 Получено из облака:', (data.anime || []).length, 'тайтлов');
+          callback(data.anime || []);
+        } else {
+          firebaseDb.collection('users').doc(this.currentUser.uid).set({
+            anime: [],
+            createdAt: firebase.firestore.FieldValue.serverTimestamp()
+          }, { merge: true });
+          callback([]);
+        }
+      }, (error) => {
+        console.error('❌ Ошибка подписки Firestore:', error);
+        if (error.code === 'permission-denied') {
+          alert('⚠️ Ошибка доступа к Firestore!\n\nНастрой правила безопасности.');
+        }
+      });
+  }
+
+  async saveAnime(animeList) {
+    if (!this.isAvailable || !this.currentUser) return false;
+    try {
+      await firebaseDb.collection('users').doc(this.currentUser.uid).set({
+        anime: animeList,
+        lastSync: firebase.firestore.FieldValue.serverTimestamp()
+      }, { merge: true });
+      console.log('✅ Сохранено в облако:', animeList.length, 'тайтлов');
+      return true;
+    } catch (e) {
+      console.error('❌ Ошибка сохранения:', e);
+      if (e.code === 'permission-denied') {
+        alert('❌ Нет прав на запись в Firestore!\nНастрой правила безопасности.');
+      }
+      return false;
+    }
+  }
+
+  async replaceAnime(animeList) {
+    return this.saveAnime(animeList);
+  }
+
+  // Профиль users/{uid}: имя, e-mail, фото и время входа. Поле anime не трогаем;
+  // для нового пользователя сразу создаём пустую коллекцию и дату регистрации.
+  async ensureProfile(user) {
+    if (!this.isAvailable || !user || !user.uid) return;
+    const ref = firebaseDb.collection('users').doc(user.uid);
+    const ts = firebase.firestore.FieldValue.serverTimestamp();
+    const profile = {
+      username: user.displayName || (user.email ? user.email.split('@')[0] : 'Фанат аниме'),
+      email: user.email || null,
+      photoURL: user.photoURL || null,
+      provider: (user.providerData && user.providerData[0] && user.providerData[0].providerId) || 'password',
+      lastLogin: ts
+    };
+    try {
+      const snap = await ref.get();
+      if (!snap.exists) Object.assign(profile, { createdAt: ts, anime: [] });
+      await ref.set(profile, { merge: true });
+    } catch (e) {
+      console.warn('Профиль в Firestore не обновлён:', e.code || e.message);
+    }
+  }
+}
+
+const firebaseService = new FirebaseService();
+
+// ============================================================
+// 🎙️ БАЗА ОЗВУЧЕК
+// ============================================================
+const VOICE_DATABASE = [
+  { id: 'anilibria', name: 'AniLibria', icon: '🟢', desc: 'Самая популярная' },
+  { id: 'anidub', name: 'AniDUB', icon: '🔵', desc: 'Классика' },
+  { id: 'jam', name: 'JAM Club', icon: '🟡', desc: 'Команда JAM' },
+  { id: 'sovetromantica', name: 'SovetRomantica', icon: '🔴', desc: 'Качественная озвучка' },
+  { id: 'animedia', name: 'Animedia', icon: '🟣', desc: 'Старая школа' },
+  { id: 'shiza', name: 'Shiza Project', icon: '🟠', desc: 'Shiza Project' },
+  { id: 'reanimedia', name: 'ReAnimedia', icon: '⚪', desc: 'ReAnimedia' },
+  { id: 'animegrot', name: 'AnimeGrot', icon: '🟤', desc: 'AnimeGrot' },
+  { id: 'darkholme', name: 'DarkHolme', icon: '⚫', desc: 'DarkHolme' },
+  { id: 'anivost', name: 'AniVost', icon: '🔷', desc: 'AniVost' },
+  { id: 'anistar', name: 'AniStar', icon: '⭐', desc: 'AniStar' },
+  { id: 'neon_studio', name: 'Neon Studio', icon: '💜', desc: 'Neon Studio' },
+  { id: 'high_quality', name: 'High Quality', icon: '💎', desc: 'HQ озвучка' },
+  { id: 'animevost_org', name: 'AnimeVost', icon: '🔶', desc: 'AnimeVost.org' },
+  { id: 'sovet_english', name: 'English Sub', icon: '🇬🇧', desc: 'Английские субтитры' },
+  { id: 'japanese_original', name: 'Оригинал (JP)', icon: '🇯🇵', desc: 'Японская дорожка' },
+  { id: 'russian_sub', name: 'Русские субтитры', icon: '📝', desc: 'Субтитры на русском' },
+  { id: 'malevoice', name: 'Мужская озвучка', icon: '🎤', desc: 'Мужской голос' },
+  { id: 'femalevoice', name: 'Женская озвучка', icon: '🎙️', desc: 'Женский голос' },
+  { id: 'other', name: 'Другая', icon: '🎵', desc: 'Неизвестная студия' }
+];
+
+// ============================================================
+// 🎌 АВТОРИЗАЦИЯ
+// ============================================================
+class AuthManager {
+  constructor() {
+    this.loginForm = document.getElementById('login-form');
+    this.registerForm = document.getElementById('registration-form');
+    this.tabs = document.querySelectorAll('.auth-tab');
+    this.rulesModal = document.getElementById('rules-modal');
+    this.isGuestMode = false;
+    this.init();
+  }
+
+  init() {
+    this.setupTabs();
+    this.setupModal();
+    this.setupPasswordStrength();
+    this.bindEvents();
+    this.updateCloudStatus();
+
+    if (firebaseService.isAvailable) {
+      // Итог входа через переход на страницу Google (если всплывающее окно было заблокировано)
+      const cameFromGoogle = window.takeGoogleRedirectFlag();
+      firebaseAuth.getRedirectResult().then((res) => {
+        if (cameFromGoogle && !(res && res.user)) this.showNotification('Вход через Google отменён', 'info');
+      }).catch((err) => {
+        // при открытии файлом с диска эта ошибка приходит всегда — показываем её только по нажатию кнопки
+        if (!err || !err.code || err.code === 'auth/operation-not-supported-in-this-environment') return;
+        if (window.isAuthCancel(err.code)) {
+          if (cameFromGoogle) this.showNotification('Вход через Google отменён', 'info');
+        } else {
+          document.getElementById('google-login-error').textContent = this.translateFirebaseError(err.code);
+        }
+      });
+      firebaseService.onAuthStateChanged((user) => {
+        if (user) {
+          console.log('🔑 Авто-вход через Firebase:', user.email);
+          this.goToMain(user);
+        }
+      });
+    } else {
+      document.getElementById('config-info').style.display = 'block';
+      document.getElementById('cloud-status-text').textContent = '⚠️ Firebase не настроен';
+      document.getElementById('cloud-dot').classList.add('error');
+    }
+  }
+
+  updateCloudStatus() {
+    const statusText = document.getElementById('cloud-status-text');
+    const dot = document.getElementById('cloud-dot');
+    if (firebaseService.isAvailable) {
+      statusText.textContent = '✅ Облако подключено';
+      dot.classList.add('connected');
+    } else {
+      statusText.textContent = '⚠️ Только локальный режим';
+      dot.classList.add('error');
+    }
+  }
+
+  setupTabs() {
+    this.tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        this.tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const target = tab.dataset.tab;
+        this.loginForm.style.display = target === 'login' ? 'block' : 'none';
+        this.registerForm.style.display = target === 'register' ? 'block' : 'none';
+      });
+    });
+  }
+
+  setupModal() {
+    const modal = this.rulesModal;
+    const btn = document.getElementById('rules-link');
+    const close = modal.querySelector('.close');
+    btn.onclick = (e) => { e.preventDefault(); modal.style.display = 'block'; };
+    close.onclick = () => { modal.style.display = 'none'; };
+    window.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; };
+  }
+
+  setupPasswordStrength() {
+    const passwordInput = document.getElementById('password');
+    const strengthBar = document.querySelector('.strength-bar');
+    const strengthText = document.querySelector('.strength-text');
+    passwordInput.addEventListener('input', () => {
+      const strength = this.checkPasswordStrength(passwordInput.value);
+      strengthBar.style.width = strength.percentage + '%';
+      strengthBar.style.background = strength.color;
+      strengthText.textContent = strength.text;
+    });
+  }
+
+  checkPasswordStrength(password) {
+    let strength = 0;
+    if (password.length >= 6) strength += 20;
+    if (password.length >= 8) strength += 20;
+    if (/[A-Z]/.test(password)) strength += 20;
+    if (/[0-9]/.test(password)) strength += 20;
+    if (/[^A-Za-z0-9]/.test(password)) strength += 20;
+    if (strength <= 20) return { percentage: 20, color: '#ff6b6b', text: 'Слабый' };
+    if (strength <= 40) return { percentage: 40, color: '#feca57', text: 'Средний' };
+    if (strength <= 60) return { percentage: 60, color: '#48dbfb', text: 'Хороший' };
+    if (strength <= 80) return { percentage: 80, color: '#1dd1a1', text: 'Сильный' };
+    return { percentage: 100, color: '#10ac84', text: 'Максимальный' };
+  }
+
+  bindEvents() {
+    this.loginForm.addEventListener('submit', (e) => this.handleLogin(e));
+    this.registerForm.addEventListener('submit', (e) => this.handleRegister(e));
+    document.getElementById('guest-mode-btn').addEventListener('click', (e) => {
+      e.preventDefault();
+      this.enterGuestMode();
+    });
+    document.getElementById('google-login-btn').addEventListener('click', () => this.handleGoogleLogin());
+  }
+
+  async handleGoogleLogin() {
+    const btn = document.getElementById('google-login-btn');
+    const errorEl = document.getElementById('google-login-error');
+    errorEl.textContent = '';
+    if (!firebaseService.isAvailable) {
+      errorEl.textContent = '⚠️ Облако недоступно — используй гостевой режим.';
+      return;
+    }
+    btn.disabled = true;
+    this.showLoading('Вход через Google...');
+    try {
+      const user = await firebaseService.loginWithGoogle();
+      if (user) {
+        this.showNotification(`✅ Добро пожаловать, ${user.displayName || user.email}!`);
+        // Главный экран коллекции открывает onAuthStateChanged; на случай задержки — открываем сами
+        if (!document.getElementById('page-main').classList.contains('active')) this.goToMain(user);
+      }
+    } catch (err) {
+      this.hideLoading();
+      if (window.isAuthCancel(err.code)) {
+        this.showNotification('Вход через Google отменён', 'info'); // обычное действие пользователя — в консоль не пишем
+      } else {
+        errorEl.textContent = this.translateFirebaseError(err.code);
+        console.warn('Google sign-in:', err.code || err.message);
+      }
+    } finally {
+      btn.disabled = false;
+    }
+  }
+
+  async handleLogin(e) {
+    e.preventDefault();
+    const email = document.getElementById('login-email').value.trim();
+    const password = document.getElementById('login-password').value;
+    const emailError = document.getElementById('login-email-error');
+    const passwordError = document.getElementById('login-password-error');
+    emailError.textContent = '';
+    passwordError.textContent = '';
+
+    if (!firebaseService.isAvailable) {
+      this.showNotification('⚠️ Firebase не настроен. Используй гостевой режим.', 'error');
+      return;
+    }
+
+    this.showLoading('Вход в облако...');
+    try {
+      await firebaseService.login(email, password);
+      this.showNotification('✅ Добро пожаловать!');
+    } catch (err) {
+      this.hideLoading();
+      const msg = this.translateFirebaseError(err.code);
+      if (err.code === 'auth/invalid-email' || err.code === 'auth/missing-email') {
+        emailError.textContent = msg;
+      } else {
+        passwordError.textContent = msg;
+      }
+    }
+  }
+
+  async handleRegister(e) {
+    e.preventDefault();
+    const username = document.getElementById('username').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value;
+    const rules = document.getElementById('rules').checked;
+
+    const usernameError = document.getElementById('username-error');
+    const emailError = document.getElementById('email-error');
+    const passwordError = document.getElementById('password-error');
+    const rulesError = document.getElementById('rules-error');
+    
+    usernameError.textContent = '';
+    emailError.textContent = '';
+    passwordError.textContent = '';
+    rulesError.textContent = '';
+
+    let hasError = false;
+    if (username.length < 3) { usernameError.textContent = 'Минимум 3 символа'; hasError = true; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { emailError.textContent = 'Некорректный email'; hasError = true; }
+    if (password.length < 6) { passwordError.textContent = 'Минимум 6 символов'; hasError = true; }
+    if (!rules) { rulesError.textContent = 'Примите правила'; hasError = true; }
+    if (hasError) return;
+
+    if (!firebaseService.isAvailable) {
+      this.showNotification('⚠️ Firebase не настроен. Используй гостевой режим.', 'error');
+      return;
+    }
+
+    this.showLoading('Создание аккаунта...');
+    try {
+      const favoriteGenre = document.querySelector('input[name="favorite-genre"]:checked')?.value || 'shonen';
+      await firebaseService.register(email, password, { username, favoriteGenre });
+      this.showNotification('🎉 Аккаунт создан!');
+    } catch (err) {
+      this.hideLoading();
+      const msg = this.translateFirebaseError(err.code);
+      emailError.textContent = msg;
+    }
+  }
+
+  translateFirebaseError(code) {
+    if (window.ANIME_AUTH_ERRORS && window.ANIME_AUTH_ERRORS[code]) return window.ANIME_AUTH_ERRORS[code];
+    const errors = {
+      'auth/email-already-in-use': 'Этот email уже зарегистрирован',
+      'auth/invalid-email': 'Некорректный email',
+      'auth/weak-password': 'Слабый пароль (мин. 6 символов)',
+      'auth/user-not-found': 'Пользователь не найден',
+      'auth/wrong-password': 'Неверный пароль',
+      'auth/invalid-credential': 'Неверные данные для входа',
+      'auth/too-many-requests': 'Слишком много попыток. Попробуй позже',
+      'auth/network-request-failed': 'Ошибка сети'
+    };
+    return errors[code] || 'Ошибка: ' + code;
+  }
+
+  enterGuestMode() {
+    this.isGuestMode = true;
+    const guestUser = {
+      uid: 'guest_' + Date.now(),
+      displayName: 'Гость',
+      email: 'guest@local',
+      isGuest: true
+    };
+    localStorage.setItem('guestUser', JSON.stringify(guestUser));
+    this.goToMain(guestUser);
+  }
+
+  goToMain(user) {
+    this.hideLoading();
+    document.getElementById('page-register').classList.remove('active');
+    document.getElementById('page-main').classList.add('active');
+    window.scrollTo(0, 0);
+
+    if (!user.isGuest && firebaseService.isAvailable) firebaseService.ensureProfile(user);
+
+    if (!window.animeLibrary) {
+      window.animeLibrary = new UltimateAnimeLibrary(user);
+    } else {
+      window.animeLibrary.switchUser(user);
+    }
+  }
+
+  showNotification(msg, type = 'success') {
+    const colors = { success: '#4ecdc4', error: '#ff6b6b', info: '#54a0ff' };
+    const notif = document.createElement('div');
+    notif.className = 'custom-notification';
+    notif.textContent = msg;
+    notif.style.background = colors[type] || colors.success;
+    document.body.appendChild(notif);
+    setTimeout(() => {
+      notif.style.opacity = '0';
+      notif.style.transform = 'translateX(100px)';
+      notif.style.transition = 'all 0.3s';
+      setTimeout(() => notif.remove(), 300);
+    }, 2500);
+  }
+
+  showLoading(text) {
+    document.getElementById('loading-text').textContent = text || 'Загрузка...';
+    document.getElementById('loading-overlay').classList.add('active');
+  }
+  hideLoading() {
+    document.getElementById('loading-overlay').classList.remove('active');
+  }
+}
+
+// ============================================================
+// 📚 БИБЛИОТЕКА АНИМЕ
+// ============================================================
+class UltimateAnimeLibrary {
+  constructor(user) {
+    this.user = user;
+    this.isGuest = user?.isGuest || false;
+    this.animeList = [];
+    this.currentEditId = null;
+    this.currentView = 'columns';
+    this.selectedRating = null;
+    this.selectedGenres = [];
+    this.selectedVoices = [];
+    this.filterStatus = 'all';
+    this.filterGenre = 'all';
+    this.filterVoice = 'all';
+    this.sortField = 'title';
+    this.sortAsc = true;
+    this.pageSize = 20;
+    this.pages = {};
+    this.isSyncing = false;
+    this.init();
+  }
+
+  init() {
+    this.cacheDOM();
+    this.bindEvents();
+    this.setupRatingStars();
+    this.setupGenreTags();
+    this.setupVoiceSelector();
+    this.setupVoiceFilter();
+    this.displayUserInfo();
+    
+    if (this.isGuest || !firebaseService.isAvailable) {
+      this.loadFromLocalStorage();
+      this.render();
+      this.afterDataLoaded();
+    } else {
+      this.showLoading('Загрузка из облака...');
+      firebaseService.subscribeToAnime((animeList) => {
+        this.animeList = animeList || [];
+        this.saveToLocal();
+        this.render();
+        this.hideLoading();
+        this.updateLastSync();
+        this.afterDataLoaded();
+      });
+    }
+  }
+
+  switchUser(user) {
+    this.user = user;
+    this.isGuest = user?.isGuest || false;
+    this.animeList = [];
+    this.displayUserInfo();
+    
+    if (this.isGuest || !firebaseService.isAvailable) {
+      this.loadFromLocalStorage();
+      this.render();
+      this.afterDataLoaded();
+    } else {
+      this.showLoading('Загрузка из облака...');
+      firebaseService.subscribeToAnime((animeList) => {
+        this.animeList = animeList || [];
+        this.saveToLocal();
+        this.render();
+        this.hideLoading();
+        this.updateLastSync();
+        this.afterDataLoaded();
+      });
+    }
+  }
+
+  cacheDOM() {
+    this.animeForm = document.getElementById('anime-form');
+    this.searchInput = document.getElementById('search-anime');
+    this.cancelEditBtn = document.getElementById('cancel-edit');
+    this.titleRuInput = document.getElementById('anime-title-ru');
+    this.titleEnInput = document.getElementById('anime-title-en');
+    this.urlInput = document.getElementById('anime-url');
+    this.studioInput = document.getElementById('anime-studio');
+    this.yearInput = document.getElementById('anime-year');
+    this.episodesInput = document.getElementById('anime-episodes');
+    this.statusSelect = document.getElementById('anime-status');
+    this.personalNotesInput = document.getElementById('anime-personal-notes');
+    this.watchingList = document.getElementById('watching-list');
+    this.wantList = document.getElementById('want-list');
+    this.watchedList = document.getElementById('watched-list');
+    this.otherList = document.getElementById('other-list');
+    this.emptyState = document.getElementById('empty-state');
+    this.totalAnimeSpan = document.getElementById('total-anime');
+    this.totalAnimeHeader = document.getElementById('total-anime-header');
+    this.watchingCountSpan = document.getElementById('watching-count');
+    this.wantCountSpan = document.getElementById('want-count');
+    this.watchedCountSpan = document.getElementById('watched-count');
+    this.otherCountSpan = document.getElementById('other-count');
+    this.wantCountHeader = document.getElementById('want-count-header');
+    this.avgRatingSpan = document.getElementById('avg-rating');
+    this.uniqueStudiosSpan = document.getElementById('unique-studios');
+    this.totalHoursSpan = document.getElementById('total-hours');
+    this.totalEpisodesSpan = document.getElementById('total-episodes');
+    this.watchedPercent = document.getElementById('watched-percent');
+    this.watchedBar = document.getElementById('watched-bar');
+    this.wantBar = document.getElementById('want-bar');
+    this.heroGreeting = document.getElementById('hero-greeting');
+    this.columnsView = document.getElementById('columns-view');
+    this.gridView = document.getElementById('grid-view');
+    this.listView = document.getElementById('list-view');
+    this.achievementsList = document.getElementById('achievements-list');
+    this.detailModal = document.getElementById('anime-detail-modal');
+    this.detailContainer = document.querySelector('.anime-detail-container');
+    this.randomResult = document.getElementById('random-result');
+    this.filterStatusEl = document.getElementById('filter-status');
+    this.filterGenreEl = document.getElementById('filter-genre');
+    this.filterVoiceEl = document.getElementById('filter-voice');
+    this.sortSelect = document.getElementById('sort-select');
+    this.sortOrderBtn = document.getElementById('sort-order-btn');
+    this.exportBtn = document.getElementById('export-btn');
+    this.importBtn = document.getElementById('import-btn');
+    this.importFile = document.getElementById('import-file');
+  }
+
+  bindEvents() {
+    this.animeForm.addEventListener('submit', (e) => this.handleSubmit(e));
+    this.searchInput.addEventListener('input', () => { this.pages = {}; this.render(); });
+    this.cancelEditBtn.addEventListener('click', () => this.cancelEdit());
+    document.querySelectorAll('.view-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => this.switchView(e));
+    });
+    document.getElementById('random-anime-btn').addEventListener('click', () => this.showRandomAnime());
+    this.detailModal.querySelectorAll('.close').forEach(btn => {
+      btn.addEventListener('click', () => { this.detailModal.style.display = 'none'; });
+    });
+    window.addEventListener('click', (e) => {
+      if (e.target === this.detailModal) this.detailModal.style.display = 'none';
+    });
+    this.filterStatusEl.addEventListener('change', () => {
+      this.filterStatus = this.filterStatusEl.value;
+      this.pages = {};
+      this.render();
+    });
+    this.filterGenreEl.addEventListener('change', () => {
+      this.filterGenre = this.filterGenreEl.value;
+      this.pages = {};
+      this.render();
+    });
+    this.filterVoiceEl.addEventListener('change', () => {
+      this.filterVoice = this.filterVoiceEl.value;
+      this.pages = {};
+      this.render();
+    });
+    this.sortSelect.addEventListener('change', () => {
+      this.sortField = this.sortSelect.value;
+      this.pages = {};
+      this.render();
+    });
+    this.sortOrderBtn.addEventListener('click', () => {
+      this.sortAsc = !this.sortAsc;
+      this.sortOrderBtn.textContent = this.sortAsc ? '⬆️ Возр.' : '⬇️ Убыв.';
+      this.pages = {};
+      this.render();
+    });
+    this.exportBtn.addEventListener('click', () => this.exportData());
+    this.importBtn.addEventListener('click', () => this.importFile.click());
+    this.importFile.addEventListener('change', (e) => this.importData(e));
+    document.addEventListener('click', (e) => {
+      if (e.target.classList.contains('load-more-btn')) {
+        const status = e.target.dataset.status;
+        if (!this.pages[status]) this.pages[status] = 1;
+        this.pages[status]++;
+        this.renderColumn(status);
+      }
+    });
+    document.getElementById('logout-btn').addEventListener('click', () => this.logout());
+    document.addEventListener('click', (e) => {
+      const link = e.target.closest('[data-watch-id]');
+      if (link) this.markWatched(link.dataset.watchId);  // ссылка откроется в новой вкладке как обычно
+    }, true); // capture: у ссылок в карточках стоит stopPropagation()
+  }
+
+  async logout() {
+    if (!confirm('Выйти из аккаунта?')) return;
+    if (firebaseService.isAvailable && !this.isGuest) {
+      await firebaseService.logout();
+    }
+    localStorage.removeItem('guestUser');
+    document.getElementById('page-main').classList.remove('active');
+    document.getElementById('page-register').classList.add('active');
+    window.scrollTo(0, 0);
+  }
+
+  setupRatingStars() {
+    const starsContainer = document.getElementById('rating-stars');
+    if (!starsContainer) return;
+    starsContainer.innerHTML = '';
+    for (let i = 1; i <= 10; i++) {
+      const star = document.createElement('span');
+      star.innerHTML = '☆';
+      star.dataset.rating = i;
+      star.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const rating = parseInt(e.target.dataset.rating);
+        document.querySelectorAll('#rating-stars span').forEach((s, index) => {
+          s.innerHTML = index < rating ? '★' : '☆';
+        });
+        this.selectedRating = rating;
+      });
+      starsContainer.appendChild(star);
+    }
+  }
+
+  setupGenreTags() {
+    const genreTags = document.getElementById('genre-tags');
+    if (!genreTags) return;
+    const genres = ['shonen', 'shojo', 'seinen', 'slice-of-life', 'fantasy', 'scifi', 'romance', 'comedy', 'drama', 'horror'];
+    const genreNames = {
+      'shonen': '🔥 Сёнэн', 'shojo': '💖 Сёдзё', 'seinen': '🥋 Сэйнэн',
+      'slice-of-life': '☕ Повседневность', 'fantasy': '⚔️ Фэнтези',
+      'scifi': '🚀 Sci-Fi', 'romance': '💕 Романтика', 'comedy': '😄 Комедия',
+      'drama': '🎭 Драма', 'horror': '👻 Хоррор'
+    };
+    genreTags.innerHTML = '';
+    this.selectedGenres = [];
+    genres.forEach(genre => {
+      const tag = document.createElement('span');
+      tag.className = 'genre-tag';
+      tag.textContent = genreNames[genre];
+      tag.dataset.genre = genre;
+      tag.addEventListener('click', () => {
+        tag.classList.toggle('selected');
+        if (tag.classList.contains('selected')) {
+          this.selectedGenres.push(genre);
+        } else {
+          this.selectedGenres = this.selectedGenres.filter(g => g !== genre);
+        }
+      });
+      genreTags.appendChild(tag);
+    });
+  }
+
+  setupVoiceSelector() {
+    this.voiceToggle = document.getElementById('voice-toggle');
+    this.voiceDropdown = document.getElementById('voice-dropdown');
+    this.voiceList = document.getElementById('voice-list');
+    this.voiceSearch = document.getElementById('voice-search');
+    this.voiceToggleText = document.getElementById('voice-toggle-text');
+    this.selectedVoicesDisplay = document.getElementById('selected-voices-display');
+    
+    this.renderVoiceList();
+    
+    this.voiceToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      this.voiceDropdown.classList.toggle('open');
+      this.voiceToggle.classList.toggle('open');
+      if (this.voiceDropdown.classList.contains('open')) {
+        this.voiceSearch.focus();
+      }
+    });
+    
+    this.voiceSearch.addEventListener('input', () => {
+      this.renderVoiceList(this.voiceSearch.value.toLowerCase());
+    });
+    
+    this.voiceSearch.addEventListener('click', (e) => e.stopPropagation());
+    this.voiceDropdown.addEventListener('click', (e) => e.stopPropagation());
+    
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.voice-selector-wrapper')) {
+        this.voiceDropdown.classList.remove('open');
+        this.voiceToggle.classList.remove('open');
+      }
+    });
+  }
+
+  renderVoiceList(filter = '') {
+    const filtered = VOICE_DATABASE.filter(v => 
+      v.name.toLowerCase().includes(filter) || 
+      v.desc.toLowerCase().includes(filter)
+    );
+    
+    this.voiceList.innerHTML = filtered.map(voice => `
+      <div class="voice-option ${this.selectedVoices.includes(voice.id) ? 'selected' : ''}" data-voice-id="${voice.id}">
+        <span class="voice-option-icon">${this.escapeHtml(voice.icon)}</span>
+        <div class="voice-option-info">
+          <span class="voice-option-name">${this.escapeHtml(voice.name)}</span>
+          <span class="voice-option-desc">${this.escapeHtml(voice.desc)}</span>
+        </div>
+        <span class="voice-option-check">✓</span>
+      </div>
+    `).join('');
+    
+    this.voiceList.querySelectorAll('.voice-option').forEach(option => {
+      option.addEventListener('click', () => {
+        const voiceId = option.dataset.voiceId;
+        this.toggleVoice(voiceId);
+      });
+    });
+  }
+
+  toggleVoice(voiceId) {
+    if (this.selectedVoices.includes(voiceId)) {
+      this.selectedVoices = this.selectedVoices.filter(v => v !== voiceId);
+    } else {
+      this.selectedVoices.push(voiceId);
+    }
+    this.renderVoiceList(this.voiceSearch.value.toLowerCase());
+    this.renderSelectedVoices();
+    this.updateVoiceToggleText();
+  }
+
+  removeVoice(voiceId) {
+    this.selectedVoices = this.selectedVoices.filter(v => v !== voiceId);
+    this.renderVoiceList(this.voiceSearch.value.toLowerCase());
+    this.renderSelectedVoices();
+    this.updateVoiceToggleText();
+  }
+
+  renderSelectedVoices() {
+    this.selectedVoicesDisplay.innerHTML = this.selectedVoices.map(voiceId => {
+      const voice = VOICE_DATABASE.find(v => v.id === voiceId);
+      if (!voice) return '';
+      return `
+        <span class="selected-voice-tag">
+          ${this.escapeHtml(voice.icon)} ${this.escapeHtml(voice.name)}
+          <span class="remove-voice" data-voice-id="${voice.id}">×</span>
+        </span>
+      `;
+    }).join('');
+    
+    this.selectedVoicesDisplay.querySelectorAll('.remove-voice').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.removeVoice(btn.dataset.voiceId);
+      });
+    });
+  }
+
+  updateVoiceToggleText() {
+    if (this.selectedVoices.length === 0) {
+      this.voiceToggleText.textContent = '🎙️ Выбери озвучку...';
+    } else if (this.selectedVoices.length === 1) {
+      const voice = VOICE_DATABASE.find(v => v.id === this.selectedVoices[0]);
+      this.voiceToggleText.textContent = `${voice.icon} ${voice.name}`;
+    } else {
+      this.voiceToggleText.textContent = `🎙️ Выбрано: ${this.selectedVoices.length}`;
+    }
+  }
+
+  setupVoiceFilter() {
+    this.filterVoiceEl.innerHTML = '<option value="all">Все озвучки</option>' +
+      VOICE_DATABASE.map(v => `<option value="${v.id}">${v.icon} ${v.name}</option>`).join('');
+  }
+
+  getVoiceName(voiceId) {
+    const voice = VOICE_DATABASE.find(v => v.id === voiceId);
+    return voice ? `${voice.icon} ${voice.name}` : voiceId;
+  }
+
+  getStorageKey() {
+    return this.isGuest ? 'animeList_guest' : `animeList_${this.user.uid}`;
+  }
+
+  loadFromLocalStorage() {
+    const key = this.getStorageKey();
+    const saved = localStorage.getItem(key);
+    if (saved) {
+      try {
+        this.animeList = JSON.parse(saved);
+        console.log('📂 Загружено из localStorage:', this.animeList.length, 'тайтлов');
+      } catch (e) {
+        this.animeList = [];
+      }
+    } else if (this.animeList.length === 0) {
+      this.animeList = [
+        { id: 1, title: 'Атака титанов', titleEn: 'Shingeki no Kyojin', episodes: '87', status: 'watched', genre: 'shonen, drama', rating: 10, studio: 'MAPPA', year: '2023', voices: ['anilibria', 'jam'], dateAdded: '10.02.2024' },
+        { id: 2, title: 'Магическая битва', titleEn: 'Jujutsu Kaisen', episodes: '47', status: 'watching', genre: 'shonen, fantasy', rating: 9, studio: 'MAPPA', year: '2023', voices: ['anilibria'], dateAdded: '01.03.2024' },
+        { id: 3, title: 'Фрирен', titleEn: 'Sousou no Frieren', episodes: '28', status: 'watched', genre: 'fantasy, drama', rating: 10, studio: 'Madhouse', year: '2024', voices: ['sovetromantica', 'anidub'], dateAdded: '01.04.2024' },
+        { id: 4, title: 'Человек-бензопила', titleEn: 'Chainsaw Man', episodes: '12', status: 'want', genre: 'shonen, horror', rating: 8, studio: 'MAPPA', year: '2022', voices: ['anilibria'], dateAdded: '15.03.2024' }
+      ];
+      this.saveToLocal();
+    }
+  }
+
+  saveToLocal() {
+    const key = this.getStorageKey();
+    localStorage.setItem(key, JSON.stringify(this.animeList));
+    this.publishSiteLinks();
+  }
+
+  // Справочник «название → ссылка» для кнопок «🔗 Смотреть» в каталоге сайта
+  publishSiteLinks() {
+    const map = {};
+    this.animeList.forEach(a => {
+      if (!a.url || !isHttpUrl(a.url)) return;
+      [a.title, a.titleEn].forEach(name => {
+        const key = normalizeTitle(name);
+        if (key) map[key] = { title: a.title, url: a.url };
+      });
+    });
+    try { localStorage.setItem(SITE_LINKS_KEY, JSON.stringify(map)); } catch (_) {}
+  }
+
+  findByTitle(title) {
+    const key = normalizeTitle(title);
+    if (!key) return null;
+    return this.animeList.find(a => normalizeTitle(a.title) === key || normalizeTitle(a.titleEn) === key) || null;
+  }
+
+  // Вызывается после каждой загрузки данных (для облака — при каждом обновлении подписки)
+  afterDataLoaded() {
+    this.applyWatchQueue();
+    if (pendingAdd && !this.pendingAddApplied) {
+      this.pendingAddApplied = true;
+      this.applyPendingAdd(pendingAdd);
+    }
+  }
+
+  // «Смотреть» нажимали в каталоге сайта, пока трекер был закрыт
+  applyWatchQueue() {
+    let queue = [];
+    try { queue = JSON.parse(localStorage.getItem(WATCH_QUEUE_KEY) || '[]'); } catch (_) {}
+    if (!Array.isArray(queue) || !queue.length) return;
+    localStorage.removeItem(WATCH_QUEUE_KEY);
+    let changed = false;
+    queue.forEach(({ title, ts }) => {
+      const anime = this.findByTitle(title);
+      if (!anime) return;
+      anime.lastWatched = Math.max(anime.lastWatched || 0, Number(ts) || Date.now());
+      if (anime.status === 'want') anime.status = 'watching';
+      changed = true;
+    });
+    if (changed) { this.saveAnime(); this.render(); }
+  }
+
+  findByUrl(url) {
+    const norm = u => { try { const x = new URL(u); x.hash = ''; return x.href.replace(/\/$/, ''); } catch (_) { return ''; } };
+    const key = norm(url);
+    return key ? this.animeList.find(a => a.url && norm(a.url) === key) || null : null;
+  }
+
+  applyPendingAdd({ title, url, fromBookmarklet, urlTooLong, titleCleaned }) {
+    // Убираем параметры из адреса, чтобы перезагрузка не добавляла повторно
+    history.replaceState(null, '', location.pathname + location.hash);
+    const hint = document.getElementById('pending-add-hint');
+    if (hint) hint.hidden = true;
+
+    const existing = (url && this.findByUrl(url)) || this.findByTitle(title);
+    if (existing) {
+      this.editAnime(existing.id);
+      if (url && this.urlInput) this.urlInput.value = url;
+      this.showNotification(`📌 «${existing.title}» уже в коллекции — можно обновить ссылку`, 'info');
+    } else {
+      this.resetForm();
+      if (this.titleRuInput) this.titleRuInput.value = title;
+      if (this.urlInput && url) this.urlInput.value = url;
+      if (this.statusSelect) this.statusSelect.value = 'want';
+      const msg = urlTooLong ? '⚠️ Ссылка слишком длинная — вставь её вручную'
+        : titleCleaned ? '🧹 Название очищено от лишнего — проверь его и нажми «Добавить»'
+        : (title && url) ? '🔗 Название и ссылка подставлены — нажми «Добавить»'
+        : url ? '🔗 Ссылка подставлена — впиши название и нажми «Добавить»'
+        : '🔗 Название подставлено — вставь ссылку и нажми «Добавить»';
+      this.showNotification(msg, urlTooLong ? 'error' : 'info');
+    }
+    const section = document.querySelector('.add-anime-section');
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      section.classList.add('prefilled');
+      setTimeout(() => section.classList.remove('prefilled'), 2500);
+    }
+    const focusEl = (this.titleRuInput && !this.titleRuInput.value) ? this.titleRuInput
+      : (this.urlInput && !this.urlInput.value) ? this.urlInput
+      : this.animeForm.querySelector('button[type="submit"]');
+    if (focusEl) setTimeout(() => focusEl.focus({ preventScroll: true }), 400);
+  }
+
+  // Нажали «🔗 Смотреть»: запоминаем время и переводим «Хочу» → «Смотрю»
+  markWatched(id) {
+    const anime = this.animeList.find(a => String(a.id) === String(id));
+    if (!anime) return;
+    anime.lastWatched = Date.now();
+    if (anime.status === 'want') {
+      anime.status = 'watching';
+      this.showNotification(`📺 «${anime.title}» перенесено в «Смотрю»`, 'info');
+    }
+    this.saveAnime();
+    this.render();
+  }
+
+  renderContinueWatching() {
+    const section = document.getElementById('continue-watching');
+    const listEl = document.getElementById('continue-list');
+    if (!section || !listEl) return;
+    const recent = this.animeList
+      .filter(a => a.lastWatched)
+      .sort((a, b) => b.lastWatched - a.lastWatched)
+      .slice(0, 5);
+    section.hidden = recent.length === 0;
+    const statusNames = { watching: '📺 Смотрю', want: '⏳ Хочу', watched: '✅ Просмотрено', dropped: '🔄 Брошено', onhold: '🔄 Отложено', rewatching: '🔄 Пересматриваю' };
+    listEl.innerHTML = recent.map(a => `
+      <div class="continue-item status-${this.escapeHtml(a.status)}">
+        <div class="continue-title" onclick="animeLibrary.viewAnimeDetails(${a.id})">${this.escapeHtml(a.title)}</div>
+        <div class="continue-meta">${statusNames[a.status] || ''} · ${this.formatAgo(a.lastWatched)}</div>
+        <div class="continue-actions">
+          ${a.url && isHttpUrl(a.url)
+            ? `<a class="continue-btn" href="${this.escapeHtml(a.url)}" target="_blank" rel="noopener" data-watch-id="${a.id}">🔗 Смотреть</a>`
+            : `<button type="button" class="continue-btn secondary" onclick="animeLibrary.editAnime(${a.id})">✏️ Добавить ссылку</button>`}
+        </div>
+      </div>`).join('');
+  }
+
+  formatAgo(ts) {
+    const diff = Math.max(0, Date.now() - ts);
+    const min = Math.floor(diff / 60000);
+    if (min < 1) return 'только что';
+    if (min < 60) return `${min} мин назад`;
+    const h = Math.floor(min / 60);
+    if (h < 24) return `${h} ч назад`;
+    const d = Math.floor(h / 24);
+    if (d < 7) return `${d} дн назад`;
+    return new Date(ts).toLocaleDateString('ru-RU');
+  }
+
+  async saveAnime() {
+    this.saveToLocal();
+    this.updateStats();
+    this.updateAchievements();
+    
+    if (!this.isGuest && firebaseService.isAvailable) {
+      // Пока идёт запись, новые правки не теряем: отмечаем и после записи сохраняем самое свежее состояние
+      if (this.isSyncing) { this.syncQueued = true; return; }
+      this.isSyncing = true;
+      try {
+        do {
+          this.syncQueued = false;
+          const success = await firebaseService.saveAnime(this.animeList.slice());
+          if (!success) { console.warn('⚠️ Не удалось синхронизировать с облаком'); break; }
+          this.updateLastSync();
+        } while (this.syncQueued);
+      } finally {
+        this.isSyncing = false;
+      }
+    }
+  }
+
+  updateLastSync() {
+    const el = document.getElementById('last-sync');
+    if (el) {
+      const now = new Date();
+      el.textContent = 'Последняя: ' + now.toLocaleTimeString('ru-RU');
+    }
+  }
+
+  displayUserInfo() {
+    const username = this.user?.displayName || this.user?.username || 'Гость';
+    if (this.heroGreeting) this.heroGreeting.textContent = `С возвращением, ${username}!`;
+    
+    const badge = document.getElementById('nav-cloud-badge');
+    if (badge) {
+      if (this.isGuest || !firebaseService.isAvailable) {
+        badge.innerHTML = '<span class="cloud-dot" style="background:#feca57"></span><span>💾 Локально</span>';
+        document.getElementById('cloud-info').textContent = 'Локальное хранение';
+      } else {
+        badge.innerHTML = '<span class="cloud-dot connected"></span><span>☁️ Cloud</span>';
+        document.getElementById('cloud-info').textContent = 'Синхронизация активна';
+      }
+    }
+    
+    const level = this.calculateLevel();
+    const levelBadge = document.querySelector('.level-badge');
+    if (levelBadge) levelBadge.textContent = `LVL ${level.level}`;
+    const expFill = document.querySelector('.exp-fill');
+    if (expFill) expFill.style.width = `${level.progress}%`;
+  }
+
+  parseEpisodes(episodesStr) {
+    if (!episodesStr) return 0;
+    let eps = 0;
+    if (episodesStr.includes('+')) eps = parseInt(episodesStr) || 0;
+    else if (episodesStr.includes('-')) eps = parseInt(episodesStr.split('-')[1]) || 0;
+    else eps = parseInt(episodesStr) || 0;
+    return eps;
+  }
+
+  calculateStats() {
+    const stats = { totalAnime: this.animeList.length, totalEpisodes: 0, totalHours: 0, avgRating: 0, studios: new Set() };
+    let ratingSum = 0, ratingCount = 0;
+    this.animeList.forEach(anime => {
+      const eps = this.parseEpisodes(anime.episodes);
+      stats.totalEpisodes += eps;
+      stats.totalHours += eps * 24 / 60;
+      if (anime.rating) { ratingSum += parseInt(anime.rating); ratingCount++; }
+      if (anime.studio && anime.studio !== 'Не указана') stats.studios.add(anime.studio);
+    });
+    stats.avgRating = ratingCount ? (ratingSum / ratingCount).toFixed(1) : '0.0';
+    stats.uniqueStudios = stats.studios.size;
+    if (this.totalHoursSpan) this.totalHoursSpan.textContent = Math.round(stats.totalHours);
+    if (this.totalEpisodesSpan) this.totalEpisodesSpan.textContent = stats.totalEpisodes;
+    if (this.avgRatingSpan) this.avgRatingSpan.textContent = stats.avgRating;
+    if (this.uniqueStudiosSpan) this.uniqueStudiosSpan.textContent = stats.uniqueStudios;
+    if (this.totalAnimeHeader) this.totalAnimeHeader.textContent = stats.totalAnime;
+    return stats;
+  }
+
+  updateStats() {
+    const watching = this.animeList.filter(a => a.status === 'watching').length;
+    const want = this.animeList.filter(a => a.status === 'want').length;
+    const watched = this.animeList.filter(a => a.status === 'watched').length;
+    const other = this.animeList.filter(a => ['dropped', 'onhold', 'rewatching'].includes(a.status)).length;
+    const total = this.animeList.length;
+    if (this.totalAnimeSpan) this.totalAnimeSpan.textContent = total;
+    if (this.watchingCountSpan) this.watchingCountSpan.textContent = watching;
+    if (this.wantCountSpan) this.wantCountSpan.textContent = want;
+    if (this.watchedCountSpan) this.watchedCountSpan.textContent = watched;
+    if (this.otherCountSpan) this.otherCountSpan.textContent = other;
+    if (this.wantCountHeader) this.wantCountHeader.textContent = want;
+    if (this.watchedPercent) {
+      const percent = total ? Math.round((watched / total) * 100) : 0;
+      this.watchedPercent.textContent = percent + '%';
+      if (this.watchedBar) this.watchedBar.style.width = percent + '%';
+    }
+    if (this.wantBar) {
+      const wantPercent = total ? Math.round((want / total) * 100) : 0;
+      this.wantBar.style.width = wantPercent + '%';
+    }
+    this.calculateStats();
+  }
+
+  getFilteredAndSorted() {
+    let list = [...this.animeList];
+    const term = this.searchInput.value.toLowerCase().trim();
+    if (term) {
+      list = list.filter(a =>
+        a.title.toLowerCase().includes(term) ||
+        (a.titleEn && a.titleEn.toLowerCase().includes(term)) ||
+        (a.notes && a.notes.toLowerCase().includes(term))
+      );
+    }
+    if (this.filterStatus !== 'all') list = list.filter(a => a.status === this.filterStatus);
+    if (this.filterGenre !== 'all') {
+      list = list.filter(a => {
+        if (!a.genre) return false;
+        return a.genre.split(',').map(g => g.trim()).includes(this.filterGenre);
+      });
+    }
+    if (this.filterVoice !== 'all') {
+      list = list.filter(a => {
+        if (!a.voices || !Array.isArray(a.voices)) return false;
+        return a.voices.includes(this.filterVoice);
+      });
+    }
+    const field = this.sortField;
+    const asc = this.sortAsc;
+    list.sort((a, b) => {
+      let valA = a[field] || '';
+      let valB = b[field] || '';
+      if (field === 'rating' || field === 'year') {
+        valA = parseInt(valA) || 0;
+        valB = parseInt(valB) || 0;
+      } else {
+        valA = valA.toString().toLowerCase();
+        valB = valB.toString().toLowerCase();
+      }
+      if (valA < valB) return asc ? -1 : 1;
+      if (valA > valB) return asc ? 1 : -1;
+      return 0;
+    });
+    return list;
+  }
+
+  getPaginated(list, status, page) {
+    const start = (page - 1) * this.pageSize;
+    return list.slice(start, start + this.pageSize);
+  }
+
+  renderVoiceTags(anime) {
+    if (!anime.voices || !Array.isArray(anime.voices) || anime.voices.length === 0) return '';
+    return anime.voices.map(vId => {
+      const voice = VOICE_DATABASE.find(v => v.id === vId);
+      if (!voice) return '';
+      return `<span class="voice-tag-small">${this.escapeHtml(voice.icon)} ${this.escapeHtml(voice.name)}</span>`;
+    }).join('');
+  }
+
+  renderColumn(status) {
+    const containerMap = { 'watching': 'watching-list', 'want': 'want-list', 'watched': 'watched-list', 'other': 'other-list' };
+    const container = document.getElementById(containerMap[status]);
+    if (!container) return;
+    let filtered = this.getFilteredAndSorted();
+    if (status === 'other') filtered = filtered.filter(a => ['dropped', 'onhold', 'rewatching'].includes(a.status));
+    else filtered = filtered.filter(a => a.status === status);
+    const totalItems = filtered.length;
+    const currentPage = this.pages[status] || 1;
+    const paginated = this.getPaginated(filtered, status, currentPage);
+    const hasMore = currentPage * this.pageSize < totalItems;
+    if (paginated.length === 0 && currentPage === 1) {
+      container.innerHTML = '<div class="empty-column">✨ Пока ничего нет</div>';
+      return;
+    }
+    container.innerHTML = paginated.map(anime => `
+      <div class="anime-card" data-id="${anime.id}">
+        <div class="anime-card-header" onclick="animeLibrary.viewAnimeDetails(${anime.id})">
+          <h3>${this.escapeHtml(anime.title)}</h3>
+          <span class="anime-status-badge">
+            ${anime.status === 'watching' ? '📺' : anime.status === 'want' ? '⏳' : anime.status === 'watched' ? '✅' : '🔄'}
+          </span>
+        </div>
+        <div class="anime-card-info" onclick="animeLibrary.viewAnimeDetails(${anime.id})">
+          <p><span class="info-label">📺 Серий:</span> ${this.escapeHtml(anime.episodes)}</p>
+          ${anime.genre ? `<p><span class="info-label">🎭 Жанры:</span> ${anime.genre.split(',').map(g => `<span class="genre-tag-small">${this.escapeHtml(g.trim())}</span>`).join('')}</p>` : ''}
+          ${anime.voices && anime.voices.length ? `<p><span class="info-label">🎙️ Озвучка:</span> ${this.renderVoiceTags(anime)}</p>` : ''}
+          ${anime.rating ? `<p><span class="info-label">⭐ Оценка:</span> <span class="rating-stars-small">${'★'.repeat(anime.rating)}${'☆'.repeat(10-anime.rating)}</span></p>` : ''}
+          ${anime.studio && anime.studio !== 'Не указана' ? `<p><span class="info-label">🎬 Студия:</span> ${this.escapeHtml(anime.studio)}</p>` : ''}
+          ${anime.url ? `<div style="margin:8px 0"><a href="${this.escapeHtml(anime.url)}" target="_blank" rel="noopener" class="anime-link" data-watch-id="${anime.id}" onclick="event.stopPropagation()">🔗 Смотреть</a></div>` : ''}
+          ${anime.notes ? `<p class="anime-comment">💬 ${this.escapeHtml(anime.notes)}</p>` : ''}
+        </div>
+        <div class="anime-actions" onclick="event.stopPropagation()">
+          <button class="edit-btn" onclick="animeLibrary.editAnime(${anime.id})">✏️ Править</button>
+          <button class="delete-btn" onclick="animeLibrary.deleteAnime(${anime.id})">🗑️</button>
+        </div>
+      </div>
+    `).join('') + (hasMore ? `<button class="load-more-btn" data-status="${status}">Загрузить ещё (${totalItems - currentPage * this.pageSize} осталось)</button>` : '');
+  }
+
+  render() {
+    ['watching', 'want', 'watched', 'other'].forEach(s => { if (!this.pages[s]) this.pages[s] = 1; });
+    this.renderColumn('watching');
+    this.renderColumn('want');
+    this.renderColumn('watched');
+    this.renderColumn('other');
+    const total = this.getFilteredAndSorted().length;
+    if (this.emptyState) this.emptyState.style.display = total === 0 ? 'block' : 'none';
+    this.updateStats();
+    this.renderContinueWatching();
+    if (this.currentView === 'grid') this.renderGridView();
+    if (this.currentView === 'list') this.renderListView();
+  }
+
+  renderGridView() {
+    if (!this.gridView) return;
+    const list = this.getFilteredAndSorted();
+    if (list.length === 0) {
+      this.gridView.innerHTML = '<div class="empty-state"><p>📭 Ничего не найдено</p></div>';
+      return;
+    }
+    this.gridView.innerHTML = list.map(anime => `
+      <div class="grid-item" onclick="animeLibrary.viewAnimeDetails(${anime.id})">
+        <h3>${this.escapeHtml(anime.title)}</h3>
+        <p>${this.escapeHtml(anime.episodes)} сер.</p>
+        ${anime.rating ? `<span class="rating">${'★'.repeat(anime.rating)}</span>` : ''}
+      </div>
+    `).join('');
+  }
+
+  renderListView() {
+    if (!this.listView) return;
+    const list = this.getFilteredAndSorted();
+    if (list.length === 0) {
+      this.listView.innerHTML = '<div class="empty-state"><p>📭 Ничего не найдено</p></div>';
+      return;
+    }
+    const statusLabels = { watching: '📺 Смотрю', want: '⏳ Хочу', watched: '✅ Просмотрено', rewatching: '🔄 Пересматриваю', dropped: '⛔ Брошено', onhold: '⏸️ На паузе' };
+    this.listView.innerHTML = `
+      <table class="anime-table">
+        <thead><tr><th>Название</th><th>Статус</th><th>Серии</th><th>Озвучка</th><th>Оценка</th><th>Ссылка</th><th></th></tr></thead>
+        <tbody>
+          ${list.map(anime => `
+            <tr>
+              <td>${this.escapeHtml(anime.title)}</td>
+              <td><span class="status-badge ${anime.status}">${statusLabels[anime.status] || anime.status}</span></td>
+              <td>${this.escapeHtml(anime.episodes)}</td>
+              <td>${anime.voices && anime.voices.length ? anime.voices.map(v => this.getVoiceName(v)).join(', ') : '-'}</td>
+              <td>${anime.rating ? '★'.repeat(anime.rating) : '-'}</td>
+              <td>${anime.url ? `<a href="${this.escapeHtml(anime.url)}" target="_blank" rel="noopener" data-watch-id="${anime.id}" aria-label="Смотреть">🔗</a>` : '-'}</td>
+              <td>
+                <button class="edit-btn" onclick="animeLibrary.editAnime(${anime.id})">✏️</button>
+                <button class="delete-btn" onclick="animeLibrary.deleteAnime(${anime.id})">🗑️</button>
+              </td>
+            </tr>
+          `).join('')}
+        </tbody>
+      </table>
+    `;
+  }
+
+  showNotification(msg, type = 'success') {
+    const colors = { success: '#4ecdc4', error: '#ff6b6b', info: '#54a0ff' };
+    const notif = document.createElement('div');
+    notif.className = 'custom-notification';
+    notif.textContent = msg;
+    notif.style.background = colors[type] || colors.success;
+    document.body.appendChild(notif);
+    setTimeout(() => {
+      notif.style.opacity = '0';
+      notif.style.transform = 'translateX(100px)';
+      notif.style.transition = 'all 0.3s';
+      setTimeout(() => notif.remove(), 300);
+    }, 2500);
+  }
+
+  showLoading(text) {
+    document.getElementById('loading-text').textContent = text || 'Загрузка...';
+    document.getElementById('loading-overlay').classList.add('active');
+  }
+  hideLoading() {
+    document.getElementById('loading-overlay').classList.remove('active');
+  }
+
+  exportData() {
+    const data = {
+      version: '2.0',
+      exportDate: new Date().toISOString(),
+      user: { username: this.user?.displayName || this.user?.username || 'Guest' },
+      anime: this.animeList
+    };
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `animeverse_backup_${new Date().toISOString().slice(0,10)}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+    this.showNotification(`📤 Экспортировано ${this.animeList.length} тайтлов!`);
+  }
+
+  importData(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = async (ev) => {
+      try {
+        const data = JSON.parse(ev.target.result);
+        let importedList = [];
+        if (Array.isArray(data)) importedList = data;
+        else if (data.anime && Array.isArray(data.anime)) importedList = data.anime;
+        else throw new Error('Неверный формат');
+        
+        const mode = confirm(`Найдено ${importedList.length} тайтлов.\n\nOK = Заменить коллекцию\nОтмена = Добавить к существующей`);
+        if (mode) {
+          this.animeList = importedList;
+        } else {
+          const existingIds = new Set(this.animeList.map(a => a.id));
+          importedList.forEach(a => {
+            if (!existingIds.has(a.id)) this.animeList.push(a);
+            else {
+              a.id = Date.now() + Math.random();
+              this.animeList.push(a);
+            }
+          });
+        }
+        await this.saveAnime();
+        this.render();
+        this.showNotification(`📥 Импортировано ${importedList.length} тайтлов!`);
+      } catch (err) {
+        this.showNotification('❌ Ошибка: ' + err.message, 'error');
+      }
+    };
+    reader.readAsText(file);
+    this.importFile.value = '';
+  }
+
+  async handleSubmit(e) {
+    e.preventDefault();
+    const title = this.titleRuInput.value.trim();
+    if (!title) { this.showNotification('⚠️ Введите название!', 'error'); return; }
+    let url = this.urlInput ? this.urlInput.value.trim() : '';
+    if (url && !this.isValidUrl(url)) { this.showNotification('⚠️ Некорректная ссылка', 'error'); return; }
+    
+    const animeData = {
+      id: this.currentEditId || Date.now(),
+      title: title,
+      titleEn: this.titleEnInput ? this.titleEnInput.value.trim() : '',
+      url: url || null,
+      studio: this.studioInput ? this.studioInput.value.trim() || 'Не указана' : 'Не указана',
+      year: this.yearInput ? this.yearInput.value.trim() || 'Не указан' : 'Не указан',
+      episodes: this.episodesInput ? this.episodesInput.value.trim() || '?' : '?',
+      status: this.statusSelect ? this.statusSelect.value : 'want',
+      genre: this.selectedGenres.length ? this.selectedGenres.join(', ') : 'Не указан',
+      voices: [...this.selectedVoices],
+      rating: this.selectedRating || null,
+      notes: this.personalNotesInput ? this.personalNotesInput.value.trim() : '',
+      dateAdded: this.currentEditId ? (this.animeList.find(a => a.id === this.currentEditId)?.dateAdded || new Date().toLocaleDateString()) : new Date().toLocaleDateString(),
+      lastWatched: this.currentEditId ? (this.animeList.find(a => a.id === this.currentEditId)?.lastWatched || null) : null,
+      lastUpdated: new Date().toLocaleDateString()
+    };
+    
+    if (this.currentEditId) {
+      const index = this.animeList.findIndex(a => a.id === this.currentEditId);
+      if (index !== -1) {
+        this.animeList[index] = animeData;
+        this.showNotification('✅ Аниме обновлено!');
+      }
+      this.cancelEdit();
+    } else {
+      this.animeList.push(animeData);
+      this.showNotification('✨ Аниме добавлено!');
+    }
+    await this.saveAnime();
+    this.render();
+    this.resetForm();
+  }
+
+  resetForm() {
+    this.animeForm.reset();
+    this.selectedRating = null;
+    this.selectedGenres = [];
+    this.selectedVoices = [];
+    this.currentEditId = null;
+    this.cancelEditBtn.style.display = 'none';
+    document.querySelectorAll('#rating-stars span').forEach(star => { star.innerHTML = '☆'; });
+    document.querySelectorAll('.genre-tag').forEach(tag => { tag.classList.remove('selected'); });
+    this.renderSelectedVoices();
+    this.updateVoiceToggleText();
+    this.renderVoiceList();
+  }
+
+  isValidUrl(string) {
+    return isHttpUrl(string);
+  }
+
+  editAnime(id) {
+    const anime = this.animeList.find(a => a.id === id);
+    if (!anime) return;
+    this.titleRuInput.value = anime.title || '';
+    this.titleEnInput.value = anime.titleEn || '';
+    this.urlInput.value = anime.url || '';
+    this.studioInput.value = anime.studio !== 'Не указана' ? anime.studio : '';
+    this.yearInput.value = anime.year !== 'Не указан' ? anime.year : '';
+    this.episodesInput.value = anime.episodes !== '?' ? anime.episodes : '';
+    this.statusSelect.value = anime.status || 'want';
+    this.personalNotesInput.value = anime.notes || '';
+    
+    if (anime.genre && anime.genre !== 'Не указан') {
+      const genres = anime.genre.split(',').map(g => g.trim());
+      this.selectedGenres = [];
+      document.querySelectorAll('.genre-tag').forEach(tag => {
+        const genreKey = tag.dataset.genre;
+        if (genres.includes(genreKey)) {
+          tag.classList.add('selected');
+          this.selectedGenres.push(genreKey);
+        } else {
+          tag.classList.remove('selected');
+        }
+      });
+    } else {
+      this.selectedGenres = [];
+      document.querySelectorAll('.genre-tag').forEach(tag => tag.classList.remove('selected'));
+    }
+    
+    if (anime.voices && Array.isArray(anime.voices)) {
+      this.selectedVoices = [...anime.voices];
+    } else {
+      this.selectedVoices = [];
+    }
+    this.renderSelectedVoices();
+    this.updateVoiceToggleText();
+    this.renderVoiceList();
+    
+    if (anime.rating) {
+      document.querySelectorAll('#rating-stars span').forEach((star, index) => {
+        star.innerHTML = index < anime.rating ? '★' : '☆';
+      });
+      this.selectedRating = anime.rating;
+    } else {
+      this.selectedRating = null;
+      document.querySelectorAll('#rating-stars span').forEach(star => { star.innerHTML = '☆'; });
+    }
+    
+    this.currentEditId = id;
+    this.cancelEditBtn.style.display = 'inline-block';
+    this.animeForm.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  cancelEdit() {
+    this.currentEditId = null;
+    this.resetForm();
+  }
+
+  async deleteAnime(id) {
+    if (confirm('🗑️ Удалить это аниме?')) {
+      this.animeList = this.animeList.filter(anime => anime.id !== id);
+      await this.saveAnime();
+      this.render();
+      this.showNotification('🗑️ Аниме удалено');
+      if (this.currentEditId === id) this.cancelEdit();
+    }
+  }
+
+  viewAnimeDetails(id) {
+    const anime = this.animeList.find(a => a.id === id);
+    if (!anime || !this.detailModal) return;
+    const statusLabels = { watching: '📺 Смотрю', want: '⏳ Хочу', watched: '✅ Просмотрено', rewatching: '🔄 Пересматриваю', dropped: '⛔ Брошено', onhold: '⏸️ На паузе' };
+    
+    const voicesHtml = anime.voices && anime.voices.length 
+      ? anime.voices.map(v => this.getVoiceName(v)).join(', ')
+      : 'Не указана';
+    
+    this.detailContainer.innerHTML = `
+      <div class="anime-detail">
+        <h2>${this.escapeHtml(anime.title)}</h2>
+        ${anime.titleEn ? `<p><em>${this.escapeHtml(anime.titleEn)}</em></p>` : ''}
+        <p><strong>📊 Статус:</strong> ${statusLabels[anime.status] || anime.status}</p>
+        <p><strong>📺 Серий:</strong> ${this.escapeHtml(anime.episodes)}</p>
+        ${anime.genre && anime.genre !== 'Не указан' ? `<p><strong>🎭 Жанры:</strong> ${anime.genre.split(',').map(g => g.trim()).join(', ')}</p>` : ''}
+        <p><strong>🎙️ Озвучка:</strong> ${voicesHtml}</p>
+        ${anime.rating ? `<p><strong>⭐ Оценка:</strong> <span style="color:#ffd700">${'★'.repeat(anime.rating)}${'☆'.repeat(10-anime.rating)}</span> (${anime.rating}/10)</p>` : ''}
+        ${anime.studio && anime.studio !== 'Не указана' ? `<p><strong>🎬 Студия:</strong> ${this.escapeHtml(anime.studio)}</p>` : ''}
+        ${anime.year && anime.year !== 'Не указан' ? `<p><strong>📅 Год:</strong> ${this.escapeHtml(anime.year)}</p>` : ''}
+        ${anime.url ? `<p style="margin-top:15px"><strong>🔗 Ссылка:</strong><br><a href="${this.escapeHtml(anime.url)}" target="_blank" rel="noopener" data-watch-id="${anime.id}" style="display:inline-block;margin-top:5px;padding:8px 15px;background:var(--primary);color:white;text-decoration:none;border-radius:50px">Перейти к просмотру ↗</a></p>` : ''}
+        ${anime.notes ? `<p><strong>📝 Заметки:</strong> ${this.escapeHtml(anime.notes)}</p>` : ''}
+        <p><small>📆 Добавлено: ${anime.dateAdded || '—'}</small></p>
+      </div>
+    `;
+    this.detailModal.style.display = 'block';
+  }
+
+  updateAchievements() {
+    if (!this.achievementsList) return;
+    const achievements = [
+      { id: 'first', name: 'Первый шаг', icon: '👣', unlocked: this.animeList.length >= 1 },
+      { id: 'five', name: 'Пятёрка', icon: '🌟', unlocked: this.animeList.length >= 5 },
+      { id: 'novice', name: 'Новичок', icon: '🌱', unlocked: this.animeList.length >= 10 },
+      { id: 'otaku', name: 'Отаку', icon: '🎌', unlocked: this.animeList.length >= 25 },
+      { id: 'master', name: 'Мастер', icon: '👑', unlocked: this.animeList.length >= 50 },
+      { id: 'legend', name: 'Легенда', icon: '🏆', unlocked: this.animeList.length >= 90 },
+      { id: 'rater', name: 'Критик', icon: '⭐', unlocked: this.animeList.filter(a => a.rating).length >= 5 },
+      { id: 'writer', name: 'Писатель', icon: '📝', unlocked: this.animeList.filter(a => a.notes).length >= 5 }
+    ];
+    this.achievementsList.innerHTML = achievements.map(ach => `
+      <div class="achievement-badge ${ach.unlocked ? '' : 'locked'}" title="${ach.name}">
+        <span style="font-size:24px">${ach.icon}</span>
+        <span class="achievement-name">${ach.name}</span>
+      </div>
+    `).join('');
+  }
+
+  calculateLevel() {
+    const xp = this.animeList.length * 10 +
+               this.animeList.filter(a => a.rating).length * 5 +
+               this.animeList.filter(a => a.notes).length * 2;
+    const level = Math.floor(Math.sqrt(xp / 100)) + 1;
+    const nextLevelXP = Math.pow(level, 2) * 100;
+    const progress = Math.min((xp / nextLevelXP) * 100, 100);
+    return { level, progress };
+  }
+
+  showRandomAnime() {
+    if (this.animeList.length === 0) { this.showNotification('Сначала добавь аниме!', 'error'); return; }
+    const random = this.animeList[Math.floor(Math.random() * this.animeList.length)];
+    this.randomResult.innerHTML = `
+      <div class="random-anime-card">
+        <h4>${this.escapeHtml(random.title)}</h4>
+        <p>${this.escapeHtml(random.episodes)} сер.</p>
+        ${random.url ? `<a href="${this.escapeHtml(random.url)}" target="_blank" rel="noopener" data-watch-id="${random.id}">🔗 Смотреть</a>` : ''}
+      </div>
+    `;
+  }
+
+  switchView(event) {
+    const view = event.target.dataset.view;
+    this.currentView = view;
+    document.querySelectorAll('.view-btn').forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+    this.columnsView.style.display = view === 'columns' ? 'grid' : 'none';
+    if (this.gridView) this.gridView.style.display = view === 'grid' ? 'grid' : 'none';
+    if (this.listView) this.listView.style.display = view === 'list' ? 'block' : 'none';
+    if (view === 'grid') this.renderGridView();
+    if (view === 'list') this.renderListView();
+  }
+
+  escapeHtml(text) {
+    if (!text) return '';
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
+}
+
+// ============================================================
+// 📌 БУКМАРКЛЕТ «В AnimeVerse»
+// ============================================================
+function getTrackerUrl() {
+  return location.href.split('#')[0].split('?')[0];
+}
+
+function buildBookmarkletCode() {
+  // Работает на любой странице: берёт document.title и location.href и открывает трекер в новой вкладке
+  const tracker = JSON.stringify(getTrackerUrl());
+  return 'javascript:(function(){var u=' + tracker + ';'
+    + "var t=(document.title||'').slice(0,300);"
+    + "window.open(u+'?add=1&src=bm&title='+encodeURIComponent(t)+'&url='+encodeURIComponent(location.href),'_blank');"
+    + '})();';
+}
+
+function setupBookmarklet() {
+  const modal = document.getElementById('bookmarklet-modal');
+  const openBtn = document.getElementById('bookmarklet-btn');
+  if (!modal || !openBtn) return;
+  const content = modal.querySelector('.bm-content');
+  const link = document.getElementById('bm-link');
+  const codeEl = document.getElementById('bm-code');
+  const copyBtn = document.getElementById('bm-copy');
+  const note = document.getElementById('bm-note');
+  const notify = (msg, type) => window.authManager ? window.authManager.showNotification(msg, type) : alert(msg);
+  let lastFocus = null;
+
+  const code = buildBookmarkletCode();
+  link.setAttribute('href', code);
+  codeEl.value = code;
+
+  if (location.protocol === 'file:') {
+    note.textContent = '⚠️ Сейчас трекер открыт как файл с диска. Браузеры не дают внешним сайтам открывать такие адреса, поэтому закладка заработает, когда сайт будет размещён в интернете или запущен через локальный сервер.';
+    note.hidden = false;
+  }
+
+  function open() {
+    lastFocus = document.activeElement;
+    modal.style.display = 'block';
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+    content.scrollTop = 0;
+    setTimeout(() => content.focus(), 50);
+  }
+  function close() {
+    modal.style.display = 'none';
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-open');
+    copyBtn.classList.remove('copied');
+    copyBtn.textContent = '📋 Скопировать код закладки';
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+
+  openBtn.addEventListener('click', open);
+  modal.querySelector('.bm-close').addEventListener('click', close);
+  modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.style.display === 'block') close(); });
+
+  // Клик по кнопке здесь сохранил бы саму страницу трекера — подсказываем, что её надо перетащить
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    notify('📌 Перетащи кнопку на панель закладок (на телефоне — скопируй код)', 'info');
+  });
+
+  copyBtn.addEventListener('click', async () => {
+    let ok = false;
+    try {
+      if (navigator.clipboard && window.isSecureContext) { await navigator.clipboard.writeText(code); ok = true; }
+    } catch (_) {}
+    if (!ok) {
+      codeEl.focus();
+      codeEl.select();
+      codeEl.setSelectionRange(0, code.length);
+      try { ok = document.execCommand('copy'); } catch (_) {}
+    }
+    if (ok) {
+      copyBtn.textContent = '✅ Код скопирован';
+      copyBtn.classList.add('copied');
+      notify('📋 Код закладки скопирован', 'success');
+    } else {
+      codeEl.focus(); codeEl.select();
+      notify('Не получилось скопировать автоматически — код выделен, скопируй его вручную', 'error');
+    }
+  });
+}
+
+// ============================================================
+// 🚀 ЗАПУСК
+// ============================================================
+document.addEventListener('DOMContentLoaded', () => {
+  if (pendingAdd) {
+    const hint = document.getElementById('pending-add-hint');
+    if (hint) {
+      const text = document.createElement('div');
+      text.textContent = `🔗 Войди или выбери гостевой режим — «${pendingAdd.title || 'аниме'}» сразу подставится в форму добавления.`;
+      const guestBtn = document.createElement('button');
+      guestBtn.type = 'button';
+      guestBtn.className = 'hint-guest-btn';
+      guestBtn.textContent = '👤 Продолжить как гость';
+      guestBtn.addEventListener('click', () => window.authManager && window.authManager.enterGuestMode());
+      hint.replaceChildren(text, guestBtn);
+      hint.hidden = false;
+    }
+  }
+  setupBookmarklet();
+  window.authManager = new AuthManager();
+});
+</script>
+
+</body>
+</html>
