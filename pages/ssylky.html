@@ -6,7 +6,7 @@
 <title>AnimeVerse - Врата в мир аниме (Cloud)</title>
 
 <!-- ========== PWA META TAGS ========== -->
-<meta name="theme-color" content="#1a1a2e">
+<meta name="theme-color" content="#1e1916">
 <meta name="description" content="Твоя личная коллекция аниме в облаке">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -25,27 +25,27 @@
 :root {
   --primary: #ff6b6b;
   --primary-glow: rgba(255, 107, 107, 0.5);
-  --secondary: #4ecdc4;
+  --secondary: #cd854e;
   --accent: #a8e6cf;
-  --dark: #2c3e50;
-  --darker: #1a2634;
+  --dark: #332b26;
+  --darker: #201b18;
   --light: #f7f9fc;
   --glass-bg: rgba(255, 255, 255, 0.1);
   --glass-border: rgba(255, 255, 255, 0.2);
   --shadow-neon: 0 0 20px rgba(255, 107, 107, 0.5);
-  --shadow-neon-blue: 0 0 20px rgba(78, 205, 196, 0.5);
-  --text-primary: #2c3e50;
+  --shadow-neon-orange: 0 0 20px rgba(205, 133, 78, 0.5);
+  --text-primary: #332b26;
   --text-secondary: #636e72;
-  --watching: #54a0ff;
-  --want: #feca57;
+  --watching: #ff9e54;
+  --want: #feab57;
   --watched: #1dd1a1;
-  --other: #8395a7;
+  --other: #a79383;
   --cloud: #9b59b6;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
   font-family: 'Montserrat', sans-serif;
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  background: linear-gradient(135deg, #1e1916 0%, #221d1a 50%, #2e2622 100%);
   min-height: 100vh;
   color: white;
   line-height: 1.6;
@@ -64,7 +64,7 @@ body {
   position: absolute;
   width: 100%; height: 100%;
   background: radial-gradient(circle at 20% 50%, rgba(255,107,107,0.15) 0%, transparent 50%),
-              radial-gradient(circle at 80% 80%, rgba(78,205,196,0.15) 0%, transparent 50%),
+              radial-gradient(circle at 80% 80%, rgba(205, 133, 78, 0.15) 0%, transparent 50%),
               radial-gradient(circle at 50% 20%, rgba(168,230,207,0.1) 0%, transparent 50%);
   animation: particleFloat 20s infinite linear;
 }
@@ -97,7 +97,7 @@ body {
 }
 
 .gradient-text {
-  background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #a8e6cf);
+  background: linear-gradient(45deg, #ff6b6b, #cd854e, #a8e6cf);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-size: 200% 200%;
@@ -721,7 +721,7 @@ body {
   flex-direction: column;
   align-items: center;
   padding: 10px;
-  background: linear-gradient(135deg, gold, orange);
+  background: linear-gradient(135deg, #ff8000, orange);
   border-radius: 15px;
   min-width: 80px;
   text-align: center;
@@ -794,7 +794,7 @@ body {
 .form-group-main textarea::placeholder {
   color: rgba(255,255,255,0.3);
 }
-.form-group-main select option { background: #1a1a2e; color: white; }
+.form-group-main select option { background: #1e1916; color: white; }
 .form-actions {
   display: flex;
   gap: 15px;
@@ -828,7 +828,7 @@ body {
   position: absolute;
   top: 100%;
   left: 0; right: 0;
-  background: rgba(26, 26, 46, 0.98);
+  background: rgba(30, 25, 22, 0.98);
   backdrop-filter: blur(20px);
   border: 2px solid var(--secondary);
   border-radius: 10px 10px 20px 20px;
@@ -871,7 +871,7 @@ body {
 }
 .voice-option:hover { background: rgba(255,255,255,0.1); }
 .voice-option.selected {
-  background: linear-gradient(135deg, rgba(78,205,196,0.2), rgba(29,209,161,0.2));
+  background: linear-gradient(135deg, rgba(205, 133, 78, 0.2), rgba(29,209,161,0.2));
   color: var(--secondary);
   font-weight: 600;
 }
@@ -903,7 +903,7 @@ body {
 .rating-stars span {
   cursor: pointer;
   transition: transform 0.2s;
-  color: #ffd700;
+  color: #ff8000;
   user-select: none;
 }
 .rating-stars span:hover { transform: scale(1.2); }
@@ -950,7 +950,7 @@ body {
   font-size: 14px;
   font-family: inherit;
 }
-.filter-sort-bar select option { background: #1a1a2e; }
+.filter-sort-bar select option { background: #1e1916; }
 .filter-sort-bar .sort-btn {
   padding: 8px 15px;
   border: none;
@@ -1095,7 +1095,7 @@ body {
 }
 .anime-card .voice-tag-small {
   display: inline-block;
-  background: rgba(78,205,196,0.2);
+  background: rgba(205, 133, 78, 0.2);
   border: 1px solid var(--secondary);
   padding: 2px 10px;
   border-radius: 50px;
@@ -1105,7 +1105,7 @@ body {
   color: var(--secondary);
 }
 .anime-card .rating-stars-small {
-  color: #ffd700;
+  color: #ff8000;
   font-size: 14px;
   letter-spacing: 2px;
 }
@@ -1335,9 +1335,9 @@ body {
 .loading-text { color: white; font-size: 18px; }
 
 .config-info {
-  background: #fff3cd;
-  border: 1px solid #ffc107;
-  color: #856404;
+  background: #ffe6cd;
+  border: 1px solid #ff8307;
+  color: #854504;
   padding: 15px;
   border-radius: 15px;
   margin-bottom: 20px;
@@ -1378,8 +1378,8 @@ body {
   font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 600;
   text-decoration: none; white-space: nowrap;
   color: var(--dark);
-  background: rgba(44, 62, 80, 0.06);
-  border: 1px solid rgba(44, 62, 80, 0.15);
+  background: rgba(51, 43, 38, 0.06);
+  border: 1px solid rgba(51, 43, 38, 0.15);
   transition: background 0.3s, color 0.3s, box-shadow 0.3s;
 }
 .site-back-link:hover { background: var(--primary); border-color: var(--primary); color: #fff; box-shadow: var(--shadow-neon); }
@@ -1430,13 +1430,13 @@ body {
 .continue-btn.secondary:hover { background: rgba(255, 255, 255, 0.22); box-shadow: none; }
 
 /* Подсветка формы, заполненной по ссылке из каталога */
-.add-anime-section.prefilled { box-shadow: 0 0 0 3px var(--secondary), var(--shadow-neon-blue); transition: box-shadow 0.4s; }
+.add-anime-section.prefilled { box-shadow: 0 0 0 3px var(--secondary), var(--shadow-neon-orange); transition: box-shadow 0.4s; }
 
 .pending-add-hint {
   margin-bottom: 16px; padding: 12px 14px;
   border-radius: 14px;
-  background: rgba(78, 205, 196, 0.15);
-  border: 1px solid rgba(78, 205, 196, 0.5);
+  background: rgba(205, 133, 78, 0.15);
+  border: 1px solid rgba(205, 133, 78, 0.5);
   color: var(--dark); font-size: 14px; line-height: 1.5;
 }
 .pending-add-hint[hidden] { display: none; }
@@ -1454,7 +1454,7 @@ body {
   color: var(--text-primary); font: 600 16px 'Montserrat', sans-serif;
   cursor: pointer; transition: border-color 0.3s, box-shadow 0.3s, transform 0.2s;
 }
-.google-btn:hover { border-color: var(--secondary); box-shadow: var(--shadow-neon-blue); transform: translateY(-1px); }
+.google-btn:hover { border-color: var(--secondary); box-shadow: var(--shadow-neon-orange); transform: translateY(-1px); }
 .google-btn:disabled { opacity: 0.6; cursor: wait; transform: none; }
 .google-icon { flex-shrink: 0; }
 .google-error { display: block; text-align: center; margin-top: 8px; }
@@ -1469,8 +1469,8 @@ body {
 .bm-drag-zone {
   display: flex; flex-direction: column; align-items: center; gap: 10px;
   padding: 22px 16px; margin-bottom: 20px;
-  border: 2px dashed rgba(78, 205, 196, 0.6); border-radius: 20px;
-  background: linear-gradient(135deg, rgba(255, 107, 107, 0.06), rgba(78, 205, 196, 0.08));
+  border: 2px dashed rgba(205, 133, 78, 0.6); border-radius: 20px;
+  background: linear-gradient(135deg, rgba(255, 107, 107, 0.06), rgba(205, 133, 78, 0.08));
 }
 .bm-link {
   display: inline-flex; align-items: center; gap: 8px;
@@ -1506,8 +1506,8 @@ body {
 .bm-copy.copied { background: linear-gradient(45deg, var(--watched), var(--secondary)); }
 .bm-note {
   margin-top: 16px; padding: 12px 14px; border-radius: 14px;
-  background: rgba(254, 202, 87, 0.18); border: 1px solid rgba(254, 202, 87, 0.7);
-  color: #7a5a00; font-size: 13px; line-height: 1.5;
+  background: rgba(254, 171, 87, 0.18); border: 1px solid rgba(254, 171, 87, 0.7);
+  color: #322a26; font-size: 13px; line-height: 1.5;
 }
 .bm-note[hidden] { display: none; }
 body.modal-open { overflow: hidden; }
@@ -1517,7 +1517,7 @@ body.modal-open { overflow: hidden; }
   min-height: 36px; padding: 6px 16px; border: none; border-radius: 50px;
   background: var(--secondary); color: #fff; font: 600 14px 'Montserrat', sans-serif; cursor: pointer;
 }
-.pending-add-hint .hint-guest-btn:hover { box-shadow: var(--shadow-neon-blue); }
+.pending-add-hint .hint-guest-btn:hover { box-shadow: var(--shadow-neon-orange); }
 
 @media (max-width: 640px) {
   .bm-modal .bm-content {
@@ -1548,6 +1548,7 @@ body.modal-open { overflow: hidden; }
   .continue-btn { flex: 1 1 auto; min-height: 44px; }
 }
 </style>
+  <link rel="stylesheet" href="../css/theme.css">
 </head>
 <body>
 
@@ -2118,7 +2119,7 @@ const manifestData = {
   description: 'Твоя личная коллекция аниме в облаке',
   start_url: '.',
   display: 'standalone',
-  background_color: '#1a1a2e',
+  background_color: '#1e1916',
   theme_color: '#ff6b6b',
   orientation: 'portrait',
   icons: [
@@ -2550,8 +2551,8 @@ class AuthManager {
     if (/[0-9]/.test(password)) strength += 20;
     if (/[^A-Za-z0-9]/.test(password)) strength += 20;
     if (strength <= 20) return { percentage: 20, color: '#ff6b6b', text: 'Слабый' };
-    if (strength <= 40) return { percentage: 40, color: '#feca57', text: 'Средний' };
-    if (strength <= 60) return { percentage: 60, color: '#48dbfb', text: 'Хороший' };
+    if (strength <= 40) return { percentage: 40, color: '#fb7d3c', text: 'Средний' };
+    if (strength <= 60) return { percentage: 60, color: '#ffa64d', text: 'Хороший' };
     if (strength <= 80) return { percentage: 80, color: '#1dd1a1', text: 'Сильный' };
     return { percentage: 100, color: '#10ac84', text: 'Максимальный' };
   }
@@ -2709,7 +2710,7 @@ class AuthManager {
   }
 
   showNotification(msg, type = 'success') {
-    const colors = { success: '#4ecdc4', error: '#ff6b6b', info: '#54a0ff' };
+    const colors = { success: '#cd854e', error: '#ff6b6b', info: '#ff9e54' };
     const notif = document.createElement('div');
     notif.className = 'custom-notification';
     notif.textContent = msg;
@@ -3291,7 +3292,7 @@ class UltimateAnimeLibrary {
     const badge = document.getElementById('nav-cloud-badge');
     if (badge) {
       if (this.isGuest || !firebaseService.isAvailable) {
-        badge.innerHTML = '<span class="cloud-dot" style="background:#feca57"></span><span>💾 Локально</span>';
+        badge.innerHTML = '<span class="cloud-dot" style="background:#feab57"></span><span>💾 Локально</span>';
         document.getElementById('cloud-info').textContent = 'Локальное хранение';
       } else {
         badge.innerHTML = '<span class="cloud-dot connected"></span><span>☁️ Cloud</span>';
@@ -3517,7 +3518,7 @@ class UltimateAnimeLibrary {
   }
 
   showNotification(msg, type = 'success') {
-    const colors = { success: '#4ecdc4', error: '#ff6b6b', info: '#54a0ff' };
+    const colors = { success: '#cd854e', error: '#ff6b6b', info: '#ff9e54' };
     const notif = document.createElement('div');
     notif.className = 'custom-notification';
     notif.textContent = msg;
@@ -3736,7 +3737,7 @@ class UltimateAnimeLibrary {
         <p><strong>📺 Серий:</strong> ${this.escapeHtml(anime.episodes)}</p>
         ${anime.genre && anime.genre !== 'Не указан' ? `<p><strong>🎭 Жанры:</strong> ${anime.genre.split(',').map(g => g.trim()).join(', ')}</p>` : ''}
         <p><strong>🎙️ Озвучка:</strong> ${voicesHtml}</p>
-        ${anime.rating ? `<p><strong>⭐ Оценка:</strong> <span style="color:#ffd700">${'★'.repeat(anime.rating)}${'☆'.repeat(10-anime.rating)}</span> (${anime.rating}/10)</p>` : ''}
+        ${anime.rating ? `<p><strong>⭐ Оценка:</strong> <span style="color:#ff8000">${'★'.repeat(anime.rating)}${'☆'.repeat(10-anime.rating)}</span> (${anime.rating}/10)</p>` : ''}
         ${anime.studio && anime.studio !== 'Не указана' ? `<p><strong>🎬 Студия:</strong> ${this.escapeHtml(anime.studio)}</p>` : ''}
         ${anime.year && anime.year !== 'Не указан' ? `<p><strong>📅 Год:</strong> ${this.escapeHtml(anime.year)}</p>` : ''}
         ${anime.url ? `<p style="margin-top:15px"><strong>🔗 Ссылка:</strong><br><a href="${this.escapeHtml(anime.url)}" target="_blank" rel="noopener" data-watch-id="${anime.id}" style="display:inline-block;margin-top:5px;padding:8px 15px;background:var(--primary);color:white;text-decoration:none;border-radius:50px">Перейти к просмотру ↗</a></p>` : ''}

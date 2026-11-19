@@ -35,11 +35,11 @@ body {
     padding: 15px;
     margin: 10px auto;
     max-width: 600px;
-    background: rgba(255, 190, 77, 0.15); /* Цвет под золото */
-    border: 1px dashed var(--accent-gold);
+    background: rgba(255, 166, 77, 0.15); /* Цвет под золото */
+    border: 1px dashed var(--accent-orange);
     border-radius: 10px;
     display: none; /* Скрыто по умолчанию */
-    color: #ffbe4d;
+    color: #ffa64d;
 }
 
 #otherCategoryHint a {

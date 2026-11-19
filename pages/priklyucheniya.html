@@ -10,7 +10,7 @@
   <style>
     /* --- СТИЛИ (Те же самые, что и везде) --- */
     :root {
-      --accent-gold: #ffbe4d; /* Золотой акцент для приключений */
+      --accent-orange: #ffa64d; /* Золотой акцент для приключений */
       --accent-green: #2ecc71;
       --bg-dark: #111;
       --glass: rgba(0, 0, 0, 0.6);
@@ -18,20 +18,20 @@
 
     header {
       padding: 30px 20px; text-align: center; background: var(--glass);
-      backdrop-filter: blur(8px); border-bottom: 1px solid rgba(255, 190, 77, 0.3);
+      backdrop-filter: blur(8px); border-bottom: 1px solid rgba(255, 166, 77, 0.3);
     }
 
     h1 {
       margin: 0; font-family: 'Orbitron', sans-serif; font-size: 32px;
-      letter-spacing: 2px; color: var(--accent-gold);
-      text-shadow: 0 0 15px rgba(255, 190, 77, 0.4);
+      letter-spacing: 2px; color: var(--accent-orange);
+      text-shadow: 0 0 15px rgba(255, 166, 77, 0.4);
     }
 
     a.back {
       display: inline-block; margin: 0 15px; color: #fff; text-decoration: none;
       font-weight: bold; font-size: 14px; transition: 0.3s; border-bottom: 1px solid transparent;
     }
-    a.back:hover { color: var(--accent-gold); border-color: var(--accent-gold); }
+    a.back:hover { color: var(--accent-orange); border-color: var(--accent-orange); }
 
     .anime-list {
       max-width: 900px; margin: 40px auto; background: rgba(0, 0, 0, 0.7);
@@ -53,18 +53,18 @@
 
     .anime-title {
       font-size: 22px; font-family: 'Orbitron', sans-serif; font-weight: bold;
-      color: var(--accent-gold); margin-bottom: 8px;
+      color: var(--accent-orange); margin-bottom: 8px;
     }
 
     .anime-desc { font-size: 14px; color: #bbb; line-height: 1.6; margin-bottom: 15px; }
 
     .favorite-button {
-      background-color: transparent; border: 2px solid var(--accent-gold);
-      padding: 8px 18px; color: var(--accent-gold); border-radius: 6px;
+      background-color: transparent; border: 2px solid var(--accent-orange);
+      padding: 8px 18px; color: var(--accent-orange); border-radius: 6px;
       cursor: pointer; font-weight: bold; font-size: 13px; transition: all 0.3s ease;
     }
     .favorite-button:hover {
-      background-color: var(--accent-gold); color: #000; box-shadow: 0 0 15px rgba(255, 190, 77, 0.4);
+      background-color: var(--accent-orange); color: #000; box-shadow: 0 0 15px rgba(255, 166, 77, 0.4);
     }
     .favorite-button.added {
       background-color: var(--accent-green); border-color: var(--accent-green); color: white;
@@ -78,12 +78,12 @@
     /* Поиск */
     #animeSearch {
       width: 100%; padding: 12px 20px; background: rgba(255, 255, 255, 0.05);
-      border: 2px solid var(--accent-gold); border-radius: 30px; color: #fff;
+      border: 2px solid var(--accent-orange); border-radius: 30px; color: #fff;
       font-size: 16px; transition: all 0.3s ease; outline: none; box-sizing: border-box;
     }
     #animeSearch:focus {
-      border-color: var(--accent-gold); background: rgba(255, 255, 255, 0.1);
-      box-shadow: 0 0 15px rgba(255, 190, 77, 0.3);
+      border-color: var(--accent-orange); background: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 15px rgba(255, 166, 77, 0.3);
     }
     
     /* Подсказка поиска */
@@ -91,6 +91,7 @@
   <link rel="stylesheet" href="../css/mobile.css">
   <link rel="stylesheet" href="../css/watch-links.css">
   <link rel="stylesheet" href="../css/catalog.css">
+  <link rel="stylesheet" href="../css/theme.css">
 </head>
 <body>
   <header>

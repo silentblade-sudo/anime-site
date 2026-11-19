@@ -1,0 +1,30 @@
+/* Общая тема сайта: оранжевый акцент на тёмном фоне.
+   Перекрывает синие цвета браузера по умолчанию (кольцо фокуса, выделение текста,
+   чекбоксы, автозаполнение полей). Все правила с нулевой специфичностью (:where),
+   поэтому собственные стили страниц всегда важнее. */
+:root {
+  --theme-accent: #ff8b33;
+  --theme-accent-soft: rgba(255, 139, 51, 0.45);
+  --theme-dark: #171311;
+  accent-color: #ff8b33;
+}
+
+:where(*):focus-visible {
+  outline: 2px solid var(--theme-accent);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: var(--theme-accent-soft);
+  color: #fff;
+}
+
+/* Автозаполнение Chrome красит поля в светло-голубой — оставляем тёмный фон */
+:where(input, textarea, select):-webkit-autofill,
+:where(input, textarea, select):-webkit-autofill:hover,
+:where(input, textarea, select):-webkit-autofill:focus {
+  -webkit-text-fill-color: #fff;
+  caret-color: #fff;
+  -webkit-box-shadow: 0 0 0 1000px var(--theme-dark) inset;
+  transition: background-color 9999s ease-out 0s;
+}

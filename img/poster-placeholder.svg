@@ -1,13 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 400" width="280" height="400" role="img" aria-label="Постер скоро появится">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#241a5c"/>
-      <stop offset="0.55" stop-color="#14123a"/>
-      <stop offset="1" stop-color="#0d0d2b"/>
+      <stop offset="0" stop-color="#302825"/>
+      <stop offset="0.55" stop-color="#1f1a18"/>
+      <stop offset="1" stop-color="#171311"/>
     </linearGradient>
     <linearGradient id="edge" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#ff3366"/>
-      <stop offset="1" stop-color="#33ccff"/>
+      <stop offset="1" stop-color="#ff8b33"/>
     </linearGradient>
     <radialGradient id="glow" cx="0.5" cy="0.42" r="0.5">
       <stop offset="0" stop-color="#ff3366" stop-opacity="0.28"/>
@@ -31,13 +31,13 @@
 
   <!-- кадр плёнки -->
   <g transform="translate(90 112)" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="0" y="0" width="100" height="76" rx="10" stroke="#33ccff" stroke-width="4"/>
-    <path d="M12 0v76M88 0v76" stroke="#33ccff" stroke-width="2" stroke-opacity="0.55"/>
-    <path d="M4 14h8M4 30h8M4 46h8M4 62h8M88 14h8M88 30h8M88 46h8M88 62h8" stroke="#33ccff" stroke-width="3" stroke-opacity="0.75"/>
+    <rect x="0" y="0" width="100" height="76" rx="10" stroke="#ff8b33" stroke-width="4"/>
+    <path d="M12 0v76M88 0v76" stroke="#ff8b33" stroke-width="2" stroke-opacity="0.55"/>
+    <path d="M4 14h8M4 30h8M4 46h8M4 62h8M88 14h8M88 30h8M88 46h8M88 62h8" stroke="#ff8b33" stroke-width="3" stroke-opacity="0.75"/>
     <path d="M42 24l22 14-22 14z" fill="#ff3366" stroke="#ff3366" stroke-width="3"/>
   </g>
 
   <text x="140" y="246" text-anchor="middle" font-family="Roboto, Arial, sans-serif" font-size="22" font-weight="700" fill="#ffffff">Постер</text>
-  <text x="140" y="272" text-anchor="middle" font-family="Roboto, Arial, sans-serif" font-size="17" fill="#b8b8d9">скоро появится</text>
+  <text x="140" y="272" text-anchor="middle" font-family="Roboto, Arial, sans-serif" font-size="17" fill="#d9c6b8">скоро появится</text>
   <text x="140" y="364" text-anchor="middle" font-family="Orbitron, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="1" fill="#ff3366" fill-opacity="0.85">ANIME FAN CLUB</text>
 </svg>

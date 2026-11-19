@@ -39,10 +39,10 @@
 .catalog-more-btn {
   min-height: 44px;
   padding: 10px 28px;
-  border: 2px solid #33ccff;
+  border: 2px solid #ff8b33;
   border-radius: 999px;
   background: transparent;
-  color: #33ccff;
+  color: #ff8b33;
   font-family: 'Roboto', sans-serif;
   font-size: 15px;
   font-weight: bold;
@@ -51,9 +51,9 @@
 }
 .catalog-more-btn:hover,
 .catalog-more-btn:focus-visible {
-  background: #33ccff;
-  color: #0d0d2b;
-  box-shadow: 0 0 14px rgba(51, 204, 255, 0.55);
+  background: #ff8b33;
+  color: #171311;
+  box-shadow: 0 0 14px rgba(255, 139, 51, 0.55);
 }
 
 @media (max-width: 480px) {
@@ -83,7 +83,7 @@
   border: 2px solid rgba(255, 255, 255, 0.2);
   border-radius: 30px;
   background: rgba(255, 255, 255, 0.07)
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%2333ccff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23ff8b33' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
     no-repeat right 16px center;
   color: #fff;
   font-family: 'Roboto', sans-serif;
@@ -94,14 +94,14 @@
   box-sizing: border-box;
   transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s;
 }
-.year-filter:hover { border-color: rgba(51, 204, 255, 0.6); }
+.year-filter:hover { border-color: rgba(255, 139, 51, 0.6); }
 .year-filter:focus-visible {
   outline: none;
-  border-color: #33ccff;
-  box-shadow: 0 0 12px rgba(51, 204, 255, 0.35);
+  border-color: #ff8b33;
+  box-shadow: 0 0 12px rgba(255, 139, 51, 0.35);
 }
 /* выпадающий список браузера — тёмный и читаемый */
-.year-filter option { background: #14143a; color: #fff; }
+.year-filter option { background: #201b18; color: #fff; }
 
 @media (max-width: 768px) {
   .year-filter { font-size: 16px; } /* 16px — iOS не увеличивает страницу при выборе */
@@ -181,7 +181,7 @@ dialog.watch-modal {
   overflow: visible;
 }
 dialog.watch-modal::backdrop {
-  background: rgba(5, 5, 20, 0.72);
+  background: rgba(10, 9, 8, 0.72);
   backdrop-filter: blur(4px);
 }
 
@@ -189,7 +189,7 @@ dialog.watch-modal::backdrop {
   display: flex;
   flex-direction: column;
   max-height: calc(100dvh - 24px);
-  background: linear-gradient(160deg, rgba(30, 28, 82, 0.98), rgba(13, 13, 43, 0.98));
+  background: linear-gradient(160deg, rgba(45, 38, 34, 0.98), rgba(23, 19, 17, 0.98));
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 18px;
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), 0 0 30px rgba(255, 51, 102, 0.15);
@@ -210,7 +210,7 @@ dialog.watch-modal::backdrop {
   font-size: 12px;
   letter-spacing: 1px;
   text-transform: uppercase;
-  color: #33ccff;
+  color: #ff8b33;
 }
 .watch-modal-title {
   margin: 0;
@@ -275,9 +275,9 @@ dialog.watch-modal::backdrop {
 }
 .watch-platform:hover,
 .watch-platform:focus-visible {
-  border-color: #33ccff;
-  background: rgba(51, 204, 255, 0.1);
-  box-shadow: 0 0 12px rgba(51, 204, 255, 0.3);
+  border-color: #ff8b33;
+  background: rgba(255, 139, 51, 0.1);
+  box-shadow: 0 0 12px rgba(255, 139, 51, 0.3);
   outline: none;
 }
 .watch-platform-name { font-size: 14px; font-weight: bold; }
