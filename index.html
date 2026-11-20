@@ -23,7 +23,7 @@
     /* --- ШАПКА --- */
     header {
       position: fixed;
-      top: 0; left: 0; right: 0;
+      top: 0; left: 0; right: 0;  
       background: rgba(42, 35, 32, 0.95);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid rgba(255,255,255,0.1);
@@ -178,6 +178,17 @@
     .anime-card img { width: 100%; height: 160px; object-fit: cover; object-position: center 25%; display: block; }
     .anime-card h3 { font-family: 'Orbitron', sans-serif; font-size: 20px; margin: 15px 10px; color: #ff3366; }
     .anime-card p { font-size: 14px; margin: 0 15px 20px; color: #bbb; line-height: 1.5; }
+    /* Карточка: ссылка (постер + текст) ведёт к тайтлу на странице жанра, кнопка «Где посмотреть» — отдельно */
+    .anime-card { display: flex; flex-direction: column; }
+    .anime-card-link { display: block; flex: 1; color: inherit; text-decoration: none; border-radius: 12px 12px 0 0; }
+    .anime-card-link:focus-visible { outline-offset: -3px; } /* у .anime-card overflow: hidden — кольцо рисуем внутри */
+    .anime-card:focus-within { border-color: #ff3366; }
+    .anime-card img { transition: transform 0.4s ease; }
+    .anime-card-link:hover img { transform: scale(1.04); }
+    .anime-card-genre { display: block; margin: -8px 15px 16px; font-size: 13px; font-weight: bold; color: #ff8b33; }
+    .anime-card-link:hover .anime-card-genre { text-decoration: underline; }
+    .anime-card-actions { display: flex; flex-wrap: wrap; gap: 8px; padding: 0 15px 18px; }
+    .anime-card-actions > * { flex: 1 1 110px; box-sizing: border-box; justify-content: center; margin: 0; }
 
     /* Новости */
     .news-section { background-color: #231d1a; padding: 60px 20px; text-align: center; position: relative; z-index: 2; }
@@ -218,12 +229,17 @@
     /* Кнопка-бургер (видна только на узких экранах) */
     .burger { display: none; }
 
+    /* Поиск в шапке занимает свободное место между отцентрованным меню и «Входом»:
+       (половина экрана − половина меню − отступ шапки − «Вход» − зазоры) */
+    .header-actions .site-search { --site-search-width: clamp(110px, calc(50vw - 548px), 240px); }
+
     /* Узкий десктоп: чуть плотнее меню, чтобы оно не наезжало на логотип */
     @media (min-width: 1151px) and (max-width: 1365px) {
       .logo h1 { font-size: 20px; }
       nav { gap: 14px; }
       nav a, .dropdown > a, .portal > a, .video > a { font-size: 14px; }
       .login-btn { padding: 0 14px; font-size: 14px; }
+      .header-actions .site-search { --site-search-width: clamp(90px, calc(50vw - 497px), 200px); }
     }
 
     /* --- МОБИЛЬНЫЙ АДАПТИВ --- */
@@ -280,6 +296,12 @@
     }
 
     /* Телефоны и небольшие планшеты */
+    /* Самые узкие телефоны: в шапке логотип + лупа + «Вход» + бургер */
+    @media (max-width: 400px) {
+        .logo h1 { font-size: 18px; }
+        .header-actions { gap: 6px; }
+    }
+
     @media (max-width: 768px) {
         .banner { padding: 70px 16px; }
         .banner h2 { font-size: clamp(26px, 8vw, 40px); overflow-wrap: break-word; }
@@ -299,6 +321,8 @@
     }
   </style>
   <link rel="stylesheet" href="css/watch-links.css">
+  <link rel="stylesheet" href="css/watch-modal.css">
+  <link rel="stylesheet" href="css/site-search.css">
   <link rel="stylesheet" href="css/theme.css">
 </head>
 <body class="fade-in">
@@ -307,6 +331,8 @@
     <div class="logo"><h1>Anime Fan Club</h1></div>
 
     <div class="header-actions">
+      <!-- Поиск аниме и фильмов (js/site-search.js): строка между меню и «Входом», до 1150px — лупа -->
+      <div data-site-search="collapsible"></div>
       <a class="login-btn" href="pages/login.html" aria-label="Вход и регистрация">
         <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
         <span class="login-text">Вход</span>
@@ -318,7 +344,7 @@
 
     <nav id="main-nav">
       <a href="#">Главная</a>
-      <a href="#">Фильмы</a>
+      <a href="pages/movies.html">Фильмы</a>
       
       <div class="dropdown">
         <a href="#">Аниме игры ▾</a>
@@ -403,20 +429,40 @@
   <section class="anime-section">
     <h2>Популярные аниме</h2>
     <div class="anime-cards">
+      <!-- Постер, название и описание — ссылка на страницу жанра с ?anime=<id>:
+           js/catalog-page.js прокрутит к карточке и подсветит её. id — из data/anime.json -->
       <div class="anime-card">
-        <img src="img/постер наруто.jpg" alt="Naruto" loading="lazy">
-        <h3>Naruto</h3>
-        <p>История о мальчике-ниндзя, который мечтает стать сильнейшим в своём мире.</p>
+        <a class="anime-card-link" href="pages/boevye-iskusstva.html?anime=naruto-20">
+          <img src="img/постер наруто.jpg" alt="Naruto" loading="lazy">
+          <h3>Naruto</h3>
+          <p>История о мальчике-ниндзя, который мечтает стать сильнейшим в своём мире.</p>
+          <span class="anime-card-genre">Боевые искусства →</span>
+        </a>
+        <div class="anime-card-actions">
+          <button type="button" class="watch-now-btn" aria-haspopup="dialog" data-title-ru="Наруто" data-title-en="Naruto" data-title-orig="NARUTO" data-year="2002">▶ Где посмотреть</button>
+        </div>
       </div>
       <div class="anime-card">
-        <img src="img/постер Атака титанов.jpg" alt="Attack on Titan" loading="lazy">
-        <h3>Attack on Titan</h3>
-        <p>Борьба человечества за выживание против гигантских существ — титанов.</p>
+        <a class="anime-card-link" href="pages/drama.html?anime=attack-on-titan-16498">
+          <img src="img/постер Атака титанов.jpg" alt="Attack on Titan" loading="lazy">
+          <h3>Attack on Titan</h3>
+          <p>Борьба человечества за выживание против гигантских существ — титанов.</p>
+          <span class="anime-card-genre">Драма →</span>
+        </a>
+        <div class="anime-card-actions">
+          <button type="button" class="watch-now-btn" aria-haspopup="dialog" data-title-ru="Атака титанов" data-title-en="Attack on Titan" data-title-orig="Shingeki no Kyojin" data-year="2013">▶ Где посмотреть</button>
+        </div>
       </div>
       <div class="anime-card">
-        <img src="img/постер клинок рассекающий демонов.jpeg" alt="Demon Slayer" loading="lazy">
-        <h3>Demon Slayer</h3>
-        <p>Мальчик сражается с демонами, чтобы спасти сестру и отомстить за семью.</p>
+        <a class="anime-card-link" href="pages/sverhestestvennoe.html?anime=demon-slayer-kimetsu-no-yaiba-101922">
+          <img src="img/постер клинок рассекающий демонов.jpeg" alt="Demon Slayer" loading="lazy">
+          <h3>Demon Slayer</h3>
+          <p>Мальчик сражается с демонами, чтобы спасти сестру и отомстить за семью.</p>
+          <span class="anime-card-genre">Сверхъестественное →</span>
+        </a>
+        <div class="anime-card-actions">
+          <button type="button" class="watch-now-btn" aria-haspopup="dialog" data-title-ru="Клинок, рассекающий демонов" data-title-en="Demon Slayer: Kimetsu no Yaiba" data-title-orig="Kimetsu no Yaiba" data-year="2019">▶ Где посмотреть</button>
+        </div>
       </div>
     </div>
   </section>
@@ -481,44 +527,83 @@
     }
     drawStars();
 
-    // Дропдауны
-    document.querySelectorAll('.dropdown > a').forEach(link => {
+    // Дропдауны «Жанры ▾», «Сёнэн ▸» и т. д.
+    // Состояние открытия — класс .active на .dropdown (показ — CSS .dropdown.active > .dropdown-content).
+    // Раньше он снимался только кликом мимо меню, поэтому после перехода в жанр и «Назад»
+    // страница возвращалась из кэша браузера (bfcache) с открытым подменю.
+    const dropdownToggles = document.querySelectorAll('.dropdown > a');
+    const wideMenu = window.matchMedia('(min-width: 1151px)');
+    const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+    let leaveTimer = null;
+
+    function setDropdown(dd, open) {
+      dd.classList.toggle('active', open);
+      const toggle = dd.querySelector(':scope > a');
+      if (toggle) toggle.setAttribute('aria-expanded', String(open));
+      // закрываем и все вложенные подменю
+      if (!open) dd.querySelectorAll('.dropdown.active').forEach(inner => setDropdown(inner, false));
+    }
+
+    function closeAllDropdowns() {
+      clearTimeout(leaveTimer);
+      document.querySelectorAll('.dropdown.active').forEach(dd => setDropdown(dd, false));
+    }
+
+    dropdownToggles.forEach(link => {
+      link.setAttribute('aria-haspopup', 'true');
+      link.setAttribute('aria-expanded', 'false');
       link.addEventListener('click', e => {
         e.preventDefault();
         e.stopPropagation(); // Важно: предотвращаем всплытие клика
-        
+
         const parent = link.parentElement;
         const grandParent = parent.parentElement;
         const isActive = parent.classList.contains('active');
 
-        // Логика закрытия соседних меню
-        if(grandParent.tagName === 'NAV') {
-             // Если кликнули на главное меню, закрываем другие главные
-             document.querySelectorAll('nav > .dropdown').forEach(d => {
-                 if(d !== parent) d.classList.remove('active');
-             });
-        } else if (grandParent.classList.contains('dropdown-content')) {
-             // Если кликнули на подкатегорию (Сёнэн), закрываем соседние (Сёдзё)
-             grandParent.querySelectorAll('.dropdown').forEach(d => {
-                 if(d !== parent) d.classList.remove('active');
-             });
+        // Закрываем соседей того же уровня: «Жанры» ↔ «Аниме игры», «Сёнэн» ↔ «Сёдзё»
+        if (grandParent.tagName === 'NAV' || grandParent.classList.contains('dropdown-content')) {
+          Array.from(grandParent.children).forEach(d => {
+            if (d !== parent && d.classList.contains('dropdown')) setDropdown(d, false);
+          });
         }
+        setDropdown(parent, !isActive);
+      });
+    });
 
-        // Переключаем состояние
-        if(isActive) {
-            parent.classList.remove('active');
-        } else {
-            parent.classList.add('active');
-        }
+    // Переход по настоящей ссылке из меню — закрываем всё, чтобы страница не попала в кэш с открытым меню
+    document.querySelectorAll('nav a').forEach(a => {
+      a.addEventListener('click', () => {
+        if (a.getAttribute('href') !== '#') closeAllDropdowns();
       });
     });
 
     // Закрытие при клике вне
     document.addEventListener('click', e => {
-      if (!e.target.closest('.dropdown')) {
-        document.querySelectorAll('.dropdown.active').forEach(dd => dd.classList.remove('active'));
-      }
+      if (!e.target.closest('.dropdown')) closeAllDropdowns();
     });
+
+    // Широкий экран и мышь: курсор ушёл из выпадающего меню — закрываем с небольшой задержкой
+    // (чтобы меню не схлопывалось, пока курсор переходит с «Жанры» на «Сёнэн»)
+    document.querySelectorAll('nav > .dropdown').forEach(dd => {
+      dd.addEventListener('mouseleave', () => {
+        if (!wideMenu.matches || !finePointer.matches) return;
+        clearTimeout(leaveTimer);
+        leaveTimer = setTimeout(() => setDropdown(dd, false), 350);
+      });
+      dd.addEventListener('mouseenter', () => clearTimeout(leaveTimer));
+      // клавиатура: фокус ушёл из меню — закрываем его
+      dd.addEventListener('focusout', e => {
+        if (!dd.contains(e.relatedTarget)) setDropdown(dd, false);
+      });
+    });
+
+    // Возврат на страницу: из кэша браузера (pageshow persisted), «Назад»/«Вперёд» (popstate)
+    // и уход со страницы (pagehide) — меню и подменю всегда закрыты
+    window.addEventListener('pageshow', closeAllDropdowns);
+    window.addEventListener('pagehide', closeAllDropdowns);
+    window.addEventListener('popstate', closeAllDropdowns);
+    // ширина сменилась (десктоп ↔ бургер) — состояние подменю не переносим
+    wideMenu.addEventListener('change', closeAllDropdowns);
 
     // Мобильное меню (бургер)
     const siteHeader = document.querySelector('header');
@@ -545,14 +630,23 @@
       if (!e.target.closest('header')) setMenu(false);
     });
     document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') setMenu(false);
+      if (e.key === 'Escape') { setMenu(false); closeAllDropdowns(); }
     });
-    window.matchMedia('(min-width: 1151px)').addEventListener('change', e => {
+    wideMenu.addEventListener('change', e => {
       if (e.matches) setMenu(false);
     });
+    // меню-бургер тоже закрываем при возврате на страницу из кэша
+    window.addEventListener('pageshow', () => setMenu(false));
+    window.addEventListener('pagehide', () => setMenu(false));
   </script>
 
 <script src="js/watch-links.js"></script>
 <script src="js/poster-fallback.js"></script>
+<!-- окно «Где посмотреть» для «Популярных аниме» (легальные площадки + поиск по каталогу) -->
+<script src="js/watch-platforms.js"></script>
+<script src="js/watch-modal.js"></script>
+<!-- поиск в шапке: общий движок (аниме + фильмы, синонимы) и строка с подсказками -->
+<script src="js/anime-search.js"></script>
+<script src="js/site-search.js"></script>
 </body>
 </html>

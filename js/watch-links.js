@@ -105,11 +105,15 @@
     document.querySelectorAll('.anime-cards .anime-card').forEach(function (card) {
       var titleEl = card.querySelector('h3');
       if (!titleEl || card.querySelector('.watch-link')) return;
-      var actions = document.createElement('div');
-      actions.className = 'card-actions';
+      // если у карточки уже есть ряд кнопок («▶ Где посмотреть») — встаём в него
+      var actions = card.querySelector('.anime-card-actions');
+      if (!actions) {
+        actions = document.createElement('div');
+        actions.className = 'card-actions';
+        card.appendChild(actions);
+      }
       var btn = createButton(titleEl.textContent.trim());
       actions.appendChild(btn);
-      card.appendChild(actions);
       updateButton(btn, links);
     });
   }

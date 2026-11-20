@@ -1,0 +1,69 @@
+/* Плавающая кнопка «Наверх» (js/back-to-top.js): тёмная основа, розовая обводка, оранжевая стрелка. */
+.to-top-btn {
+  position: fixed;
+  right: max(24px, env(safe-area-inset-right));
+  bottom: max(24px, env(safe-area-inset-bottom));
+  z-index: 900; /* под модальными окнами и выпадающими панелями, над карточками */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 2px solid #ff3366;
+  border-radius: 50%;
+  background: rgba(23, 19, 17, 0.92);
+  color: #ff8b33;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45), 0 0 14px rgba(255, 51, 102, 0.25);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  /* спрятана: прозрачная, чуть ниже, не ловит клики */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0s linear 0.25s,
+              background-color 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.to-top-btn.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0s,
+              background-color 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.to-top-btn:hover,
+.to-top-btn:focus-visible {
+  background: #ff3366;
+  color: #fff;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45), 0 0 18px rgba(255, 51, 102, 0.6);
+}
+
+.to-top-btn:focus-visible {
+  outline: 2px solid #ff8b33;
+  outline-offset: 3px;
+}
+
+.to-top-btn svg { display: block; }
+
+/* Телефоны: кнопка поменьше и ближе к краю; у списка жанра снизу запас,
+   чтобы кнопка не закрывала «Показать ещё» в самом конце страницы */
+@media (max-width: 480px) {
+  .to-top-btn {
+    right: max(14px, env(safe-area-inset-right));
+    bottom: max(14px, env(safe-area-inset-bottom));
+    width: 44px;
+    height: 44px;
+  }
+  .catalog-more { padding-bottom: 64px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .to-top-btn,
+  .to-top-btn.is-visible { transition: none; transform: none; }
+}

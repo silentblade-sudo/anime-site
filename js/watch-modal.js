@@ -10,6 +10,12 @@
  * из названия и alt постера. Пустых названий не бывает: каждое поле подменяется соседним.
  *
  * Для порций, которые появляются позже: AnimeWatchModal.decorate(cards).
+ * Своя кнопка на странице: <button class="watch-now-btn" data-title-ru="…" data-title-en="…"> — откроется сама.
+ * Карточки с атрибутом data-no-watch автоматически не получают кнопку.
+ *
+ * В окне есть поиск «Найти другое аниме» — общий движок js/anime-search.js (подключается сам при первом вводе):
+ * подсказки ведут на страницу жанра с ?anime=<id> (js/catalog-page.js прокрутит к карточке) или на страницу фильма.
+ * Стили — css/watch-modal.css.
  */
 (function () {
   'use strict';
@@ -18,6 +24,10 @@
   var LATIN = /[a-z]/i;
   var dialog = null;
   var lastButton = null;
+
+  // Пути от расположения самого скрипта (js/), поэтому одинаково работают с главной и из pages/
+  var SCRIPT_SRC = (document.currentScript && document.currentScript.src) || location.href;
+  var SUGGEST_LIMIT = 8;
 
   // ── Названия тайтла с фолбэками ──
   function namesFor(card) {
@@ -43,7 +53,8 @@
   // ── Кнопка в карточке ──
   function decorateItem(card) {
     var titleEl = card.querySelector('.anime-title');
-    if (!titleEl || card.querySelector('.watch-now-btn')) return;
+    // data-no-watch — страница сама решает, где нужна кнопка (например, «Избранное»)
+    if (!titleEl || card.hasAttribute('data-no-watch') || card.querySelector('.watch-now-btn')) return;
     var actions = card.querySelector('.card-actions');
     if (!actions) {
       // на случай, если js/watch-links.js не подключён: собираем такой же блок действий
@@ -100,7 +111,7 @@
 
     var body = el('div', 'watch-modal-body');
     var foot = el('p', 'watch-modal-foot', 'Ссылки открывают поиск на площадке в новой вкладке. Есть ли там этот тайтл — зависит от площадки и вашего региона.');
-    box.append(head, body, foot);
+    box.append(head, buildSearch(), body, foot);
     dialog.appendChild(box);
 
     // Клик по затемнённому фону (сам <dialog> вне его содержимого) закрывает окно
@@ -111,6 +122,129 @@
     });
     document.body.appendChild(dialog);
     return dialog;
+  }
+
+  // ── Поиск другого аниме внутри окна: общий движок js/anime-search.js ──
+  // (русские, английские, оригинальные названия, синонимы AniList и словарь обиходных названий;
+  //  подсказки ведут на страницу жанра с ?anime=<id> или на страницу фильма)
+  var searchTimer = null;
+  var enginePromise = null;
+
+  // Движок подключаем сами, если страница его не подключила
+  function engine() {
+    if (window.AnimeSearch) return window.AnimeSearch.load();
+    if (!enginePromise) {
+      enginePromise = new Promise(function (resolve, reject) {
+        var s = document.createElement('script');
+        s.src = new URL('anime-search.js', SCRIPT_SRC).href;
+        s.onload = function () { window.AnimeSearch ? resolve() : reject(new Error('AnimeSearch не найден')); };
+        s.onerror = function () { enginePromise = null; reject(new Error('anime-search.js не загрузился')); };
+        document.head.appendChild(s);
+      });
+    }
+    return enginePromise.then(function () { return window.AnimeSearch.load(); });
+  }
+
+  function normalize(s) {
+    return window.AnimeSearch ? window.AnimeSearch.normalize(s)
+      : String(s || '').toLowerCase().replace(/ё/g, 'е').replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
+  }
+
+  function renderSuggestions() {
+    var d = ensureDialog();
+    var input = d.querySelector('.watch-search-input');
+    var list = d.querySelector('.watch-search-list');
+    var status = d.querySelector('.watch-search-status');
+    var q = normalize(input.value);
+    list.replaceChildren();
+    list.hidden = true;
+    input.setAttribute('aria-expanded', 'false');
+    if (q.length < 2) { status.textContent = q ? 'Введите хотя бы 2 буквы' : ''; return; }
+
+    status.textContent = 'Ищем…';
+    engine().then(function (search) {
+      if (normalize(input.value) !== q) return; // пока грузили, запрос поменялся
+      var found = search.find(q, { limit: SUGGEST_LIMIT });
+      if (!found.length) { status.textContent = 'Ничего не найдено'; return; }
+      status.textContent = 'Найдено: ' + found.length + (found.length === SUGGEST_LIMIT ? '+' : '') + '. Нажмите, чтобы открыть раздел.';
+      found.forEach(function (r) {
+        var li = document.createElement('li');
+        var link = el('a', 'watch-suggestion');
+        link.href = r.href;
+        var title = el('span', 'watch-suggestion-title', r.title);
+        var meta = el('span', 'watch-suggestion-meta');
+        meta.appendChild(el('span', 'watch-suggestion-genre' + (r.type === 'movie' ? ' is-movie' : ''), r.section));
+        if (r.extra) meta.appendChild(document.createTextNode(' · ' + r.extra));
+        link.append(title, meta);
+        li.appendChild(link);
+        list.appendChild(li);
+      });
+      list.hidden = false;
+      input.setAttribute('aria-expanded', 'true');
+    }).catch(function () {
+      status.textContent = 'Не удалось загрузить каталог. Проверьте подключение и попробуйте ещё раз.';
+    });
+  }
+
+  function buildSearch() {
+    var wrap = el('div', 'watch-modal-search');
+    var label = el('label', 'watch-search-label', 'Найти другое аниме');
+    label.htmlFor = 'watch-search-input';
+    var input = el('input', 'watch-search-input');
+    input.type = 'search';
+    input.id = 'watch-search-input';
+    input.placeholder = 'Название на русском, английском или японском';
+    input.autocomplete = 'off';
+    input.spellcheck = false;
+    input.setAttribute('aria-controls', 'watch-search-list');
+    input.setAttribute('aria-expanded', 'false');
+    input.setAttribute('aria-describedby', 'watch-search-status');
+    var status = el('p', 'watch-search-status');
+    status.id = 'watch-search-status';
+    status.setAttribute('aria-live', 'polite');
+    var list = el('ul', 'watch-search-list');
+    list.id = 'watch-search-list';
+    list.setAttribute('aria-label', 'Подсказки');
+    list.hidden = true;
+
+    input.addEventListener('input', function () {
+      clearTimeout(searchTimer);
+      searchTimer = setTimeout(renderSuggestions, 150);
+    });
+    // Стрелки: из поля — к подсказкам и обратно, по подсказкам — вверх/вниз; Enter открывает ссылку
+    input.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowDown') {
+        var firstLink = list.querySelector('a');
+        if (firstLink) { e.preventDefault(); firstLink.focus(); }
+      } else if (e.key === 'Enter') {
+        var only = list.querySelector('a');
+        if (only) { e.preventDefault(); location.href = only.href; }
+      }
+    });
+    list.addEventListener('keydown', function (e) {
+      if (e.key !== 'ArrowDown' && e.key !== 'ArrowUp') return;
+      var links = Array.prototype.slice.call(list.querySelectorAll('a'));
+      var i = links.indexOf(document.activeElement);
+      if (i === -1) return;
+      e.preventDefault();
+      if (e.key === 'ArrowDown') (links[i + 1] || links[i]).focus();
+      else if (i === 0) input.focus();
+      else links[i - 1].focus();
+    });
+
+    wrap.append(label, input, status, list);
+    return wrap;
+  }
+
+  function resetSearch() {
+    var d = ensureDialog();
+    clearTimeout(searchTimer);
+    d.querySelector('.watch-search-input').value = '';
+    d.querySelector('.watch-search-input').setAttribute('aria-expanded', 'false');
+    d.querySelector('.watch-search-status').textContent = '';
+    var list = d.querySelector('.watch-search-list');
+    list.replaceChildren();
+    list.hidden = true;
   }
 
   function fill(names) {
@@ -155,6 +289,7 @@
     lastButton = btn;
     fill({ ru: btn.dataset.titleRu, en: btn.dataset.titleEn, orig: btn.dataset.titleOrig, year: btn.dataset.year || '' });
     var d = ensureDialog();
+    resetSearch();
     d.querySelector('.watch-modal-body').scrollTop = 0;
     if (typeof d.showModal === 'function') d.showModal(); else d.setAttribute('open', '');
     d.querySelector('.watch-modal-close').focus();

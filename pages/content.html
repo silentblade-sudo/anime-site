@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Содержание</title>
+    <link rel="stylesheet" href="../css/watch-modal.css"><!-- окно «Где посмотреть» (dialog.watch-modal) -->
+    <link rel="stylesheet" href="../css/back-to-top.css">
+    <link rel="stylesheet" href="../css/theme.css">
+    <style>
+        /* акцент раздела для кольца фокуса из css/theme.css */
+        :root { --theme-accent: #ff3366; accent-color: #ff3366; }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: sans-serif;
+            background-color: #171311;
+            color: #f3e8ff;
+            line-height: 1.6;
+        }
+
+        .page-wrap {
+            display: flex;
+            align-items: stretch;
+            gap: 20px;
+            width: 96%;
+            max-width: 1440px;
+            min-height: calc(100vh - 32px);
+            margin: 16px auto;
+        }
+
+        .sidebar {
+            flex: 0 0 360px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 18px;
+            padding: 20px;
+            background-color: rgba(42, 35, 32, 0.95);
+            border: 1px solid rgba(160, 0, 0, 0.4);
+            border-radius: 14px;
+        }
+
+        .sidebar-top {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .section-label {
+            font-size: 13px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: #d6c5e6;
+        }
+
+        .card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 400px;
+            background-color: #171311;
+            border: 1px solid #a00000;
+            border-radius: 16px;
+            border-bottom-right-radius: 26px;
+            overflow: hidden;
+            color: #cbb8dc;
+            font-size: 16px;
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .info-box {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding: 14px;
+            background-color: #171311;
+            border: 1px solid rgba(160, 0, 0, 0.35);
+            border-radius: 12px;
+            font-size: 14px;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .info-key {
+            color: #cbb8dc;
+        }
+
+        .info-val {
+            color: #ffffff;
+            font-weight: 600;
+            text-align: right;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 11px;
+            background-color: rgba(196, 25, 25, 0.85);
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.2s, transform 0.2s;
+        }
+
+        .back-link:hover {
+            background-color: #a00000;
+            transform: translateY(-1px);
+        }
+
+        .sidebar-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        /* «▶ Где посмотреть» — главная кнопка колонки, розовый акцент раздела */
+        .watch-btn {
+            border: none;
+            background-color: #ff3366;
+            font: inherit;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 0 14px rgba(255, 51, 102, 0.35);
+        }
+
+        .watch-btn:hover {
+            background-color: #e0244f;
+        }
+
+        .watch-btn[hidden],
+        .fav-btn[hidden] {
+            display: none;
+        }
+
+        /* «☆ В избранное» / «★ В избранном»: контурная, в избранном — залитая розовым */
+        .fav-btn {
+            border: 1px solid #ff3366;
+            background-color: transparent;
+            color: #ff5c85;
+            font: inherit;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .fav-btn:hover {
+            background-color: rgba(255, 51, 102, 0.15);
+        }
+
+        .fav-btn[aria-pressed="true"] {
+            background-color: rgba(255, 51, 102, 0.22);
+            color: #ffffff;
+        }
+
+        .fav-btn[aria-pressed="true"]:hover {
+            background-color: rgba(255, 51, 102, 0.32);
+        }
+
+        .home-link {
+            background-color: transparent;
+            border: 1px solid rgba(196, 25, 25, 0.6);
+        }
+
+        .home-link:hover {
+            background-color: rgba(196, 25, 25, 0.35);
+        }
+
+        .movie-title,
+        .info-val {
+            overflow-wrap: anywhere;
+        }
+
+        .info-box[hidden] {
+            display: none;
+        }
+
+        /* Широкий экран: левая колонка остаётся на виду при прокрутке длинного описания,
+           кнопка «Назад к фильмам» не уезжает вниз страницы */
+        @media (min-width: 901px) {
+            .sidebar {
+                position: sticky;
+                top: 16px;
+                align-self: flex-start;
+                justify-content: flex-start;
+                max-height: calc(100vh - 32px);
+                overflow-y: auto;
+            }
+
+            /* постер уменьшается на невысоких экранах, чтобы все четыре кнопки помещались в колонку */
+            .card {
+                height: clamp(240px, calc(100vh - 560px), 400px);
+            }
+        }
+
+        .content {
+            flex: 1;
+            min-width: 0;
+            padding: 28px;
+            background-color: rgba(42, 35, 32, 0.95);
+            border: 1px solid rgba(160, 0, 0, 0.25);
+            border-radius: 14px;
+        }
+
+        .movie-title {
+            font-size: 30px;
+            color: #ffffff;
+            margin: 8px 0 10px;
+        }
+
+        .movie-meta {
+            font-size: 14px;
+            color: #d6c5e6;
+            margin-bottom: 22px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .movie-description {
+            font-size: 17px;
+            color: #f3e8ff;
+            max-width: 78ch;
+        }
+
+        .movie-description p + p {
+            margin-top: 14px;
+        }
+
+        @media (max-width: 900px) {
+            .page-wrap {
+                flex-direction: column;
+                width: 94%;
+                min-height: auto;
+            }
+
+            .sidebar {
+                flex: none;
+                width: 100%;
+            }
+
+            .card {
+                height: 320px;
+            }
+
+            .content {
+                width: 100%;
+                min-height: 320px;
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-wrap {
+                width: auto;
+                margin: 12px;
+                gap: 14px;
+            }
+
+            .sidebar {
+                padding: 14px;
+            }
+
+            .card {
+                width: min(100%, 260px);
+                height: auto;
+                aspect-ratio: 2 / 3;
+                align-self: center;
+            }
+
+            .content {
+                padding: 16px;
+            }
+
+            .movie-title {
+                font-size: 24px;
+            }
+
+            .movie-description {
+                font-size: 16px;
+            }
+
+            .back-link {
+                min-height: 44px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrap">
+        <aside class="sidebar">
+            <div class="sidebar-top">
+                <span class="section-label">Постер</span>
+                <div class="card" id="moviePoster"></div>
+                <div class="info-box" id="infoBox">
+                    <div class="info-row">
+                        <span class="info-key">Год:</span>
+                        <span class="info-val" id="infoYear">—</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-key">Длительность:</span>
+                        <span class="info-val" id="infoDuration">—</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-key">Студия:</span>
+                        <span class="info-val" id="infoStudio">—</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-key">Связь с сюжетом:</span>
+                        <span class="info-val" id="infoRelation">—</span>
+                    </div>
+                </div>
+            </div>
+            <div class="sidebar-links">
+                <button type="button" class="back-link watch-btn" id="watchBtn" aria-haspopup="dialog" hidden>▶ Где посмотреть</button>
+                <button type="button" class="back-link fav-btn" id="favBtn" aria-pressed="false" hidden>☆ В избранное</button>
+                <a class="back-link" href="movies.html">← Назад к фильмам</a>
+                <a class="back-link home-link" href="../index.html">На главную</a>
+            </div>
+        </aside>
+
+        <main class="content">
+            <span class="section-label">Содержание</span>
+            <h1 class="movie-title" id="movieTitle">Название фильма</h1>
+            <p class="movie-meta" id="movieMeta">Франшиза • Год</p>
+            <div class="movie-description" id="movieDescription">
+                <p>Описание появится здесь.</p>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/movies-data.js"></script>
+    <script src="../js/movie-favorites.js"></script>
+    <!-- Окно «Где посмотреть» — тот же список легальных площадок, что и на страницах жанров -->
+    <script src="../js/watch-platforms.js"></script>
+    <script src="../js/watch-modal.js"></script>
+    <script>
+        // Данные — из js/movies-data.js (тот же список, что и в каталоге pages/movies.html)
+        const movies = typeof MOVIES !== "undefined" && Array.isArray(MOVIES) ? MOVIES : [];
+        const PLACEHOLDER = "../img/poster-placeholder.svg";
+        const movieId = new URLSearchParams(window.location.search).get("id");
+        const movie = movies.find(item => item.id === movieId);
+
+        // Путь постера в данных — от корня сайта; страница лежит в pages/, поэтому добавляем ../
+        function posterSrc(poster) {
+            if (!poster) return PLACEHOLDER;
+            return /^(https?:)?\/\//.test(poster) || poster.startsWith("/") ? poster : "../" + poster;
+        }
+
+        // Абзацы: массив строк или одна строка с пустыми строками между абзацами.
+        // Вставляем через textContent — кавычки, < > и & в тексте ничего не ломают.
+        function toParagraphs(description) {
+            const list = Array.isArray(description) ? description : String(description || "").split(/\n\s*\n/);
+            return list.map(text => String(text || "").trim()).filter(Boolean);
+        }
+
+        function setText(id, value) {
+            document.getElementById(id).textContent = value || value === 0 ? value : "—";
+        }
+
+        function renderPoster(src, alt) {
+            const box = document.getElementById("moviePoster");
+            const img = document.createElement("img");
+            img.src = src;
+            img.alt = alt;
+            img.addEventListener("error", () => { img.src = PLACEHOLDER; img.alt = ""; }, { once: true });
+            box.replaceChildren(img);
+        }
+
+        const descBox = document.getElementById("movieDescription");
+
+        if (movie) {
+            document.title = `${movie.title} — Аниме-фильмы`;
+            setText("movieTitle", movie.title);
+            document.getElementById("movieMeta").textContent =
+                [movie.franchise, movie.year].filter(Boolean).join(" • ") || "—";
+
+            setText("infoYear", movie.year);
+            setText("infoDuration", movie.duration);
+            setText("infoStudio", movie.studio);
+            setText("infoRelation", movie.relation);
+
+            const paragraphs = toParagraphs(movie.description);
+            descBox.replaceChildren(...(paragraphs.length ? paragraphs : ["Описание пока не добавлено."]).map(text => {
+                const p = document.createElement("p");
+                p.textContent = text;
+                return p;
+            }));
+
+            renderPoster(posterSrc(movie.poster), movie.poster ? `Постер: ${movie.title}` : "");
+
+            // Кнопка «Где посмотреть»: окно из js/watch-modal.js ищет фильм по названиям
+            // (русское — для Кинопоиска и Okko, английское и оригинальное — для зарубежных площадок)
+            const watchBtn = document.getElementById("watchBtn");
+            if (window.AnimeWatchModal) {
+                watchBtn.dataset.titleRu = movie.title;
+                watchBtn.dataset.titleEn = movie.titleEn || movie.titleOrig || movie.title;
+                watchBtn.dataset.titleOrig = movie.titleOrig || movie.titleEn || movie.title;
+                if (movie.year) watchBtn.dataset.year = movie.year;
+                watchBtn.title = `Где посмотреть «${movie.title}»`;
+                watchBtn.addEventListener("click", () => window.AnimeWatchModal.open(watchBtn));
+                watchBtn.hidden = false;
+            }
+
+            // Избранное: отдельный список фильмов (js/movie-favorites.js), состояние переживает перезагрузку
+            const favBtn = document.getElementById("favBtn");
+            if (window.MovieFavorites) {
+                const syncFav = () => {
+                    const inFav = MovieFavorites.has(movie.id);
+                    favBtn.textContent = inFav ? "★ В избранном" : "☆ В избранное";
+                    favBtn.setAttribute("aria-pressed", String(inFav));
+                    favBtn.title = inFav ? "Убрать из избранного" : "Добавить в избранное";
+                };
+                favBtn.addEventListener("click", () => MovieFavorites.toggle(movie.id));
+                MovieFavorites.onChange(syncFav);
+                syncFav();
+                favBtn.hidden = false;
+            }
+        } else {
+            // Нет id или такого фильма нет в списке — честно говорим об этом, а не подменяем первым фильмом
+            document.title = "Фильм не найден — Аниме-фильмы";
+            setText("movieTitle", "Фильм не найден");
+            document.getElementById("movieMeta").textContent = movieId ? `Нет фильма с адресом «${movieId}»` : "Фильм не выбран";
+            document.getElementById("infoBox").hidden = true;
+            const p = document.createElement("p");
+            p.textContent = "Возможно, ссылка устарела. Выберите фильм в каталоге.";
+            const link = document.createElement("a");
+            link.href = "movies.html";
+            link.textContent = "Открыть каталог фильмов";
+            link.style.color = "#ff3366";
+            const p2 = document.createElement("p");
+            p2.appendChild(link);
+            descBox.replaceChildren(p, p2);
+            renderPoster(PLACEHOLDER, "");
+        }
+    </script>
+<script src="../js/back-to-top.js" defer></script><!-- кнопка «Наверх» -->
+</body>
+</html>

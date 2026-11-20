@@ -13,7 +13,8 @@
  *    (title, titleOriginal, titleEnglish); если в жанре не нашлось — подсказывает раздел;
  *  - кнопки «В избранное» вызывают addToFavorites страницы, как раньше, а «В ссылки»
  *    добавляет js/watch-links.js;
- *  - если data/anime.json не загрузился, оставляет старые карточки страницы.
+ *  - если data/anime.json не загрузился, оставляет старые карточки страницы;
+ *  - по адресу «?anime=<id>» догружает нужную порцию, прокручивает к карточке и подсвечивает её.
  */
 (function () {
   'use strict';
@@ -187,6 +188,61 @@
     wrapper.classList.add('has-year-filter');
   }
 
+  // ── Переход в другой жанр (выпадающий список справа от «Все годы») ──
+  // Жанры и их страницы — из справочника genres в data/anime.json, сгруппированы как в меню сайта.
+  function buildGenreSwitch() {
+    var wrapper = searchInput && searchInput.parentElement;
+    if (!wrapper || !catalog.genres) return;
+
+    var select = document.createElement('select');
+    select.id = 'genreSwitch';
+    select.className = 'year-filter genre-switch'; // оформление — как у «Все годы»
+    select.setAttribute('aria-label', 'Перейти в другой жанр');
+    select.title = 'Перейти в другой жанр';
+
+    var groups = {};
+    var order = [];
+    Object.keys(catalog.genres).forEach(function (key) {
+      var g = catalog.genres[key];
+      var group = g.group || 'Другие';
+      if (!groups[group]) { groups[group] = []; order.push(group); }
+      groups[group].push({ key: key, name: g.name, file: g.page.split('/').pop() });
+    });
+    order.forEach(function (group) {
+      var og = document.createElement('optgroup');
+      og.label = group;
+      groups[group].forEach(function (g) {
+        var o = document.createElement('option');
+        o.value = g.file; // страницы жанров лежат в одной папке pages/
+        o.textContent = g.name;
+        if (g.key === genreKey) { o.selected = true; o.textContent = g.name + ' — сейчас'; }
+        og.appendChild(o);
+      });
+      select.appendChild(og);
+    });
+    var current = select.value;
+
+    function go() {
+      if (select.value && select.value !== current) location.href = select.value;
+    }
+    // Мышью/пальцем выбор сразу открывает жанр. С клавиатуры стрелки и буквы на закрытом списке
+    // в некоторых браузерах сразу меняют значение — тогда переходим только по Enter, а не на каждое нажатие.
+    var lastKey = 0;
+    select.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') { e.preventDefault(); go(); return; }
+      if (e.key !== 'Tab' && e.key !== 'Escape') lastKey = Date.now();
+    });
+    select.addEventListener('change', function () {
+      if (Date.now() - lastKey < 400) return; // смена стрелками — ждём Enter
+      go();
+    });
+    // вернулись «Назад» из кэша браузера — показываем текущий жанр, а не выбранный ранее
+    window.addEventListener('pageshow', function () { select.value = current; });
+
+    (yearSelect || searchInput).insertAdjacentElement('afterend', select);
+    wrapper.classList.add('has-year-filter', 'has-genre-switch');
+  }
+
   function updateFooter() {
     var total = current.length;
     var filtered = (searchInput && searchInput.value.trim()) || selectedYear();
@@ -219,15 +275,47 @@
     renderMore();
   }
 
+  // Место каждого тайтла в списке каждого жанра (считается один раз, при первой подсказке)
+  var genreRank = null;
+  function rankIn(genre, id) {
+    if (!genreRank) {
+      genreRank = {};
+      Object.keys(catalog.genres).forEach(function (g) {
+        var i = 0;
+        genreRank[g] = {};
+        catalog.anime.forEach(function (a) { if (a.genres.indexOf(g) !== -1) genreRank[g][a.id] = i++; });
+      });
+    }
+    var r = genreRank[genre] && genreRank[genre][id];
+    return r === undefined ? Infinity : r;
+  }
+
+  // Раздел для перехода: среди других жанров тайтла — тот, где он стоит выше всего
+  // (почти всегда в первой порции страницы); при равенстве — более крупный жанр.
+  // Так же выбирает раздел поиск по сайту (js/anime-search.js).
+  function bestOtherGenre(match) {
+    var best = null, bestRank = Infinity;
+    match.genres.forEach(function (g) {
+      if (g === genreKey || !catalog.genres[g]) return;
+      var r = rankIn(g, match.id);
+      var bigger = best && (catalog.genres[g].count || 0) > (catalog.genres[best].count || 0);
+      if (r < bestRank || (r === bestRank && bigger)) { best = g; bestRank = r; }
+    });
+    return best;
+  }
+
+  // Подсказка «Аниме "…" найдено в разделе …»: ссылка сразу ведёт к тайтлу (?anime=<id>) —
+  // страница жанра догрузит карточки до него, прокрутит и подсветит, вводить запрос заново не нужно
   function showHint(match) {
     if (!hintBox) return;
     if (!match) { hintBox.style.display = 'none'; hintBox.textContent = ''; return; }
-    var otherKey = match.genres.filter(function (g) { return g !== genreKey; })[0];
+    var otherKey = bestOtherGenre(match);
     var g = otherKey && catalog.genres[otherKey];
-    if (!g) { hintBox.style.display = 'none'; return; }
+    if (!g) { hintBox.style.display = 'none'; hintBox.textContent = ''; return; }
     var link = document.createElement('a');
-    link.href = g.page.split('/').pop();
-    link.textContent = g.name;
+    link.href = g.page.split('/').pop() + '?anime=' + encodeURIComponent(match.id);
+    link.textContent = g.name + ' →';
+    link.title = 'Открыть «' + match.title + '» в разделе ' + g.name;
     var b = document.createElement('b');
     b.textContent = '"' + match.title + '"';
     hintBox.replaceChildren(document.createTextNode('🔍 Аниме '), b, document.createTextNode(' найдено в разделе '), link);
@@ -235,20 +323,73 @@
   }
 
   // Поиск по названию и фильтр по году работают вместе; «Показать ещё» листает уже отфильтрованный список
+  // ── Общий поисковый движок js/anime-search.js: синонимы AniList (data/anime-synonyms.json),
+  //    словарь обиходных названий («ветролом» → WIND BREAKER), «ё» = «е». Подключается при первом поиске;
+  //    пока он грузится (или если не загрузился), работает простой поиск по трём названиям тайтла.
+  var engine = null;          // window.AnimeSearch после загрузки
+  var enginePromise = null;
+  var engineFailed = false;
+
+  function loadEngine() {
+    if (engine || engineFailed) return enginePromise || Promise.resolve();
+    if (!enginePromise) {
+      enginePromise = new Promise(function (resolve, reject) {
+        if (window.AnimeSearch) return resolve();
+        var s = document.createElement('script');
+        s.src = new URL('anime-search.js', scriptSrc).href;
+        s.onload = function () { window.AnimeSearch ? resolve() : reject(new Error('AnimeSearch не найден')); };
+        s.onerror = function () { reject(new Error('anime-search.js не загрузился')); };
+        document.head.appendChild(s);
+      }).then(function () {
+        return window.AnimeSearch.load();
+      }).then(function (api) {
+        engine = api;
+        if (searchInput && searchInput.value.trim()) search(); // пересчитываем уже набранный запрос
+      }).catch(function (err) {
+        engineFailed = true;
+        console.warn('Поиск по синонимам недоступен, ищем по основным названиям:', err.message);
+        if (searchInput && searchInput.value.trim()) search();
+      });
+    }
+    return enginePromise;
+  }
+
+  // Подходящие тайтлы из списка: с движком — по всем названиям и синонимам, сначала точные совпадения;
+  // без движка — по трём названиям в порядке каталога
+  function matchItems(items, q) {
+    if (!q) return items;
+    if (engine) {
+      var scores = engine.scoreAll(q);
+      return items.filter(function (a) { return scores[a.id] !== undefined; })
+        .sort(function (x, y) { return scores[x.id] - scores[y.id] || x._order - y._order; });
+    }
+    return items.filter(function (a) { return a._search.indexOf(q) !== -1; });
+  }
+
   function search() {
     var q = normalize(searchInput ? searchInput.value : '');
     var year = selectedYear();
     var base = year ? genreItems.filter(function (a) { return a.year === year; }) : genreItems;
-    var found = q ? base.filter(function (a) { return a._search.indexOf(q) !== -1; }) : base;
+    if (q && !engine && !engineFailed) loadEngine();
+    var found = matchItems(base, q);
     renderList(found);
     if (found.length) {
       if (noResults) noResults.style.display = 'none';
       showHint(null);
       return;
     }
-    // В этом жанре нет — подсказываем раздел, как раньше (только для поиска без выбранного года:
+    // Движок ещё грузится — не пугаем «ничего не найдено»: результат пересчитается, когда он будет готов
+    if (q && !engine && !engineFailed) {
+      showHint(null);
+      if (noResults) noResults.style.display = 'none';
+      counter.textContent = 'Ищем…';
+      footer.hidden = false;
+      moreBtn.hidden = true;
+      return;
+    }
+    // В этом жанре нет — подсказываем раздел (только для поиска без выбранного года:
     // в другом разделе тайтл может оказаться другого года)
-    var other = q.length >= 2 && !year ? catalog.anime.filter(function (a) { return a._search.indexOf(q) !== -1; })[0] : null;
+    var other = q.length >= 2 && !year ? matchItems(catalog.anime, q)[0] : null;
     showHint(other);
     if (noResults) noResults.style.display = other ? 'none' : 'block';
   }
@@ -262,6 +403,71 @@
 
   moreBtn.addEventListener('click', renderMore);
 
+  // Возврат на страницу из кэша браузера (bfcache): сбрасываем поиск, год и подсказку — полный список жанра
+  window.addEventListener('pageshow', function (e) {
+    if (!e.persisted || !catalog) return;
+    var filtered = (searchInput && searchInput.value) || selectedYear();
+    if (searchInput) searchInput.value = '';
+    if (yearSelect) yearSelect.value = '';
+    showHint(null);
+    if (noResults) noResults.style.display = 'none';
+    if (filtered) renderList(genreItems);
+  });
+
+  // Enter в поиске: если в этом жанре ничего нет, а подсказка нашла тайтл в другом разделе — сразу переходим к нему
+  if (searchInput) {
+    function followHint() {
+      var link = hintBox && hintBox.style.display !== 'none' ? hintBox.querySelector('a') : null;
+      if (!current.length && link) { location.href = link.href; return true; }
+      return false;
+    }
+    searchInput.addEventListener('keydown', function (e) {
+      if (e.key !== 'Enter' || !catalog) return;
+      e.preventDefault();
+      clearTimeout(searchTimer);
+      search(); // не ждём задержку живого поиска
+      if (followHint()) return;
+      // движок синонимов ещё грузится — дождёмся его и проверим подсказку ещё раз
+      var q = searchInput.value;
+      if (!engine && enginePromise) enginePromise.then(function () { if (searchInput.value === q) followHint(); });
+    });
+    // движок подгружаем заранее, как только человек собирается искать
+    searchInput.addEventListener('focus', function () { if (catalog) loadEngine(); }, { once: true });
+  }
+
+  // ── Переход к тайтлу по ссылке «страница-жанра.html?anime=<id>» ──
+  // (подсказки поиска в окне «Где посмотреть», постеры «Популярные аниме» на главной)
+  // Догружаем порции до нужной карточки, прокручиваем к ней и подсвечиваем.
+  function focusRequestedAnime() {
+    var id = new URLSearchParams(location.search).get('anime');
+    if (!id) return;
+    var index = -1;
+    for (var i = 0; i < current.length; i++) { if (current[i].id === id) { index = i; break; } }
+    if (index === -1) {
+      // тайтла нет в этом жанре — подсказываем раздел, где он есть
+      var item = catalog.anime.filter(function (a) { return a.id === id; })[0];
+      if (item) showHint(item);
+      return;
+    }
+    while (shown <= index && shown < current.length) renderMore();
+    var card = container.querySelector('.anime-item[data-anime-id="' + (window.CSS && CSS.escape ? CSS.escape(id) : id) + '"]');
+    if (!card) return;
+    card.classList.add('catalog-target');
+    card.setAttribute('tabindex', '-1'); // чтобы перевести на карточку фокус для читалок экрана
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function inView() {
+      var r = card.getBoundingClientRect();
+      return r.top >= 0 && r.top < window.innerHeight - 80;
+    }
+    card.scrollIntoView({ block: 'center', behavior: reduce ? 'auto' : 'smooth' });
+    try { card.focus({ preventScroll: true }); } catch (e) { /* старые браузеры */ }
+    // Подстраховка: если плавная прокрутка не сработала (фоновая вкладка) или карточку сдвинули
+    // догрузившиеся постеры — докручиваем без анимации
+    setTimeout(function () { if (!inView()) card.scrollIntoView({ block: 'center' }); }, 900);
+    window.addEventListener('load', function () { if (!inView()) card.scrollIntoView({ block: 'center' }); }, { once: true });
+    setTimeout(function () { card.classList.remove('catalog-target'); }, 6000);
+  }
+
   function fail(reason) {
     console.warn('Каталог не загружен, показываем карточки страницы:', reason);
     status.remove();
@@ -274,8 +480,9 @@
       genreKey = detectGenre(data);
       if (!genreKey) return fail('жанр страницы не найден в каталоге');
       catalog = data;
-      data.anime.forEach(function (a) {
+      data.anime.forEach(function (a, i) {
         a._search = normalize([a.title, a.titleOriginal, a.titleEnglish].join(' '));
+        a._order = i; // порядок каталога (популярность) — для равных по точности совпадений
       });
       genreItems = data.anime.filter(function (a) { return a.genres.indexOf(genreKey) !== -1; });
       if (!genreItems.length) return fail('в каталоге нет тайтлов этого жанра');
@@ -284,7 +491,13 @@
       status.remove();
       document.body.dataset.catalogGenre = genreKey;
       buildYearFilter();
-      if (searchInput && searchInput.value.trim()) search(); else renderList(genreItems);
+      buildGenreSwitch();
+      // При «Назад»/«Вперёд» браузер сам подставляет в поле прежний запрос — не оставляем этот фильтр:
+      // страница открывается с полным списком жанра (или сразу с нужным тайтлом по ?anime=)
+      var nav = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+      if (searchInput && nav && nav.type === 'back_forward') searchInput.value = '';
+      if (searchInput && searchInput.value.trim()) search();
+      else { renderList(genreItems); focusRequestedAnime(); }
     })
     .catch(function (err) { fail(err.message); });
 })();

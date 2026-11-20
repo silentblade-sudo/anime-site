@@ -1,0 +1,165 @@
+/* Строка поиска в шапке (js/site-search.js). Ширину поля на странице можно задать переменной
+   --site-search-width (по умолчанию 220px); при фокусе поле раздвигается до --site-search-focus-width. */
+.site-search {
+  position: relative;
+  z-index: 5; /* поверх меню, если поле раздвинулось при фокусе */
+  font-family: 'Roboto', sans-serif;
+}
+
+.site-search-toggle { display: none; }
+
+.site-search-panel { position: relative; }
+
+.site-search-field { position: relative; }
+
+.site-search-icon {
+  position: absolute;
+  top: 50%;
+  left: 13px;
+  transform: translateY(-50%);
+  display: flex;
+  color: #ff8b33;
+  pointer-events: none;
+}
+
+.site-search-input {
+  width: var(--site-search-width, 220px);
+  min-width: 0;
+  height: 40px;
+  box-sizing: border-box;
+  padding: 0 14px 0 38px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  background: rgba(14, 11, 10, 0.85);
+  color: #fff;
+  font-family: inherit;
+  font-size: 14px;
+  outline: none;
+  transition: width 0.25s ease, border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+.site-search-input::placeholder { color: rgba(255, 255, 255, 0.5); }
+.site-search-input:hover { border-color: rgba(255, 139, 51, 0.5); }
+.site-search-input:focus {
+  width: var(--site-search-focus-width, 280px);
+  border-color: #ff8b33;
+  background: rgba(14, 11, 10, 0.97);
+  box-shadow: 0 0 12px rgba(255, 139, 51, 0.3);
+}
+/* у type=search свой крестик — оставляем, но в цвет сайта */
+.site-search-input::-webkit-search-cancel-button { filter: invert(0.6) sepia(1) saturate(5) hue-rotate(-15deg); cursor: pointer; }
+
+/* Выпадающие подсказки */
+.site-search-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: min(380px, calc(100vw - 24px));
+  box-sizing: border-box;
+  padding: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  background: rgba(23, 19, 17, 0.98);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
+  text-align: left;
+}
+.site-search-dropdown[hidden] { display: none; }
+
+.site-search-status {
+  margin: 6px 10px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+}
+.site-search-status[hidden] { display: none; }
+
+.site-search-list {
+  max-height: min(420px, 60vh);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.site-search-list:empty { display: none; }
+
+.site-search-option {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+  min-height: 44px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  color: #fff;
+  text-decoration: none;
+}
+.site-search-list [aria-selected="true"] .site-search-option,
+.site-search-option:hover {
+  background: rgba(255, 139, 51, 0.15);
+  box-shadow: inset 0 0 0 1px rgba(255, 139, 51, 0.7);
+}
+.site-search-option-title {
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+.site-search-option-meta {
+  font-size: 12px;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.6);
+  overflow-wrap: anywhere;
+}
+.site-search-option-section { color: #ff8b33; font-weight: bold; }
+.site-search-option-section.is-movie { color: #ff5c85; }
+
+/* ───── Узкий экран (data-site-search="collapsible"): лупа в шапке, строка — панелью под шапкой ───── */
+@media (max-width: 1150px) {
+  .site-search--collapsible { position: static; }
+
+  .site-search--collapsible .site-search-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    background: transparent;
+    color: #ff8b33;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .site-search--collapsible .site-search-toggle svg { width: 20px; height: 20px; }
+  .site-search--collapsible.is-open .site-search-toggle { border-color: #ff8b33; background: rgba(255, 139, 51, 0.15); }
+
+  .site-search--collapsible .site-search-panel {
+    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    padding: 10px 16px 12px;
+    background: rgba(28, 23, 21, 0.98);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+  }
+  .site-search--collapsible.is-open .site-search-panel { display: block; }
+
+  .site-search--collapsible .site-search-input,
+  .site-search--collapsible .site-search-input:focus {
+    width: 100%;
+    height: 44px;
+    font-size: 16px; /* iOS не увеличивает страницу при фокусе */
+  }
+  .site-search--collapsible .site-search-dropdown {
+    position: static;
+    width: auto;
+    margin-top: 8px;
+    box-shadow: none;
+  }
+  .site-search--collapsible .site-search-list { max-height: calc(100dvh - 190px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-search-input { transition: none; }
+}

@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    <title>Аниме-фильмы</title>
+    <link rel="stylesheet" href="../css/site-search.css">
+    <link rel="stylesheet" href="../css/back-to-top.css">
+    <link rel="stylesheet" href="../css/theme.css">
+    <style>
+        /* акцент раздела для кольца фокуса из css/theme.css */
+        :root { --theme-accent: #ff3366; accent-color: #ff3366; }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+       
+        body {
+            font-family: sans-serif;
+            background-color: #171311;
+            color: #f3e8ff;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            min-height: 110px;
+            padding: 16px;
+            background: rgba(42, 35, 32, 0.95);
+            border-bottom: 1px solid rgba(196, 25, 25, 0.35);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .logo h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 28px;
+            color: #ff3366;
+            text-shadow: 0 0 14px rgba(196, 25, 25, 0.75);
+            white-space: nowrap;
+        }
+
+        .btn-home {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 16px;
+            border-radius: 11px;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            color: #ffffff;
+            background: rgba(196, 25, 25, 0.8);
+            transition: background-color 0.2s, transform 0.2s;
+        }
+
+        .btn-home:hover {
+            background: #a00000;
+            transform: translateY(-1px);
+        }
+        
+        .content {
+            display: flex;  
+            flex-direction: column;
+            width: 90%;
+            max-width: 1320px;
+            min-height: calc(100vh - 150px);
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(42, 35, 32, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+        }
+
+        .controls-bar {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin: 10px 0 30px;
+        }
+            
+        input, select {
+            width: 300px;
+            max-width: 100%;
+            padding: 10px 14px;
+            border: 2px solid rgba(196, 25, 25, 0.75);
+            border-radius: 8px;
+            background-color: #171311;
+            color: #ffffff;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        select {
+            cursor: pointer;
+        }
+
+        input::placeholder {
+            color: #ddd;
+        }
+
+        input:focus, select:focus {
+            border-color: #a00000;
+            box-shadow: 0 0 14px rgba(160, 0, 0, 0.7);
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 18px;
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 340px;
+            background: #171311;
+            border: 1px solid #a00000;
+            border-radius: 20px;
+            color: #f3e8ff;
+            text-decoration: none;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 22px rgba(160, 0, 0, 0.55);
+            border-color: #ff3366;
+        }
+
+        .card-poster {
+            width: 100%;
+            height: 225px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.04);
+            border-bottom: 1px solid rgba(160, 0, 0, 0.45);
+            color: #cbb8dc;
+            font-size: 14px;
+        }
+
+        .card-poster img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            padding: 14px;
+        }
+
+        .card-title {
+            font-size: 16px;
+            line-height: 1.3;
+            color: #ffffff;
+        }
+
+        .card-meta {
+            font-size: 13px;
+            color: #c9b8d9;
+        }
+
+        .empty-state {
+            grid-column: 1 / -1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+            text-align: center;
+            padding: 40px 16px;
+            color: #c9b8d9;
+            font-size: 16px;
+        }
+
+        .results-counter {
+            margin: -16px 0 18px;
+            text-align: center;
+            font-size: 14px;
+            color: #c9b8d9;
+        }
+
+        .btn-reset {
+            min-height: 44px;
+            padding: 10px 22px;
+            border: 2px solid rgba(196, 25, 25, 0.75);
+            border-radius: 11px;
+            background: transparent;
+            color: #ffffff;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s, border-color 0.2s;
+        }
+
+        .btn-reset:hover {
+            background: rgba(196, 25, 25, 0.8);
+            border-color: #a00000;
+        }
+
+        .card-title {
+            overflow-wrap: anywhere;
+        }
+
+        /* Карточка = обёртка: ссылка на страницу фильма и кнопка избранного рядом с ней
+           (кнопка внутри <a> — невалидный HTML, и клик по ней открывал бы фильм) */
+        .card {
+            position: relative;
+        }
+
+        .card-link {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex: 1;
+            color: inherit;
+            text-decoration: none;
+            border-radius: inherit;
+        }
+
+        /* у .card overflow: hidden — рисуем кольцо фокуса внутри, иначе его обрежет */
+        .card-link:focus-visible {
+            outline-offset: -3px;
+        }
+
+        .card:focus-within {
+            border-color: #ff3366;
+        }
+
+        .card-fav {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            padding: 0;
+            border: 1px solid rgba(255, 51, 102, 0.6);
+            border-radius: 50%;
+            background: rgba(23, 19, 17, 0.82);
+            color: #ff5c85;
+            font-size: 22px;
+            line-height: 1;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.2s, color 0.2s;
+        }
+
+        .card-fav:hover {
+            background: rgba(255, 51, 102, 0.25);
+            transform: scale(1.08);
+        }
+
+        .card-fav[aria-pressed="true"] {
+            background: #ff3366;
+            border-color: #ff3366;
+            color: #ffffff;
+        }
+
+        @media (max-width: 480px) {
+            header {
+                min-height: 0;
+            }
+
+            .header-actions {
+                gap: 12px;
+            }
+
+            .logo h1 {
+                font-size: 22px;
+            }
+
+            /* поиск по сайту — отдельной строкой на всю ширину шапки */
+            .header-actions .site-search {
+                flex-basis: 100%;
+            }
+
+            .header-actions .site-search-input,
+            .header-actions .site-search-input:focus {
+                width: 100%;
+                height: 44px;
+                font-size: 16px;
+            }
+
+            .content {
+                width: auto;
+                margin: 12px;
+                padding: 14px;
+            }
+
+            .controls-bar {
+                margin-bottom: 26px;
+            }
+
+            input, select {
+                width: 100%;
+                min-height: 44px;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-actions">
+            <div class="logo"><h1>Anime Fan Club</h1></div>
+            <a class="btn-home" href="../index.html">На главную</a>
+            <a class="btn-home" href="favorites.html">★ Избранное</a>
+            <!-- поиск аниме и фильмов по всему сайту (js/site-search.js) -->
+            <div data-site-search></div>
+        </div>
+    </header>
+
+    <main class="content">
+        <div class="controls-bar">
+            <input type="search" id="movieSearch" placeholder="Введите название..." aria-label="Поиск по названию" autocomplete="off">
+
+            <select id="franchiseFilter" aria-label="Фильтр по франшизе">
+                <option value="">Все франшизы</option>
+            </select>
+        </div>
+
+        <p class="results-counter" id="resultsCounter" aria-live="polite"></p>
+
+        <div class="cards-grid" id="moviesGrid"></div>
+    </main>
+
+    <script src="../js/movies-data.js"></script>
+    <script src="../js/movie-favorites.js"></script>
+    <script src="../js/anime-search.js"></script>
+    <script src="../js/site-search.js"></script>
+    <script>
+        // Данные — только из js/movies-data.js (общий список с pages/content.html)
+        const movies = typeof MOVIES !== "undefined" && Array.isArray(MOVIES) ? MOVIES : [];
+        const PLACEHOLDER = "../img/poster-placeholder.svg";
+
+        const grid = document.getElementById("moviesGrid");
+        const searchInput = document.getElementById("movieSearch");
+        const franchiseSelect = document.getElementById("franchiseFilter");
+        const counter = document.getElementById("resultsCounter");
+
+        // «ё» = «е», регистр и лишние пробелы не важны
+        const normalize = text => String(text || "").toLowerCase().replace(/ё/g, "е").replace(/\s+/g, " ").trim();
+
+        // Путь постера в данных — от корня сайта; страница лежит в pages/, поэтому добавляем ../
+        function posterSrc(poster) {
+            if (!poster) return PLACEHOLDER;
+            return /^(https?:)?\/\//.test(poster) || poster.startsWith("/") ? poster : "../" + poster;
+        }
+
+        function plural(n, one, few, many) {
+            const n10 = n % 10, n100 = n % 100;
+            if (n10 === 1 && n100 !== 11) return one;
+            if (n10 >= 2 && n10 <= 4 && (n100 < 12 || n100 > 14)) return few;
+            return many;
+        }
+
+        // Список франшиз — из данных, по алфавиту, с количеством фильмов
+        function fillFranchises() {
+            const counts = new Map();
+            movies.forEach(movie => {
+                if (movie.franchise) counts.set(movie.franchise, (counts.get(movie.franchise) || 0) + 1);
+            });
+            [...counts.keys()].sort((a, b) => a.localeCompare(b, "ru")).forEach(name => {
+                const option = document.createElement("option");
+                option.value = name;
+                option.textContent = `${name} (${counts.get(name)})`;
+                franchiseSelect.appendChild(option);
+            });
+        }
+
+        // Звёздочка избранного: отдельная кнопка поверх постера, не внутри ссылки
+        function syncFavButton(btn) {
+            const inFav = window.MovieFavorites ? MovieFavorites.has(btn.dataset.id) : false;
+            btn.textContent = inFav ? "★" : "☆";
+            btn.setAttribute("aria-pressed", String(inFav));
+            const action = inFav ? "Убрать из избранного" : "Добавить в избранное";
+            btn.title = action;
+            btn.setAttribute("aria-label", `${action}: «${btn.dataset.title}»`);
+        }
+
+        function syncAllFavButtons() {
+            grid.querySelectorAll(".card-fav").forEach(syncFavButton);
+        }
+
+        function createCard(movie) {
+            const card = document.createElement("div");
+            card.className = "card";
+
+            const link = document.createElement("a");
+            link.className = "card-link";
+            link.href = "content.html?id=" + encodeURIComponent(movie.id);
+
+            const posterBox = document.createElement("div");
+            posterBox.className = "card-poster";
+            const img = document.createElement("img");
+            img.src = posterSrc(movie.poster);
+            img.alt = movie.poster ? `Постер: ${movie.title}` : "";
+            img.loading = "lazy";
+            img.addEventListener("error", () => { img.src = PLACEHOLDER; img.alt = ""; }, { once: true });
+            posterBox.appendChild(img);
+
+            const body = document.createElement("div");
+            body.className = "card-body";
+            const title = document.createElement("h2");
+            title.className = "card-title";
+            title.textContent = movie.title;
+            const meta = document.createElement("span");
+            meta.className = "card-meta";
+            meta.textContent = [movie.franchise, movie.year].filter(Boolean).join(" • ");
+            body.append(title, meta);
+
+            link.append(posterBox, body);
+            card.appendChild(link);
+
+            if (window.MovieFavorites) {
+                const fav = document.createElement("button");
+                fav.type = "button";
+                fav.className = "card-fav";
+                fav.dataset.id = movie.id;
+                fav.dataset.title = movie.title;
+                fav.addEventListener("click", () => MovieFavorites.toggle(movie.id));
+                syncFavButton(fav);
+                card.appendChild(fav);
+            }
+            return card;
+        }
+
+        function resetFilters() {
+            searchInput.value = "";
+            franchiseSelect.value = "";
+            filterMovies();
+            searchInput.focus();
+        }
+
+        function renderMovies(list) {
+            const filtered = normalize(searchInput.value) || franchiseSelect.value;
+            counter.textContent = filtered
+                ? `Найдено: ${list.length} из ${movies.length}`
+                : `${movies.length} ${plural(movies.length, "фильм", "фильма", "фильмов")}`;
+
+            if (!list.length) {
+                const empty = document.createElement("div");
+                empty.className = "empty-state";
+                const text = document.createElement("p");
+                text.textContent = movies.length ? "Ничего не найдено" : "Список фильмов пока пуст";
+                empty.appendChild(text);
+                if (movies.length) {
+                    const reset = document.createElement("button");
+                    reset.type = "button";
+                    reset.className = "btn-reset";
+                    reset.textContent = "Сбросить фильтры";
+                    reset.addEventListener("click", resetFilters);
+                    empty.appendChild(reset);
+                }
+                grid.replaceChildren(empty);
+                return;
+            }
+
+            grid.replaceChildren(...list.map(createCard));
+        }
+
+        function filterMovies() {
+            const query = normalize(searchInput.value);
+            const franchise = franchiseSelect.value;
+
+            const filtered = movies.filter(movie => {
+                // ищем по русскому, английскому и оригинальному названию
+                const titles = normalize([movie.title, movie.titleEn, movie.titleOrig].join(" | "));
+                const matchesTitle = !query || titles.includes(query);
+                const matchesFranchise = !franchise || movie.franchise === franchise;
+                return matchesTitle && matchesFranchise;
+            });
+
+            renderMovies(filtered);
+        }
+
+        searchInput.addEventListener("input", filterMovies);
+        franchiseSelect.addEventListener("change", filterMovies);
+
+        // Изменения избранного (клик здесь, на странице фильма или в другой вкладке) — обновляем звёздочки
+        if (window.MovieFavorites) MovieFavorites.onChange(syncAllFavButtons);
+
+        fillFranchises();
+        filterMovies();
+    </script>
+<script src="../js/back-to-top.js" defer></script><!-- кнопка «Наверх» -->
+</body>
+</html>
