@@ -15,10 +15,10 @@
   justify-content: center;
   min-height: 36px;
   padding: 7px 16px;
-  border: 2px solid #ff8b33;
+  border: 2px solid #ff2440;
   border-radius: 6px;
   background: transparent;
-  color: #ff8b33;
+  color: #ff2440;
   font-family: 'Roboto', sans-serif;
   font-size: 13px;
   font-weight: bold;
@@ -30,11 +30,11 @@
 }
 .watch-link:hover,
 .watch-link:focus-visible {
-  background: #ff8b33;
-  color: #171311;
-  box-shadow: 0 0 14px rgba(255, 139, 51, 0.55);
+  background: #ff2440;
+  color: #0a0506;
+  box-shadow: 0 0 14px rgba(255, 36, 64, 0.55);
 }
-.watch-link.is-saved { background: rgba(255, 139, 51, 0.15); }
+.watch-link.is-saved { background: rgba(255, 36, 64, 0.15); }
 
 /* Главная: кнопка внизу карточки по центру */
 .anime-card .card-actions {

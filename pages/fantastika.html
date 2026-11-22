@@ -4,15 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Аниме — Фантастика</title>
-  <link rel="icon" href="../img/anime-logotip-1.webp" type="image/webp">
+  <link rel="icon" href="../img/logo-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="../img/logo-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="../img/logo-180.png">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/genre-shonen.css">
   <style>
     :root {
-      --accent-orange: #ffa763;
-      --accent-green: #2ecc71;
-      --bg-dark: #0f0c0b;
-      --glass: rgba(16, 14, 12, 0.8);
+      --accent-orange: #ff2440;
+      --accent-green: #c8102e;
+      --bg-dark: #0a0506;
+      --glass: rgba(13, 6, 7, 0.8);
     }
 
     header {
@@ -20,7 +22,7 @@
       text-align: center;
       background: var(--glass);
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255, 167, 99, 0.3);
+      border-bottom: 1px solid rgba(255, 36, 64, 0.3);
     }
 
     h1 {
@@ -29,7 +31,7 @@
       font-size: 32px;
       letter-spacing: 2px;
       color: var(--accent-orange);
-      text-shadow: 0 0 15px rgba(255, 167, 99, 0.6);
+      text-shadow: 0 0 15px rgba(255, 36, 64, 0.6);
     }
 
     a.back {
@@ -47,24 +49,24 @@
     .anime-list {
       max-width: 900px;
       margin: 40px auto;
-      background: rgba(8, 7, 6, 0.7);
+      background: rgba(8, 4, 5, 0.7);
       backdrop-filter: blur(12px);
       padding: 30px;
       border-radius: 20px;
-      box-shadow: 0 0 30px rgba(255, 111, 0, 0.2);
-      border: 1px solid rgba(255, 167, 99, 0.1);
+      box-shadow: 0 0 30px rgba(255, 36, 64, 0.2);
+      border: 1px solid rgba(255, 36, 64, 0.1);
     }
 
     .anime-item {
       display: flex;
       gap: 25px;
       padding: 25px 0;
-      border-bottom: 1px solid rgba(255, 167, 99, 0.1);
+      border-bottom: 1px solid rgba(255, 36, 64, 0.1);
       transition: 0.3s ease;
     }
 
     .anime-item:hover {
-      background: rgba(255, 167, 99, 0.03);
+      background: rgba(255, 36, 64, 0.03);
       padding-left: 10px;
     }
 
@@ -130,7 +132,7 @@
   width: 100%;
   padding: 12px 20px;
   background: rgba(255, 255, 255, 0.05);
-  border: 2px solid rgba(202, 92, 7, 0.3);
+  border: 2px solid rgba(200, 16, 46, 0.3);
   border-radius: 30px;
   color: #fff;
   font-size: 16px;
@@ -142,7 +144,7 @@
 #animeSearch:focus {
   border-color: var(--accent-red);
   background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 0 15px rgba(255, 82, 82, 0.3);
+  box-shadow: 0 0 15px rgba(255, 36, 64, 0.3);
 }
 
 /* Анимация появления/скрытия */
@@ -171,7 +173,7 @@
       border: none;
       cursor: pointer;
       z-index: 1000;
-      box-shadow: 0 0 15px rgba(255, 82, 82, 0.5);
+      box-shadow: 0 0 15px rgba(255, 36, 64, 0.5);
       transition: all 0.3s ease;
     }
 
@@ -198,6 +200,7 @@
   <link rel="stylesheet" href="../css/watch-modal.css">
   <link rel="stylesheet" href="../css/back-to-top.css">
   <link rel="stylesheet" href="../css/theme.css">
+  <link rel="stylesheet" href="../css/palette.css">
 </head>
 <body>
 

@@ -49,6 +49,80 @@
 
   // Пока каталог грузится — прячем старые карточки, чтобы не было «мигания»
   staticCards.forEach(function (c) { c.hidden = true; });
+
+  // ── Вид каталога: «Сетка» (по умолчанию) или «Список»; выбор хранится в localStorage ──
+  var VIEW_KEY = 'animeverse_catalog_view';
+  var FORMAT_LABELS = { TV: 'ТВ-сериал', TV_SHORT: 'Короткий ТВ', MOVIE: 'Фильм', OVA: 'OVA', ONA: 'ONA', SPECIAL: 'Спешл', MUSIC: 'Клип' };
+  var viewButtons = [];
+
+  function savedView() {
+    try { return localStorage.getItem(VIEW_KEY) === 'list' ? 'list' : 'grid'; } catch (e) { return 'grid'; }
+  }
+  function applyView(mode) {
+    var grid = mode !== 'list';
+    // У кнопок карточек на страницах transition: all — без этого при смене вида текст
+    // «вырастал» из нуля. Переключаем без анимаций и сразу пересчитываем раскладку.
+    document.body.classList.add('catalog-view-switching');
+    container.classList.toggle('catalog-grid', grid);
+    // блоки .anime-list вокруг карточек (на некоторых страницах их два, вложенных) — на всю ширину
+    for (var el = container; el && el !== document.body; el = el.parentElement) {
+      if (el.classList.contains('anime-list')) el.classList.toggle('catalog-wide', grid);
+    }
+    document.body.dataset.catalogView = grid ? 'grid' : 'list';
+    viewButtons.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.view === (grid ? 'grid' : 'list'))); });
+    void container.offsetWidth; // стили применены уже без анимаций
+    document.body.classList.remove('catalog-view-switching');
+  }
+  function setView(mode) {
+    try { localStorage.setItem(VIEW_KEY, mode); } catch (e) { /* приватный режим — выбор живёт до перезагрузки */ }
+    applyView(mode);
+  }
+
+  // В сетке кнопки карточки показываются иконками: иконка — из data-icon, полный текст — в title и для читалок
+  var ACTION_ICONS = [['favorite-button', '★'], ['watch-link', '🔗'], ['watch-now-btn', '▶']];
+  function tagActionIcons(cards) {
+    Array.prototype.forEach.call(cards, function (card) {
+      ACTION_ICONS.forEach(function (pair) {
+        card.querySelectorAll('.' + pair[0]).forEach(function (btn) {
+          btn.dataset.icon = pair[1];
+          if (!btn.title) btn.title = btn.textContent.replace(/\s+/g, ' ').trim();
+        });
+      });
+    });
+  }
+
+  var VIEW_ICONS = {
+    grid: '<svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true" focusable="false"><rect x="2" y="2" width="7" height="7" rx="1.5" fill="currentColor"/><rect x="11" y="2" width="7" height="7" rx="1.5" fill="currentColor"/><rect x="2" y="11" width="7" height="7" rx="1.5" fill="currentColor"/><rect x="11" y="11" width="7" height="7" rx="1.5" fill="currentColor"/></svg>',
+    list: '<svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true" focusable="false"><rect x="2" y="3" width="5" height="5" rx="1" fill="currentColor"/><rect x="9" y="4" width="9" height="3" rx="1.5" fill="currentColor"/><rect x="2" y="12" width="5" height="5" rx="1" fill="currentColor"/><rect x="9" y="13" width="9" height="3" rx="1.5" fill="currentColor"/></svg>'
+  };
+  function buildViewToggle() {
+    var wrapper = searchInput && searchInput.parentElement;
+    var group = document.createElement('div');
+    group.className = 'view-toggle';
+    group.setAttribute('role', 'group');
+    group.setAttribute('aria-label', 'Вид каталога');
+    [['grid', 'Сетка'], ['list', 'Список']].forEach(function (v) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'view-btn';
+      b.dataset.view = v[0];
+      b.title = v[1] === 'Сетка' ? 'Сетка постеров' : 'Список с описанием';
+      b.innerHTML = VIEW_ICONS[v[0]] + '<span class="view-btn-label">' + v[1] + '</span>';
+      b.addEventListener('click', function () { setView(v[0]); });
+      viewButtons.push(b);
+      group.appendChild(b);
+    });
+    if (wrapper) {
+      wrapper.appendChild(group);
+      wrapper.classList.add('has-year-filter', 'has-view-toggle');
+    } else {
+      container.parentElement.insertBefore(group, container);
+    }
+    applyView(savedView());
+  }
+
+  // Вид применяем сразу, ещё до загрузки каталога, — без «прыжка» от списка к сетке
+  applyView(savedView());
   var status = document.createElement('div');
   status.className = 'catalog-status';
   status.setAttribute('role', 'status');
@@ -119,18 +193,49 @@
       img.src = item.poster || PLACEHOLDER;
     }
 
+    // Постер и название ведут в каталог (pages/movies.html) на вкладку «Аниме» к этому тайтлу.
+    // Кнопки карточки («В избранное», «В ссылки», «Смотреть») остаются отдельными и работают как раньше.
+    var catalogHref = 'movies.html?tab=anime&anime=' + encodeURIComponent(item.id);
+    if (img) {
+      var posterLink = document.createElement('a');
+      posterLink.className = 'anime-poster-link';
+      posterLink.href = catalogHref;
+      posterLink.setAttribute('aria-label', item.title + ' — открыть в каталоге аниме');
+      img.parentNode.insertBefore(posterLink, img);
+      posterLink.appendChild(img);
+    }
+
     var title = card.querySelector('.anime-title');
     if (title) {
-      title.textContent = item.title;
+      title.textContent = '';
+      var titleLink = document.createElement('a');
+      titleLink.className = 'anime-title-link';
+      titleLink.href = catalogHref;
+      titleLink.textContent = item.title;
+      title.appendChild(titleLink);
       var orig = item.titleOriginal && item.titleOriginal !== item.title ? item.titleOriginal : '';
       if (orig) title.title = orig;
       // отдельный элемент, а не часть названия: название читают «В ссылки», «Смотреть» и поиск
-      if (year) {
-        var yearEl = document.createElement('div');
-        yearEl.className = 'anime-year';
-        yearEl.textContent = String(year);
-        yearEl.setAttribute('aria-label', 'Год выхода: ' + year);
-        title.insertAdjacentElement('afterend', yearEl);
+      // Под названием — год и тип (ТВ-сериал, фильм, OVA…); если данных нет, плашки не выводим
+      var typeLabel = FORMAT_LABELS[item.format] || '';
+      if (year || typeLabel) {
+        var meta = document.createElement('div');
+        meta.className = 'anime-meta';
+        if (year) {
+          var yearEl = document.createElement('span');
+          yearEl.className = 'anime-year';
+          yearEl.textContent = String(year);
+          yearEl.setAttribute('aria-label', 'Год выхода: ' + year);
+          meta.appendChild(yearEl);
+        }
+        if (typeLabel) {
+          var typeEl = document.createElement('span');
+          typeEl.className = 'anime-type';
+          typeEl.textContent = typeLabel;
+          typeEl.setAttribute('aria-label', 'Тип: ' + typeLabel);
+          meta.appendChild(typeEl);
+        }
+        title.insertAdjacentElement('afterend', meta);
       }
     }
 
@@ -265,6 +370,7 @@
     shown += batch.length;
     if (window.AnimeWatchLinks) window.AnimeWatchLinks.decorate(cards);
     if (window.AnimeWatchModal) window.AnimeWatchModal.decorate(cards);
+    tagActionIcons(cards);
     updateFooter();
   }
 
@@ -472,6 +578,9 @@
     console.warn('Каталог не загружен, показываем карточки страницы:', reason);
     status.remove();
     staticCards.forEach(function (c) { c.hidden = false; });
+    // переключатель вида и иконки кнопок — и для запасных карточек страницы
+    if (!viewButtons.length) buildViewToggle();
+    tagActionIcons(staticCards);
   }
 
   fetch(DATA_URL, { cache: 'default' })
@@ -492,6 +601,7 @@
       document.body.dataset.catalogGenre = genreKey;
       buildYearFilter();
       buildGenreSwitch();
+      buildViewToggle();
       // При «Назад»/«Вперёд» браузер сам подставляет в поле прежний запрос — не оставляем этот фильтр:
       // страница открывается с полным списком жанра (или сразу с нужным тайтлом по ?anime=)
       var nav = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];

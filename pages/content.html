@@ -3,13 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Содержание</title>
+    <title>Содержание — Anime Fan Club</title>
+    <link rel="icon" href="../img/logo-32.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="../img/logo-192.png" type="image/png" sizes="192x192">
+    <link rel="apple-touch-icon" href="../img/logo-180.png">
     <link rel="stylesheet" href="../css/watch-modal.css"><!-- окно «Где посмотреть» (dialog.watch-modal) -->
     <link rel="stylesheet" href="../css/back-to-top.css">
     <link rel="stylesheet" href="../css/theme.css">
+    <link rel="stylesheet" href="../css/palette.css">
     <style>
         /* акцент раздела для кольца фокуса из css/theme.css */
-        :root { --theme-accent: #ff3366; accent-color: #ff3366; }
+        :root { --theme-accent: #c8102e; accent-color: #c8102e; }
 
         * {
             box-sizing: border-box;
@@ -19,8 +23,8 @@
 
         body {
             font-family: sans-serif;
-            background-color: #171311;
-            color: #f3e8ff;
+            background-color: #0a0506;
+            color: #f2e4e5;
             line-height: 1.6;
         }
 
@@ -41,7 +45,7 @@
             justify-content: space-between;
             gap: 18px;
             padding: 20px;
-            background-color: rgba(42, 35, 32, 0.95);
+            background-color: rgba(22, 9, 11, 0.95);
             border: 1px solid rgba(160, 0, 0, 0.4);
             border-radius: 14px;
         }
@@ -56,7 +60,7 @@
             font-size: 13px;
             letter-spacing: 0.06em;
             text-transform: uppercase;
-            color: #d6c5e6;
+            color: #d6c3c5;
         }
 
         .card {
@@ -65,12 +69,12 @@
             justify-content: center;
             width: 100%;
             height: 400px;
-            background-color: #171311;
+            background-color: #0a0506;
             border: 1px solid #a00000;
             border-radius: 16px;
             border-bottom-right-radius: 26px;
             overflow: hidden;
-            color: #cbb8dc;
+            color: #b9a0a3;
             font-size: 16px;
         }
 
@@ -86,7 +90,7 @@
             flex-direction: column;
             gap: 8px;
             padding: 14px;
-            background-color: #171311;
+            background-color: #0a0506;
             border: 1px solid rgba(160, 0, 0, 0.35);
             border-radius: 12px;
             font-size: 14px;
@@ -98,8 +102,17 @@
             gap: 12px;
         }
 
+        .info-row + .info-row {
+            padding-top: 8px;
+            border-top: 1px solid rgba(160, 0, 0, 0.18);
+        }
+
         .info-key {
-            color: #cbb8dc;
+            flex-shrink: 0;
+        }
+
+        .info-key {
+            color: #b9a0a3;
         }
 
         .info-val {
@@ -136,15 +149,15 @@
         /* «▶ Где посмотреть» — главная кнопка колонки, розовый акцент раздела */
         .watch-btn {
             border: none;
-            background-color: #ff3366;
+            background-color: #c8102e;
             font: inherit;
             font-weight: 600;
             cursor: pointer;
-            box-shadow: 0 0 14px rgba(255, 51, 102, 0.35);
+            box-shadow: 0 0 14px rgba(200, 16, 46, 0.35);
         }
 
         .watch-btn:hover {
-            background-color: #e0244f;
+            background-color: #a50d26;
         }
 
         .watch-btn[hidden],
@@ -154,25 +167,25 @@
 
         /* «☆ В избранное» / «★ В избранном»: контурная, в избранном — залитая розовым */
         .fav-btn {
-            border: 1px solid #ff3366;
+            border: 1px solid #c8102e;
             background-color: transparent;
-            color: #ff5c85;
+            color: #ff3b55;
             font: inherit;
             font-weight: 600;
             cursor: pointer;
         }
 
         .fav-btn:hover {
-            background-color: rgba(255, 51, 102, 0.15);
+            background-color: rgba(200, 16, 46, 0.15);
         }
 
         .fav-btn[aria-pressed="true"] {
-            background-color: rgba(255, 51, 102, 0.22);
+            background-color: rgba(200, 16, 46, 0.22);
             color: #ffffff;
         }
 
         .fav-btn[aria-pressed="true"]:hover {
-            background-color: rgba(255, 51, 102, 0.32);
+            background-color: rgba(200, 16, 46, 0.32);
         }
 
         .home-link {
@@ -215,7 +228,7 @@
             flex: 1;
             min-width: 0;
             padding: 28px;
-            background-color: rgba(42, 35, 32, 0.95);
+            background-color: rgba(22, 9, 11, 0.95);
             border: 1px solid rgba(160, 0, 0, 0.25);
             border-radius: 14px;
         }
@@ -228,7 +241,7 @@
 
         .movie-meta {
             font-size: 14px;
-            color: #d6c5e6;
+            color: #d6c3c5;
             margin-bottom: 22px;
             padding-bottom: 14px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -236,12 +249,74 @@
 
         .movie-description {
             font-size: 17px;
-            color: #f3e8ff;
+            color: #f2e4e5;
             max-width: 78ch;
         }
 
         .movie-description p + p {
             margin-top: 14px;
+        }
+
+        /* Заголовок блока: «СОДЕРЖАНИЕ» + метка типа «Фильм» / «Аниме» */
+        .content-head {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .type-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 3px 12px;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            color: #ffffff;
+            background: #c8102e;
+            box-shadow: 0 0 12px rgba(255, 36, 64, 0.35);
+        }
+
+        .type-badge[data-kind="anime"] {
+            background: transparent;
+            border: 1px solid #ff2440;
+            color: #ff2440;
+        }
+
+        .alt-titles {
+            margin: -4px 0 8px;
+            font-size: 15px;
+            color: #b9a0a3;
+            overflow-wrap: anywhere;
+        }
+
+        .alt-titles[hidden],
+        .type-badge[hidden],
+        .movie-meta[hidden],
+        .movie-source[hidden] {
+            display: none;
+        }
+
+        .movie-source {
+            max-width: 78ch;
+            margin-top: 22px;
+            padding-top: 14px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            font-size: 14px;
+            color: #b9a0a3;
+        }
+
+        .inline-link {
+            color: #ff2440;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255, 36, 64, 0.4);
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        .inline-link:hover {
+            color: #ff5a6e;
+            border-bottom-color: #ff5a6e;
         }
 
         @media (max-width: 900px) {
@@ -309,40 +384,28 @@
             <div class="sidebar-top">
                 <span class="section-label">Постер</span>
                 <div class="card" id="moviePoster"></div>
-                <div class="info-box" id="infoBox">
-                    <div class="info-row">
-                        <span class="info-key">Год:</span>
-                        <span class="info-val" id="infoYear">—</span>
-                    </div>
-                    <div class="info-row">
-                        <span class="info-key">Длительность:</span>
-                        <span class="info-val" id="infoDuration">—</span>
-                    </div>
-                    <div class="info-row">
-                        <span class="info-key">Студия:</span>
-                        <span class="info-val" id="infoStudio">—</span>
-                    </div>
-                    <div class="info-row">
-                        <span class="info-key">Связь с сюжетом:</span>
-                        <span class="info-val" id="infoRelation">—</span>
-                    </div>
-                </div>
+                <!-- характеристики заполняет скрипт: только строки с данными -->
+                <dl class="info-box" id="infoBox"></dl>
             </div>
             <div class="sidebar-links">
                 <button type="button" class="back-link watch-btn" id="watchBtn" aria-haspopup="dialog" hidden>▶ Где посмотреть</button>
                 <button type="button" class="back-link fav-btn" id="favBtn" aria-pressed="false" hidden>☆ В избранное</button>
-                <a class="back-link" href="movies.html">← Назад к фильмам</a>
+                <a class="back-link" id="backLink" href="movies.html">← Назад в каталог</a>
                 <a class="back-link home-link" href="../index.html">На главную</a>
             </div>
         </aside>
 
         <main class="content">
-            <span class="section-label">Содержание</span>
-            <h1 class="movie-title" id="movieTitle">Название фильма</h1>
-            <p class="movie-meta" id="movieMeta">Франшиза • Год</p>
-            <div class="movie-description" id="movieDescription">
-                <p>Описание появится здесь.</p>
+            <div class="content-head">
+                <span class="section-label">Содержание</span>
+                <!-- «Фильм» или «Аниме» -->
+                <span class="type-badge" id="typeBadge" hidden></span>
             </div>
+            <h1 class="movie-title" id="movieTitle">Загрузка…</h1>
+            <p class="alt-titles" id="altTitles" hidden></p>
+            <p class="movie-meta" id="movieMeta"></p>
+            <div class="movie-description" id="movieDescription"></div>
+            <p class="movie-source" id="movieSource" hidden></p>
         </main>
     </div>
 
@@ -352,11 +415,19 @@
     <script src="../js/watch-platforms.js"></script>
     <script src="../js/watch-modal.js"></script>
     <script>
-        // Данные — из js/movies-data.js (тот же список, что и в каталоге pages/movies.html)
+        // Страница содержания для двух видов материалов:
+        //   content.html?id=<id фильма>   — фильм из js/movies-data.js (тот же список, что в каталоге pages/movies.html);
+        //   content.html?anime=<id тайтла> — аниме из data/anime.json (вкладка «Аниме» каталога).
         const movies = typeof MOVIES !== "undefined" && Array.isArray(MOVIES) ? MOVIES : [];
         const PLACEHOLDER = "../img/poster-placeholder.svg";
-        const movieId = new URLSearchParams(window.location.search).get("id");
-        const movie = movies.find(item => item.id === movieId);
+        const params = new URLSearchParams(window.location.search);
+        const movieId = params.get("id");
+        const animeId = params.get("anime");
+        const FORMAT_LABELS = { TV: "ТВ-сериал", TV_SHORT: "Короткий ТВ-сериал", OVA: "OVA", ONA: "ONA", SPECIAL: "Спешл", MUSIC: "Музыкальный клип", MOVIE: "Полнометражный фильм" };
+        const SERIES_FAV_KEY = "favorites";                  // избранные сериалы (названия) — как на страницах жанров
+        const SERIES_META_KEY = "animeverse_favorites_meta";  // постеры и id для страницы «Избранное»
+
+        const descBox = document.getElementById("movieDescription");
 
         // Путь постера в данных — от корня сайта; страница лежит в pages/, поэтому добавляем ../
         function posterSrc(poster) {
@@ -364,15 +435,39 @@
             return /^(https?:)?\/\//.test(poster) || poster.startsWith("/") ? poster : "../" + poster;
         }
 
-        // Абзацы: массив строк или одна строка с пустыми строками между абзацами.
-        // Вставляем через textContent — кавычки, < > и & в тексте ничего не ломают.
+        // Абзацы фильма: массив строк или одна строка с пустыми строками между абзацами
         function toParagraphs(description) {
             const list = Array.isArray(description) ? description : String(description || "").split(/\n\s*\n/);
             return list.map(text => String(text || "").trim()).filter(Boolean);
         }
 
-        function setText(id, value) {
-            document.getElementById(id).textContent = value || value === 0 ? value : "—";
+        // Описание аниме в data/anime.json — одна строка без переносов. Если переносы есть — делим по ним;
+        // иначе собираем абзацы из целых предложений (примерно по 220+ символов), короткий текст — одним абзацем.
+        function splitSynopsis(text) {
+            const clean = String(text || "").replace(/\r/g, "").trim();
+            if (!clean) return [];
+            if (/\n/.test(clean)) return clean.split(/\n+/).map(s => s.trim()).filter(Boolean);
+            if (clean.length < 300) return [clean];
+            const sentences = clean.match(/[^.!?…]+(?:[.!?…]+[»")]*|$)\s*/g) || [clean];
+            const out = [];
+            let current = "";
+            sentences.forEach(sentence => {
+                current += sentence;
+                if (current.length >= 220) { out.push(current.trim()); current = ""; }
+            });
+            if (current.trim()) {
+                // хвост из одного короткого предложения не оставляем отдельным абзацем
+                if (out.length && current.trim().length < 90) out[out.length - 1] += " " + current.trim();
+                else out.push(current.trim());
+            }
+            return out;
+        }
+
+        function plural(n, one, few, many) {
+            const n10 = n % 10, n100 = n % 100;
+            if (n10 === 1 && n100 !== 11) return one;
+            if (n10 >= 2 && n10 <= 4 && (n100 < 12 || n100 > 14)) return few;
+            return many;
         }
 
         function renderPoster(src, alt) {
@@ -384,71 +479,223 @@
             box.replaceChildren(img);
         }
 
-        const descBox = document.getElementById("movieDescription");
+        // Характеристики: только заполненные строки — без «undefined» и пустых значений.
+        // value — строка/число или DOM-узел (например, ссылки на жанры).
+        function renderInfo(rows) {
+            const box = document.getElementById("infoBox");
+            box.replaceChildren();
+            rows.filter(r => r.value !== undefined && r.value !== null && r.value !== "" && !(Array.isArray(r.value) && !r.value.length))
+                .forEach(r => {
+                    const row = document.createElement("div");
+                    row.className = "info-row";
+                    const key = document.createElement("dt");
+                    key.className = "info-key";
+                    key.textContent = r.label + ":";
+                    const val = document.createElement("dd");
+                    val.className = "info-val";
+                    if (r.value instanceof Node) val.appendChild(r.value);
+                    else val.textContent = String(r.value);
+                    row.append(key, val);
+                    box.appendChild(row);
+                });
+            box.hidden = !box.children.length;
+        }
 
-        if (movie) {
-            document.title = `${movie.title} — Аниме-фильмы`;
-            setText("movieTitle", movie.title);
-            document.getElementById("movieMeta").textContent =
-                [movie.franchise, movie.year].filter(Boolean).join(" • ") || "—";
+        // Английское и оригинальное название — подзаголовком под русским (без повторов и пустых)
+        function setAltTitles(main, list) {
+            const seen = new Set([String(main || "").trim().toLowerCase()]);
+            const names = list.map(t => String(t || "").trim()).filter(t => {
+                const k = t.toLowerCase();
+                if (!t || seen.has(k)) return false;
+                seen.add(k);
+                return true;
+            });
+            const el = document.getElementById("altTitles");
+            el.textContent = names.join(" · ");
+            el.hidden = !names.length;
+        }
 
-            setText("infoYear", movie.year);
-            setText("infoDuration", movie.duration);
-            setText("infoStudio", movie.studio);
-            setText("infoRelation", movie.relation);
-
-            const paragraphs = toParagraphs(movie.description);
+        function renderDescription(paragraphs) {
             descBox.replaceChildren(...(paragraphs.length ? paragraphs : ["Описание пока не добавлено."]).map(text => {
                 const p = document.createElement("p");
                 p.textContent = text;
                 return p;
             }));
+        }
 
-            renderPoster(posterSrc(movie.poster), movie.poster ? `Постер: ${movie.title}` : "");
+        function setHeader(kind, title, metaParts) {
+            const badge = document.getElementById("typeBadge");
+            badge.textContent = kind === "anime" ? "Аниме" : "Фильм";
+            badge.dataset.kind = kind;
+            badge.hidden = false;
+            document.getElementById("movieTitle").textContent = title;
+            const meta = metaParts.filter(v => v !== undefined && v !== null && v !== "").join(" • ");
+            const metaEl = document.getElementById("movieMeta");
+            metaEl.textContent = meta;
+            metaEl.hidden = !meta;
+            document.title = `${title} — ${kind === "anime" ? "Аниме" : "Фильм"} — Anime Fan Club`;
+        }
 
-            // Кнопка «Где посмотреть»: окно из js/watch-modal.js ищет фильм по названиям
-            // (русское — для Кинопоиска и Okko, английское и оригинальное — для зарубежных площадок)
+        // «▶ Где посмотреть»: окно из js/watch-modal.js ищет тайтл по названиям
+        // (русское — для российских площадок, английское и оригинальное — для зарубежных)
+        function setupWatch(ru, en, orig, year) {
             const watchBtn = document.getElementById("watchBtn");
-            if (window.AnimeWatchModal) {
-                watchBtn.dataset.titleRu = movie.title;
-                watchBtn.dataset.titleEn = movie.titleEn || movie.titleOrig || movie.title;
-                watchBtn.dataset.titleOrig = movie.titleOrig || movie.titleEn || movie.title;
-                if (movie.year) watchBtn.dataset.year = movie.year;
-                watchBtn.title = `Где посмотреть «${movie.title}»`;
-                watchBtn.addEventListener("click", () => window.AnimeWatchModal.open(watchBtn));
-                watchBtn.hidden = false;
-            }
+            if (!window.AnimeWatchModal) return;
+            watchBtn.dataset.titleRu = ru;
+            watchBtn.dataset.titleEn = en || orig || ru;
+            watchBtn.dataset.titleOrig = orig || en || ru;
+            if (year) watchBtn.dataset.year = year;
+            watchBtn.title = `Где посмотреть «${ru}»`;
+            watchBtn.addEventListener("click", () => window.AnimeWatchModal.open(watchBtn));
+            watchBtn.hidden = false;
+        }
 
-            // Избранное: отдельный список фильмов (js/movie-favorites.js), состояние переживает перезагрузку
+        // «☆ В избранное»: has/toggle — свои у фильмов и у сериалов
+        function setupFav(has, toggle, subscribe) {
             const favBtn = document.getElementById("favBtn");
-            if (window.MovieFavorites) {
-                const syncFav = () => {
-                    const inFav = MovieFavorites.has(movie.id);
-                    favBtn.textContent = inFav ? "★ В избранном" : "☆ В избранное";
-                    favBtn.setAttribute("aria-pressed", String(inFav));
-                    favBtn.title = inFav ? "Убрать из избранного" : "Добавить в избранное";
-                };
-                favBtn.addEventListener("click", () => MovieFavorites.toggle(movie.id));
-                MovieFavorites.onChange(syncFav);
-                syncFav();
-                favBtn.hidden = false;
-            }
-        } else {
-            // Нет id или такого фильма нет в списке — честно говорим об этом, а не подменяем первым фильмом
-            document.title = "Фильм не найден — Аниме-фильмы";
-            setText("movieTitle", "Фильм не найден");
-            document.getElementById("movieMeta").textContent = movieId ? `Нет фильма с адресом «${movieId}»` : "Фильм не выбран";
+            const syncFav = () => {
+                const inFav = has();
+                favBtn.textContent = inFav ? "★ В избранном" : "☆ В избранное";
+                favBtn.setAttribute("aria-pressed", String(inFav));
+                favBtn.title = inFav ? "Убрать из избранного" : "Добавить в избранное";
+            };
+            favBtn.addEventListener("click", () => { toggle(); syncFav(); });
+            if (subscribe) subscribe(syncFav);
+            syncFav();
+            favBtn.hidden = false;
+        }
+
+        function renderNotFound(text) {
+            document.title = "Не найдено — Anime Fan Club";
+            document.getElementById("movieTitle").textContent = "Тайтл не найден";
+            document.getElementById("movieMeta").textContent = text;
             document.getElementById("infoBox").hidden = true;
             const p = document.createElement("p");
-            p.textContent = "Возможно, ссылка устарела. Выберите фильм в каталоге.";
+            p.textContent = "Возможно, ссылка устарела. Выберите фильм или аниме в каталоге.";
             const link = document.createElement("a");
             link.href = "movies.html";
-            link.textContent = "Открыть каталог фильмов";
-            link.style.color = "#ff3366";
+            link.textContent = "Открыть каталог";
+            link.className = "inline-link";
             const p2 = document.createElement("p");
             p2.appendChild(link);
             descBox.replaceChildren(p, p2);
             renderPoster(PLACEHOLDER, "");
+        }
+
+        // ───────── Фильм ─────────
+        function renderMovie(movie) {
+            setHeader("movie", movie.title, [movie.franchise, movie.year, movie.duration]);
+            renderInfo([
+                { label: "Тип", value: "Фильм" },
+                { label: "Год", value: movie.year },
+                { label: "Длительность", value: movie.duration },
+                { label: "Студия", value: movie.studio },
+                { label: "Франшиза", value: movie.franchise },
+                { label: "Связь с сюжетом", value: movie.relation }
+            ]);
+            setAltTitles(movie.title, [movie.titleEn, movie.titleOrig]);
+            renderDescription(toParagraphs(movie.description));
+            renderPoster(posterSrc(movie.poster), movie.poster ? `Постер: ${movie.title}` : "");
+            setupWatch(movie.title, movie.titleEn, movie.titleOrig, movie.year);
+            // Избранное фильмов — отдельный список (js/movie-favorites.js)
+            if (window.MovieFavorites) {
+                setupFav(() => MovieFavorites.has(movie.id), () => MovieFavorites.toggle(movie.id), fn => MovieFavorites.onChange(fn));
+            }
+        }
+
+        // ───────── Аниме ─────────
+        function readJSON(key, fallback) {
+            try { const v = JSON.parse(localStorage.getItem(key) || "null"); return v == null ? fallback : v; } catch (e) { return fallback; }
+        }
+        function seriesFavs() { const f = readJSON(SERIES_FAV_KEY, []); return Array.isArray(f) ? f : []; }
+
+        function renderAnime(a, genresMap) {
+            const format = FORMAT_LABELS[a.format] || a.format;
+            const episodes = a.episodes && a.format !== "MOVIE" ? `${a.episodes} ${plural(a.episodes, "эпизод", "эпизода", "эпизодов")}` : "";
+            setHeader("anime", a.title, [format, a.year, episodes]);
+
+            // Жанры — ссылки на страницы жанров (data/anime.json → genres[id].page)
+            let genreLinks = null;
+            const genres = (a.genres || []).map(g => genresMap[g]).filter(Boolean);
+            if (genres.length) {
+                genreLinks = document.createDocumentFragment();
+                genres.forEach((g, i) => {
+                    if (i) genreLinks.append(", ");
+                    const link = document.createElement("a");
+                    link.className = "inline-link";
+                    link.href = String(g.page || "").split("/").pop() + "?anime=" + encodeURIComponent(a.id);
+                    link.textContent = g.name;
+                    genreLinks.appendChild(link);
+                });
+            }
+            renderInfo([
+                { label: "Тип", value: "Аниме" },
+                { label: "Формат", value: format },
+                { label: "Год", value: a.year },
+                { label: "Эпизоды", value: a.format !== "MOVIE" ? a.episodes : null },
+                { label: "Жанры", value: genreLinks },
+                { label: "Оценка AniList", value: a.score ? `${a.score} / 100` : null }
+            ]);
+            setAltTitles(a.title, [a.titleEnglish, a.titleOriginal]);
+
+            renderDescription(splitSynopsis(a.synopsis || a.synopsisEn));
+
+            // Источник данных: описание в базе бывает сокращённым — даём ссылку на полную карточку
+            const source = document.getElementById("movieSource");
+            if (a.url) {
+                source.replaceChildren();
+                const truncated = /(…|\.\.\.)\s*$/.test(String(a.synopsis || ""));
+                source.append(truncated ? "Описание сокращено. Полный текст и подробности — на " : "Данные и подробности — на ");
+                const link = document.createElement("a");
+                link.className = "inline-link";
+                link.href = a.url;
+                link.target = "_blank";
+                link.rel = "noopener noreferrer";
+                link.textContent = "AniList ↗";
+                source.appendChild(link);
+                source.hidden = false;
+            }
+
+            renderPoster(posterSrc(a.poster), a.poster ? `Постер: ${a.title}` : "");
+            setupWatch(a.title, a.titleEnglish, a.titleOriginal, a.year);
+
+            // Избранное сериалов — как на страницах жанров и в каталоге: список названий + постер/id для «Избранного»
+            setupFav(
+                () => seriesFavs().includes(a.title),
+                () => {
+                    const favs = seriesFavs();
+                    const i = favs.indexOf(a.title);
+                    if (i === -1) {
+                        favs.push(a.title);
+                        const meta = readJSON(SERIES_META_KEY, {}) || {};
+                        meta[a.title] = { poster: a.poster, id: a.id, titleOriginal: a.titleOriginal || null };
+                        try { localStorage.setItem(SERIES_META_KEY, JSON.stringify(meta)); } catch (e) {}
+                    } else favs.splice(i, 1);
+                    try { localStorage.setItem(SERIES_FAV_KEY, JSON.stringify(favs)); } catch (e) {}
+                },
+                fn => window.addEventListener("storage", e => { if (e.key === SERIES_FAV_KEY) fn(); })
+            );
+
+            // «← Назад в каталог» — на вкладку «Аниме», к этому тайтлу
+            document.getElementById("backLink").href = "movies.html?tab=anime&anime=" + encodeURIComponent(a.id);
+        }
+
+        // ───────── Запуск ─────────
+        if (animeId) {
+            document.getElementById("movieTitle").textContent = "Загрузка…";
+            document.getElementById("movieMeta").textContent = "";
+            fetch("../data/anime.json")
+                .then(r => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+                .then(data => {
+                    const a = (data.anime || []).find(x => x.id === animeId);
+                    if (a) renderAnime(a, data.genres || {});
+                    else renderNotFound(`Нет аниме с адресом «${animeId}»`);
+                })
+                .catch(() => renderNotFound("Не удалось загрузить каталог аниме. Проверьте подключение и обновите страницу."));
+        } else {
+            const movie = movies.find(item => item.id === movieId);
+            if (movie) renderMovie(movie);
+            else renderNotFound(movieId ? `Нет фильма с адресом «${movieId}»` : "Тайтл не выбран");
         }
     </script>
 <script src="../js/back-to-top.js" defer></script><!-- кнопка «Наверх» -->

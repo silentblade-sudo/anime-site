@@ -4,14 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Anime Fan Club</title>
-  <link rel="icon" href="img/anime-logotip-1.webp" type="image/webp">
+  <link rel="icon" href="img/logo-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="img/logo-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="img/logo-180.png">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: 'Roboto', sans-serif;
-      background-color: #171311;
+      background-color: #0a0506;
       color: #fff;
       overflow-x: hidden;
       transition: opacity 0.6s ease;
@@ -24,7 +26,7 @@
     header {
       position: fixed;
       top: 0; left: 0; right: 0;  
-      background: rgba(42, 35, 32, 0.95);
+      background: rgba(22, 9, 11, 0.95);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid rgba(255,255,255,0.1);
       padding: 0 30px;
@@ -36,10 +38,19 @@
       z-index: 1000;
     }
 
+    /* Логотип: эмблема (img/logo-header.webp — из img/logo.jpg, чёрный фон убран в прозрачность) + название */
+    .logo { display: flex; align-items: center; gap: 8px; min-width: 0; }
+    .logo-img { display: block; width: 44px; height: 44px; flex-shrink: 0; }
+    /* Меню отцентровано абсолютно: на узком десктопе название с картинкой наехало бы на него —
+       там оставляем только картинку (название скрыто визуально, но читается экранными читалками) */
+    @media (min-width: 1151px) and (max-width: 1279px) {
+      .logo h1 { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+    }
+
     .logo h1 {
       font-family: 'Orbitron', sans-serif;
       font-size: 24px;
-      color: #ff3366;
+      color: #c8102e;
       margin: 0;
       white-space: nowrap;
     }
@@ -66,8 +77,8 @@
     }
 
     nav a:hover, .dropdown > a:hover, .portal > a:hover, .video > a:hover { 
-      color: #ff8b33; 
-      text-shadow: 0 0 8px rgba(255, 139, 51, 0.6); 
+      color: #ff2440; 
+      text-shadow: 0 0 8px rgba(255, 36, 64, 0.6); 
     }
 
     /* Подчеркивание при наведении */
@@ -76,9 +87,9 @@
       position: absolute;
       left: 0; bottom: 0;
       width: 0%; height: 2px;
-      background: #ff0055;
+      background: #ff2440;
       transition: width 0.3s;
-      box-shadow: 0 0 5px #ff0055;
+      box-shadow: 0 0 5px #ff2440;
     }
     nav a:hover::after, .dropdown > a:hover::after { width: 100%; }
 
@@ -91,7 +102,7 @@
       top: 100%; 
       left: 50%;
       transform: translateX(-50%);
-      background: rgba(28, 23, 21, 0.98);
+      background: rgba(16, 7, 9, 0.98);
       padding: 10px 0;
       border-radius: 8px;
       min-width: 200px; /* Немного расширил для длинных названий */
@@ -108,7 +119,7 @@
       padding: 10px 20px;
       text-align: left;
     }
-    .dropdown-content a:hover { background: rgba(255, 51, 102, 0.2); color: #fff; }
+    .dropdown-content a:hover { background: rgba(200, 16, 46, 0.2); color: #fff; }
 
     /* Вложенные дропдауны */
     .dropdown-content .dropdown { width: 100%; }
@@ -122,48 +133,76 @@
     /* Баннер */
     /* Фото баннера показывается целиком (contain), а поля по бокам/сверху
        заполняет та же картинка, размытая и затемнённая, — без пустых полос и обрезки */
+    /* Промо-блок: слева приветствие, справа квадратный арт (img/banner.webp из img/banner.png).
+       Фон — тот же арт, размытый и затемнённый, плюс градиент под текст: картинка не перекрывает текст и кнопки */
     .banner {
-      --banner-img: url('img/обои на сайт.webp');
+      --banner-img: url('img/banner-600.webp');
       margin-top: 70px;
-      background-color: #2a2320;
-      text-align: center;
-      padding: 60px 20px;
-      min-height: clamp(340px, 40vw, 620px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      background-color: #0a0506;
+      padding: 48px 20px;
       position: relative;
       overflow: hidden;
       isolation: isolate;
     }
     .banner::before {
-        content: ''; position: absolute; inset: -30px; z-index: 0;
-        background: var(--banner-img) center / cover no-repeat;
-        filter: blur(22px) brightness(0.45) saturate(1.2);
+        content: ''; position: absolute; inset: -40px; z-index: 0;
+        background: var(--banner-img) 75% center / cover no-repeat;
+        filter: blur(28px) brightness(0.35) saturate(1.3);
     }
     .banner::after {
         content: ''; position: absolute; inset: 0; z-index: 1;
         background:
-          linear-gradient(rgba(0,0,0,0.38), rgba(0,0,0,0.38)),
-          var(--banner-img) center / contain no-repeat;
+          linear-gradient(90deg, rgba(10, 5, 6,0.92) 0%, rgba(10, 5, 6,0.7) 45%, rgba(10, 5, 6,0.15) 100%),
+          linear-gradient(0deg, #0a0506 0%, rgba(10, 5, 6,0) 22%);
     }
-    .banner-content { position: relative; z-index: 2; }
+    .banner-inner {
+      position: relative; z-index: 2;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .banner-content { text-align: left; }
+    .banner-art {
+      display: block;
+      width: clamp(300px, 34vw, 480px);
+      height: auto;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      /* края арта — чёрные: мягко растворяем их в фоне */
+      -webkit-mask-image: radial-gradient(circle, #000 62%, transparent 71%);
+      mask-image: radial-gradient(circle, #000 62%, transparent 71%);
+      filter: drop-shadow(0 0 30px rgba(255, 26, 60, 0.35));
+    }
 
     .banner h2 {
       font-family: 'Orbitron', sans-serif;
       font-size: 48px;
-      color: #ff3366;
+      color: #c8102e;
       margin: 0 0 20px;
-      text-shadow: 0 0 10px rgba(255,51,102,0.5);
+      text-shadow: 0 0 10px rgba(200, 16, 46,0.5);
     }
-    .banner p { font-size: 20px; color: #fff; }
+    .banner p { font-size: 20px; color: #fff; line-height: 1.5; margin: 0; max-width: 560px; }
+    .banner-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .banner-btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 46px; padding: 10px 22px;
+      border: 2px solid #c8102e; border-radius: 12px;
+      color: #fff; font-weight: 700; font-size: 16px; text-decoration: none;
+      transition: background-color 0.2s, transform 0.2s;
+    }
+    .banner-btn.primary { background: #c8102e; }
+    .banner-btn:hover { background: rgba(200, 16, 46, 0.25); transform: translateY(-2px); }
+    .banner-btn.primary:hover { background: #a50d26; }
 
     /* Популярные аниме */
     .anime-section { padding: 60px 20px; text-align: center; position: relative; z-index: 2; }
-    .anime-section h2 { font-family: 'Orbitron', sans-serif; font-size: 36px; margin-bottom: 40px; color: #ff8b33; }
+    .anime-section h2 { font-family: 'Orbitron', sans-serif; font-size: 36px; margin-bottom: 40px; color: #ff2440; }
     .anime-cards { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
     .anime-card {
-      background-color: rgba(42, 35, 32, 0.8);
+      background-color: rgba(22, 9, 11, 0.8);
       border: 1px solid rgba(255,255,255,0.05);
       border-radius: 12px;
       overflow: hidden;
@@ -172,30 +211,30 @@
     }
     .anime-card:hover { 
         transform: translateY(-10px); 
-        box-shadow: 0 15px 30px rgba(255, 51, 102, 0.3);
-        border-color: #ff3366;
+        box-shadow: 0 15px 30px rgba(200, 16, 46, 0.3);
+        border-color: #c8102e;
     }
     .anime-card img { width: 100%; height: 160px; object-fit: cover; object-position: center 25%; display: block; }
-    .anime-card h3 { font-family: 'Orbitron', sans-serif; font-size: 20px; margin: 15px 10px; color: #ff3366; }
+    .anime-card h3 { font-family: 'Orbitron', sans-serif; font-size: 20px; margin: 15px 10px; color: #c8102e; }
     .anime-card p { font-size: 14px; margin: 0 15px 20px; color: #bbb; line-height: 1.5; }
     /* Карточка: ссылка (постер + текст) ведёт к тайтлу на странице жанра, кнопка «Где посмотреть» — отдельно */
     .anime-card { display: flex; flex-direction: column; }
     .anime-card-link { display: block; flex: 1; color: inherit; text-decoration: none; border-radius: 12px 12px 0 0; }
     .anime-card-link:focus-visible { outline-offset: -3px; } /* у .anime-card overflow: hidden — кольцо рисуем внутри */
-    .anime-card:focus-within { border-color: #ff3366; }
+    .anime-card:focus-within { border-color: #c8102e; }
     .anime-card img { transition: transform 0.4s ease; }
     .anime-card-link:hover img { transform: scale(1.04); }
-    .anime-card-genre { display: block; margin: -8px 15px 16px; font-size: 13px; font-weight: bold; color: #ff8b33; }
+    .anime-card-genre { display: block; margin: -8px 15px 16px; font-size: 13px; font-weight: bold; color: #ff2440; }
     .anime-card-link:hover .anime-card-genre { text-decoration: underline; }
     .anime-card-actions { display: flex; flex-wrap: wrap; gap: 8px; padding: 0 15px 18px; }
     .anime-card-actions > * { flex: 1 1 110px; box-sizing: border-box; justify-content: center; margin: 0; }
 
     /* Новости */
-    .news-section { background-color: #231d1a; padding: 60px 20px; text-align: center; position: relative; z-index: 2; }
-    .news-section h2 { font-family: 'Orbitron', sans-serif; font-size: 36px; margin-bottom: 30px; color: #ff3366; }
+    .news-section { background-color: #170a0c; padding: 60px 20px; text-align: center; position: relative; z-index: 2; }
+    .news-section h2 { font-family: 'Orbitron', sans-serif; font-size: 36px; margin-bottom: 30px; color: #c8102e; }
     .news-item {
-      background: linear-gradient(45deg, #2a2320, #362d29);
-      border-left: 4px solid #ff8b33;
+      background: linear-gradient(45deg, #1a0b0e, #2a1216);
+      border-left: 4px solid #ff2440;
       border-radius: 8px;
       margin: 20px auto;
       padding: 25px;
@@ -204,11 +243,19 @@
       transition: transform 0.2s;
     }
     .news-item:hover { transform: translateX(10px); }
-    .news-item h3 { font-family: 'Orbitron', sans-serif; margin-top: 0; color: #ff8b33; }
+    .news-item h3 { font-family: 'Orbitron', sans-serif; margin-top: 0; color: #ff2440; }
+    /* карточка новости — ссылка на страницу события (pages/news.html?id=…) */
+    a.news-item { display: block; color: inherit; text-decoration: none; }
+    a.news-item p { color: #ddd; }
+    a.news-item:hover { box-shadow: 0 10px 24px rgba(200, 16, 46, 0.18); }
+    .news-more { display: inline-block; margin-top: 4px; font-weight: bold; font-size: 14px; color: #c8102e; }
+    a.news-item:hover .news-more { text-decoration: underline; }
+    .news-all { margin: 26px 0 0; }
+    .news-all a { color: #ff2440; font-weight: bold; }
 
     /* Подвал */
-    footer { background-color: #0e0c0b; text-align: center; padding: 30px; color: #888; font-size: 14px; position: relative; z-index: 2;}
-    footer a { color: #ff3366; }
+    footer { background-color: #0c0506; text-align: center; padding: 30px; color: #888; font-size: 14px; position: relative; z-index: 2;}
+    footer a { color: #c8102e; }
 
     /* Canvas для звезд */
     #stars { position: fixed; top: 0; left: 0; z-index: 0; pointer-events: none; }
@@ -219,12 +266,12 @@
     .login-btn {
       display: inline-flex; align-items: center; gap: 8px;
       min-height: 40px; padding: 0 18px;
-      border: 1px solid #ff3366; border-radius: 999px;
+      border: 1px solid #c8102e; border-radius: 999px;
       color: #fff; font-weight: bold; font-size: 15px; white-space: nowrap;
       transition: background 0.3s, box-shadow 0.3s;
     }
-    .login-btn svg { flex-shrink: 0; color: #ff8b33; }
-    .login-btn:hover { background: rgba(255, 51, 102, 0.2); box-shadow: 0 0 12px rgba(255, 51, 102, 0.6); }
+    .login-btn svg { flex-shrink: 0; color: #ff2440; }
+    .login-btn:hover { background: rgba(200, 16, 46, 0.2); box-shadow: 0 0 12px rgba(200, 16, 46, 0.6); }
 
     /* Кнопка-бургер (видна только на узких экранах) */
     .burger { display: none; }
@@ -240,6 +287,10 @@
       nav a, .dropdown > a, .portal > a, .video > a { font-size: 14px; }
       .login-btn { padding: 0 14px; font-size: 14px; }
       .header-actions .site-search { --site-search-width: clamp(90px, calc(50vw - 497px), 200px); }
+    }
+    /* С картинкой логотипа название на 1366–1499px чуть меньше, чтобы не касаться меню */
+    @media (min-width: 1366px) and (max-width: 1499px) {
+      .logo h1 { font-size: 20px; }
     }
 
     /* --- МОБИЛЬНЫЙ АДАПТИВ --- */
@@ -272,7 +323,7 @@
           flex-direction: column; align-items: stretch; gap: 0;
           max-height: calc(100vh - 60px); overflow-y: auto; overscroll-behavior: contain;
           padding: 6px 0 12px;
-          background: rgba(28, 23, 21, 0.98);
+          background: rgba(16, 7, 9, 0.98);
           border-bottom: 1px solid rgba(255,255,255,0.1);
           box-shadow: 0 15px 30px rgba(0,0,0,0.5);
         }
@@ -297,13 +348,24 @@
 
     /* Телефоны и небольшие планшеты */
     /* Самые узкие телефоны: в шапке логотип + лупа + «Вход» + бургер */
+    /* Узкие телефоны: в шапке только картинка логотипа, название остаётся для экранных читалок */
+    @media (max-width: 440px) {
+        .logo h1 { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+    }
+
     @media (max-width: 400px) {
         .logo h1 { font-size: 18px; }
         .header-actions { gap: 6px; }
     }
 
     @media (max-width: 768px) {
-        .banner { padding: 70px 16px; }
+        /* на телефоне арт сверху, текст и кнопки под ним — по центру */
+        .banner { padding: 28px 16px 40px; }
+        .banner::after { background: linear-gradient(180deg, rgba(10, 5, 6,0.25) 0%, rgba(10, 5, 6,0.85) 55%, #0a0506 100%); }
+        .banner-inner { grid-template-columns: minmax(0, 1fr); gap: 16px; justify-items: center; }
+        .banner-art { width: min(280px, 78vw); order: -1; }
+        .banner-content { text-align: center; }
+        .banner-actions { justify-content: center; }
         .banner h2 { font-size: clamp(26px, 8vw, 40px); overflow-wrap: break-word; }
         .banner p { font-size: 16px; line-height: 1.5; }
 
@@ -324,11 +386,15 @@
   <link rel="stylesheet" href="css/watch-modal.css">
   <link rel="stylesheet" href="css/site-search.css">
   <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/palette.css">
 </head>
 <body class="fade-in">
 
   <header>
-    <div class="logo"><h1>Anime Fan Club</h1></div>
+    <div class="logo">
+      <img class="logo-img" src="img/logo-header.webp" alt="" width="44" height="44">
+      <h1>Anime Fan Club</h1>
+    </div>
 
     <div class="header-actions">
       <!-- Поиск аниме и фильмов (js/site-search.js): строка между меню и «Входом», до 1150px — лупа -->
@@ -344,7 +410,7 @@
 
     <nav id="main-nav">
       <a href="#">Главная</a>
-      <a href="pages/movies.html">Фильмы</a>
+      <a href="pages/movies.html">Каталог</a>
       
       <div class="dropdown">
         <a href="#">Аниме игры ▾</a>
@@ -420,9 +486,18 @@
   </header>
 
   <section class="banner">
-    <div class="banner-content">
+    <div class="banner-inner">
+      <div class="banner-content">
         <h2 id="greeting">Добро пожаловать</h2>
         <p>Твой проводник в мир японской анимации. Новости, обзоры и сообщество фанатов.</p>
+        <div class="banner-actions">
+          <a class="banner-btn primary" href="pages/movies.html">Открыть каталог</a>
+          <a class="banner-btn" href="pages/news.html">Новости</a>
+        </div>
+      </div>
+      <img class="banner-art" src="img/banner.webp" srcset="img/banner-600.webp 600w, img/banner.webp 1000w"
+           sizes="(max-width: 768px) 280px, 480px" width="1000" height="1000"
+           alt="Арт Anime Fan Club: девушка с серебряными волосами на фоне алой луны" fetchpriority="high">
     </div>
   </section>
 
@@ -469,18 +544,22 @@
 
   <section class="news-section">
     <h2>Новости аниме</h2>
-    <div class="news-item">
+    <!-- Карточки ведут на страницу события: pages/news.html?id=… (данные — js/festivals-data.js / Firestore) -->
+    <a class="news-item" href="pages/news.html?id=mha-hero-night">
       <h3>Новый сезон My Hero Academia</h3>
       <p>Стартовал новый сезон популярного аниме про молодых супергероев. Следи за эпизодами!</p>
-    </div>
-    <div class="news-item">
+      <span class="news-more">Ночь героев: расписание и призы →</span>
+    </a>
+    <a class="news-item" href="pages/news.html?id=tokyo-festival">
       <h3>Фестиваль аниме в Токио</h3>
       <p>Лучшие косплееры, выставки и премьерные показы — события, которые нельзя пропустить.</p>
-    </div>
+      <span class="news-more">Репортаж, фото и итоги →</span>
+    </a>
+    <p class="news-all"><a href="pages/news.html">Все фестивали и премьеры</a></p>
   </section>
 
   <footer>
-    &copy; 2025 Anime Fan Club. Контакты: <a href="#">info@animefan.com</a>
+    &copy; 2026 Anime Fan Club. Контакты: <a href="#">info@animefan.com</a>
   </footer>
 
   <canvas id="stars"></canvas>

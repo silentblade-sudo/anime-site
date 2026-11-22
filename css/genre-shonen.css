@@ -7,7 +7,9 @@ body {
   font-family: 'Roboto', sans-serif;
   background: var(--bg-dark);
   color: #fff;
-  background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("../img/фон%20аниме.jpg");
+  /* глубокий чёрный с мягким бордовым отсветом сверху и снизу (вместо фото-пейзажа «фон аниме.jpg») */
+  background-color: #0a0506;
+  background-image: radial-gradient(ellipse 90% 480px at 50% -140px, rgba(150, 10, 28, 0.32), transparent 70%), radial-gradient(ellipse 70% 60% at 50% 110%, rgba(90, 6, 18, 0.25), transparent 70%);
   background-size: cover;
   background-attachment: fixed;
 }
@@ -35,11 +37,11 @@ body {
     padding: 15px;
     margin: 10px auto;
     max-width: 600px;
-    background: rgba(255, 166, 77, 0.15); /* Цвет под золото */
+    background: rgba(255, 36, 64, 0.15); /* Цвет под золото */
     border: 1px dashed var(--accent-orange);
     border-radius: 10px;
     display: none; /* Скрыто по умолчанию */
-    color: #ffa64d;
+    color: #ff2440;
 }
 
 #otherCategoryHint a {

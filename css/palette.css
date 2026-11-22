@@ -1,0 +1,11 @@
+/* Ало-чёрная палитра сайта (в тон баннеру и каталогу).
+   Подключается ПОСЛЕ css/theme.css только на страницах Anime Fan Club (главная, жанры, каталог,
+   избранное, новости, фильм, 404). Разделы «Аниме игры» (page*.html, video pleer.html),
+   AnimeVerse (ssylky.html) и страница входа её не подключают — там остаётся прежняя тема.
+   html:root сильнее :root из theme.css и из <style> страниц, поэтому порядок подключения не важен. */
+html:root {
+  --theme-accent: #ff2440;
+  --theme-accent-soft: rgba(200, 16, 46, 0.45);
+  --theme-dark: #0a0506;
+  accent-color: #c8102e;
+}

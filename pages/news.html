@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Фестивали и премьеры — Anime Fan Club</title>
+  <meta name="description" content="Фестивали и премьеры Anime Fan Club: репортажи, фото, призы, расписание сеансов и ближайшие выходы.">
+  <link rel="icon" href="../img/logo-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="../img/logo-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="../img/logo-180.png">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/news.css">
+  <link rel="stylesheet" href="../css/back-to-top.css">
+  <link rel="stylesheet" href="../css/theme.css">
+  <link rel="stylesheet" href="../css/palette.css">
+</head>
+<body>
+  <header class="news-top">
+    <a class="news-logo" href="../index.html"><img class="news-logo-img" src="../img/logo-header.webp" alt="" width="40" height="40">Anime Fan Club</a>
+    <nav class="news-links" aria-label="Разделы сайта">
+      <a href="../index.html">← На главную</a>
+      <a href="movies.html">Каталог</a>
+      <a href="favorites.html">★ Избранное</a>
+    </nav>
+    <span class="live-badge" id="liveStatus" data-state="connecting" role="status">
+      <span class="live-dot" aria-hidden="true"></span><span class="live-text">Подключаемся…</span>
+    </span>
+  </header>
+
+  <main class="news-page">
+    <!-- Выбор события: все фестивали с датами -->
+    <section class="picker" aria-labelledby="pickerLabel">
+      <label class="picker-label" id="pickerLabel" for="festivalSelect">Фестивали и премьеры</label>
+      <div class="picker-row">
+        <select id="festivalSelect" class="picker-select"></select>
+      </div>
+      <p class="picker-notice" id="pickerNotice" hidden></p>
+    </section>
+
+    <!-- Календарь всех событий -->
+    <section class="calendar" aria-labelledby="calendarTitle">
+      <h2 class="section-title" id="calendarTitle"><span aria-hidden="true">🗓️</span> Календарь событий</h2>
+      <ol class="calendar-list" id="calendarList"></ol>
+    </section>
+
+    <article class="event" id="event" aria-live="polite">
+      <!-- Шапка события -->
+      <header class="event-hero" id="eventHero">
+        <div class="hero-main">
+          <p class="hero-kind" id="heroKind"></p>
+          <h1 class="hero-title" id="heroTitle">Фестивали и премьеры</h1>
+          <p class="hero-tagline" id="heroTagline"></p>
+          <ul class="hero-meta" id="heroMeta"></ul>
+        </div>
+        <div class="hero-status" id="heroStatus"></div>
+      </header>
+
+      <!-- Как устроено и что происходило -->
+      <section class="block" aria-labelledby="storyTitle">
+        <h2 class="section-title" id="storyTitle"><span aria-hidden="true">🏮</span> Как устроено и что происходило</h2>
+        <div class="story-intro" id="storyIntro"></div>
+        <h3 class="sub-title">Зоны площадки</h3>
+        <div class="zones" id="zonesList"></div>
+        <h3 class="sub-title">Хронология</h3>
+        <ol class="timeline" id="timelineList"></ol>
+      </section>
+
+      <!-- Фото -->
+      <section class="block" aria-labelledby="galleryTitle">
+        <h2 class="section-title" id="galleryTitle"><span aria-hidden="true">📸</span> Фото с фестиваля</h2>
+        <div class="gallery" id="galleryList"></div>
+      </section>
+
+      <div class="two-col">
+        <!-- Призы, механика и выигрыши -->
+        <section class="block" aria-labelledby="prizesTitle">
+          <h2 class="section-title" id="prizesTitle"><span aria-hidden="true">🎁</span> Призы и как выигрывают</h2>
+          <div class="rules-card">
+            <h3 class="sub-title">Как устроено</h3>
+            <p id="rulesText"></p>
+            <ol class="rules-steps" id="rulesSteps"></ol>
+          </div>
+          <h3 class="sub-title">Призы</h3>
+          <ul class="prizes" id="prizesList"></ul>
+          <h3 class="sub-title">Журнал выигрышей</h3>
+          <ol class="wins" id="winsList"></ol>
+        </section>
+
+        <!-- Сеансы -->
+        <section class="block" aria-labelledby="sessionsTitle">
+          <h2 class="section-title" id="sessionsTitle"><span aria-hidden="true">🎟️</span> Все сеансы</h2>
+          <p class="tz-note" id="tzNote"></p>
+          <div class="chips" role="group" aria-label="Какие сеансы показывать">
+            <button type="button" class="chip" data-filter="all" aria-pressed="true">Все</button>
+            <button type="button" class="chip" data-filter="upcoming" aria-pressed="false">Впереди</button>
+            <button type="button" class="chip" data-filter="past" aria-pressed="false">Прошли</button>
+          </div>
+          <ol class="sessions" id="sessionsList"></ol>
+        </section>
+      </div>
+
+      <!-- Дальнейшие выходы -->
+      <section class="block" aria-labelledby="upcomingTitle">
+        <h2 class="section-title" id="upcomingTitle"><span aria-hidden="true">🚀</span> Дальнейшие выходы</h2>
+        <ol class="upcoming" id="upcomingList"></ol>
+      </section>
+    </article>
+  </main>
+
+  <!-- Просмотр фото крупно -->
+  <dialog class="photo-view" id="photoView" aria-label="Фото с фестиваля">
+    <figure>
+      <img id="photoViewImg" src="" alt="">
+      <figcaption id="photoViewCaption"></figcaption>
+    </figure>
+    <button type="button" class="photo-view-close" id="photoViewClose" aria-label="Закрыть">×</button>
+  </dialog>
+
+  <!-- Справочник событий (работает без сети) и живые обновления из Firestore -->
+  <script src="../js/festivals-data.js"></script>
+  <script src="../js/firebase-config.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js" defer></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js" defer></script>
+  <script src="../js/news-page.js" defer></script>
+  <script src="../js/back-to-top.js" defer></script>
+</body>
+</html>

@@ -4,3 +4,13 @@
 
 # Кэш ответов API сборщика каталога (tools/build-catalog.mjs)
 tools/.cache/
+
+# Инструмент наполнения festivals (tools/festivals-seed.mjs): локальная библиотека и рабочие файлы
+tools/node_modules/
+tools/package.json
+tools/package-lock.json
+tools/festivals*.json
+
+# Ключи сервисного аккаунта Firebase — никогда не в Git (храните вне папки сайта)
+*firebase-adminsdk*.json
+*service-account*.json

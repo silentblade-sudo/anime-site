@@ -12,11 +12,11 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  border: 2px solid #ff3366;
+  border: 2px solid #c8102e;
   border-radius: 50%;
-  background: rgba(23, 19, 17, 0.92);
-  color: #ff8b33;
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45), 0 0 14px rgba(255, 51, 102, 0.25);
+  background: rgba(10, 5, 6, 0.92);
+  color: #ff2440;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45), 0 0 14px rgba(200, 16, 46, 0.25);
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   /* спрятана: прозрачная, чуть ниже, не ловит клики */
@@ -39,13 +39,13 @@
 
 .to-top-btn:hover,
 .to-top-btn:focus-visible {
-  background: #ff3366;
+  background: #c8102e;
   color: #fff;
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45), 0 0 18px rgba(255, 51, 102, 0.6);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45), 0 0 18px rgba(200, 16, 46, 0.6);
 }
 
 .to-top-btn:focus-visible {
-  outline: 2px solid #ff8b33;
+  outline: 2px solid #ff2440;
   outline-offset: 3px;
 }
 

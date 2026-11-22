@@ -4,13 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
-    <title>Аниме-фильмы</title>
+    <title>Каталог — Anime Fan Club</title>
+    <link rel="icon" href="../img/logo-32.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="../img/logo-192.png" type="image/png" sizes="192x192">
+    <link rel="apple-touch-icon" href="../img/logo-180.png">
     <link rel="stylesheet" href="../css/site-search.css">
     <link rel="stylesheet" href="../css/back-to-top.css">
     <link rel="stylesheet" href="../css/theme.css">
+    <link rel="stylesheet" href="../css/palette.css">
     <style>
         /* акцент раздела для кольца фокуса из css/theme.css */
-        :root { --theme-accent: #ff3366; accent-color: #ff3366; }
+        :root {
+            /* Тёмно-красная палитра каталога — в тон баннеру главной (алый на глубоком чёрном) */
+            --cat-bg: #0a0506;          /* фон страницы, поля, карточки */
+            --cat-panel: rgba(20, 9, 11, 0.96); /* шапка и панель каталога */
+            --cat-red: #c8102e;         /* основной акцент: активные кнопки, рамки при наведении */
+            --cat-red-dark: #6e0a17;    /* рамки карточек */
+            --cat-red-deep: #8f0e22;    /* заливка кнопок */
+            --cat-glow: #ff2440;        /* яркий алый: подсветка тайтла, активный вид */
+            --cat-line: rgba(150, 14, 32, 0.85); /* рамки полей и переключателей */
+            --cat-text: #f2e4e5;
+            --cat-muted: #b9a0a3;
+            --theme-accent: var(--cat-red);
+            --theme-accent-soft: rgba(200, 16, 46, 0.45);
+            --theme-dark: var(--cat-bg);
+            accent-color: var(--cat-red);
+        }
 
         * {
             box-sizing: border-box;
@@ -20,8 +39,8 @@
        
         body {
             font-family: sans-serif;
-            background-color: #171311;
-            color: #f3e8ff;
+            background-color: var(--cat-bg);
+            color: var(--cat-text);
         }
 
         header {
@@ -31,8 +50,8 @@
             width: 100%;
             min-height: 110px;
             padding: 16px;
-            background: rgba(42, 35, 32, 0.95);
-            border-bottom: 1px solid rgba(196, 25, 25, 0.35);
+            background: var(--cat-panel);
+            border-bottom: 1px solid rgba(140, 10, 26, 0.5);
         }
 
         .header-actions {
@@ -43,11 +62,14 @@
             gap: 20px;
         }
 
+        .logo { display: flex; align-items: center; gap: 10px; }
+        .logo-img { display: block; width: 44px; height: 44px; flex-shrink: 0; }
+
         .logo h1 {
             font-family: 'Orbitron', sans-serif;
             font-size: 28px;
-            color: #ff3366;
-            text-shadow: 0 0 14px rgba(196, 25, 25, 0.75);
+            color: var(--cat-red);
+            text-shadow: 0 0 14px var(--cat-line);
             white-space: nowrap;
         }
 
@@ -61,24 +83,25 @@
             font-weight: 600;
             text-decoration: none;
             color: #ffffff;
-            background: rgba(196, 25, 25, 0.8);
+            background: var(--cat-red-deep);
             transition: background-color 0.2s, transform 0.2s;
         }
 
         .btn-home:hover {
-            background: #a00000;
+            background: var(--cat-red-dark);
             transform: translateY(-1px);
         }
         
         .content {
             display: flex;  
             flex-direction: column;
-            width: 90%;
-            max-width: 1320px;
+            /* широкий каталог: до 1600px, по краям не меньше 20px (как .catalog-wide на страницах жанров) */
+            width: auto;
+            max-width: min(1600px, calc(100% - 40px));
             min-height: calc(100vh - 150px);
             margin: 20px auto;
             padding: 20px;
-            background: rgba(42, 35, 32, 0.95);
+            background: var(--cat-panel);
             border: 1px solid rgba(255, 255, 255, 0.06);
             border-radius: 12px;
         }
@@ -96,9 +119,9 @@
             width: 300px;
             max-width: 100%;
             padding: 10px 14px;
-            border: 2px solid rgba(196, 25, 25, 0.75);
+            border: 2px solid var(--cat-line);
             border-radius: 8px;
-            background-color: #171311;
+            background-color: var(--cat-bg);
             color: #ffffff;
             font-size: 16px;
             outline: none;
@@ -114,13 +137,13 @@
         }
 
         input:focus, select:focus {
-            border-color: #a00000;
-            box-shadow: 0 0 14px rgba(160, 0, 0, 0.7);
+            border-color: var(--cat-red-dark);
+            box-shadow: 0 0 14px rgba(200, 16, 46, 0.55);
         }
 
         .cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
             gap: 18px;
         }
 
@@ -129,10 +152,10 @@
             flex-direction: column;
             justify-content: space-between;
             min-height: 340px;
-            background: #171311;
-            border: 1px solid #a00000;
+            background: var(--cat-bg);
+            border: 1px solid var(--cat-red-dark);
             border-radius: 20px;
-            color: #f3e8ff;
+            color: var(--cat-text);
             text-decoration: none;
             overflow: hidden;
             transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
@@ -141,19 +164,20 @@
 
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 22px rgba(160, 0, 0, 0.55);
-            border-color: #ff3366;
+            box-shadow: 0 8px 22px rgba(200, 16, 46, 0.45);
+            border-color: var(--cat-red);
         }
 
         .card-poster {
             width: 100%;
-            height: 225px;
+            height: auto;
+            aspect-ratio: 2 / 3;
             display: flex;
             align-items: center;
             justify-content: center;
             background: rgba(255, 255, 255, 0.04);
-            border-bottom: 1px solid rgba(160, 0, 0, 0.45);
-            color: #cbb8dc;
+            border-bottom: 1px solid rgba(140, 10, 26, 0.55);
+            color: var(--cat-muted);
             font-size: 14px;
         }
 
@@ -179,7 +203,12 @@
 
         .card-meta {
             font-size: 13px;
-            color: #c9b8d9;
+            color: var(--cat-muted);
+        }
+
+        /* описание — только в режиме «Список» */
+        .card-desc {
+            display: none;
         }
 
         .empty-state {
@@ -190,7 +219,7 @@
             gap: 14px;
             text-align: center;
             padding: 40px 16px;
-            color: #c9b8d9;
+            color: var(--cat-muted);
             font-size: 16px;
         }
 
@@ -198,13 +227,13 @@
             margin: -16px 0 18px;
             text-align: center;
             font-size: 14px;
-            color: #c9b8d9;
+            color: var(--cat-muted);
         }
 
         .btn-reset {
             min-height: 44px;
             padding: 10px 22px;
-            border: 2px solid rgba(196, 25, 25, 0.75);
+            border: 2px solid var(--cat-line);
             border-radius: 11px;
             background: transparent;
             color: #ffffff;
@@ -215,8 +244,8 @@
         }
 
         .btn-reset:hover {
-            background: rgba(196, 25, 25, 0.8);
-            border-color: #a00000;
+            background: var(--cat-red-deep);
+            border-color: var(--cat-red-dark);
         }
 
         .card-title {
@@ -245,7 +274,7 @@
         }
 
         .card:focus-within {
-            border-color: #ff3366;
+            border-color: var(--cat-red);
         }
 
         .card-fav {
@@ -259,10 +288,10 @@
             width: 44px;
             height: 44px;
             padding: 0;
-            border: 1px solid rgba(255, 51, 102, 0.6);
+            border: 1px solid rgba(200, 16, 46, 0.7);
             border-radius: 50%;
-            background: rgba(23, 19, 17, 0.82);
-            color: #ff5c85;
+            background: rgba(8, 4, 5, 0.82);
+            color: #ff3b55;
             font-size: 22px;
             line-height: 1;
             cursor: pointer;
@@ -270,14 +299,164 @@
         }
 
         .card-fav:hover {
-            background: rgba(255, 51, 102, 0.25);
+            background: rgba(200, 16, 46, 0.3);
             transform: scale(1.08);
         }
 
         .card-fav[aria-pressed="true"] {
-            background: #ff3366;
-            border-color: #ff3366;
+            background: var(--cat-red);
+            border-color: var(--cat-red);
             color: #ffffff;
+        }
+
+        /* Переключатель категорий «Фильмы / Аниме» (js/movies-page.js) — справа от «Все франшизы» */
+        .tab-switch {
+            display: flex;
+            gap: 4px;
+            padding: 3px;
+            border: 2px solid var(--cat-line);
+            border-radius: 10px;
+            background: var(--cat-bg);
+        }
+
+        .tab-btn {
+            min-height: 38px;
+            padding: 6px 16px;
+            border: 0;
+            border-radius: 7px;
+            background: transparent;
+            color: var(--cat-text);
+            font-size: 15px;
+            font-weight: 600;
+            white-space: nowrap;
+            cursor: pointer;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .tab-btn:hover {
+            background: rgba(200, 16, 46, 0.18);
+            color: #ffffff;
+        }
+
+        .tab-btn[aria-pressed="true"] {
+            background: var(--cat-red);
+            color: #ffffff;
+        }
+
+        /* «Показать ещё» под сеткой (в «Аниме» карточки выводятся порциями) */
+        .catalog-more {
+            display: flex;
+            justify-content: center;
+            margin-top: 22px;
+        }
+
+        .catalog-more[hidden] {
+            display: none;
+        }
+
+        /* Карточка, к которой пришли по ссылке ?tab=anime&anime=<id> со страницы жанра */
+        .card.is-target {
+            border-color: var(--cat-glow);
+            box-shadow: 0 0 0 3px var(--cat-glow), 0 10px 30px rgba(255, 36, 64, 0.4);
+        }
+
+        /* Переключатель вида «Сетка / Список» — в стиле .view-toggle страниц жанров */
+        .view-toggle {
+            display: flex;
+            gap: 4px;
+            padding: 3px;
+            border: 2px solid var(--cat-line);
+            border-radius: 10px;
+            background: var(--cat-bg);
+        }
+
+        .view-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            min-width: 40px;
+            min-height: 38px;
+            padding: 0 12px;
+            border: 0;
+            border-radius: 7px;
+            background: transparent;
+            color: var(--cat-text);
+            font-size: 15px;
+            font-weight: 600;
+            white-space: nowrap;
+            cursor: pointer;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .view-btn svg { display: block; flex-shrink: 0; }
+        .view-btn:hover { background: rgba(200, 16, 46, 0.2); color: #ffffff; }
+        .view-btn[aria-pressed="true"] { background: var(--cat-glow); color: #ffffff; }
+
+        /* Режим «Список»: горизонтальные карточки — постер слева, текст и описание справа */
+        .cards-grid.is-list {
+            grid-template-columns: 1fr;
+            gap: 14px;
+        }
+
+        .cards-grid.is-list .card {
+            min-height: 0;
+            border-radius: 14px;
+        }
+
+        .cards-grid.is-list .card:hover {
+            transform: translateY(-2px);
+        }
+
+        .cards-grid.is-list .card-link {
+            flex-direction: row;
+            justify-content: flex-start;
+        }
+
+        .cards-grid.is-list .card-poster {
+            flex: 0 0 130px;
+            width: 130px;
+            border-bottom: 0;
+            border-right: 1px solid rgba(140, 10, 26, 0.55);
+        }
+
+        .cards-grid.is-list .card-body {
+            flex: 1;
+            min-width: 0;
+            justify-content: center;
+            gap: 8px;
+            padding: 16px 18px;
+        }
+
+        .cards-grid.is-list .card-title {
+            font-size: 18px;
+            padding-right: 56px; /* место под звёздочку — только у заголовка, описание идёт на всю ширину */
+        }
+
+        .cards-grid.is-list .card-desc {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            line-clamp: 3;
+            overflow: hidden;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #d6c3c5;
+        }
+
+        .cards-grid.is-list .card-fav {
+            top: 14px;
+            right: 14px;
+        }
+
+        /* смена вида — без анимаций (класс ставит js/movies-page.js) */
+        .view-switching .card,
+        .view-switching .card * {
+            transition: none !important;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .card, .card:hover { transition: none; transform: none; }
         }
 
         @media (max-width: 480px) {
@@ -307,6 +486,7 @@
 
             .content {
                 width: auto;
+                max-width: none;
                 margin: 12px;
                 padding: 14px;
             }
@@ -320,16 +500,139 @@
                 min-height: 44px;
             }
 
+            .tab-switch {
+                width: 100%;
+            }
+
+            .tab-btn {
+                flex: 1;
+                min-height: 40px;
+            }
+
+            .view-toggle {
+                width: 100%;
+            }
+
+            .view-btn {
+                flex: 1;
+                min-height: 40px;
+            }
+
+            /* сетка на телефоне — два постера в ряд */
             .cards-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 12px;
+            }
+
+            .card {
+                min-height: 0;
+                border-radius: 14px;
+            }
+
+            .card-body {
+                padding: 10px;
+                padding-bottom: 12px;
+            }
+
+            .card-title {
+                font-size: 14px;
+            }
+
+            .card-meta {
+                font-size: 12px;
+            }
+
+            .card-fav {
+                top: 6px;
+                right: 6px;
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
+
+            .cards-grid.is-list .card-poster {
+                flex-basis: 96px;
+                width: 96px;
+            }
+
+            .cards-grid.is-list .card-body {
+                padding: 12px;
+                gap: 6px;
+            }
+
+            .cards-grid.is-list .card-title {
+                font-size: 15px;
+                padding-right: 44px;
+            }
+
+            .cards-grid.is-list .card-desc {
+                -webkit-line-clamp: 2;
+                line-clamp: 2;
+                font-size: 13px;
+            }
+
+            .cards-grid.is-list .card-fav {
+                top: 8px;
+                right: 8px;
             }
         }
+    
+        /* фон страницы — глубокий чёрный с алым отсветом сверху, как у баннера */
+        body {
+            background:
+                radial-gradient(ellipse 90% 420px at 50% -120px, rgba(160, 10, 30, 0.35), transparent 70%),
+                var(--cat-bg);
+            background-attachment: fixed;
+        }
+
+        .content {
+            border-color: rgba(140, 10, 26, 0.45);
+            box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 20px 60px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 40, 64, 0.08);
+        }
+
+        .catalog-heading {
+            margin: 4px 0 4px;
+            text-align: center;
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(24px, 4vw, 34px);
+            letter-spacing: 0.04em;
+            color: var(--cat-red);
+            text-shadow: 0 0 18px rgba(255, 36, 64, 0.45);
+        }
+
+        .logo h1 { color: var(--cat-glow); text-shadow: 0 0 14px rgba(200, 16, 46, 0.8); }
+        .btn-home { background: var(--cat-red-deep); border: 1px solid rgba(255, 36, 64, 0.35); }
+        .btn-home:hover { background: var(--cat-red); }
+        .btn-reset:hover { background: var(--cat-red-deep); border-color: var(--cat-red); }
+        .tab-btn[aria-pressed="true"],
+        .view-btn[aria-pressed="true"] { box-shadow: 0 0 12px rgba(255, 36, 64, 0.35); }
+        .view-btn[aria-pressed="true"] { background: var(--cat-red); }
+        .results-counter { color: var(--cat-muted); }
+        .results-counter::first-line { color: var(--cat-text); }
+        input::placeholder { color: #9c8285; }
+
+        /* общие виджеты (поиск в шапке, кнопка «Наверх») — на этой странице тоже алые, без оранжевого */
+        .site-search-icon { color: var(--cat-glow); }
+        .site-search-input { background: rgba(10, 5, 6, 0.9); }
+        .site-search-input:hover { border-color: rgba(200, 16, 46, 0.6); }
+        .site-search-input:focus { border-color: var(--cat-red); box-shadow: 0 0 12px rgba(200, 16, 46, 0.4); }
+        .site-search-option-section { color: var(--cat-glow); }
+        .site-search-option-section.is-movie { color: #ff5a6e; }
+        .site-search-list [aria-selected="true"] .site-search-option,
+        .site-search-option:hover { background: rgba(200, 16, 46, 0.18); box-shadow: inset 0 0 0 1px rgba(200, 16, 46, 0.7); }
+        .to-top-btn { color: var(--cat-glow); border-color: var(--cat-red); background: rgba(10, 5, 6, 0.92); box-shadow: 0 8px 22px rgba(0, 0, 0, 0.5), 0 0 14px rgba(200, 16, 46, 0.3); }
+        .to-top-btn:hover,
+        .to-top-btn:focus-visible { background: var(--cat-red); color: #fff; box-shadow: 0 8px 22px rgba(0, 0, 0, 0.5), 0 0 18px rgba(255, 36, 64, 0.6); }
+        .to-top-btn:focus-visible { outline-color: var(--cat-glow); }
     </style>
 </head>
 <body>
     <header>
         <div class="header-actions">
-            <div class="logo"><h1>Anime Fan Club</h1></div>
+            <div class="logo">
+                <img class="logo-img" src="../img/logo-header.webp" alt="" width="44" height="44">
+                <h1>Anime Fan Club</h1>
+            </div>
             <a class="btn-home" href="../index.html">На главную</a>
             <a class="btn-home" href="favorites.html">★ Избранное</a>
             <!-- поиск аниме и фильмов по всему сайту (js/site-search.js) -->
@@ -338,178 +641,48 @@
     </header>
 
     <main class="content">
+        <h2 class="catalog-heading">Каталог</h2>
+
         <div class="controls-bar">
             <input type="search" id="movieSearch" placeholder="Введите название..." aria-label="Поиск по названию" autocomplete="off">
 
             <select id="franchiseFilter" aria-label="Фильтр по франшизе">
                 <option value="">Все франшизы</option>
             </select>
+
+            <!-- Категория каталога: ?tab=movies | ?tab=anime (js/movies-page.js) -->
+            <div class="tab-switch" role="group" aria-label="Категория каталога">
+                <button type="button" class="tab-btn" data-tab="movies" aria-pressed="true">🎬 Фильмы</button>
+                <button type="button" class="tab-btn" data-tab="anime" aria-pressed="false">📺 Аниме</button>
+            </div>
+
+            <!-- Вид каталога: сетка / список; выбор в localStorage animeverse_catalog_view (js/movies-page.js) -->
+            <div class="view-toggle" role="group" aria-label="Вид каталога">
+                <button type="button" class="view-btn" data-view="grid" aria-pressed="true" title="Сетка постеров">
+                    <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true" focusable="false"><rect x="2" y="2" width="7" height="7" rx="1.5" fill="currentColor"/><rect x="11" y="2" width="7" height="7" rx="1.5" fill="currentColor"/><rect x="2" y="11" width="7" height="7" rx="1.5" fill="currentColor"/><rect x="11" y="11" width="7" height="7" rx="1.5" fill="currentColor"/></svg>
+                    <span>Сетка</span>
+                </button>
+                <button type="button" class="view-btn" data-view="list" aria-pressed="false" title="Список с описанием">
+                    <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true" focusable="false"><rect x="2" y="3" width="5" height="5" rx="1" fill="currentColor"/><rect x="9" y="4" width="9" height="3" rx="1.5" fill="currentColor"/><rect x="2" y="12" width="5" height="5" rx="1" fill="currentColor"/><rect x="9" y="13" width="9" height="3" rx="1.5" fill="currentColor"/></svg>
+                    <span>Список</span>
+                </button>
+            </div>
         </div>
 
         <p class="results-counter" id="resultsCounter" aria-live="polite"></p>
 
         <div class="cards-grid" id="moviesGrid"></div>
+
+        <div class="catalog-more" id="catalogMore" hidden>
+            <button type="button" class="btn-reset" id="catalogMoreBtn">Показать ещё</button>
+        </div>
     </main>
 
     <script src="../js/movies-data.js"></script>
     <script src="../js/movie-favorites.js"></script>
     <script src="../js/anime-search.js"></script>
     <script src="../js/site-search.js"></script>
-    <script>
-        // Данные — только из js/movies-data.js (общий список с pages/content.html)
-        const movies = typeof MOVIES !== "undefined" && Array.isArray(MOVIES) ? MOVIES : [];
-        const PLACEHOLDER = "../img/poster-placeholder.svg";
-
-        const grid = document.getElementById("moviesGrid");
-        const searchInput = document.getElementById("movieSearch");
-        const franchiseSelect = document.getElementById("franchiseFilter");
-        const counter = document.getElementById("resultsCounter");
-
-        // «ё» = «е», регистр и лишние пробелы не важны
-        const normalize = text => String(text || "").toLowerCase().replace(/ё/g, "е").replace(/\s+/g, " ").trim();
-
-        // Путь постера в данных — от корня сайта; страница лежит в pages/, поэтому добавляем ../
-        function posterSrc(poster) {
-            if (!poster) return PLACEHOLDER;
-            return /^(https?:)?\/\//.test(poster) || poster.startsWith("/") ? poster : "../" + poster;
-        }
-
-        function plural(n, one, few, many) {
-            const n10 = n % 10, n100 = n % 100;
-            if (n10 === 1 && n100 !== 11) return one;
-            if (n10 >= 2 && n10 <= 4 && (n100 < 12 || n100 > 14)) return few;
-            return many;
-        }
-
-        // Список франшиз — из данных, по алфавиту, с количеством фильмов
-        function fillFranchises() {
-            const counts = new Map();
-            movies.forEach(movie => {
-                if (movie.franchise) counts.set(movie.franchise, (counts.get(movie.franchise) || 0) + 1);
-            });
-            [...counts.keys()].sort((a, b) => a.localeCompare(b, "ru")).forEach(name => {
-                const option = document.createElement("option");
-                option.value = name;
-                option.textContent = `${name} (${counts.get(name)})`;
-                franchiseSelect.appendChild(option);
-            });
-        }
-
-        // Звёздочка избранного: отдельная кнопка поверх постера, не внутри ссылки
-        function syncFavButton(btn) {
-            const inFav = window.MovieFavorites ? MovieFavorites.has(btn.dataset.id) : false;
-            btn.textContent = inFav ? "★" : "☆";
-            btn.setAttribute("aria-pressed", String(inFav));
-            const action = inFav ? "Убрать из избранного" : "Добавить в избранное";
-            btn.title = action;
-            btn.setAttribute("aria-label", `${action}: «${btn.dataset.title}»`);
-        }
-
-        function syncAllFavButtons() {
-            grid.querySelectorAll(".card-fav").forEach(syncFavButton);
-        }
-
-        function createCard(movie) {
-            const card = document.createElement("div");
-            card.className = "card";
-
-            const link = document.createElement("a");
-            link.className = "card-link";
-            link.href = "content.html?id=" + encodeURIComponent(movie.id);
-
-            const posterBox = document.createElement("div");
-            posterBox.className = "card-poster";
-            const img = document.createElement("img");
-            img.src = posterSrc(movie.poster);
-            img.alt = movie.poster ? `Постер: ${movie.title}` : "";
-            img.loading = "lazy";
-            img.addEventListener("error", () => { img.src = PLACEHOLDER; img.alt = ""; }, { once: true });
-            posterBox.appendChild(img);
-
-            const body = document.createElement("div");
-            body.className = "card-body";
-            const title = document.createElement("h2");
-            title.className = "card-title";
-            title.textContent = movie.title;
-            const meta = document.createElement("span");
-            meta.className = "card-meta";
-            meta.textContent = [movie.franchise, movie.year].filter(Boolean).join(" • ");
-            body.append(title, meta);
-
-            link.append(posterBox, body);
-            card.appendChild(link);
-
-            if (window.MovieFavorites) {
-                const fav = document.createElement("button");
-                fav.type = "button";
-                fav.className = "card-fav";
-                fav.dataset.id = movie.id;
-                fav.dataset.title = movie.title;
-                fav.addEventListener("click", () => MovieFavorites.toggle(movie.id));
-                syncFavButton(fav);
-                card.appendChild(fav);
-            }
-            return card;
-        }
-
-        function resetFilters() {
-            searchInput.value = "";
-            franchiseSelect.value = "";
-            filterMovies();
-            searchInput.focus();
-        }
-
-        function renderMovies(list) {
-            const filtered = normalize(searchInput.value) || franchiseSelect.value;
-            counter.textContent = filtered
-                ? `Найдено: ${list.length} из ${movies.length}`
-                : `${movies.length} ${plural(movies.length, "фильм", "фильма", "фильмов")}`;
-
-            if (!list.length) {
-                const empty = document.createElement("div");
-                empty.className = "empty-state";
-                const text = document.createElement("p");
-                text.textContent = movies.length ? "Ничего не найдено" : "Список фильмов пока пуст";
-                empty.appendChild(text);
-                if (movies.length) {
-                    const reset = document.createElement("button");
-                    reset.type = "button";
-                    reset.className = "btn-reset";
-                    reset.textContent = "Сбросить фильтры";
-                    reset.addEventListener("click", resetFilters);
-                    empty.appendChild(reset);
-                }
-                grid.replaceChildren(empty);
-                return;
-            }
-
-            grid.replaceChildren(...list.map(createCard));
-        }
-
-        function filterMovies() {
-            const query = normalize(searchInput.value);
-            const franchise = franchiseSelect.value;
-
-            const filtered = movies.filter(movie => {
-                // ищем по русскому, английскому и оригинальному названию
-                const titles = normalize([movie.title, movie.titleEn, movie.titleOrig].join(" | "));
-                const matchesTitle = !query || titles.includes(query);
-                const matchesFranchise = !franchise || movie.franchise === franchise;
-                return matchesTitle && matchesFranchise;
-            });
-
-            renderMovies(filtered);
-        }
-
-        searchInput.addEventListener("input", filterMovies);
-        franchiseSelect.addEventListener("change", filterMovies);
-
-        // Изменения избранного (клик здесь, на странице фильма или в другой вкладке) — обновляем звёздочки
-        if (window.MovieFavorites) MovieFavorites.onChange(syncAllFavButtons);
-
-        fillFranchises();
-        filterMovies();
-    </script>
+    <script src="../js/movies-page.js"></script>
 <script src="../js/back-to-top.js" defer></script><!-- кнопка «Наверх» -->
 </body>
 </html>

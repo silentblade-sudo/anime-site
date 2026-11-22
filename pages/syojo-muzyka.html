@@ -5,28 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Сёдзё — Музыка</title>
 
-  <link rel="icon" href="../img/anime-logotip-1.webp" type="image/webp">
+  <link rel="icon" href="../img/logo-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="../img/logo-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="../img/logo-180.png">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="../css/genre-shojo.css">
   <style>
     :root {
-      --accent-pink: #ff8fd4;
-      --accent-green: #2ecc71;
-      --bg-dark: #100d0c;
-      --glass: rgba(25, 10, 35, 0.8);
+      --accent-pink: #ff2440;
+      --accent-green: #c8102e;
+      --bg-dark: #0d0607;
+      --glass: rgba(18, 7, 9, 0.8);
     }
 
     #animeSearch {
       width: 100%; padding: 12px 20px; background: rgba(255, 255, 255, 0.05);
-      border: 2px solid rgba(255, 143, 212, 0.3); border-radius: 30px; color: #fff;
+      border: 2px solid rgba(255, 36, 64, 0.3); border-radius: 30px; color: #fff;
       font-size: 16px; transition: all 0.3s ease; outline: none; box-sizing: border-box;
     }
-    #animeSearch:focus { border-color: var(--accent-pink); background: rgba(255, 255, 255, 0.1); box-shadow: 0 0 15px rgba(255, 143, 212, 0.3); }
+    #animeSearch:focus { border-color: var(--accent-pink); background: rgba(255, 255, 255, 0.1); box-shadow: 0 0 15px rgba(255, 36, 64, 0.3); }
 
     #otherCategoryHint {
       text-align: center; padding: 15px; margin: 10px auto; max-width: 600px;
-      background: rgba(255, 143, 212, 0.15); border: 1px dashed var(--accent-pink);
+      background: rgba(255, 36, 64, 0.15); border: 1px dashed var(--accent-pink);
       border-radius: 10px; display: none; color: var(--accent-pink);
     }
 
@@ -35,7 +37,7 @@
       background: var(--accent-pink); color: #fff; border-radius: 50%;
       display: none; justify-content: center; align-items: center;
       cursor: pointer; border: none; z-index: 1000; transition: .3s;
-      box-shadow: 0 0 15px rgba(255, 143, 212, 0.5);
+      box-shadow: 0 0 15px rgba(255, 36, 64, 0.5);
     }
     #top-btn:hover { background: #fff; color: var(--accent-pink); transform: translateY(-5px); }
 
@@ -49,6 +51,7 @@
   <link rel="stylesheet" href="../css/watch-modal.css">
   <link rel="stylesheet" href="../css/back-to-top.css">
   <link rel="stylesheet" href="../css/theme.css">
+  <link rel="stylesheet" href="../css/palette.css">
 </head>
 <body>
 

@@ -4,7 +4,9 @@
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
-  background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url("../img/фон%20аниме.jpg");
+  /* глубокий чёрный с мягким бордовым отсветом сверху и снизу (вместо фото-пейзажа «фон аниме.jpg») */
+  background-color: #0a0506;
+  background-image: radial-gradient(ellipse 90% 480px at 50% -140px, rgba(150, 10, 28, 0.32), transparent 70%), radial-gradient(ellipse 70% 60% at 50% 110%, rgba(90, 6, 18, 0.25), transparent 70%);
   background-size: cover;
   background-attachment: fixed;
   color: #fff;
@@ -15,7 +17,7 @@ header {
   text-align: center;
   background: var(--glass);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255,143,212,0.3);
+  border-bottom: 1px solid rgba(255, 36, 64,0.3);
 }
 
 h1 {
@@ -23,7 +25,7 @@ h1 {
   font-family: 'Orbitron', sans-serif;
   font-size: 32px;
   color: var(--accent-pink);
-  text-shadow: 0 0 15px rgba(255,143,212,0.6);
+  text-shadow: 0 0 15px rgba(255, 36, 64,0.6);
 }
 
 .nav-box { margin-top: 15px; }
@@ -37,17 +39,17 @@ a.back:hover { color: var(--accent-pink); text-shadow: 0 0 8px var(--accent-pink
 .anime-list {
   max-width: 900px;
   margin: 40px auto;
-  background: rgba(20,8,30,.75);
+  background: rgba(18, 7, 9,.75);
   backdrop-filter: blur(12px);
   padding: 30px;
   border-radius: 20px;
-  border: 1px solid rgba(255,143,212,.1);
-  box-shadow: 0 0 30px rgba(255,143,212,.15);
+  border: 1px solid rgba(255, 36, 64,.1);
+  box-shadow: 0 0 30px rgba(255, 36, 64,.15);
 }
 
-.anime-item { display: flex; gap: 25px; padding: 25px 0; border-bottom: 1px solid rgba(255,143,212,.1); transition: .3s; }
+.anime-item { display: flex; gap: 25px; padding: 25px 0; border-bottom: 1px solid rgba(255, 36, 64,.1); transition: .3s; }
 
-.anime-item:hover { background: rgba(255,143,212,.05); transform: scale(1.02); border-radius: 10px; }
+.anime-item:hover { background: rgba(255, 36, 64,.05); transform: scale(1.02); border-radius: 10px; }
 
 .anime-item:last-child { border-bottom: none; }
 

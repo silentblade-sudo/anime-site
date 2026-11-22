@@ -18,7 +18,7 @@
   left: 13px;
   transform: translateY(-50%);
   display: flex;
-  color: #ff8b33;
+  color: #ff2440;
   pointer-events: none;
 }
 
@@ -30,7 +30,7 @@
   padding: 0 14px 0 38px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 999px;
-  background: rgba(14, 11, 10, 0.85);
+  background: rgba(10, 5, 6, 0.85);
   color: #fff;
   font-family: inherit;
   font-size: 14px;
@@ -38,12 +38,12 @@
   transition: width 0.25s ease, border-color 0.2s, box-shadow 0.2s, background 0.2s;
 }
 .site-search-input::placeholder { color: rgba(255, 255, 255, 0.5); }
-.site-search-input:hover { border-color: rgba(255, 139, 51, 0.5); }
+.site-search-input:hover { border-color: rgba(255, 36, 64, 0.5); }
 .site-search-input:focus {
   width: var(--site-search-focus-width, 280px);
-  border-color: #ff8b33;
-  background: rgba(14, 11, 10, 0.97);
-  box-shadow: 0 0 12px rgba(255, 139, 51, 0.3);
+  border-color: #ff2440;
+  background: rgba(10, 5, 6, 0.97);
+  box-shadow: 0 0 12px rgba(255, 36, 64, 0.3);
 }
 /* у type=search свой крестик — оставляем, но в цвет сайта */
 .site-search-input::-webkit-search-cancel-button { filter: invert(0.6) sepia(1) saturate(5) hue-rotate(-15deg); cursor: pointer; }
@@ -58,7 +58,7 @@
   padding: 6px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 14px;
-  background: rgba(23, 19, 17, 0.98);
+  background: rgba(10, 5, 6, 0.98);
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
   text-align: left;
 }
@@ -94,8 +94,8 @@
 }
 .site-search-list [aria-selected="true"] .site-search-option,
 .site-search-option:hover {
-  background: rgba(255, 139, 51, 0.15);
-  box-shadow: inset 0 0 0 1px rgba(255, 139, 51, 0.7);
+  background: rgba(255, 36, 64, 0.15);
+  box-shadow: inset 0 0 0 1px rgba(255, 36, 64, 0.7);
 }
 .site-search-option-title {
   font-size: 14px;
@@ -109,8 +109,8 @@
   color: rgba(255, 255, 255, 0.6);
   overflow-wrap: anywhere;
 }
-.site-search-option-section { color: #ff8b33; font-weight: bold; }
-.site-search-option-section.is-movie { color: #ff5c85; }
+.site-search-option-section { color: #ff2440; font-weight: bold; }
+.site-search-option-section.is-movie { color: #ff3b55; }
 
 /* ───── Узкий экран (data-site-search="collapsible"): лупа в шапке, строка — панелью под шапкой ───── */
 @media (max-width: 1150px) {
@@ -126,12 +126,12 @@
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 50%;
     background: transparent;
-    color: #ff8b33;
+    color: #ff2440;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
   }
   .site-search--collapsible .site-search-toggle svg { width: 20px; height: 20px; }
-  .site-search--collapsible.is-open .site-search-toggle { border-color: #ff8b33; background: rgba(255, 139, 51, 0.15); }
+  .site-search--collapsible.is-open .site-search-toggle { border-color: #ff2440; background: rgba(255, 36, 64, 0.15); }
 
   .site-search--collapsible .site-search-panel {
     display: none;
@@ -139,7 +139,7 @@
     left: 0;
     right: 0;
     padding: 10px 16px 12px;
-    background: rgba(28, 23, 21, 0.98);
+    background: rgba(16, 7, 9, 0.98);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
   }

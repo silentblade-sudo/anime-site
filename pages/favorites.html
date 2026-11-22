@@ -4,13 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Избранное — Anime Fan Club</title>
-  <link rel="icon" href="../img/anime-logotip-1.webp" type="image/webp">
+  <link rel="icon" href="../img/logo-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="../img/logo-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="../img/logo-180.png">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --accent-red: #ff5656;
-      --accent-orange: #ff8000;
-      --bg-dark: #100d0c;
+      --accent-red: #ff2440;
+      --accent-orange: #ff2440;
+      --bg-dark: #0d0607;
     }
 
     body {
@@ -19,7 +21,9 @@
       font-family: 'Roboto', sans-serif;
       background: var(--bg-dark);
       color: #fff;
-      background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url("../img/фон%20аниме.jpg");
+      /* глубокий чёрный с мягким бордовым отсветом сверху и снизу (вместо фото-пейзажа «фон аниме.jpg») */
+      background-color: #0a0506;
+      background-image: radial-gradient(ellipse 90% 480px at 50% -140px, rgba(150, 10, 28, 0.32), transparent 70%), radial-gradient(ellipse 70% 60% at 50% 110%, rgba(90, 6, 18, 0.25), transparent 70%);
       background-size: cover;
       background-attachment: fixed;
     }
@@ -29,7 +33,7 @@
       text-align: center;
       background: rgba(0, 0, 0, 0.7);
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255, 128, 0, 0.2);
+      border-bottom: 1px solid rgba(255, 36, 64, 0.2);
     }
 
     h1 {
@@ -37,7 +41,7 @@
       font-family: 'Orbitron', sans-serif;
       font-size: 32px;
       color: var(--accent-orange);
-      text-shadow: 0 0 15px rgba(255, 128, 0, 0.3);
+      text-shadow: 0 0 15px rgba(255, 36, 64, 0.3);
     }
 
     a.back {
@@ -52,14 +56,15 @@
     a.back:hover { color: var(--accent-red); }
 
     .anime-list {
-      max-width: 900px;
+      box-sizing: border-box;
+      max-width: min(1600px, calc(100% - 40px)); /* как широкий каталог: до 1600px, по краям не меньше 20px */
       margin: 40px auto;
       background: rgba(255, 255, 255, 0.05);
       backdrop-filter: blur(15px);
       padding: 30px;
       border-radius: 20px;
       box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-      border: 1px solid rgba(255,255,255,0.1);
+      border: 1px solid rgba(140, 10, 26, 0.45);
     }
 
     .anime-item {
@@ -153,8 +158,9 @@
     }
 
     .open-btn:hover {
-      background: var(--accent-orange);
-      color: #100d0c;
+      background: #c8102e;
+      border-color: #c8102e;
+      color: #fff;
       box-shadow: 0 0 10px var(--accent-orange);
     }
 
@@ -165,7 +171,7 @@
       align-items: center;
       justify-content: center;
       gap: 12px;
-      max-width: 900px;
+      max-width: min(1600px, calc(100% - 40px));
       margin: 30px auto -10px;
       padding: 0 20px;
       box-sizing: border-box;
@@ -190,11 +196,12 @@
       transition: border-color 0.3s, box-shadow 0.3s;
     }
 
+    #favSearch { max-width: 560px; }
     #favSearch::placeholder { color: #aaa; }
 
     #favSearch:focus {
       border-color: var(--accent-orange);
-      box-shadow: 0 0 12px rgba(255, 128, 0, 0.35);
+      box-shadow: 0 0 12px rgba(255, 36, 64, 0.35);
     }
 
     .type-filter {
@@ -221,11 +228,12 @@
       transition: background 0.3s, color 0.3s;
     }
 
-    .type-btn:hover { color: #fff; background: rgba(255, 128, 0, 0.15); }
+    .type-btn:hover { color: #fff; background: rgba(255, 36, 64, 0.15); }
 
     .type-btn[aria-pressed="true"] {
-      background: var(--accent-orange);
-      color: #100d0c;
+      background: #c8102e;
+      color: #fff;
+      box-shadow: 0 0 12px rgba(255, 36, 64, 0.35);
     }
 
     .type-count {
@@ -239,7 +247,7 @@
       line-height: 1.6;
     }
 
-    .type-btn[aria-pressed="true"] .type-count { background: rgba(0, 0, 0, 0.18); }
+    .type-btn[aria-pressed="true"] .type-count { background: rgba(0, 0, 0, 0.25); }
 
     .fav-counter {
       flex-basis: 100%;
@@ -267,8 +275,9 @@
     }
 
     .reset-btn:hover {
-      background: var(--accent-orange);
-      color: #100d0c;
+      background: #c8102e;
+      border-color: #c8102e;
+      color: #fff;
       box-shadow: 0 0 10px var(--accent-orange);
     }
 
@@ -284,6 +293,160 @@
       #movieFavorites .anime-title { font-size: 17px; }
     }
 
+    /* ───── Шапка: «На главную» и «В каталог» ───── */
+    .fav-nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 10px 18px;
+      margin-top: 15px;
+    }
+    .fav-nav a.back { margin-top: 0; }
+    .catalog-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      min-height: 40px;
+      padding: 8px 18px;
+      box-sizing: border-box;
+      border: 1px solid rgba(255, 36, 64, 0.5);
+      border-radius: 999px;
+      background: #c8102e;
+      color: #fff;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 0 14px rgba(200, 16, 46, 0.35);
+      transition: background-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    }
+    .catalog-link:hover { background: #e0152f; box-shadow: 0 0 20px rgba(255, 36, 64, 0.55); transform: translateY(-1px); }
+    .empty-state { text-align: center; padding-bottom: 36px; }
+    .empty-state .empty-message { padding-bottom: 20px; }
+    .empty-state .catalog-link { min-height: 46px; padding: 10px 24px; font-size: 16px; }
+
+    /* ───── Переключатель «Сетка / Список» (как на страницах жанров и в каталоге) ───── */
+    .view-toggle {
+      display: flex;
+      gap: 4px;
+      padding: 4px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 30px;
+      background: rgba(0, 0, 0, 0.35);
+    }
+    .view-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      min-height: 36px;
+      padding: 6px 14px;
+      border: 0;
+      border-radius: 30px;
+      background: transparent;
+      color: #ccc;
+      font-family: 'Roboto', sans-serif;
+      font-size: 14px;
+      font-weight: bold;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s;
+    }
+    .view-btn svg { display: block; flex-shrink: 0; }
+    .view-btn:hover { color: #fff; background: rgba(255, 36, 64, 0.15); }
+    .view-btn[aria-pressed="true"] { background: #c8102e; color: #fff; box-shadow: 0 0 12px rgba(255, 36, 64, 0.35); }
+
+    /* ───── Карточки: метаданные и описание ───── */
+    .fav-meta { margin: -4px 0 10px; font-size: 14px; color: #bbb; }
+    .fav-desc {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+      line-clamp: 3;
+      overflow: hidden;
+      margin: 0 0 14px;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #d6c3c5;
+    }
+    .anime-item .anime-title { color: #ff2440; }
+    a.anime-title:hover { color: #ff5a6e; }
+
+    /* ───── Режим «Сетка»: постеры колонками, описание скрыто.
+       :is(#…) — чтобы перебить правила css/mobile.css для #favoritesContainer ───── */
+    :is(#favoritesContainer, #movieFavorites).fav-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+      gap: 18px;
+    }
+    :is(#favoritesContainer, #movieFavorites).fav-grid[hidden] { display: none; }
+    :is(#favoritesContainer, #movieFavorites).fav-grid .list-heading { grid-column: 1 / -1; padding: 0; margin: 0; }
+    :is(#favoritesContainer, #movieFavorites).fav-grid .anime-item {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      padding: 0;
+      border: 1px solid #6e0a17;
+      border-radius: 14px;
+      background: #0a0506;
+      overflow: hidden;
+      transition: opacity 0.4s ease, transform 0.4s ease, border-color 0.2s, box-shadow 0.2s;
+    }
+    :is(#favoritesContainer, #movieFavorites).fav-grid .anime-item:hover {
+      border-color: #c8102e;
+      box-shadow: 0 8px 22px rgba(160, 8, 30, 0.45);
+    }
+    :is(#favoritesContainer, #movieFavorites).fav-grid .anime-poster {
+      display: block;
+      width: 100%;
+      max-width: none;
+      height: auto;
+      aspect-ratio: 2 / 3;
+      border-radius: 0;
+      box-shadow: none;
+      border-bottom: 1px solid rgba(140, 10, 26, 0.55);
+    }
+    :is(#favoritesContainer, #movieFavorites).fav-grid .anime-info {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      padding: 12px;
+    }
+    :is(#favoritesContainer, #movieFavorites).fav-grid .anime-title { font-size: 15px; margin-bottom: 6px; overflow-wrap: anywhere; }
+    :is(#favoritesContainer, #movieFavorites).fav-grid .fav-meta { margin: 0 0 10px; font-size: 12px; }
+    :is(#favoritesContainer, #movieFavorites).fav-grid .fav-desc { display: none; }
+    :is(#favoritesContainer, #movieFavorites).fav-grid .movie-actions { flex-direction: column; gap: 8px; margin-top: auto; }
+    :is(#favoritesContainer, #movieFavorites).fav-grid .movie-actions > * {
+      width: 100%;
+      box-sizing: border-box;
+      justify-content: center;
+      min-height: 38px;
+      padding: 7px 10px;
+      font-size: 13px;
+      text-align: center;
+    }
+    :is(#favoritesContainer, #movieFavorites).fav-grid .fade-out { transform: scale(0.92); }
+
+    /* Режим «Список»: горизонтальная строка «постер + текст» с описанием */
+    :is(#favoritesContainer, #movieFavorites):not(.fav-grid) .anime-item:last-child { border-bottom: 0; }
+
+    /* смена вида — без анимаций */
+    .fav-view-switching .anime-item,
+    .fav-view-switching .anime-item * { transition: none !important; }
+
+    @media (max-width: 768px) {
+      .anime-list, .fav-toolbar { max-width: none; }
+    }
+    @media (max-width: 480px) {
+      .view-toggle { width: 100%; box-sizing: border-box; }
+      .view-btn { flex: 1; min-height: 40px; }
+      :is(#favoritesContainer, #movieFavorites).fav-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+      :is(#favoritesContainer, #movieFavorites).fav-grid .anime-info { padding: 9px; }
+      :is(#favoritesContainer, #movieFavorites).fav-grid .anime-title { font-size: 14px; }
+      :is(#favoritesContainer, #movieFavorites).fav-grid .movie-actions > * { min-height: 40px; font-size: 12px; padding: 6px; }
+      :is(#favoritesContainer, #movieFavorites):not(.fav-grid) .fav-desc { -webkit-line-clamp: 2; line-clamp: 2; font-size: 13px; }
+    }
+
     /* Анимация удаления */
     .fade-out {
       opacity: 0;
@@ -294,12 +457,16 @@
   <link rel="stylesheet" href="../css/watch-modal.css">
   <link rel="stylesheet" href="../css/back-to-top.css">
   <link rel="stylesheet" href="../css/theme.css">
+  <link rel="stylesheet" href="../css/palette.css">
 </head>
 <body>
 
   <header>  
     <h1>★ Избранное</h1>
-    <a class="back" href="../index.html">← Вернуться на главную</a>
+    <nav class="fav-nav" aria-label="Навигация">
+      <a class="back" href="../index.html">← Вернуться на главную</a>
+      <a class="catalog-link" href="movies.html">📚 В каталог</a>
+    </nav>
   </header>
 
   <!-- Поиск и отбор по типу; скрыты, пока избранное пустое -->
@@ -310,11 +477,23 @@
       <button type="button" class="type-btn" data-type="series" aria-pressed="false">Сериалы <span class="type-count"></span></button>
       <button type="button" class="type-btn" data-type="movies" aria-pressed="false">Фильмы <span class="type-count"></span></button>
     </div>
+    <!-- Вид: тот же ключ localStorage animeverse_catalog_view, что в каталоге и на страницах жанров -->
+    <div class="view-toggle" role="group" aria-label="Вид списка">
+      <button type="button" class="view-btn" data-view="grid" aria-pressed="true" title="Сетка постеров">
+        <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true" focusable="false"><rect x="2" y="2" width="7" height="7" rx="1.5" fill="currentColor"/><rect x="11" y="2" width="7" height="7" rx="1.5" fill="currentColor"/><rect x="2" y="11" width="7" height="7" rx="1.5" fill="currentColor"/><rect x="11" y="11" width="7" height="7" rx="1.5" fill="currentColor"/></svg>
+        <span>Сетка</span>
+      </button>
+      <button type="button" class="view-btn" data-view="list" aria-pressed="false" title="Список с описанием">
+        <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true" focusable="false"><rect x="2" y="3" width="5" height="5" rx="1" fill="currentColor"/><rect x="9" y="4" width="9" height="3" rx="1.5" fill="currentColor"/><rect x="2" y="12" width="5" height="5" rx="1" fill="currentColor"/><rect x="9" y="13" width="9" height="3" rx="1.5" fill="currentColor"/></svg>
+        <span>Список</span>
+      </button>
+    </div>
     <p class="fav-counter" id="favCounter" aria-live="polite"></p>
   </div>
 
-  <section class="anime-list" id="favEmpty" hidden>
+  <section class="anime-list empty-state" id="favEmpty" hidden>
     <div class="empty-message">Тут пока пусто. Добавьте что-нибудь интересное!</div>
+    <a class="catalog-link" href="movies.html">Перейти в каталог</a>
   </section>
 
   <section class="anime-list no-results" id="favNoResults" hidden>
@@ -538,6 +717,32 @@
       return /^(https?:)?\/\//.test(poster) || poster.startsWith('/') ? poster : '../' + poster;
     }
 
+    // Подробности сериалов (тип, год, описание, id для ссылки в каталог) — из data/anime.json, по id или названию.
+    // Грузится один раз и только если в избранном есть сериалы; без него карточки показываются как раньше.
+    const FORMAT_LABELS = { TV: 'ТВ-сериал', TV_SHORT: 'Короткий ТВ', OVA: 'OVA', ONA: 'ONA', SPECIAL: 'Спешл', MUSIC: 'Клип', MOVIE: 'Фильм' };
+    let catalogInfo = null;
+    let catalogLoading = false;
+    function loadCatalogInfo() {
+      if (catalogInfo || catalogLoading) return;
+      catalogLoading = true;
+      fetch('../data/anime.json')
+        .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+        .then(data => {
+          const byId = {}, byTitle = {};
+          data.anime.forEach(a => {
+            byId[a.id] = a;
+            [a.title, a.titleEnglish, a.titleOriginal].forEach(t => { const k = normalize(t); if (k && !byTitle[k]) byTitle[k] = a; });
+          });
+          catalogInfo = { byId, byTitle };
+          renderAll();
+        })
+        .catch(() => { /* без данных каталога — карточки без описания */ });
+    }
+    function findCatalogEntry(title, meta) {
+      if (!catalogInfo) return null;
+      return (meta && meta.id && catalogInfo.byId[meta.id]) || catalogInfo.byTitle[normalize(title)] || null;
+    }
+
     function makeHeading(text) {
       const heading = document.createElement('h2');
       heading.className = 'list-heading';
@@ -584,9 +789,25 @@
 
         const info = document.createElement('div');
         info.className = 'anime-info';
-        const titleEl = document.createElement('div');
+        const entry = findCatalogEntry(title, meta);
+        // название ведёт на страницу содержания тайтла, если он есть в каталоге
+        const titleEl = document.createElement(entry ? 'a' : 'div');
         titleEl.className = 'anime-title';
+        if (entry) titleEl.href = 'content.html?anime=' + encodeURIComponent(entry.id);
         titleEl.textContent = title;
+        info.appendChild(titleEl);
+        if (entry) {
+          const metaLine = document.createElement('p');
+          metaLine.className = 'fav-meta';
+          metaLine.textContent = [FORMAT_LABELS[entry.format] || 'Сериал', entry.year].filter(Boolean).join(' • ');
+          info.appendChild(metaLine);
+          if (entry.synopsis) {
+            const desc = document.createElement('p');
+            desc.className = 'fav-desc';
+            desc.textContent = entry.synopsis;
+            info.appendChild(desc);
+          }
+        }
 
         const actions = document.createElement('div');
         actions.className = 'movie-actions';
@@ -610,7 +831,7 @@
         removeBtn.addEventListener('click', () => removeItem(removeBtn, title));
 
         actions.append(watchBtn, removeBtn);
-        info.append(titleEl, actions);
+        info.append(actions);
         item.append(makePoster(poster, title), info);
         container.appendChild(item);
       });
@@ -654,21 +875,28 @@
           titleEl.href = href;
           titleEl.textContent = movie.title;
           const meta = document.createElement('p');
-          meta.className = 'movie-meta';
+          meta.className = 'movie-meta fav-meta';
           meta.textContent = ['Фильм', movie.franchise, movie.year].filter(Boolean).join(' • ');
+          const descText = Array.isArray(movie.description) ? movie.description[0] : movie.description;
           const open = document.createElement('a');
           open.className = 'open-btn';
           open.href = href;
           open.textContent = 'Подробнее и где смотреть';
           actions.appendChild(open);
           info.append(titleEl, meta);
+          if (descText) {
+            const desc = document.createElement('p');
+            desc.className = 'fav-desc';
+            desc.textContent = descText;
+            info.appendChild(desc);
+          }
         } else {
           // Фильм удалён из js/movies-data.js — оставляем возможность убрать его из списка
           const titleEl = document.createElement('div');
           titleEl.className = 'anime-title';
           titleEl.textContent = 'Фильм больше недоступен';
           const meta = document.createElement('p');
-          meta.className = 'movie-meta';
+          meta.className = 'movie-meta fav-meta';
           meta.textContent = id;
           info.append(titleEl, meta);
         }
@@ -732,6 +960,8 @@
         return;
       }
 
+      if (series.length) loadCatalogInfo();
+
       const query = normalize(searchInput.value);
       const shownSeries = currentType === 'movies' ? [] : series.filter(t => !query || normalize(t).includes(query));
       const shownMovies = currentType === 'series' ? [] : movieIds.filter(id => !query || normalize(movieSearchText(id)).includes(query));
@@ -746,6 +976,27 @@
       const filtered = Boolean(query) || currentType !== 'all';
       counter.textContent = filtered ? `Найдено: ${shown} из ${total}` : `В избранном: ${total}`;
     }
+
+    // ───────── Вид: «Сетка» (по умолчанию) / «Список» ─────────
+    const VIEW_KEY = 'animeverse_catalog_view'; // общий с каталогом и страницами жанров
+    const viewButtons = [...document.querySelectorAll('.view-btn')];
+    function savedView() {
+      try { return localStorage.getItem(VIEW_KEY) === 'list' ? 'list' : 'grid'; } catch (e) { return 'grid'; }
+    }
+    function applyView(mode) {
+      const grid = mode !== 'list';
+      document.body.classList.add('fav-view-switching');
+      ['favoritesContainer', 'movieFavorites'].forEach(id => document.getElementById(id).classList.toggle('fav-grid', grid));
+      viewButtons.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.view === (grid ? 'grid' : 'list'))));
+      void document.body.offsetWidth;
+      document.body.classList.remove('fav-view-switching');
+    }
+    viewButtons.forEach(b => b.addEventListener('click', () => {
+      try { localStorage.setItem(VIEW_KEY, b.dataset.view); } catch (e) { /* приватный режим */ }
+      applyView(b.dataset.view);
+    }));
+    window.addEventListener('storage', e => { if (e.key === VIEW_KEY) applyView(savedView()); });
+    applyView(savedView());
 
     searchInput.addEventListener('input', renderAll);
     typeButtons.forEach(b => b.addEventListener('click', () => setType(b.dataset.type)));

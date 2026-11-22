@@ -4,12 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Аниме — Ужасы</title>
-  <link rel="icon" href="../img/anime-logotip-1.webp" type="image/webp">
+  <link rel="icon" href="../img/logo-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="../img/logo-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="../img/logo-180.png">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --accent-red: #ff4d4d;
-      --accent-green: #2ecc71;
+      --accent-red: #ff2440;
+      --accent-green: #c8102e;
       --bg-dark: #0a0a0a;
       --glass: rgba(0, 0, 0, 0.8);
     }
@@ -19,7 +21,9 @@
       font-family: 'Roboto', sans-serif;
       background: var(--bg-dark);
       color: #fff;
-      background-image: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url("../img/фон%20аниме.jpg");
+      /* глубокий чёрный с мягким бордовым отсветом сверху и снизу (вместо фото-пейзажа «фон аниме.jpg») */
+      background-color: #0a0506;
+      background-image: radial-gradient(ellipse 90% 480px at 50% -140px, rgba(150, 10, 28, 0.32), transparent 70%), radial-gradient(ellipse 70% 60% at 50% 110%, rgba(90, 6, 18, 0.25), transparent 70%);
       background-size: cover;
       background-attachment: fixed;
     }
@@ -38,7 +42,7 @@
       font-size: 32px;
       letter-spacing: 3px;
       color: var(--accent-red);
-      text-shadow: 0 0 15px rgba(255, 77, 77, 0.6);
+      text-shadow: 0 0 15px rgba(255, 36, 64, 0.6);
     }
 
     .nav-box { margin-top: 15px; }
@@ -74,7 +78,7 @@
       max-width: 900px;
       margin: 20px auto -20px;
       padding: 15px;
-      background: rgba(255, 77, 77, 0.15);
+      background: rgba(255, 36, 64, 0.15);
       border: 1px dashed var(--accent-red);
       border-radius: 10px;
       text-align: center;
@@ -99,7 +103,7 @@
       transition: 0.3s;
     }
 
-    .anime-item:hover { background: rgba(255, 77, 77, 0.05); transform: translateX(5px); }
+    .anime-item:hover { background: rgba(255, 36, 64, 0.05); transform: translateX(5px); }
 
     .anime-poster {
       flex-shrink: 0; width: 140px; height: 200px;
@@ -145,6 +149,7 @@
   <link rel="stylesheet" href="../css/watch-modal.css">
   <link rel="stylesheet" href="../css/back-to-top.css">
   <link rel="stylesheet" href="../css/theme.css">
+  <link rel="stylesheet" href="../css/palette.css">
 </head>
 <body>
 
