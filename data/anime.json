@@ -6,19 +6,19 @@
     "note": "Описания переведены на русский автоматически; оригинал — в поле synopsisEn"
   },
   "perGenreTarget": 100,
-  "total": 980,
+  "total": 1062,
   "genres": {
     "martial-arts": {
       "name": "Боевые искусства",
       "group": "Сёнэн",
       "page": "pages/boevye-iskusstva.html",
-      "count": 103
+      "count": 104
     },
     "adventure": {
       "name": "Приключения",
       "group": "Сёнэн",
       "page": "pages/priklyucheniya.html",
-      "count": 260
+      "count": 298
     },
     "sci-fi": {
       "name": "Фантастика",
@@ -30,19 +30,19 @@
       "name": "Сверхъестественное",
       "group": "Сёнэн",
       "page": "pages/sverhestestvennoe.html",
-      "count": 266
+      "count": 285
     },
     "romance": {
       "name": "Романтика",
       "group": "Сёдзё",
       "page": "pages/syojo-romantika.html",
-      "count": 250
+      "count": 268
     },
     "school": {
       "name": "Школа",
       "group": "Сёдзё",
       "page": "pages/syojo-shkola.html",
-      "count": 224
+      "count": 241
     },
     "music": {
       "name": "Музыка",
@@ -54,7 +54,7 @@
       "name": "Психология",
       "group": "Сэйнэн",
       "page": "pages/psihologiya.html",
-      "count": 162
+      "count": 167
     },
     "horror": {
       "name": "Ужасы",
@@ -66,19 +66,19 @@
       "name": "Детектив",
       "group": "Сэйнэн",
       "page": "pages/detektiv.html",
-      "count": 223
+      "count": 231
     },
     "drama": {
       "name": "Драма",
       "group": "Дзёсэй",
       "page": "pages/drama.html",
-      "count": 445
+      "count": 478
     },
     "slice-of-life": {
       "name": "Повседневность",
       "group": "Дзёсэй",
       "page": "pages/povsednevnost.html",
-      "count": 262
+      "count": 278
     },
     "realism": {
       "name": "Реализм",
@@ -90,19 +90,19 @@
       "name": "Обучающее",
       "group": "Кодомомукэ",
       "page": "pages/obuchayushchee.html",
-      "count": 120
+      "count": 121
     },
     "fantasy": {
       "name": "Фэнтези",
       "group": "Кодомомукэ",
       "page": "pages/fantasy-kids.html",
-      "count": 290
+      "count": 335
     },
     "animals": {
       "name": "Животные",
       "group": "Кодомомукэ",
       "page": "pages/zhivotnye.html",
-      "count": 131
+      "count": 136
     }
   },
   "anime": [
@@ -4534,6 +4534,27 @@
       "synopsisEn": "In a world populated by anthropomorphic animals, herbivores and carnivores coexist with each other. For the adolescents of Cherryton Academy, school life is filled with hope, romance, distrust, and uneasiness. The main character is Legoshi the wolf, a member of the drama club. Despite his menacing appearance, he has a very gentle heart."
     },
     {
+      "id": "haikyu-to-the-top-part-2-113538",
+      "title": "Волейбол!! К вершине. Часть 2",
+      "titleOriginal": "Haikyuu!! TO THE TOP 2",
+      "titleEnglish": "HAIKYU!! TO THE TOP Part 2",
+      "genres": [
+        "school",
+        "drama"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx113538-tHVE8j5mOPLu.jpg",
+      "synopsis": "Вторая половина Хайкю!! Четвертый сезон начинается там, где закончилась первая часть. Старшая школа Карасуно выиграла свой первый матч The Spring Nationals против Академии Цубакихара. Старшая школа Карасуно очень рада вернуться на весенний национальный чемпионат после многих лет неудач. Смогут ли они справиться с давлением игры против лучших команд Японии? Смогут ли они достичь вершины?",
+      "year": 2020,
+      "format": "TV",
+      "episodes": 12,
+      "score": 85,
+      "popularity": 260144,
+      "anilistId": 113538,
+      "malId": 40776,
+      "url": "https://anilist.co/anime/113538",
+      "synopsisEn": "The second half of Haikyuu!! 4th season kicks-off where the first part ended. Karasuno High won their first match of The Spring Nationals against Tsubakihara Academy. Karasuno High is excited to be back in the Spring Nationals after many years of not making it, so can they handle the pressure of playing against the best teams in Japan? Will they make it to the top?"
+    },
+    {
       "id": "serial-experiments-lain-339",
       "title": "Serial Experiments Lain",
       "titleOriginal": "serial experiments lain",
@@ -5335,6 +5356,26 @@
       "synopsisEn": "Through their tutor Fuutarou Uesugi's diligent guidance, the Nakano quintuplets' academic performance shows signs of improvement, even if their path to graduation is still rocky. However, as they continue to cause various situations that delay any actual tutoring, Fuutarou becomes increasingly involved with their personal lives, further complicating their relationship with each other."
     },
     {
+      "id": "sk8-the-infinity-124153",
+      "title": "Скейт: бесконечность",
+      "titleOriginal": "SK∞",
+      "titleEnglish": "SK8 the Infinity",
+      "genres": [
+        "drama"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx124153-uEBI764OSavB.png",
+      "synopsis": "Реки, второкурсник средней школы и фигурист, пристрастился к «S», совершенно секретным и опасным гонкам на скейтборде, которые проходят в заброшенной шахте. Фигуристы особенно без ума от «разборок» или жарких сражений, которые разгораются на гонках. Реки берет Лангу, студентку-переводчика, возвращающуюся в Японию после учебы за границей, на шахту, где проводятся скачки. Ланга, не имеющий опыта катания на скейтборде, оказывается втянутым в мир «S»…",
+      "year": 2021,
+      "format": "TV",
+      "episodes": 12,
+      "score": 79,
+      "popularity": 238917,
+      "anilistId": 124153,
+      "malId": 42923,
+      "url": "https://anilist.co/anime/124153",
+      "synopsisEn": "Reki, a high school sophomore and skater, is addicted to “S,” a highly secret and dangerous downhill skateboarding race that takes place in an abandoned mine. The skaters are especially wild about the “beefs,” or heated battles that erupt in the races. Reki takes Langa, a transfer student returning to Japan after studying abroad, to the mine where the races are held. Langa, who has no skateboarding experience, finds himself pulled into the world of “S”..."
+    },
+    {
       "id": "frieren-beyond-journey-s-end-season-2-182255",
       "title": "Провожающая в последний путь Фрирен 2",
       "titleOriginal": "Sousou no Frieren 2nd Season",
@@ -5471,6 +5512,46 @@
       "synopsisEn": "When a classroom of students is transported to another world to act as its saviors, Hajime Nagumo finds himself the weakest link. As his friends and classmates are granted strong classes and impressive abilities due to their existing skills, he is given the weak title of Synergist. When a dungeon quest leaves him separated from his group, Hajime must discover his own talents or be left to rot in this world forever."
     },
     {
+      "id": "great-pretender-110349",
+      "title": "Великий притворщик",
+      "titleOriginal": "GREAT PRETENDER",
+      "titleEnglish": "Great Pretender",
+      "genres": [
+        "drama"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx110349-59hhZ9CNHVdk.png",
+      "synopsis": "Самопровозглашенный «величайший мошенник Японии» Макото Эдамура в основном нацелен на пожилых людей и случайных иностранных путешественников. Но когда он пытается обмануть явно невежественного французского туриста в Токио, он не может себе представить, что то, что выглядело как очередная обычная работа, приведет его в Лос-Анджелес, привязанного вверх тормашками к знаменитому знаку Голливуда... И ему еще предстоит узнать, какая судьба его ждет!",
+      "year": 2020,
+      "format": "ONA",
+      "episodes": 23,
+      "score": 81,
+      "popularity": 235340,
+      "anilistId": 110349,
+      "malId": 40052,
+      "url": "https://anilist.co/anime/110349",
+      "synopsisEn": "Self-styled “Japan's greatest swindler” Makoto Edamura is mainly targeting elder people and occasional foreign travelers. But when he tries to scam an apparently clueless French tourist in Tokyo, he can't possibly imagine that what looked like just another ordinary job is going to take him all the way to Los Angeles, tied upside-down on the famous Hollywood sign… And he is yet to find out what fate awaits him!"
+    },
+    {
+      "id": "yuri-on-ice-21709",
+      "title": "Юри на льду",
+      "titleOriginal": "Yuuri!!! on ICE",
+      "titleEnglish": "Yuri!!! on ICE",
+      "genres": [
+        "drama"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx21709-aqPBDxJPruYR.png",
+      "synopsis": "Юрий Кацуки отправляется на Гран-при по фигурному катанию в качестве лучшего представителя Японии, надеясь на приз. Однако вместо того, чтобы праздновать, Юрий уходит побежденным и готовым навсегда уйти в отставку. Но стычка с чемпионом Виктором Никифоровым и восходящей звездой Юрием Плисецким разжигает внутри него новый огонь. Когда они оба будут рядом с ним, Юрий снова выйдет на лед.",
+      "year": 2016,
+      "format": "TV",
+      "episodes": 12,
+      "score": 78,
+      "popularity": 235281,
+      "anilistId": 21709,
+      "malId": 32995,
+      "url": "https://anilist.co/anime/21709",
+      "synopsisEn": "Yuri Katsuki makes his way to the Grand Prix ice skating competition as Japan’s top representative with his eyes on the prize. However, instead of celebrating, Yuri walks away defeated and ready to retire for good. But a run-in with champion Viktor Nikiforov and rising star Yuri Plisetsky ignites a new fire within him. With the two of them close by his side, Yuri will take to the ice once more."
+    },
+    {
       "id": "blood-blockade-battlefront-20727",
       "title": "Blood Blockade Battlefront",
       "titleOriginal": "Kekkai Sensen",
@@ -5575,6 +5656,26 @@
       "malId": 35788,
       "url": "https://anilist.co/anime/99255",
       "synopsisEn": "At the Moon Festival, Totsuki Academy’s annual gourmet jubilee, students wage fierce culinary war as they try to out-earn their peers by selling the most of their chosen cuisine. Souma Yukihira, however, has his sights set on a grander prize: challenging the Elite Ten, who rule over the academy with iron fists."
+    },
+    {
+      "id": "sakamoto-days-177709",
+      "title": "Дни Сакамото",
+      "titleOriginal": "SAKAMOTO DAYS",
+      "titleEnglish": "SAKAMOTO DAYS",
+      "genres": [
+        "martial-arts"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx177709-e5Qx6RlsBgD5.png",
+      "synopsis": "Когда Сакамото встречает Аой, продавщицу круглосуточного магазина, это любовь с первого взгляда — и вот так он уходит на пенсию. Сакамото женится, рожает дочь, открывает семейный магазин в тихом городке и полностью перевоплощается… в мужчину больших размеров. Чтобы обеспечить мирную жизнь своей любимой семье, легендарный бывший киллер объединяется с товарищами, чтобы противостоять надвигающейся угрозе со стороны убийц.",
+      "year": 2025,
+      "format": "ONA",
+      "episodes": 11,
+      "score": 76,
+      "popularity": 230492,
+      "anilistId": 177709,
+      "malId": 58939,
+      "url": "https://anilist.co/anime/177709",
+      "synopsisEn": "When Sakamoto meets Aoi, the convenience store clerk, it’s love at first sight — and just like that, he retires. Sakamoto gets married, has a daughter, opens a mom-and-pop store in a quiet town, and completely transforms … into a plus-size man. To ensure a peaceful life with his beloved family, the legendary ex–hit man bands together with comrades to face off against the looming threat of assassins."
     },
     {
       "id": "my-teen-romantic-comedy-snafu-climax-108489",
@@ -6282,6 +6383,26 @@
       "synopsisEn": "The Holy Grail War continues, with each Master and Servant duo making their move for the omnipotent wish granter. Caster’s plans have been set in motion, beginning with taking Saber captive while Rin and Archer go their separate ways to continue their fights on their own. Without Saber’s aid, Shirou’s principles are put to the ultimate test. With many battles to come with expected and unexpected enemies, Shirou’s resolve begins to take form."
     },
     {
+      "id": "grave-of-the-fireflies-578",
+      "title": "Могила светлячков",
+      "titleOriginal": "Hotaru no Haka",
+      "titleEnglish": "Grave of the Fireflies",
+      "genres": [
+        "drama"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx578-vU6XcOlb1XFU.jpg",
+      "synopsis": "После бомбардировки Второй мировой войны двое детей-сирот пытаются выжить в сельской местности Японии. Для Сейты и его четырехлетней сестры беспомощность и безразличие их соотечественников даже более болезненны, чем вражеские набеги. Жизнь этих детей, несмотря на отчаяние, голод и горе, столь же душераздирающе хрупка, сколь вдохновляют их дух и любовь.",
+      "year": 1988,
+      "format": "MOVIE",
+      "episodes": 1,
+      "score": 83,
+      "popularity": 207799,
+      "anilistId": 578,
+      "malId": 578,
+      "url": "https://anilist.co/anime/578",
+      "synopsisEn": "In the aftermath of a World War II bombing, two orphaned children struggle to survive in the Japanese countryside. To Seita and his four-year-old sister, the helplessness and indifference of their countrymen is even more painful than the enemy raids. Through desperation, hunger and grief, these children's lives are as heartbreakingly fragile as their spirit and love is inspiring."
+    },
+    {
       "id": "suzume-142770",
       "title": "Судзумэ",
       "titleOriginal": "Suzume no Tojimari",
@@ -6396,6 +6517,27 @@
       "synopsisEn": "The fictional Japanese city named Sugomori City is built on reclaimed land. But as the years go by, the city's population is decreasing. One day, Sonozaki tells her classmate Katsuhira: \"You have been selected to be a Kiznaiver.\" The Kizuna System, which allows Katsuhira to share his wounds, connects him to the classmates whose lives and personalities completely differ from his."
     },
     {
+      "id": "cautious-hero-the-hero-is-overpowered-but-overly-cautious-105156",
+      "title": "Этот герой неуязвим, но слишком осторожен",
+      "titleOriginal": "Shinchou Yuusha: Kono Yuusha ga Ore TUEEE Kuse ni Shinchou Sugiru",
+      "titleEnglish": "Cautious Hero: The Hero Is Overpowered but Overly Cautious",
+      "genres": [
+        "adventure",
+        "fantasy"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx105156-ZVtxISdoUqnY.png",
+      "synopsis": "Есть популярная поговорка: «Никогда нельзя быть слишком осторожным». Очень важно быть готовым к любой ситуации, с которой вы можете столкнуться, даже если она кажется ненужной тратой времени. Кроме того, в таких играх, как ролевые игры, полезно превысить уровень своих врагов, чтобы добиться полной победы. Эти слова слишком точно описывают Сейю Рюгуина.",
+      "year": 2019,
+      "format": "TV",
+      "episodes": 12,
+      "score": 73,
+      "popularity": 205613,
+      "anilistId": 105156,
+      "malId": 38659,
+      "url": "https://anilist.co/anime/105156",
+      "synopsisEn": "There is a popular saying: \"you can never be too careful.\" It is very important to prepare for every situation you may face, even if it seems like an unnecessary waste of time. Also, in games like RPGs, it is good to exceed the level of your enemies to achieve total victory. These words describe Seiya Ryuuguuin a little too perfectly."
+    },
+    {
       "id": "violet-evergarden-the-movie-103047",
       "title": "Виолетта Эвергарден",
       "titleOriginal": "Violet Evergarden Movie",
@@ -6507,6 +6649,26 @@
       "synopsisEn": "When Bell encounters a frightened little girl in the dungeon, he doesn’t think twice to help. But this simple act of kindness has consequences. The girl is a monster and proof that monsters can be eerily human. And not everyone can accept this..."
     },
     {
+      "id": "the-eminence-in-shadow-season-2-161964",
+      "title": "Кардинал теней 2",
+      "titleOriginal": "Kage no Jitsuryokusha ni Naritakute! 2nd season",
+      "titleEnglish": "The Eminence in Shadow Season 2",
+      "genres": [
+        "fantasy"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx161964-JpkEbHI8ivaP.jpg",
+      "synopsis": "Все шло по плану, но час пробуждения приближается. Сид Кагену и Сад теней исследуют Беззаконный город, выгребную яму, где красная луна висит низко в небе, а улицами правят три могущественных монарха. Однако настоящая привлекательность Сида — это тот, кто может пролить кровь — Кровавая Королева, вампир, который тысячелетиями дремлет в своем гробу. Приближается ее пробуждение, и Сид, наконец, может столкнуться с днем ​​расплаты.",
+      "year": 2023,
+      "format": "TV",
+      "episodes": 12,
+      "score": 82,
+      "popularity": 203652,
+      "anilistId": 161964,
+      "malId": 54595,
+      "url": "https://anilist.co/anime/161964",
+      "synopsisEn": "Everything has been going according to plan, but the hour of awakening draws near. Cid Kagenou and Shadow Garden investigate the Lawless City, a cesspool where the red moon hangs low in the sky and three powerful monarchs rule the streets. The true draw for Cid, however, is one who can draw blood–the Blood Queen, a vampire who has slumbered in her coffin for eons. Her awakening approaches, and Cid could finally face a day of reckoning."
+    },
+    {
       "id": "86-eighty-six-part-2-131586",
       "title": "86 EIGHTY-SIX Part 2",
       "titleOriginal": "86: Eighty Six Part 2",
@@ -6528,6 +6690,27 @@
       "synopsisEn": "Having bid Lena farewell, Shin and the surviving members of the Spearhead squadron continue into the heart of Legion territory. There, they endure countless hardships until they're rescued by the Federal Republic of Giad, a reformed nation that offers them a second chance at a peaceful life. But it isn't long before a sense of duty calls the Eighty-Six back to the battlefield."
     },
     {
+      "id": "gate-20994",
+      "title": "Врата: там бьются наши воины",
+      "titleOriginal": "GATE: Jieitai Kanochi nite, Kaku Tatakaeri",
+      "titleEnglish": "Gate",
+      "genres": [
+        "adventure",
+        "fantasy"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20994-pSDk4I58jAK5.jpg",
+      "synopsis": "Серия военных фэнтези начинается с появления ворот в токийском районе Гиндза где-то в 21 веке. Из ворот вылетают монстры, рыцари из средневековой Европы и другие фантастические существа, которые убивают многих жителей Токио. Это событие известно как Инцидент в Гиндзе. Правительство отправляет небольшую группу солдат из Сил самообороны Японии (замена японской армии) в альтернативный мир за воротами.",
+      "year": 2015,
+      "format": "TV",
+      "episodes": 12,
+      "score": 74,
+      "popularity": 202433,
+      "anilistId": 20994,
+      "malId": 28907,
+      "url": "https://anilist.co/anime/20994",
+      "synopsisEn": "The military fantasy series begins when a gate appears in Tokyo's Ginza district sometime in the 21st century. From the gate pours out monsters, knights from middle-age Europe, and other fantasy-like beings, and they kill many of the citizens of Tokyo. This event is known as the Ginza Incident. The government sends a small group of soldiers from the Japanese Self-Defense Forces (a replacement for Japan's military) to the alternate world beyond the gate."
+    },
+    {
       "id": "91-days-21711",
       "title": "91 Days",
       "titleOriginal": "91Days",
@@ -6547,6 +6730,28 @@
       "malId": 32998,
       "url": "https://anilist.co/anime/21711",
       "synopsisEn": "The \"classic mafia drama\" takes place during the prohibition era. In the Lawless district the law has no power, the mafia rule the streets, and the illegally made liquor flows freely. At one time Avilio lived in this district, but after a mafia dispute ended in the murder of his family, he went into hiding. Later, Avilio receives a letter from a mysterious person that ignites his passion for revenge and leads him to return to Lawless."
+    },
+    {
+      "id": "seraph-of-the-end-battle-in-nagoya-20993",
+      "title": "Последний серафим: Битва в Нагое",
+      "titleOriginal": "Owari no Seraph: Nagoya Kessen-hen",
+      "titleEnglish": "Seraph of the End: Battle in Nagoya",
+      "genres": [
+        "supernatural",
+        "drama",
+        "fantasy"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20993-c34UTma2bCcv.jpg",
+      "synopsis": "Юичиро воссоединился с Микаэлой в битве Синдзюку. Но Микаэлу превратили в вампира... Чтобы спасти «семью» и защитить своих собратьев, Юичиро нужно было обрести знания и силу. Он искал способы вернуть вампира людям и в то же время упорно тренировался, работая над Проклятым Механизмом. Тем временем Курэто звонит Гурену и рассказывает ему шокирующую правду. Что через месяц основной отряд вампиров начнет атаковать Токио.",
+      "year": 2015,
+      "format": "TV",
+      "episodes": 12,
+      "score": 75,
+      "popularity": 201865,
+      "anilistId": 20993,
+      "malId": 28927,
+      "url": "https://anilist.co/anime/20993",
+      "synopsisEn": "Yuuichirou has reunited with Mikaela at the Shinjuku Battle. But Mikaela was turned into a vampire... To save the \"family,\" and to protect his fellow members, Yuuichirou needed to gain knowledge and power. He searched for ways to bring back vampire to human beings, and at the same time, trained hard working on the Cursed Gear. Meanwhile, Kureto calls Guren and tells him a shocking truth. That in one month, the main unit of the vampire will start attacking Tokyo."
     },
     {
       "id": "my-dress-up-darling-season-2-154768",
@@ -6610,6 +6815,27 @@
       "malId": 38003,
       "url": "https://anilist.co/anime/103223",
       "synopsisEn": "The White Tiger and the Black Beast – Nakajima Atsushi and Akutagawa Ryunosuke’s fight against Francis F. brings an end to the great war against the Guild. Life goes on as normal in Yokohama, thanks to the continued truce between the Armed Detective Agency and the Port Mafia, who, together, saved the city from ruin. But there are still rumors of Guild stragglers and other crime organizations making their way in from abroad."
+    },
+    {
+      "id": "sword-art-online-alicization-war-of-underworld-part-2-114308",
+      "title": "Мастера меча онлайн: Алисизация. Война в Подмирье 2",
+      "titleOriginal": "Sword Art Online: Alicization - War of Underworld Part 2",
+      "titleEnglish": "Sword Art Online: Alicization - War of Underworld Part 2",
+      "genres": [
+        "adventure",
+        "fantasy"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx114308-8UBiS7U9buzu.jpg",
+      "synopsis": "Финальное нагрузочное испытание... Война между Империей Людей и Темной Территорией полностью охватила Подмирье. Битва изменила ход: армия Темной Территории во главе с Габриэлем пытается захватить Алису, Жрицу Света, против Асуны и сил Империи Людей, борющихся за спасение Подземного мира.",
+      "year": 2020,
+      "format": "TV",
+      "episodes": 11,
+      "score": 74,
+      "popularity": 201105,
+      "anilistId": 114308,
+      "malId": 40540,
+      "url": "https://anilist.co/anime/114308",
+      "synopsisEn": "The final load test... The war between the Human Empire and the Dark Territory has engulfed Underworld entirely. The battle has shifted course with the Dark Territory army led by Gabriel, who seeks to capture Alice, the Priestess of Light, against Asuna and the Human Empire forces fighting to save Underworld."
     },
     {
       "id": "high-school-dxd-new-15451",
@@ -6678,6 +6904,28 @@
       "malId": 34902,
       "url": "https://anilist.co/anime/98291",
       "synopsisEn": "To those of you out there who never could say \"I love you\"— This story is about ordinary highschoolers and how love makes them fired up, shaken, laugh, cry, and hurt. Whether things go well or not, this story of adolescence and romance will show you how they spend their precious youth. Every character is the main character here, and you're sure to find one you can sympathize with."
+    },
+    {
+      "id": "jojo-s-bizarre-adventure-stone-ocean-131942",
+      "title": "Невероятные приключения ДжоДжо: Каменный океан",
+      "titleOriginal": "JoJo no Kimyou na Bouken: Stone Ocean",
+      "titleEnglish": "JoJo's Bizarre Adventure: STONE OCEAN",
+      "genres": [
+        "adventure",
+        "supernatural",
+        "drama"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx131942-rermlZ9lplHX.png",
+      "synopsis": "Во Флориде, 2011 год, Джолин Кудзё сидит в тюремной камере, как когда-то это сделал её отец Джотаро; однако эта ситуация не является ее собственным выбором. Обвиненная в преступлении, которого она не совершала, и вынужденная отбыть более длительный срок, Джолин готова смириться с ужасной судьбой узницы тюрьмы на Грин-Дельфин-стрит. Хотя всякая надежда кажется потерянной, подарок Джотаро в конечном итоге пробуждает ее скрытые способности, проявляясь в ее стенде Stone Free.",
+      "year": 2021,
+      "format": "ONA",
+      "episodes": 12,
+      "score": 80,
+      "popularity": 199389,
+      "anilistId": 131942,
+      "malId": 48661,
+      "url": "https://anilist.co/anime/131942",
+      "synopsisEn": "In Florida, 2011, Jolyne Kuujou sits in a jail cell like her father Joutarou once did; yet this situation is not of her own choice. Framed for a crime she didn’t commit, and manipulated into serving a longer sentence, Jolyne is ready to resign to a dire fate as a prisoner of Green Dolphin Street Jail. Though all hope seems lost, a gift from Joutarou ends up awakening her latent abilities, manifesting into her Stand, Stone Free."
     },
     {
       "id": "black-bullet-20457",
@@ -6863,6 +7111,27 @@
       "synopsisEn": "The theme of the film is the love between parents and children. The story covers 13 years and begins with a 19-year-old college student named Hana who encounters and falls in \"fairy tale-like\" love with a \"wolf man.\" After marrying the wolf man, Hana gives birth and raises two wolf children—an older sister named Yuki who was born on a snowy day, and a younger brother named Ame who was born on a rainy day."
     },
     {
+      "id": "that-time-i-got-reincarnated-as-a-slime-season-3-156822",
+      "title": "О моём перерождении в слизь 3",
+      "titleOriginal": "Tensei Shitara Slime Datta Ken 3rd Season",
+      "titleEnglish": "That Time I Got Reincarnated as a Slime Season 3",
+      "genres": [
+        "adventure",
+        "fantasy"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx156822-Jzo2ITWgm4kM.jpg",
+      "synopsis": "Римуру официально стал Повелителем Демонов после победы над Клейманом. После Вальпургиева, банкета Повелителей Демонов, владения Римуру расширяются и включают в себя весь Великий Лес Джура. Предвидя поток представителей всех рас, пришедших засвидетельствовать свое почтение, Римуру решает устроить фестиваль в ознаменование открытия Бури, используя его как возможность привлечь новых граждан и представить миру Повелителя Демонов Римуру.",
+      "year": 2024,
+      "format": "TV",
+      "episodes": 24,
+      "score": 78,
+      "popularity": 196662,
+      "anilistId": 156822,
+      "malId": 53580,
+      "url": "https://anilist.co/anime/156822",
+      "synopsisEn": "Rimuru has officially become a Demon Lord after defeating Clayman. Following Walpurgis, the Demon Lords' banquet, Rimuru's domain is expanded to include the entire Great Forest of Jura. Anticipating a flood of representatives from all races showing up to pay their respects, Rimuru decides to throw a festival to commemorate the opening of Tempest, using it as an opportunity to gain new citizens and present Demon Lord Rimuru to the world."
+    },
+    {
       "id": "classroom-of-the-elite-season-3-146066",
       "title": "Добро пожаловать в класс для особо одарённых 3",
       "titleOriginal": "Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e 3rd Season",
@@ -7043,6 +7312,47 @@
       "synopsisEn": "Ryu Yamada is a second year student at Suzaku High. Ryu is always late for school, naps in class and gets abysmal grades. His life is a dead bore. The beautiful Urara Shiraishi, on the other hand, is Suzaku High's brightest student. One day, without explanation, their bodies are swapped! Ryu ends up in Urara's body, and Urara in Ryu's."
     },
     {
+      "id": "my-hero-academia-season-7-163139",
+      "title": "Моя геройская академия 7",
+      "titleOriginal": "Boku no Hero Academia 7",
+      "titleEnglish": "My Hero Academia Season 7",
+      "genres": [
+        "adventure"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx163139-JchZhUFlNTWU.jpg",
+      "synopsis": "После тотальной битвы с Фронтом паранормального освобождения народу Японии трудно продолжать верить в своих героев. Чтобы противостоять объединенной силе Томуры Сигараки и «Все за одного», Всемогущий призывает своего союзника с Запада — самую сильную женщину на планете, Звезду и Полосу. Однако «Все за одного» решает перехватить Стар и ее флот, чтобы заполучить ее мощную причуду, прежде чем она сможет войти в воздушное пространство Японии.",
+      "year": 2024,
+      "format": "TV",
+      "episodes": 21,
+      "score": 82,
+      "popularity": 193209,
+      "anilistId": 163139,
+      "malId": 54789,
+      "url": "https://anilist.co/anime/163139",
+      "synopsisEn": "Following an all-out battle with the Paranormal Liberation Front, it is difficult for the people of Japan to continue placing faith in their heroes. To combat the combined power of Tomura Shigaraki and All For One, All Might calls for his ally from the West—the strongest woman on the planet, Star and Stripe. However, All For One decides to intercept Star and her fleet to get his hands on her overpowered quirk before she can enter Japanese airspace."
+    },
+    {
+      "id": "baccano-2251",
+      "title": "Баккано!",
+      "titleOriginal": "Baccano!",
+      "titleEnglish": "Baccano!",
+      "genres": [
+        "supernatural",
+        "detective"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx2251-tTQoWxVy4472.jpg",
+      "synopsis": "В начале 1930-х годов в Чикаго трансконтинентальный поезд Flying Pussyfoot отправляется в свое легендарное путешествие, которое оставит кровавый след по всей стране. В то же время в Нью-Йорке амбициозный ученый Сцилард и его упрямый помощник Эннис ищут пропавшие флаконы с эликсиром бессмертия. Кроме того, обостряется война между мафиозными группировками. На борту «Адвена Авис» в 1711 году алхимикам предстоит узнать цену бессмертия.",
+      "year": 2007,
+      "format": "TV",
+      "episodes": 13,
+      "score": 81,
+      "popularity": 193011,
+      "anilistId": 2251,
+      "malId": 2251,
+      "url": "https://anilist.co/anime/2251",
+      "synopsisEn": "During the early 1930s in Chicago, the transcontinental train, Flying Pussyfoot, is starting its legendary journey that will leave a trail of blood all over the country. At the same time in New York, the ambitious scientist Szilard and his unwilling aide Ennis, are looking for missing bottles of the immortality elixir. In addition, a war between the mafia groups is getting worse. On board the Advena Avis, in 1711, alchemists are about to learn the price of immortality."
+    },
+    {
       "id": "fate-stay-night-356",
       "title": "Судьба/Ночь схватки",
       "titleOriginal": "Fate/stay night",
@@ -7063,6 +7373,29 @@
       "malId": 356,
       "url": "https://anilist.co/anime/356",
       "synopsisEn": "Raised by a mysterious sorcerer after the death of his parents in a catastrophic fire, Shirou Emiya has only just begun to learn small tidbits of magic. When he is caught in a battle between two powerful Magi, however, he ends up performing a spell above his expected ability, accidentally summoning a beautiful woman knight to protect him."
+    },
+    {
+      "id": "ponyo-2890",
+      "title": "Рыбка Поньо на утёсе",
+      "titleOriginal": "Gake no Ue no Ponyo",
+      "titleEnglish": "Ponyo",
+      "genres": [
+        "adventure",
+        "educational",
+        "fantasy",
+        "animals"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx2890-wcNtFr6aUYOR.jpg",
+      "synopsis": "Мальчик по имени Сосуке спасает золотую рыбку по имени Поньо, и они отправляются в фантастическое путешествие дружбы и открытий, прежде чем отец Поньо, могущественный колдун, заставляет ее вернуться в свой дом в море. Но желание Поньо быть человеком нарушает хрупкий баланс природы и вызывает гигантский шторм. Только мать Поньо, прекрасная морская богиня, может восстановить баланс природы и осуществить мечты Поньо.",
+      "year": 2008,
+      "format": "MOVIE",
+      "episodes": 1,
+      "score": 80,
+      "popularity": 192462,
+      "anilistId": 2890,
+      "malId": 2890,
+      "url": "https://anilist.co/anime/2890",
+      "synopsisEn": "A young boy named Sosuke rescues a goldfish named Ponyo, and they embark on a fantastic journey of friendship and discovery before Ponyo's father, a powerful sorcerer, forces her to return to her home in the sea. But Ponyo's desire to be human upsets the delicate balance of nature and triggers a gigantic storm. Only Ponyo's mother, a beautiful sea goddess, can restore nature's balance and make Ponyo's dreams come true."
     },
     {
       "id": "josee-the-tiger-and-the-fish-113596",
@@ -7268,6 +7601,28 @@
       "synopsisEn": "After Mash Burnedead's clash with Magia Lupus, the secret about his powers is now out in the open. The short-lived celebration ends when the Bureau of Magic summons Mash before an audience of Divine Visionaries, who collectively decree Mash should reap the consequences and die. However, an evil shadow organization called Innocent Zero hijacks the inquiry to demand that Mash be kept alive."
     },
     {
+      "id": "fairy-tail-series-2-20626",
+      "title": "Хвост феи 2",
+      "titleOriginal": "FAIRY TAIL (2014)",
+      "titleEnglish": "Fairy Tail Series 2",
+      "genres": [
+        "adventure",
+        "fantasy",
+        "animals"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20626-9LTreIofBgnu.jpg",
+      "synopsis": "Великие Магические Игры достигают своего апогея после ошеломляющей победы Нацу Драгнила и Гажила Редфокса над Стингом Эвклифом и Роугом Чейни из гильдии Саблезубый Тигр. Этот успех приближает гильдию Хвост Феи к званию абсолютных чемпионов, но победа — не единственная задача, с которой они сталкиваются. Тайна до сих пор окружает незнакомца в капюшоне и зловещие Врата Затмения, оставляя больше вопросов, чем ответов.",
+      "year": 2014,
+      "format": "TV",
+      "episodes": 102,
+      "score": 74,
+      "popularity": 189111,
+      "anilistId": 20626,
+      "malId": 22043,
+      "url": "https://anilist.co/anime/20626",
+      "synopsisEn": "The Grand Magic Games reaches its climax following Natsu Dragneel and Gajeel Redfox's stunning victory over Sting Eucliffe and Rogue Cheney of the Sabertooth guild. This success pushes the Fairy Tail guild closer to being crowned the overall champions, but obtaining victory isn't the only challenge they face. A mystery still surrounds a hooded stranger and the ominous Eclipse Gate, leaving more questions than answers."
+    },
+    {
       "id": "nisemonogatari-11597",
       "title": "Истории подделок",
       "titleOriginal": "Nisemonogatari",
@@ -7289,6 +7644,28 @@
       "malId": 11597,
       "url": "https://anilist.co/anime/11597",
       "synopsisEn": "First season of the Monogatari Series, part 5/6. Contains the arcs Karen Bee and Tsukihi Phoenix from the Nisemonogatari light novels. In Bakemonogatari, the story centered on Koyomi Araragi, a third year high school student who has recently survived a vampire attack and finds himself mixed up with all kinds of apparitions: gods, ghosts, myths, and spirits."
+    },
+    {
+      "id": "grimgar-of-fantasy-and-ash-21428",
+      "title": "Гримгар пепла и иллюзий",
+      "titleOriginal": "Hai to Gensou no Grimgar",
+      "titleEnglish": "Grimgar of Fantasy and Ash",
+      "genres": [
+        "adventure",
+        "drama",
+        "fantasy"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx21428-dFVIHeZ8McBe.jpg",
+      "synopsis": "Страх, выживание, инстинкт. Брошенные в чужую страну, не имея ничего, кроме смутных воспоминаний и знания своего имени, они могут чувствовать только эти три эмоции, резонирующие глубоко в их душах. У группы незнакомцев нет другого выбора, кроме как согласиться на единственную оплачиваемую работу в этом игровом мире — роль солдата в резервной армии — и уничтожить все, что угрожает миру в их новом мире, Гримгаре.",
+      "year": 2016,
+      "format": "TV",
+      "episodes": 12,
+      "score": 74,
+      "popularity": 187567,
+      "anilistId": 21428,
+      "malId": 31859,
+      "url": "https://anilist.co/anime/21428",
+      "synopsisEn": "Fear, survival, instinct. Thrown into a foreign land with nothing but hazy memories and the knowledge of their name, they can feel only these three emotions resonating deep within their souls. A group of strangers is given no other choice than to accept the only paying job in this game-like world—the role of a soldier in the Reserve Army—and eliminate anything that threatens the peace in their new world, Grimgar."
     },
     {
       "id": "bofuri-i-don-t-want-to-get-hurt-so-i-ll-max-out-my-defense-106479",
@@ -7334,6 +7711,69 @@
       "malId": 18671,
       "url": "https://anilist.co/anime/18671",
       "synopsisEn": "Due to various events, Yuuta and Rikka are living together. This secret co-habitation is so exciting for the two lovebirds! Or so it should be... Is having a chuuni girlfriend too high of a hurdle for Yuuta, who never even went out with a normal girl?! Yuuta worries about how to advance his relationship with Rikka. And then everyone else, Nibutani, Kumin, and Dekomori, have powered up by advancing a grade."
+    },
+    {
+      "id": "kuroko-s-basketball-2-16894",
+      "title": "Баскетбол Куроко 2",
+      "titleOriginal": "Kuroko no Basket 2nd SEASON",
+      "titleEnglish": "Kuroko's Basketball 2",
+      "genres": [
+        "school"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx16894-iXt8GDs1L6dr.jpg",
+      "synopsis": "После завершения Межшкольного чемпионата баскетбольная команда Сейрин переориентирует свои усилия, тренируясь усерднее, чем когда-либо, чтобы получить шанс принять участие в Зимнем Кубке. И Куроко, и Кагами видят, как старые друзья возвращаются в их жизнь, бросая вызов как на площадке, так и за ее пределами.",
+      "year": 2013,
+      "format": "TV",
+      "episodes": 25,
+      "score": 80,
+      "popularity": 186760,
+      "anilistId": 16894,
+      "malId": 16894,
+      "url": "https://anilist.co/anime/16894",
+      "synopsisEn": "With the Interhigh Championship finally over, Seirin's basketball team refocuses their efforts, training harder than ever to get the chance to participate in the Winter Cup. Both Kuroko and Kagami see old friends walk back into their lives, providing a challenge both on and off the court."
+    },
+    {
+      "id": "konosuba-god-s-blessing-on-this-wonderful-world-3-136804",
+      "title": "Да благословят боги этот прекрасный мир! 3",
+      "titleOriginal": "Kono Subarashii Sekai ni Shukufuku wo! 3",
+      "titleEnglish": "KONOSUBA -God's blessing on this wonderful world! 3",
+      "genres": [
+        "adventure",
+        "fantasy"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx136804-7FVftG67FPBc.jpg",
+      "synopsis": "Неблагополучная партия вернулась, но вскоре ей может не хватить членов, потому что Казума уже закончил с этим. Разочаровавшись в приключениях, он хочет стать монахом, но Аква, Мегумин и Даркнесс зовут быка. Однако карьерный спор приостанавливается, когда принцесса просит выслушать все их истории. Сможет ли их вместе вкус славы в королевском замке или это станет их прощальным туром?",
+      "year": 2024,
+      "format": "TV",
+      "episodes": 11,
+      "score": 82,
+      "popularity": 186075,
+      "anilistId": 136804,
+      "malId": 49458,
+      "url": "https://anilist.co/anime/136804",
+      "synopsisEn": "The dysfunctional party is back, but they may be short a member soon ’cause Kazuma is over it. Disillusioned with adventure, he wants to become a monk, but Aqua, Megumin, and Darkness call bull. However, the career dispute gets put on hold when a princess requests to hear all about their tales. Will the taste of fame at the royal castle keep them together or will this mark their farewell tour?"
+    },
+    {
+      "id": "snow-white-with-the-red-hair-21058",
+      "title": "Красноволосая принцесса Белоснежка",
+      "titleOriginal": "Akagami no Shirayuki-hime",
+      "titleEnglish": "Snow White with the Red Hair",
+      "genres": [
+        "romance",
+        "drama",
+        "fantasy"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx21058-GRqasG1xk3bD.jpg",
+      "synopsis": "В королевстве Танбарун живет Шираюки, независимая и волевая молодая женщина. Ее находчивый интеллект позволил ей стать опытным фармацевтом, но ее самой отличительной чертой является копна красивых яблочно-рыжих волос. Ее ослепительная грива привлекает внимание принца королевства, но вместо того, чтобы завязать с ней роман, он требует, чтобы она была его наложницей. Шираюки отказывается, отрезает свои прекрасные локоны и убегает в соседнее королевство Кларинс.",
+      "year": 2015,
+      "format": "TV",
+      "episodes": 12,
+      "score": 77,
+      "popularity": 185615,
+      "anilistId": 21058,
+      "malId": 30123,
+      "url": "https://anilist.co/anime/21058",
+      "synopsisEn": "In the kingdom of Tanbarun lives Shirayuki, an independent and strong-willed young woman. Her resourceful intelligence has led her become a skilled pharmacist, but her most defining trait is her shock of beautiful apple-red hair. Her dazzling mane gets her noticed by the prince of the kingdom, but instead of romancing her, he demands she be his concubine. Shirayuki refuses, chops off her lovely locks, and runs away to the neighboring kingdom of Clarines."
     },
     {
       "id": "free-iwatobi-swim-club-18507",
@@ -7472,6 +7912,27 @@
       "synopsisEn": "Aqua’s desire for revenge takes center stage as he navigates the dark underbelly of the entertainment world alongside his twin sister, Ruby. While Ruby follows in their slain mother’s footsteps to become an idol, Aqua joins a famous theater troupe in hopes of uncovering clues to the identity of his father — the man who arranged their mother’s untimely death, and the man who once starred in the same troupe Aqua hopes to infiltrate."
     },
     {
+      "id": "overlord-iv-133844",
+      "title": "Повелитель 4",
+      "titleOriginal": "Overlord IV",
+      "titleEnglish": "Overlord IV",
+      "genres": [
+        "adventure",
+        "fantasy"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx133844-E32FjKZ0XxEs.jpg",
+      "synopsis": "Э-Рантэл, столица недавно созданного Колдовского Королевства, страдает от острой нехватки товаров. Когда-то процветающий город, известный своей торговлей, теперь сталкивается с кризисом из-за осторожности – или даже страха – перед своим королем Аинзом Оалом Гоуном. Чтобы загладить свою вину, Аинз отправляет Альбедо в город в качестве дипломатического посланника.",
+      "year": 2022,
+      "format": "TV",
+      "episodes": 13,
+      "score": 80,
+      "popularity": 183709,
+      "anilistId": 133844,
+      "malId": 48895,
+      "url": "https://anilist.co/anime/133844",
+      "synopsisEn": "E-Rantel, the capital city of the newly established Sorcerer Kingdom, suffers from a dire shortage of goods. Once a prosperous city known for its trade, it now faces a crisis due to its caution—or even fear—of its king, Ainz Ooal Gown. To make amends, Ainz sends Albedo to the city as a diplomatic envoy."
+    },
+    {
       "id": "blend-s-97994",
       "title": "BLEND-S",
       "titleOriginal": "Blend S",
@@ -7490,6 +7951,28 @@
       "malId": 34618,
       "url": "https://anilist.co/anime/97994",
       "synopsisEn": "The story centers on a girl named Maika who gets a job at a cafe where all the waitresses are given certain attributes — such as \"tsundere\" or \"little sister\" — to embody while serving customers. The manager asks Maika to be the \"Do S\" (extreme sadist) waitress, so she will have to adopt a dominant and aggressive persona."
+    },
+    {
+      "id": "hell-s-paradise-season-2-166613",
+      "title": "Адский рай 2",
+      "titleOriginal": "Jigokuraku 2nd Season",
+      "titleEnglish": "Hell’s Paradise Season 2",
+      "genres": [
+        "adventure",
+        "supernatural",
+        "detective"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx166613-uHB8q3D4qbon.jpg",
+      "synopsis": "В поисках ключа к эликсиру бессмертия группа прибывает в крепость чудовищного правителя острова Тенсена. Чтобы выжить и сбежать с острова, сотрудничество становится необходимым — независимо от того, являетесь ли вы осужденным преступником или палачом. Тем временем сёгунат приказывает высадить дополнительную высадку на острове Царства Бессмертных во главе с Сюгэном Ямадой Асаемоном. Среди них клан Исигакуре, у которого общее прошлое с Габимару.",
+      "year": 2026,
+      "format": "TV",
+      "episodes": 12,
+      "score": 82,
+      "popularity": 183275,
+      "anilistId": 166613,
+      "malId": 55825,
+      "url": "https://anilist.co/anime/166613",
+      "synopsisEn": "Seeking the key to the elixir of immortality, the group arrives at the fortress of the island's monstrous ruler, the \"Tensen.\" To survive and escape the island, cooperation becomes essential—regardless of whether one is a condemned criminal or an executioner. Meanwhile, the shogunate orders additional landings on the island of the Immortal Realm, led by Shugen Yamada Asayemon. Among them are the Ishigakure clan, who share a past with Gabimaru."
     },
     {
       "id": "tomo-chan-is-a-girl-151806",
@@ -7556,6 +8039,28 @@
       "malId": 44074,
       "url": "https://anilist.co/anime/126403",
       "synopsisEn": "In a corner of a bustling city, there is a small shop called \"Time Photo Studio\" operating as usual. Although the entrance looks abandoned, it's actually run by two men with special abilities: Cheng Xiaoshi and Lu Guang. In order to fulfil customers' requests, Lu Guang and Cheng Xiaoshi work together and use their special abilities to enter photos. However, things don't go as planned... Note: The final episode aired with a runtime of ~31 minutes."
+    },
+    {
+      "id": "blue-exorcist-kyoto-saga-21861",
+      "title": "Синий экзорцист: Киотская нечисть",
+      "titleOriginal": "Ao no Exorcist: Kyoto Fujouou-hen",
+      "titleEnglish": "Blue Exorcist: Kyoto Saga",
+      "genres": [
+        "supernatural",
+        "school",
+        "fantasy"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx21861-KDvJJQenJJlT.jpg",
+      "synopsis": "В конце периода Эдо демон, известный как Нечистый король, убил тысячи людей. После победы над демоном Рыцари Истинного Креста надежно запечатали его левый глаз на территории Академии, но теперь кто-то его украл! Услышав, что вор взял в заложники ребенка, Юкио и Рин идут на помощь. Расследование и погоня приведут Рина и его друзей в Киото и еще глубже вовлекут их в зловещий заговор!",
+      "year": 2017,
+      "format": "TV",
+      "episodes": 12,
+      "score": 72,
+      "popularity": 181568,
+      "anilistId": 21861,
+      "malId": 33506,
+      "url": "https://anilist.co/anime/21861",
+      "synopsisEn": "In the late Edo Period, a demon known as the Impure King killed thousands of people. After defeating the demon, the Knights of the True Cross kept its left eye safely sealed away on Academy grounds - but now someone has stolen it! Hearing the thief has taken a child hostage, Yukio and Rin go to help. The investigation and pursuit will lead Rin and his friends to Kyoto and involve them even deeper in a sinister plot!"
     },
     {
       "id": "from-the-new-world-13125",
@@ -7649,6 +8154,28 @@
       "synopsisEn": "Keiichi Maebara has just moved to the quiet little village of Hinamizawa in the summer of 1983, and quickly becomes inseparable friends with schoolmates Rena Ryuuguu, Mion Sonozaki, Satoko Houjou, and Rika Furude. However, darkness lurks underneath the seemingly idyllic life they lead. As the village prepares for its annual festival, Keiichi learns about the local legends surrounding it."
     },
     {
+      "id": "tsukimichi-moonlit-fantasy-125206",
+      "title": "Цукимити: Лунное путешествие в другой мир",
+      "titleOriginal": "Tsuki ga Michibiku Isekai Douchuu",
+      "titleEnglish": "TSUKIMICHI -Moonlit Fantasy-",
+      "genres": [
+        "adventure",
+        "fantasy",
+        "animals"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx125206-O2MsOWdW1lVi.jpg",
+      "synopsis": "Макото Мисуми был обычным подростком, которого внезапно призвали в другой мир как «героя». Но богиня этого мира назвала его уродливым и отобрала у него статус героя, а затем отправила на край света. В пустошах он встречает драконов, пауков, орков, гномов и многие другие нечеловеческие расы. Макото удается показать многообещающие способности в использовании магии и боях, чего он не смог бы сделать в своем прежнем мире.",
+      "year": 2021,
+      "format": "TV",
+      "episodes": 12,
+      "score": 77,
+      "popularity": 180323,
+      "anilistId": 125206,
+      "malId": 43523,
+      "url": "https://anilist.co/anime/125206",
+      "synopsisEn": "Makoto Misumi was just an average teenager who happened to suddenly be summoned to another world as a \"hero.\" But the goddess of this world called him ugly and took his hero status away from him then sent him to the ends of the world. In the wastelands, he meets dragons, spiders, orcs, dwarves and many other non-human races. Makoto manages to show promises in the use of magic and fighting, which he wouldn't have been able to do in his former world."
+    },
+    {
       "id": "darker-than-black-2025",
       "title": "Darker than Black",
       "titleOriginal": "DARKER THAN BLACK: Kuro no Keiyakusha",
@@ -7693,6 +8220,28 @@
       "malId": 42938,
       "url": "https://anilist.co/anime/124194",
       "synopsisEn": "After last season’s revelations, the Soma family moves forward, but the emotional chains that bind them are not easily broken. Unable to admit why she wants the cure, Tohru wrestles with the truth, aware that time is running out for someone close. And a secret still lurks that could break another’s heart. But hope is not lost—a clue to the curse is found. Could their imprisonment’s end be near? Note: This season premiered on Funimation and AnimeLab on March 20, 2021."
+    },
+    {
+      "id": "mushoku-tensei-jobless-reincarnation-season-3-178789",
+      "title": "Реинкарнация безработного 3",
+      "titleOriginal": "Mushoku Tensei III: Isekai Ittara Honki Dasu",
+      "titleEnglish": "Mushoku Tensei: Jobless Reincarnation Season 3",
+      "genres": [
+        "adventure",
+        "drama",
+        "fantasy"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx178789-hNXjKFzUq7mk.jpg",
+      "synopsis": "Третий сезон Мушоку Тенсей: Исэкай Иттара Хонки Дасу.",
+      "year": 2026,
+      "format": "TV",
+      "episodes": 14,
+      "score": 86,
+      "popularity": 179942,
+      "anilistId": 178789,
+      "malId": 59193,
+      "url": "https://anilist.co/anime/178789",
+      "synopsisEn": "The third season of Mushoku Tensei: Isekai Ittara Honki Dasu."
     },
     {
       "id": "gto-great-teacher-onizuka-245",
@@ -7849,6 +8398,50 @@
       "synopsisEn": "Kaname Sudou, an ordinary high school student, receives an invitation email to try a mysterious app called \"Darwin's Game.\" Kaname, upon launching the app, is drawn into a game where players fight one another using superpowers called Sigils. Without knowing the reason for all this, can Kaname survive furious battles against the powerful players who attack him? Note: The first episode aired with a runtime of ~48 minutes as opposed to the standard 24 minute long episode."
     },
     {
+      "id": "inuyasha-249",
+      "title": "Инуяся",
+      "titleOriginal": "Inuyasha",
+      "titleEnglish": "InuYasha",
+      "genres": [
+        "adventure",
+        "romance",
+        "fantasy"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx249-jVBkyLnBvnRE.png",
+      "synopsis": "Кагоме Хигураши, обычную девятиклассницу, демон затягивает в древний колодец, перенося ее на 500 лет назад, в феодальную эпоху. Там она встречает Инуяшу, полудемона, который ищет Драгоценный камень Шикон, чтобы стать полноценным демоном. Вместе с Инуяшей и новыми друзьями Кагоме начинает поиски Драгоценности четырёх душ...",
+      "year": 2000,
+      "format": "TV",
+      "episodes": 167,
+      "score": 77,
+      "popularity": 176595,
+      "anilistId": 249,
+      "malId": 249,
+      "url": "https://anilist.co/anime/249",
+      "synopsisEn": "Kagome Higurashi, an average ninth grader, gets pulled into an ancient well by a demon, bringing her 500 years in the past to the feudal era. There, she meets Inuyasha, a half-demon who seeks the Shikon Jewel to make himself a full-fledged demon. With Inuyasha and new friends, Kagome's search for the Jewel of Four Souls begins..."
+    },
+    {
+      "id": "k-14467",
+      "title": "K",
+      "titleOriginal": "K",
+      "titleEnglish": "K",
+      "genres": [
+        "supernatural",
+        "detective",
+        "animals"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx14467-TQjwOvq4jkYS.png",
+      "synopsis": "Яширо Исана прожил относительно обычную и простую жизнь. Он живет в технологически развитом городе Сидзуме и посещает среднюю школу Асинака, известную среднюю школу, расположенную на острове недалеко от этого района. Яширо дружелюбен со всеми. Кажется, в нем нет ничего плохого, за исключением, возможно, его привычки забывать, где находится его школьный КПК.",
+      "year": 2012,
+      "format": "TV",
+      "episodes": 13,
+      "score": 71,
+      "popularity": 176215,
+      "anilistId": 14467,
+      "malId": 14467,
+      "url": "https://anilist.co/anime/14467",
+      "synopsisEn": "Yashiro Isana has lived a relatively ordinary, simple life. He lives in the technologically advanced Shizume City and attends Ashinaka High School, a notable high school that is located on an island just outside the areas. Yashiro is friendly with everyone. Nothing seems wrong about him, except perhaps his habit of forgetting where his school-issued PDA is."
+    },
+    {
       "id": "himouto-umaru-chan-20987",
       "title": "Himouto! Umaru-chan",
       "titleOriginal": "Himouto! Umaru-chan",
@@ -7867,6 +8460,70 @@
       "malId": 28825,
       "url": "https://anilist.co/anime/20987",
       "synopsisEn": "Umaru is a renowned beautiful 16-year-old girl, living with her elder brother Taihei. She's a perfect little sister: Popular, smart, kind-hearted, everybody admires her. So who would believe Umaru keeps a certain secret? Sleeping, gaming, watching TV, eating junk food, drinking cola… that's almost all she does at home, leaving all the housework to her brother."
+    },
+    {
+      "id": "the-seven-deadly-sins-signs-of-a-holy-war-21385",
+      "title": "Семь смертных грехов: Знамение священной войны",
+      "titleOriginal": "Nanatsu no Taizai: Seisen no Shirushi",
+      "titleEnglish": "The Seven Deadly Sins: Signs of A Holy War",
+      "genres": [
+        "adventure",
+        "supernatural",
+        "fantasy"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx21385-0rOBu6r4C4b9.jpg",
+      "synopsis": "Оригинальный рассказ из четырёх частей мангаки Накабы Судзуки. Вернув королевство Леонес у Святых Рыцарей, Семь Смертных Грехов вместе с Элизабет и Ястребом наконец-то могут наслаждаться мирной жизнью, которую они заслужили. Однако из-за предчувствия надвигающейся новой угрозы их счастливые обычные дни подходят к концу.",
+      "year": 2016,
+      "format": "TV",
+      "episodes": 4,
+      "score": 67,
+      "popularity": 175196,
+      "anilistId": 21385,
+      "malId": 31722,
+      "url": "https://anilist.co/anime/21385",
+      "synopsisEn": "Four-part original story by mangaka Nakaba Suzuki. Having taken the kingdom of Leones back from Holy Knights, the Seven Deadly Sins, along with Elizabeth and Hawk, can finally enjoy peaceful lives they earned. However, with premonitions of a new threat looming, their happy, ordinary days are about to end."
+    },
+    {
+      "id": "food-wars-the-third-plate-totsuki-train-arc-100773",
+      "title": "Повар-боец Сома 3: Поезд Тоцуки",
+      "titleOriginal": "Shokugeki no Souma: San no Sara - Tootsuki Ressha-hen",
+      "titleEnglish": "Food Wars! The Third Plate: Totsuki Train Arc",
+      "genres": [
+        "school"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/nx100773-KLx4vR0TiC5o.jpg",
+      "synopsis": "В кулинарной академии Тооцуки наступает темный век кулинарии. После разрушительного государственного переворота, устроенного «Элитной десяткой», Азами Накири теперь является директором престижной школы. Студенты теперь должны соответствовать идеологии Азами о «настоящей изысканной еде», и им запрещено проявлять творческий подход, иначе им грозит исключение. Однако Сума Юкихира и члены общежития «Полярная звезда» отказываются принять эти изменения.",
+      "year": 2018,
+      "format": "TV",
+      "episodes": 12,
+      "score": 77,
+      "popularity": 175076,
+      "anilistId": 100773,
+      "malId": 36949,
+      "url": "https://anilist.co/anime/100773",
+      "synopsisEn": "A dark age of cooking befalls Tootsuki Culinary Academy. With the Elite Ten's devastating coup d'état, Azami Nakiri is now the director of the prestigious school. Students must now conform to Azami's ideology of \"true gourmet food\" and are forbidden to express creativity, or else face expulsion. However, Souma Yukihira and the members of the Polar Star Dormitory refuse to accept these changes."
+    },
+    {
+      "id": "kamisama-kiss-14713",
+      "title": "Очень приятно, Бог",
+      "titleOriginal": "Kamisama Hajimemashita",
+      "titleEnglish": "Kamisama Kiss",
+      "genres": [
+        "supernatural",
+        "romance",
+        "fantasy"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/nx14713-RyZ7bA7CdvGw.jpg",
+      "synopsis": "Нанами Момозоно осталась одна и бездомной после того, как ее отец уехал из города, чтобы уклониться от своих игровых долгов, а сборщики долгов выгнали ее из квартиры. Поэтому, когда мужчина, которого она только что спасла от собаки, предлагает ей свой дом, она ухватывается за эту возможность. Но оказывается, что его дом — храм, а Нанами невольно взяла на себя его роль местного божества! У Нанами появилось множество новых обязанностей, которых она не понимает, опасности, о которых она не подозревает, и раздражительный бывший знакомый, который...",
+      "year": 2012,
+      "format": "TV",
+      "episodes": 13,
+      "score": 81,
+      "popularity": 175069,
+      "anilistId": 14713,
+      "malId": 14713,
+      "url": "https://anilist.co/anime/14713",
+      "synopsisEn": "Nanami Momozono is alone and homeless after her dad skips town to evade his gambling debts and the debt collectors kick her out of her apartment. So when a man she's just saved from a dog offers her his home, she jumps at the opportunity. But it turns out that his place is a shrine, and Nanami has unwittingly taken over his job as a local deity! Nanami has all kinda of new responsibilities she doesn't understand, dangers she's unaware of, and a cranky ex-familiar who's..."
     },
     {
       "id": "monogatari-series-second-season-17074",
@@ -8046,6 +8703,27 @@
       "synopsisEn": "Komi and pals are back! Who else will Komi make friends with? How will her relationship with Tadano evolve?"
     },
     {
+      "id": "magi-the-kingdom-of-magic-18115",
+      "title": "Маги: Королевство магии",
+      "titleOriginal": "Magi: The kingdom of magic",
+      "titleEnglish": "Magi: The Kingdom of Magic",
+      "genres": [
+        "adventure",
+        "fantasy"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx18115-dilbAD4yGMfc.png",
+      "synopsis": "Отпраздновав победу над Аль-Таменом, Аладдин и его друзья покидают землю Синдрии. Однако с окончанием битвы каждому из них приходит время разойтись. Хакурю и Когёку приказывают вернуться в свою родную страну, Империю Ко.",
+      "year": 2013,
+      "format": "TV",
+      "episodes": 25,
+      "score": 81,
+      "popularity": 171552,
+      "anilistId": 18115,
+      "malId": 18115,
+      "url": "https://anilist.co/anime/18115",
+      "synopsisEn": "After celebrating their victory against Al-Thamen, Aladdin and his friends depart the land of Sindria. With the end of the battle, however, comes the time for each of them to go their separate ways. Hakuryuu and Kougyoku are ordered to go back to their home country, the Kou Empire."
+    },
+    {
       "id": "tomodachi-game-141014",
       "title": "Tomodachi Game",
       "titleOriginal": "Tomodachi Game",
@@ -8068,6 +8746,27 @@
       "synopsisEn": "High school student Katagiri Yuuichi, who values friendship above all else, enjoys a fulfilling life with his close friends Sawagiri Shiho, Mikasa Tenji, Shibe Makoto, and Kokorogi Yutori. However, after a particular incident, they're dragged into a debt repayment game. The only way to beat the \"Tomodachi Game\" is to not doubt their friends."
     },
     {
+      "id": "sentenced-to-be-a-hero-167152",
+      "title": "Приговорённый стать героем",
+      "titleOriginal": "Yuusha Kei ni Shosu: Choubatsu Yuusha 9004-tai Keimu Kiroku",
+      "titleEnglish": "Sentenced to Be a Hero",
+      "genres": [
+        "drama",
+        "fantasy"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx167152-O1pm6DWwifBD.jpg",
+      "synopsis": "В мире, где героизм является наказанием, Ксило Форбарц, осужденный убийца богинь, сражается с бесконечными ордами чудовищных мерзостей в составе Отряда героев-исправителей 9004. Смерть — это не выход, только цикл воскрешений и беспощадной борьбы. Но когда Ксило встречает загадочную новую богиню, их маловероятный союз вызывает восстание, которое может разрушить цепи вечного наказания.",
+      "year": 2026,
+      "format": "TV",
+      "episodes": 12,
+      "score": 80,
+      "popularity": 170646,
+      "anilistId": 167152,
+      "malId": 56009,
+      "url": "https://anilist.co/anime/167152",
+      "synopsisEn": "In a world where heroism is a punishment, Xylo Forbartz, a condemned goddess killer, battles endless hordes of monstrous abominations as part of Penal Hero Unit 9004. Death is no escape, only a cycle of resurrection and relentless combat. But when Xylo encounters a mysterious new goddess, their unlikely alliance sparks a rebellion that could shatter the chains of eternal punishment."
+    },
+    {
       "id": "horimiya-the-missing-pieces-163132",
       "title": "Хоримия: Фрагменты",
       "titleOriginal": "Horimiya: piece",
@@ -8088,6 +8787,27 @@
       "malId": 54856,
       "url": "https://anilist.co/anime/163132",
       "synopsisEn": "As the graduation ceremony at Katagiri High School comes to an end, Kyouko Hori, her boyfriend Izumi Miyamura, and their friends begin to look back on their time as students. The moments they shared together may be fleeting, but each one is a colorful piece of their precious memories. Note: New anime project adapting popular side stories that were left out from the previous adaptation."
+    },
+    {
+      "id": "a-place-further-than-the-universe-99426",
+      "title": "Место дальше, чем Вселенная",
+      "titleOriginal": "Sora yori mo Tooi Basho",
+      "titleEnglish": "A Place Further Than the Universe",
+      "genres": [
+        "adventure",
+        "drama"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx99426-ti5BL69Ip3kZ.png",
+      "synopsis": "Мари Тамаки учится на втором курсе средней школы и хочет что-то начать. Именно тогда она знакомится с Ширасе, девушкой, у которой мало друзей, которую остальной класс считает чудакой и которую прозвали «Антарктикой», поскольку это все, о чем она когда-либо говорила. В отличие от своих сверстников, Мари тронута преданностью Ширасе и решает, что, хотя маловероятно, что старшеклассницы когда-либо поедут в Антарктиду, она попытается поехать с Ширасе.",
+      "year": 2018,
+      "format": "TV",
+      "episodes": 13,
+      "score": 84,
+      "popularity": 170288,
+      "anilistId": 99426,
+      "malId": 35839,
+      "url": "https://anilist.co/anime/99426",
+      "synopsisEn": "Mari Tamaki is in her second year of high school and wants to start something. It's then that she meets Shirase, a girl with few friends who's considered weirdo by the rest of the class and nicknamed \"Antarctic\" since it's all she ever talks about. Unlike her peers, Mari is moved by Shirase's dedication and decides that even though it's unlikely that high school girls will ever go to Antarctica, she's going to try to go with Shirase."
     },
     {
       "id": "k-on-season-2-7791",
@@ -8130,6 +8850,27 @@
       "malId": 36475,
       "url": "https://anilist.co/anime/100183",
       "synopsisEn": "The story follows Karen Kohiruimaki, a 183-centimeter-tall (6-foot-tall) college student who's insecure about her height, and is bad at dealing with people in the real world. She enters the world of Gun Gale Online with her avatar, Ren, who is less than 150 centimeters (5 feet) tall and wears all pink. She meets a beautiful, brown-skinned female player who goes by Pitohui."
+    },
+    {
+      "id": "little-witch-academia-tv-21858",
+      "title": "Академия ведьмочек",
+      "titleOriginal": "Little Witch Academia (TV)",
+      "titleEnglish": "Little Witch Academia (TV)",
+      "genres": [
+        "school",
+        "fantasy"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx21858-huBrbIOGMYXv.jpg",
+      "synopsis": "В то время, когда магия в обществе находится в упадке, Ацуко Кагари - веселая девушка, которая поступает в Академию Луна Нова, чтобы осуществить свою мечту стать ведьмой, как ее кумир, Блестящая Колесница. Шайни — известная ведьма, исчезнувшая из поля зрения общественности много лет назад. По дороге в школу Кагари встречает добрую Лотту Янсон и озорную Сьюси Манбаваран, и все трое становятся друзьями, деля спальню в кампусе.",
+      "year": 2017,
+      "format": "TV",
+      "episodes": 25,
+      "score": 77,
+      "popularity": 169899,
+      "anilistId": 21858,
+      "malId": 33489,
+      "url": "https://anilist.co/anime/21858",
+      "synopsisEn": "In a time when magic is on the decline amid society, Atsuko Kagari is a cheerful girl who enters Luna Nova Academy in order to accomplish her dream of becoming a witch like her idol, Shiny Chariot. Shiny is a famous witch who disappeared from public view many years ago. On her way to school, Kagari meets the kind Lotte Yanson and the mischievous Sucy Manbavaran and the three become friends as they share a bedroom on campus."
     },
     {
       "id": "kizumonogatari-part-1-tekketsu-9260",
@@ -9143,6 +9884,28 @@
       "synopsisEn": "After the second impact, all that remains of Japan is Tokyo-3, a city that's being attacked by giant creatures that seek to eradicate the human kind, called Angels. After not seeing his father for more than eight years, Shinji Ikari receives a phone call in which he is told to urgently come to the NERV Headquarters, an organization that deals with the destruction of the Angels through the use of giant mechs called Evas."
     },
     {
+      "id": "the-daily-life-of-the-immortal-king-114121",
+      "title": "Будни бессмертного короля",
+      "titleOriginal": "Xian Wang De Richang Shenghuo",
+      "titleEnglish": "The Daily Life of the Immortal King",
+      "genres": [
+        "adventure",
+        "school",
+        "fantasy"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx114121-vxWVgIBlBjox.png",
+      "synopsis": "Ван Лин — старшеклассник с крутым и беззаботным поведением. Выглядя как человек с очень низкой духовной силой, он на самом деле обладает силой, способной уничтожить мир в любой момент. Чтобы смягчить нестабильную силу внутри него, его родители прибегли к использованию амулета в качестве временного решения. Однако амулет со временем ослабевает, и эмоции Ван Линя также ускоряют его разрушение.",
+      "year": 2020,
+      "format": "ONA",
+      "episodes": 15,
+      "score": 73,
+      "popularity": 146292,
+      "anilistId": 114121,
+      "malId": 41094,
+      "url": "https://anilist.co/anime/114121",
+      "synopsisEn": "Wang Ling is a high school student with a cool and carefree demeanor. Coming off as someone with a very low spiritual force, he actually possesses a power capable of destroying the world at a moment's notice. To mitigate the volatile force within him, his parents have resorted to using an amulet as a temporary solution. However, the amulet weakens over time and Wang Ling's emotions also accelerate its deterioration."
+    },
+    {
       "id": "the-last-naruto-the-movie-16870",
       "title": "The Last: Naruto the Movie",
       "titleOriginal": "THE LAST: NARUTO THE MOVIE",
@@ -9168,6 +9931,50 @@
       "synopsisEn": "The moon is beginning to fall, and at the rate it's going, it is doomed to fall on the Earth. The countdown for the survival of the planet begins. Among the havoc, Hinata's younger sister Hanabi is captured by the mysterious enemy, Toneri Ootsutsuki. Naruto must overcome great danger on a mission to save Hanabi and the world along with Hinata, Sai, Shikamaru, and Sakura is their final story. \"The final story is a first love.\""
     },
     {
+      "id": "bottom-tier-character-tomozaki-112443",
+      "title": "Низкоуровневый Томодзаки",
+      "titleOriginal": "Jaku-Chara Tomozaki-kun",
+      "titleEnglish": "Bottom-Tier Character Tomozaki",
+      "genres": [
+        "romance",
+        "school",
+        "drama",
+        "slice-of-life"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx112443-UVB1oKdblsIx.jpg",
+      "synopsis": "Опытный геймер Томозаки Фумия не совсем подходит, но ему хотелось бы, чтобы он подошел. Без письменных правил успеха и игрового процесса, который работает не в его пользу, реальный мир кажется невозможным для такого человека, как он. Но, как и любому новичку, все, что ему действительно нужно, — это некоторые стратегии и опытный игрок, такой как Аой Хинами, который ему поможет. Надеемся, что под ее руководством Томозаки приобретет необходимый ему опыт.",
+      "year": 2021,
+      "format": "TV",
+      "episodes": 12,
+      "score": 69,
+      "popularity": 145881,
+      "anilistId": 112443,
+      "malId": 40530,
+      "url": "https://anilist.co/anime/112443",
+      "synopsisEn": "Expert gamer Tomozaki Fumiya doesn’t exactly fit in, but he wishes he did. With no written rules for success and gameplay that doesn’t work in his favor, the real world seems impossible for someone like him. But, like any noob, all he really needs are some strategies and a seasoned player like Aoi Hinami to help him. Hopefully with her guidance, Tomozaki will gain the experience he needs."
+    },
+    {
+      "id": "a-sign-of-affection-166794",
+      "title": "Любовь с кончиков пальцев",
+      "titleOriginal": "Yubisaki to Renren",
+      "titleEnglish": "A Sign of Affection",
+      "genres": [
+        "romance",
+        "slice-of-life"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx166794-1MAXFMgND6qS.jpg",
+      "synopsis": "Юки Итосэ — типичный студент, сталкивающийся с трудностями колледжа. Однажды она испытывает трудности в поезде, когда ей помогает старшеклассник по имени Ицуоми Наги. Постепенно открывая ей новый мир, Юки испытывает чувства к Ицуоми. История чистой любви начинает развиваться.",
+      "year": 2024,
+      "format": "TV",
+      "episodes": 12,
+      "score": 81,
+      "popularity": 145671,
+      "anilistId": 166794,
+      "malId": 55866,
+      "url": "https://anilist.co/anime/166794",
+      "synopsisEn": "Yuki Itose is just a typical student dealing with the pressures of college. She is struggling one day on the train when an upperclassman named Itsuomi Nagi helps her out. As he gradually opens a new world to her, Yuki develops feelings for Itsuomi. A pure love story begins to grow."
+    },
+    {
       "id": "kizumonogatari-part-2-nekketsu-21399",
       "title": "Kizumonogatari Part 2: Nekketsu",
       "titleOriginal": "Kizumonogatari II: Nekketsu-hen",
@@ -9189,6 +9996,71 @@
       "malId": 31757,
       "url": "https://anilist.co/anime/21399",
       "synopsisEn": "First season of the Monogatari Series, part 3/6. Contains the arc Koyomi Vamp from the Kizumonogatari light novel. In the spring of his second year of high school, Koyomi Araragi met the beautiful vampire Kiss-Shot Acerola-Orion Heart-Under-Blade. Koyomi saved Kiss-shot, who was on the verge of death with all four of her limbs cut off, but only at the expense of becoming her minion and a vampire."
+    },
+    {
+      "id": "seirei-gensouki-spirit-chronicles-126546",
+      "title": "Хроники духов",
+      "titleOriginal": "Seirei Gensouki",
+      "titleEnglish": "Seirei Gensouki: Spirit Chronicles",
+      "genres": [
+        "romance",
+        "drama",
+        "fantasy"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx126546-Jujx9OvKxLzA.jpg",
+      "synopsis": "Его прошлая жизнь и нынешняя пересекаются — мальчик с воспоминаниями о двух жизнях сталкивается со своей судьбой! После того, как его мать была убита в раннем возрасте, осиротевший Рио изо всех сил боролся за выживание в трущобах. Однажды он просыпается от воспоминаний о Харуто Амакаве, который погиб в результате несчастного случая, мечтая о воссоединении со своим другом детства, и о Рио, понимающем, что он перевоплотился в мире мечей и колдовства.",
+      "year": 2021,
+      "format": "TV",
+      "episodes": 12,
+      "score": 69,
+      "popularity": 144775,
+      "anilistId": 126546,
+      "malId": 44203,
+      "url": "https://anilist.co/anime/126546",
+      "synopsisEn": "His past life and current life are intersecting--a boy with memories of two lives faces his destiny! After his mother was killed at an early age, the orphaned Rio fought his hardest to survive in the slums. One day, he awakens to the memories of Haruto Amakawa, who died in an accident while dreaming of being reunited with his childhood friend, and Rio realizing he has reincarnated in a world of swords and sorcery."
+    },
+    {
+      "id": "how-a-realist-hero-rebuilt-the-kingdom-117612",
+      "title": "Как герой-реалист восстановил королевство",
+      "titleOriginal": "Genjitsu Shugi Yuusha no Oukoku Saikenki",
+      "titleEnglish": "How a Realist Hero Rebuilt the Kingdom",
+      "genres": [
+        "adventure",
+        "romance",
+        "fantasy"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx117612-MCbAaq2ypJlp.jpg",
+      "synopsis": "Внезапно вызванный в фантастический мир и обрученный с принцессой, Казуя Сума становится новым королем после того, как дал королевской семье впечатляющий совет. Чтобы управлять королевством, он выбирает нетрадиционный (и очень человечный) путь административной реформы. Окажется ли уникальный путь этого революционера эффективным в мире драконов и эльфов?",
+      "year": 2021,
+      "format": "TV",
+      "episodes": 13,
+      "score": 71,
+      "popularity": 144325,
+      "anilistId": 117612,
+      "malId": 41710,
+      "url": "https://anilist.co/anime/117612",
+      "synopsisEn": "Suddenly summoned to a fantasy world and betrothed to the princess, Kazuya Souma is crowned the new king after providing the royal family with impressive advice. To rule the kingdom, he's taking the nontraditional (and very human) route of administrative reform. In a realm of dragons and elves, will this revolutionary's unique path prove effective?"
+    },
+    {
+      "id": "fairy-tail-final-season-99749",
+      "title": "Хвост феи: Финальный сезон",
+      "titleOriginal": "FAIRY TAIL (2018)",
+      "titleEnglish": "Fairy Tail Final Season",
+      "genres": [
+        "adventure",
+        "fantasy"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/nx99749-tvz2LCPdMyrp.jpg",
+      "synopsis": "Хвост Феи расформирован. Год спустя Люси вступает в контакт с Нацу и Хэппи. Трое из них пытаются найти местонахождение других бывших членов, чтобы восстановить гильдию, поскольку они ищут настоящую причину роспуска гильдии.",
+      "year": 2018,
+      "format": "TV",
+      "episodes": 51,
+      "score": 75,
+      "popularity": 144294,
+      "anilistId": 99749,
+      "malId": 35972,
+      "url": "https://anilist.co/anime/99749",
+      "synopsisEn": "Fairy Tail has been disbanded. A year later, Lucy comes into contact with Natsu and Happy. The three of them try to find the other former members' whereabouts to reconstruct the guild as they seek the real reason behind the guild's disbandment."
     },
     {
       "id": "to-love-ru-3455",
@@ -9235,6 +10107,29 @@
       "synopsisEn": "Years ago, astronaut Byakuya left behind precious materials in the belief that his son, the scientifically-gifted Senkuu, would one day find them. In the present, the Kingdom of Science's Kohaku and Ginrou have infiltrated the harem of the Petrification Kingdom’s leader with the help of Amaryllis, a local girl. At first, their mission progresses without a hitch."
     },
     {
+      "id": "i-ve-been-killing-slimes-for-300-years-and-maxed-out-my-leve-112608",
+      "title": "Я 300 лет убивала слизь и прокачалась на максимум",
+      "titleOriginal": "Slime Taoshite 300-nen, Shiranai Uchi ni Level MAX ni Nattemashita",
+      "titleEnglish": "I've Been Killing Slimes for 300 Years and Maxed Out My Level",
+      "genres": [
+        "adventure",
+        "slice-of-life",
+        "fantasy",
+        "animals"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx112608-T3OKdLhxYUfe.png",
+      "synopsis": "Домашняя комедия о сильной девушке, которая не слишком много работает!(⋈◍ ˃ᴗ˂ ◍)。✧♡ После смерти от переутомления в реальном мире я перевоплощаюсь в бессмертную ведьму и провожу 300 лет, наслаждаясь спокойной жизнью. Однако в какой-то момент я достигаю 99-го уровня!",
+      "year": 2021,
+      "format": "TV",
+      "episodes": 12,
+      "score": 68,
+      "popularity": 143067,
+      "anilistId": 112608,
+      "malId": 40586,
+      "url": "https://anilist.co/anime/112608",
+      "synopsisEn": "An at-home comedy about a powerful girl who doesn’t work too hard!(⋈◍ ˃ᴗ˂ ◍)。✧♡ After dying of overwork in the real world, I’m reincarnated as an immortal witch, and I spend 300 years enjoying a relaxing life. At some point, though, I end up at level 99!"
+    },
+    {
       "id": "baki-97888",
       "title": "Баки",
       "titleOriginal": "Baki",
@@ -9253,6 +10148,26 @@
       "malId": 34443,
       "url": "https://anilist.co/anime/97888",
       "synopsisEn": "The protagonist, Baki Hanma, trains with an intense focus to become strong enough to surpass his father, Yujiro Hanma, the strongest fighter in the world. Five of the world's most violent and brutal death row inmates are gathering to face Baki. Their objective is to taste defeat -- their unmatched strength and skill have led them to grow bored of life itself, and they now seek out Baki in the hopes that he can overwhelm and utterly crush them."
+    },
+    {
+      "id": "golden-kamuy-99699",
+      "title": "Золотое божество",
+      "titleOriginal": "Golden Kamuy",
+      "titleEnglish": "Golden Kamuy",
+      "genres": [
+        "adventure"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx99699-mBCjpoWpAVGX.jpg",
+      "synopsis": "В начале двадцатого века ветеран русско-японской войны Саичи «Бессмертный» Сугимото влачит скудное существование во время послевоенной золотой лихорадки в пустыне Хоккайдо. Когда он натыкается на карту сокровищ, спрятанных в айнском золоте, он отправляется на коварный поиск его. Но Сугимото — не единственная заинтересованная сторона, и каждый, кто знает о золоте, готов убить, чтобы завладеть им!",
+      "year": 2018,
+      "format": "TV",
+      "episodes": 12,
+      "score": 77,
+      "popularity": 142696,
+      "anilistId": 99699,
+      "malId": 36028,
+      "url": "https://anilist.co/anime/99699",
+      "synopsisEn": "In the early twentieth century, Russo-Japanese War veteran Saichi “Immortal” Sugimoto scratches out a meager existence during the postwar gold rush in the wilderness of Hokkaido. When he stumbles across a map to a fortune in hidden Ainu gold, he sets off on a treacherous quest to find it. But Sugimoto is not the only interested party, and everyone who knows about the gold will kill to possess it!"
     },
     {
       "id": "steins-gate-the-movie-load-region-of-deja-vu-11577",
@@ -9275,6 +10190,28 @@
       "malId": 11577,
       "url": "https://anilist.co/anime/11577",
       "synopsisEn": "After a year in America, Kurisu Makise returns to Akihabara and reunites with Rintarou Okabe. However, their reunion is cut short when Okabe begins to experience recurring flashes of other timelines as the consequences of his time traveling start to manifest. These side effects eventually culminate in Okabe suddenly vanishing from the world, and only the startled Kurisu has any memory of his existence."
+    },
+    {
+      "id": "the-seven-deadly-sins-dragon-s-judgement-116752",
+      "title": "Семь смертных грехов: Яростное правосудие",
+      "titleOriginal": "Nanatsu no Taizai: Funnu no Shinpan",
+      "titleEnglish": "The Seven Deadly Sins: Dragon's Judgement",
+      "genres": [
+        "adventure",
+        "supernatural",
+        "fantasy"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx116752-yIJuKp88adqt.jpg",
+      "synopsis": "Время истекает. Проклятие, наложенное на Элизабет, убьет ее через несколько дней. Чтобы снять проклятие, Мелиодас и Бан отправились в Царство Демонов, чтобы бросить вызов отцу Мелиодаса, Королю Демонов. Тем временем Мерлин, Эсканор и архангел Людосиэль собираются убить брата Мелиодаса Зелдриса. В другом месте другой брат Мелиодаса, Эстаросса, похитил Элизабет, и Кингу, Диане, Гаутеру и Хоуку предстоит спасти ее.",
+      "year": 2021,
+      "format": "TV",
+      "episodes": 24,
+      "score": 65,
+      "popularity": 142460,
+      "anilistId": 116752,
+      "malId": 41491,
+      "url": "https://anilist.co/anime/116752",
+      "synopsisEn": "Time is running out. The curse imposed on Elizabeth will kill her in few days. To lift the curse Meliodas and Ban have travelled to the Demon Realm to challenge Meliodas' father, the Demon King. Meanwhile, Merlin, Escanor, and Archangel Ludociel are set to slay Meliodas' brother Zeldris. Elsewhere, Meliodas' other brother Estarossa has kidnapped Elizabeth, and it falls to King, Diane, Gowther, and Hawk to rescue her."
     },
     {
       "id": "beastars-season-2-114194",
@@ -9301,6 +10238,69 @@
       "malId": 40935,
       "url": "https://anilist.co/anime/114194",
       "synopsisEn": "\"Beastar\"—a title awarded to beasts who prove their excellence through fighting inequality to unite carnivores and herbivores in an anthropomorphic animal society. Cherryton Academy has gone five years without one such leader. However, following the murder of an alpaca within the school boundaries, the growing tension between the different species poses a greater need for a Beastar to ensure peace and harmony."
+    },
+    {
+      "id": "my-hero-academia-final-season-182896",
+      "title": "Моя геройская академия: Финальный сезон",
+      "titleOriginal": "Boku no Hero Academia FINAL SEASON",
+      "titleEnglish": "My Hero Academia FINAL SEASON",
+      "genres": [
+        "adventure"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx182896-mvxTVHGdDB4q.jpg",
+      "synopsis": "Деку и герои погружаются в финальную битву со злодеями по всей Японии. Деку, полностью раскрывая причуды «Один за всех», противостоит Шигараки. Молодой и отдохнувший Все За Одного сталкивается с Всемогущим в доспехах, Непричудливым в своем силовом доспехе. Сможет ли Деку довести историю о том, как они все стали величайшими героями, до финала? Или все будет разрушено?!",
+      "year": 2025,
+      "format": "TV",
+      "episodes": 11,
+      "score": 87,
+      "popularity": 142143,
+      "anilistId": 182896,
+      "malId": 60098,
+      "url": "https://anilist.co/anime/182896",
+      "synopsisEn": "Deku and the heroes are plunged into a final battle against villains across Japan. Deku, by fully unleashing One For All Quirks, faces off against Shigaraki. A young and refreshed All For One faces Armored All Might, Quirkless in his powered armor suit. Will Deku be able to bring the story of how they all became the greatest heroes to its finale? Or will everything be destroyed?!"
+    },
+    {
+      "id": "the-misfit-of-demon-king-academy-ii-history-s-strongest-demo-130588",
+      "title": "Непригодный для Академии владыки тьмы II",
+      "titleOriginal": "Maou Gakuin no Futekigousha: Shijou Saikyou no Maou no Shiso, Tensei shite Shison-tachi no Gakkou e Kayou II",
+      "titleEnglish": "The Misfit of Demon King Academy Ⅱ: History's Strongest Demon King Reincarnates and Goes to School with His Descendants",
+      "genres": [
+        "school",
+        "fantasy"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx130588-zYz8Gp2kZfTm.jpg",
+      "synopsis": "Когда мир возвращается в царство демонов, Анос Волдигоад не желает ничего, кроме как положить конец своей репутации Короля Демонов Тирании и снова стать неудачником в престижной Академии Короля Демонов. К сожалению, любое спокойствие мимолетно: зловещие демоны, короли и божества замышляют гибель Аноса из тени. Ходили слухи о «Дите Бога», существе, чья сила может соперничать с силой Аноса.",
+      "year": 2023,
+      "format": "TV",
+      "episodes": 12,
+      "score": 68,
+      "popularity": 141870,
+      "anilistId": 130588,
+      "malId": 48417,
+      "url": "https://anilist.co/anime/130588",
+      "synopsisEn": "As peace returns to the demon realm, Anos Voldigoad wishes nothing more than to put his reputation as the Demon King of Tyranny to rest and go back to being a misfit at the prestigious Demon King Academy. Unfortunately, any tranquility is fleeting: sinister demons, kings, and deities plot Anos's demise from the shadows. Rumors spread about the \"Child of God,\" a being whose power may rival that of Anos."
+    },
+    {
+      "id": "lovely-complex-2034",
+      "title": "Трогательный комплекс",
+      "titleOriginal": "Lovely★Complex",
+      "titleEnglish": "Lovely Complex",
+      "genres": [
+        "romance",
+        "school",
+        "slice-of-life"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx2034-erjg6gzDetAp.png",
+      "synopsis": "Любовь необычна для Коидзуми Рисы и Оотани Ацуши, которые оба стремятся найти своего идеального партнера в старшей школе: Коидзуми ростом 172 см намного выше средней девушки, а Оотани намного ниже среднего парня - 156 см. Вдобавок к их тяжелому положению, их влюбленные влюбляются друг в друга, в результате чего Коидзуми и Отани комично взволнованы и убиты горем.",
+      "year": 2007,
+      "format": "TV",
+      "episodes": 24,
+      "score": 78,
+      "popularity": 141630,
+      "anilistId": 2034,
+      "malId": 2034,
+      "url": "https://anilist.co/anime/2034",
+      "synopsisEn": "Love is unusual for Koizumi Risa and Ootani Atsushi, who are both striving to find their ideal partner in high school—172 cm tall Koizumi is much taller than the average girl, and Ootani is much shorter than the average guy at 156 cm. To add to their plights, their crushes fall in love with each other, leaving Koizumi and Ootani comically flustered and heartbroken."
     },
     {
       "id": "megalobox-100298",
@@ -9367,6 +10367,53 @@
       "malId": 23281,
       "url": "https://anilist.co/anime/20513",
       "synopsisEn": "Taking place one-and-a-half years after Psycho-Pass, having learned the true nature of the Sibyl System, Akane Tsunemori chose to obey the system, believing in both humanity and the legal order. She's part of a new police section and spends her everyday life facing down criminals. Unbeknownst to Akane, however, a monster who will shake the system to its core is about to appear before her."
+    },
+    {
+      "id": "bloom-into-you-101573",
+      "title": "В конце концов я стану твоей",
+      "titleOriginal": "Yagate Kimi ni Naru",
+      "titleEnglish": "Bloom Into You",
+      "genres": [
+        "romance",
+        "school",
+        "drama",
+        "slice-of-life"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/nx101573-Gql3Q3UX1jcu.jpg",
+      "synopsis": "Юу Който думала, что любовь будет чем-то удивительным и волшебным, но когда друг-мужчина приглашает ее на свидание, она ничего не чувствует. Она даже не знает, что ответить, пока не слышит, как президент школьного совета ее новой средней школы, Токо Нанами, отклоняет аналогичную просьбу. С помощью Токо Юу удается изящно подвести своего друга, но затем Токо признается, что сама начинает испытывать чувства к Юу, оставляя Юу в затруднительном положении.",
+      "year": 2018,
+      "format": "TV",
+      "episodes": 13,
+      "score": 78,
+      "popularity": 140726,
+      "anilistId": 101573,
+      "malId": 37786,
+      "url": "https://anilist.co/anime/101573",
+      "synopsisEn": "Yuu Koito thought love would be something amazing and magical, but when a male friend asks her to date, she feels nothing. She doesn't even know how to respond until she overhears the student council president of her new high school, Touko Nanami, turning down a similar request. With Touko's help, Yuu manages to let her friend down gracefully, but then Touko confesses that she, herself, is starting to have feelings for Yuu, leaving Yuu in a quandary."
+    },
+    {
+      "id": "a-lull-in-the-sea-16067",
+      "title": "Безоблачное завтра",
+      "titleOriginal": "Nagi no Asukara",
+      "titleEnglish": "A Lull in the Sea",
+      "genres": [
+        "romance",
+        "school",
+        "drama",
+        "slice-of-life",
+        "fantasy"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx16067-CFX0g435pLob.png",
+      "synopsis": "С давних пор человеческая цивилизация жила на дне океана. Однако было много людей, которые хотели жить над поверхностью, и они переехали на сушу, создав фундаментальное разделение между ними. После закрытия школы четверо 14-летних учеников средней школы из морской деревни Сиосисио вынуждены посещать среднюю школу Михама на поверхности.",
+      "year": 2013,
+      "format": "TV",
+      "episodes": 26,
+      "score": 76,
+      "popularity": 139822,
+      "anilistId": 16067,
+      "malId": 16067,
+      "url": "https://anilist.co/anime/16067",
+      "synopsisEn": "Since long ago, human civilization had lived on the ocean floor. However, there were many humans who wanted to live above the surface and they moved to land creating a fundamental separation between the two. After their school closes down, four 14-year-old middle school students from the sea village, Shioshishio, have to attend Mihama Middle School on the surface."
     },
     {
       "id": "sonny-boy-132126",
@@ -9437,6 +10484,90 @@
       "synopsisEn": "High school student Yuri Honjou finds herself lost in an “abnormal space” where countless skyscrapers are connected by suspension bridges and “masked figures” mercilessly slaughter their confused and fleeing victims. To survive in this hellish world, she has two choices: kill the masked figures or be killed. Yuri is determined to survive in order to destroy this irrational world, but what will be her ultimate fate?"
     },
     {
+      "id": "gangsta-20773",
+      "title": "Гангста",
+      "titleOriginal": "GANGSTA.",
+      "titleEnglish": "GANGSTA.",
+      "genres": [
+        "drama"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20773-yfJQMyHqZyJr.jpg",
+      "synopsis": "В городе Эргастулум, тенистой деревне, наполненной состоявшимися мужчинами и мелкими воришками, шлюхами и полицейскими, есть дела, слишком грязные, чтобы даже их измученные жители могли прикоснуться к ним. Встречайте «Разнорабочих» Ника и Ворика, которые берут на себя работу, с которой никто другой не справится. До того дня, пока их знакомый полицейский не обратится к ним за помощью в уничтожении новой банды, проникшей на территорию влиятельной мафиозной семьи.",
+      "year": 2015,
+      "format": "TV",
+      "episodes": 12,
+      "score": 72,
+      "popularity": 138996,
+      "anilistId": 20773,
+      "malId": 25183,
+      "url": "https://anilist.co/anime/20773",
+      "synopsisEn": "In the city of Ergastulum, a shady ville filled with made men and petty thieves, whores on the make and cops on the take, there are some deeds too dirty for even its jaded inhabitants to touch. Enter the \"Handymen,\" Nic and Worick, who take care of the jobs no one else will handle. Until the day when a cop they know on the force requests their help in taking down a new gang muscling in on the territory of a top Mafia family."
+    },
+    {
+      "id": "recovery-of-an-mmo-junkie-99726",
+      "title": "Восстановление игрового наркомана",
+      "titleOriginal": "Net-juu no Susume",
+      "titleEnglish": "Recovery of an MMO Junkie",
+      "genres": [
+        "romance",
+        "slice-of-life",
+        "fantasy"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx99726-tta6v7TKGYKa.jpg",
+      "synopsis": "Морико Мориока — 30-летняя одинокая NEET-женщина. Выпав из реальности, она отправилась на поиски полноценной жизни и попала в сетевую игру или «нетогэ». В мире нетогэ она начала свою новую жизнь как освежающий и красивый персонаж по имени Хаяши. Когда она начинала как новичок, ей помогла симпатичная героиня по имени Лили.",
+      "year": 2017,
+      "format": "TV",
+      "episodes": 10,
+      "score": 73,
+      "popularity": 138397,
+      "anilistId": 99726,
+      "malId": 36038,
+      "url": "https://anilist.co/anime/99726",
+      "synopsisEn": "Moriko Morioka is a 30-year-old single NEET woman. After dropping out from reality, she has taken off in search for a fulfilling life and ended up in a net game or \"netoge.\" In the netoge world, she began her new life as a refreshing and handsome character named Hayashi. While starting out as a beginner, a pretty character named Lily reached out to help her."
+    },
+    {
+      "id": "re-creators-97980",
+      "title": "Re:Creators",
+      "titleOriginal": "Re:CREATORS",
+      "titleEnglish": "Re:CREATORS",
+      "genres": [
+        "drama",
+        "fantasy"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx97980-9NQwPW0igSMk.jpg",
+      "synopsis": "Люди создали множество историй. Радость, печаль, гнев, глубокие эмоции. Истории вызывают эмоции и захватывают. Однако эти эмоции – не что иное, как чувства зрителя. Что, если бы у героев рассказов была своя «воля»? В их глазах мы, создатели историй, подобны богам? Революция для нашего мира. Наказание для страны богов. Re: СОЗДАТЕЛИ. Каждый становится Творцом.",
+      "year": 2017,
+      "format": "TV",
+      "episodes": 22,
+      "score": 73,
+      "popularity": 138150,
+      "anilistId": 97980,
+      "malId": 34561,
+      "url": "https://anilist.co/anime/97980",
+      "synopsisEn": "People have created many stories. Joy, sadness, anger, deep emotion. Stories stir up emotion and captivate. However, those emotions are nothing more than the feelings of a spectator. What if the characters in the stories had their own \"will\"? In their eyes, are we, the creators of the stories, like gods? Revolution for our world. Punishment for the land of the gods. Re:CREATORS. Everyone becomes a Creator."
+    },
+    {
+      "id": "hunter-x-hunter-136",
+      "title": "Охотник × Охотник (1999)",
+      "titleOriginal": "HUNTER×HUNTER",
+      "titleEnglish": "Hunter x Hunter",
+      "genres": [
+        "adventure",
+        "fantasy"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx136-gj0bbCpDNrKG.jpg",
+      "synopsis": "Охотник — это тот, кто путешествует по миру, выполняя самые разные опасные задания. От поимки преступников до поиска потерянных сокровищ в неизведанных землях. Гон — мальчик, чей отец давно исчез, будучи Охотником. Он верит, что если бы он также мог пойти по пути своего отца, он мог бы однажды воссоединиться с ним.",
+      "year": 1999,
+      "format": "TV",
+      "episodes": 62,
+      "score": 83,
+      "popularity": 137919,
+      "anilistId": 136,
+      "malId": 136,
+      "url": "https://anilist.co/anime/136",
+      "synopsisEn": "A Hunter is one who travels the world doing all sorts of dangerous tasks. From capturing criminals to searching deep within uncharted lands for any lost treasures. Gon is a young boy whose father disappeared long ago, being a Hunter. He believes if he could also follow his father's path, he could one day reunite with him."
+    },
+    {
       "id": "sankarea-undying-love-11499",
       "title": "Sankarea: Undying Love",
       "titleOriginal": "Sankarea",
@@ -9458,6 +10589,113 @@
       "malId": 11499,
       "url": "https://anilist.co/anime/11499",
       "synopsisEn": "Furuya's not interested in the living, he's got zombies on the brain! When Furuya's cat dies, he decides he's going to try and bring it back to life. In the process, he stumbles across a girl who is involved in an accident and turns into a real zombie! What's Furuya going to do now that the thing he loves the most is right in front of his eyes?"
+    },
+    {
+      "id": "the-world-god-only-knows-8525",
+      "title": "Одному лишь Богу ведомый мир",
+      "titleOriginal": "Kami nomi zo Shiru Sekai",
+      "titleEnglish": "The World God Only Knows",
+      "genres": [
+        "supernatural",
+        "romance"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx8525-chaE9kM2x0w4.png",
+      "synopsis": "Кейма — чемпионка по симуляторам свиданий. Симпатичные девушки становятся бессильными из-за его непреодолимых приемов игры. Жаль, что в реальном мире все не так. То есть до тех пор, пока его заманчивая игра не приведет к материализации настоящей живой — и очень милой — охотницы на демонов по имени Элси! Теперь Элси хочет, чтобы Кейма помог ей освободить горячих девушек от подлых демонов, тайно овладевших ими.",
+      "year": 2010,
+      "format": "TV",
+      "episodes": 12,
+      "score": 74,
+      "popularity": 137458,
+      "anilistId": 8525,
+      "malId": 8525,
+      "url": "https://anilist.co/anime/8525",
+      "synopsisEn": "Keima is a dating sim champion. Cute girls are rendered powerless by his irresistible game playing techniques. Too bad things aren't that way in the real world. That is, until his tempting game playing causes a real live—and very bubbly-cute—demon hunter named Elsie to materialize! Now Elsie wants Keima to help her free hot girls from sneaky demons who secretly possess them."
+    },
+    {
+      "id": "uncle-from-another-world-135806",
+      "title": "Дядя из другого мира",
+      "titleOriginal": "Isekai Oji-san",
+      "titleEnglish": "Uncle from Another World",
+      "genres": [
+        "adventure",
+        "fantasy"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx135806-uhqZSNTYZe04.jpg",
+      "synopsis": "Семнадцать лет назад дядя Такафуми впал в кому, но теперь он вернулся, как человек, восставший из могилы. Вскоре Такафуми обнаруживает две странные вещи: его дядя превыше всего ценит видеоигры, и, находясь в коме, он фактически был перенесен в другой мир как какой-то героический страж!",
+      "year": 2022,
+      "format": "TV",
+      "episodes": 13,
+      "score": 76,
+      "popularity": 137449,
+      "anilistId": 135806,
+      "malId": 49220,
+      "url": "https://anilist.co/anime/135806",
+      "synopsisEn": "​Seventeen years ago, Takafumi's uncle fell into a coma, but now he's back like a man risen from his grave. Soon, Takafumi discovers two bizarre things: His uncle treasures video games above all else, and, while comatose, he was actually transported to another world as some heroic guardian!"
+    },
+    {
+      "id": "skip-and-loafer-141911",
+      "title": "Вприпрыжку в лоферах",
+      "titleOriginal": "Skip to Loafer",
+      "titleEnglish": "Skip and Loafer",
+      "genres": [
+        "romance",
+        "school",
+        "slice-of-life"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx141911-o6Jwav7hRPPM.jpg",
+      "synopsis": "Эта деревенская девушка готова к большому городу! Ну, по крайней мере, она так думала. Мечта Мицуми — поступить в престижную школу и сделать мир лучше. Но когда она наконец добирается до Токио, оказывается, что она не совсем готова к городской жизни. К счастью, она встречает Шиму, милого и красивого одноклассника, который становится ее первым другом! Сможет ли она добиться успеха в Токио вместе с Шимой?",
+      "year": 2023,
+      "format": "TV",
+      "episodes": 12,
+      "score": 81,
+      "popularity": 137140,
+      "anilistId": 141911,
+      "malId": 50416,
+      "url": "https://anilist.co/anime/141911",
+      "synopsisEn": "This country girl is ready for the big city! Well, at least she thought she was. Mitsumi’s dream is to attend a prestigious school and make the world a better place. But when she finally gets to Tokyo, it turns out she isn’t exactly prepared for city life. Luckily, she runs into Shima, a sweet and handsome classmate who becomes her first friend! Can she make it in Tokyo with Shima by her side?"
+    },
+    {
+      "id": "makeine-too-many-losing-heroines-171457",
+      "title": "Слишком много проигравших героинь!",
+      "titleOriginal": "Make Heroine ga Oosugiru!",
+      "titleEnglish": "Makeine: Too Many Losing Heroines!",
+      "genres": [
+        "romance",
+        "school",
+        "slice-of-life"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx171457-nmMIk0gNiWsm.jpg",
+      "synopsis": "Кадзухико Нукумидзу — старшеклассник, которому нравилось сливаться с второстепенной толпой, пока он не стал свидетелем того, как его более популярную одноклассницу Анну Янами бросил друг детства. Он чувствовал, что должен попытаться утешить Янами, но это привело его к тому, что он запутался с другими девушками, которые потерпели поражение в любви?",
+      "year": 2024,
+      "format": "TV",
+      "episodes": 12,
+      "score": 80,
+      "popularity": 137136,
+      "anilistId": 171457,
+      "malId": 57524,
+      "url": "https://anilist.co/anime/171457",
+      "synopsisEn": "Kazuhiko Nukumizu is a high school boy content to blend in with the background mob, until he witnessed his more popular classmate Anna Yanami get dumped by her childhood friend. He felt like he had to try to comfort Yanami, but this led him to become entangled with other girls who have met defeat at love?"
+    },
+    {
+      "id": "drifters-21123",
+      "title": "Скитальцы",
+      "titleOriginal": "DRIFTERS",
+      "titleEnglish": "DRIFTERS",
+      "genres": [
+        "adventure",
+        "fantasy"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx21123-bCuqm8wLDqOw.png",
+      "synopsis": "История сосредоточена вокруг Симадзу Тоёхиса, реального самурая, сражавшегося в решающей битве при Сэкигахаре. В момент смерти Симадзу переносится в мир магии вместе с другими известными воинами всей истории. Эти воины вынуждены сражаться друг с другом в бесконечной битве.",
+      "year": 2016,
+      "format": "TV",
+      "episodes": 12,
+      "score": 76,
+      "popularity": 136724,
+      "anilistId": 21123,
+      "malId": 31339,
+      "url": "https://anilist.co/anime/21123",
+      "synopsisEn": "The story centers around Shimazu Toyohisa, the real-life samurai who fought in the pivotal Battle of Sekigahara. In his dying moments, Shimazu is transported to a world of magic with other famous warriors throughout history. These warriors are forced to fight each other in an endless battle."
     },
     {
       "id": "evangelion-2-0-you-can-not-advance-3784",
@@ -9568,6 +10806,28 @@
       "malId": 9041,
       "url": "https://anilist.co/anime/9041",
       "synopsisEn": "Japan engineered an armed powered exoskeleton \"Infinite Stratos\" (IS) and it became the mainstream of weapons. Since only women can operate IS, women dominate the society over men. Orimura Ichika is a 15 year old boy and accidentally touches an IS placed in the IS pilot training school. He is found to be the only man who can operate IS and forced to enter the training school. Ichika's busy school life surrounded by girls has begun."
+    },
+    {
+      "id": "record-of-ragnarok-127399",
+      "title": "Повесть о конце света",
+      "titleOriginal": "Shuumatsu no Valkyrie",
+      "titleEnglish": "Record of Ragnarok",
+      "genres": [
+        "supernatural",
+        "drama",
+        "fantasy"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx127399-AAH1pevCZLrB.jpg",
+      "synopsis": "7 миллионов лет человеческой цивилизации подходят к концу… Каждую тысячу лет все боги мира собираются на небесах, чтобы присутствовать на Конференции по выживанию человечества. Боги соглашаются покончить с человечеством из-за своих глупых поступков, но прежде чем будет вынесен окончательный вердикт, Брунгильда, старшая из 13 сестер-валькирий, выдвигает возражение.",
+      "year": 2021,
+      "format": "ONA",
+      "episodes": 12,
+      "score": 67,
+      "popularity": 135629,
+      "anilistId": 127399,
+      "malId": 44942,
+      "url": "https://anilist.co/anime/127399",
+      "synopsisEn": "7 million years of human civilization is coming to an end… Every thousand years, all the gods of the world gather in heaven to attend the Conference of Mankind Survival. The gods agree to end to mankind due to their foolish acts, but before the final verdict is made, Brunhild, the eldest of the 13 valkyrie sisters, makes an objection."
     },
     {
       "id": "castle-in-the-sky-513",
@@ -9681,6 +10941,28 @@
       "synopsisEn": "An elementary school kid dubbed with the title \"shounen bat\" or \"lil slugger\" has been going around attacking people with his bent, golden bat. Now, two detectives are investigating so they can stop this kid from making any more attacks, but they will find out soon enough... that this case is much more than they expected."
     },
     {
+      "id": "fate-apocrypha-98035",
+      "title": "Судьба/Апокриф",
+      "titleOriginal": "Fate/Apocrypha",
+      "titleEnglish": "Fate/Apocrypha",
+      "genres": [
+        "supernatural",
+        "drama",
+        "fantasy"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx98035-rdkjeqUUsG2j.jpg",
+      "synopsis": "Когда-то в городе Фуюки маги и героические души вели Войну Святого Грааля. Однако один маг воспользовался хаосом Второй мировой войны, чтобы украсть Святой Грааль. Прошло несколько десятилетий, и семья Иггдмилленния, принявшая Святой Грааль в качестве своего символа, вышла из Ассоциации Магов. В ярости Ассоциация направила силы для борьбы с Иггдмилленниями, но потерпела поражение. С изменением системы Святого Грааля разгорается война беспрецедентного масштаба.",
+      "year": 2017,
+      "format": "TV",
+      "episodes": 25,
+      "score": 70,
+      "popularity": 134407,
+      "anilistId": 98035,
+      "malId": 34662,
+      "url": "https://anilist.co/anime/98035",
+      "synopsisEn": "There was once a Holy Grail War waged by Mages and Heroic Spirits in a town of Fuyuki. However, one Mage took advantage of the chaos of World War II to steal a Holy Grail. Several decades have passed, and the Yggdmillennia family, who took upon the Holy Grail as its symbol, defected from the Mages' Association. Furious, the Association sent forces to deal with the Yggdmillennia, but were defeated. With the Holy Grail system changed, war at an unprecedented scale breaks out."
+    },
+    {
       "id": "accel-world-11759",
       "title": "Accel World",
       "titleOriginal": "Accel World",
@@ -9723,6 +11005,49 @@
       "malId": 7724,
       "url": "https://anilist.co/anime/7724",
       "synopsisEn": "Life is idyllic and unassuming in the small town of Sotoba, a simple place where everyone knows everyone. However, tragedy strikes when Megumi Shimizu, a young girl with high aspirations, unexpectedly passes away from an unnamed illness. Over the torrid summer months, as more unexplained deaths crop up around the village, the town's doctor—Toshio Ozaki—begins to suspect that something more sinister than a mere disease is at play."
+    },
+    {
+      "id": "log-horizon-2-20671",
+      "title": "Покорение горизонта 2",
+      "titleOriginal": "Log Horizon 2",
+      "titleEnglish": "Log Horizon 2",
+      "genres": [
+        "adventure",
+        "fantasy"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20671-ZpNJQ5RixVIq.jpg",
+      "synopsis": "После борьбы за выживание в сюрреалистическом существовании, в которое они внезапно попали, Сироэ и его друзья сумели восстановить порядок в Акихабаре, защищая людей от гоблинов в регионе Зантлиф. После шести долгих месяцев, в течение которых команда завоевала доверие многих гильдий, которые используют город в качестве своей базы, теперь им предстоит подготовиться к своему непредвиденному будущему – и к тяжелой зиме впереди.",
+      "year": 2014,
+      "format": "TV",
+      "episodes": 25,
+      "score": 73,
+      "popularity": 132914,
+      "anilistId": 20671,
+      "malId": 23321,
+      "url": "https://anilist.co/anime/20671",
+      "synopsisEn": "After struggling to survive in a surreal existence they were suddenly thrown into, Shiroe and his friends have managed to restore order to Akihabara by defending the people against the Goblins in the Zantleaf Region. After six long months with the team gaining the trust of the many guilds that use the city as their home base, they must now prepare for their unforeseen future – and a tough winter ahead."
+    },
+    {
+      "id": "to-be-hero-x-156092",
+      "title": "Стать героем X",
+      "titleOriginal": "Tu Bian Yingxiong X",
+      "titleEnglish": "To Be Hero X",
+      "genres": [
+        "supernatural",
+        "detective",
+        "drama"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx156092-yHqgQZOF2mbg.jpg",
+      "synopsis": "Это мир, где герои создаются доверием людей, и герой, получивший наибольшее доверие, известен как X. В этом мире доверие людей можно измерить количественно с помощью данных, и эти ценности отражаются на запястье каждого. Если набрать достаточно очков доверия, обычный человек может обладать сверхспособностями и стать супергероем, спасающим мир. Однако постоянно меняющиеся ценности доверия делают путь героя полным неопределенностей...",
+      "year": 2025,
+      "format": "ONA",
+      "episodes": 24,
+      "score": 85,
+      "popularity": 132437,
+      "anilistId": 156092,
+      "malId": 53447,
+      "url": "https://anilist.co/anime/156092",
+      "synopsisEn": "This is a world where heroes are created by people's trust, and the hero who gains the most trust is known as X. In this world, people's trust can be quantified through data, and these values are reflected on everyone's wrist. As long as one gains enough trust points, an ordinary person can possess superpowers and become a superhero who saves the world. However, the constantly changing trust values make the path of a hero full of uncertainties..."
     },
     {
       "id": "owarimonogatari-21262",
@@ -9770,6 +11095,27 @@
       "synopsisEn": "Emperor Pilaf finally has his hands on the Black Star Dragon Balls after years of searching, which are said to be twice as powerful as Earth's normal ones. Pilaf is about to make his wish for world domination when he is interrupted by Gokuu Son. As a result, Pilaf flubs his wish and accidentally turns Gokuu back into a child. After the wish is granted, the Black Star Dragon Balls scatter across the galaxy."
     },
     {
+      "id": "march-comes-in-like-a-lion-season-2-98478",
+      "title": "Мартовский лев 2",
+      "titleOriginal": "3-gatsu no Lion 2nd Season",
+      "titleEnglish": "March comes in like a lion Season 2",
+      "genres": [
+        "drama",
+        "slice-of-life"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx98478-Yua5iL9zbrji.jpg",
+      "synopsis": "Сейчас, на втором году обучения в старшей школе, Рей Кирияма продолжает преодолевать трудности как в профессиональном мире сёги, так и в личной жизни. В окружении ярких личностей в зале сёги, школьном клубе и местном сообществе его одинокая оболочка постепенно начинает трескаться. Среди них три сестры Кавамото — Акари, Хината и Момо, которые создают нежную и семейную связь с Рей.",
+      "year": 2017,
+      "format": "TV",
+      "episodes": 22,
+      "score": 89,
+      "popularity": 131744,
+      "anilistId": 98478,
+      "malId": 35180,
+      "url": "https://anilist.co/anime/98478",
+      "synopsisEn": "Now in his second year of high school, Rei Kiriyama continues pushing through his struggles in the professional shogi world as well as his personal life. Surrounded by vibrant personalities at the shogi hall, the school club, and in the local community, his solitary shell slowly begins to crack. Among them are the three Kawamoto sisters—Akari, Hinata, and Momo—who forge an affectionate and familial bond with Rei."
+    },
+    {
       "id": "bna-110354",
       "title": "BNA",
       "titleOriginal": "BNA",
@@ -9790,6 +11136,162 @@
       "malId": 40060,
       "url": "https://anilist.co/anime/110354",
       "synopsisEn": "In the 21st century, the existence of animal-humans came to light after being hidden in the darkness of history. Michiru lived life as a normal human, until one day she suddenly turns into a tanuki-human. She runs away and takes refuge in a special city area called \"Anima City\" that was set up 10 years ago for animal-humans to be able to live as themselves. There Michiru meets Shirou, a wolf-human who hates humans."
+    },
+    {
+      "id": "buddy-daddies-155907",
+      "title": "Напарники-папаши",
+      "titleOriginal": "Buddy Daddies",
+      "titleEnglish": "Buddy Daddies",
+      "genres": [
+        "school",
+        "drama",
+        "slice-of-life"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx155907-wY1RqFUHvZ60.jpg",
+      "synopsis": "Ассасины Кадзуки Курусу и Рей Сува встречают Мири, девушку, которая ищет своего отца на Рождество. Кадзуки, Рей и Мири неожиданно живут вместе. История рассказывает о Кадзуки Курусу, преступном подрядчике/координаторе, который живет со своим лучшим другом Рей Сувой, профессиональным убийцей, которого с детства воспитывали как наемного убийцу. Кадзуки общительный, любит азартные игры и женщин, а Рей — немногословный человек, который проводит свободное время за видеоиграми.",
+      "year": 2023,
+      "format": "TV",
+      "episodes": 12,
+      "score": 80,
+      "popularity": 131524,
+      "anilistId": 155907,
+      "malId": 53411,
+      "url": "https://anilist.co/anime/155907",
+      "synopsisEn": "Assassins Kazuki Kurusu and Rei Suwa meet Miri, a girl looking for her father on Christmas Day. Kazuki, Rei, and Miri unexpectedly end up living together. Follows Kazuki Kurusu, a criminal contractor/coordinator who lives with his best friend, Rei Suwa, a professional assassin who has been raised from childhood to be a contract killer. Kazuki is outgoing and loves gambling and women, while Rei is a man of few words who spends his off time playing video games."
+    },
+    {
+      "id": "platinum-end-127401",
+      "title": "Платиновый предел",
+      "titleOriginal": "Platinum End",
+      "titleEnglish": "Platinum End",
+      "genres": [
+        "supernatural",
+        "romance",
+        "psychological",
+        "detective",
+        "drama"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx127401-fVKVbuIE5W5Q.jpg",
+      "synopsis": "Когда жизнь становится невыносимой для Мирая и он пытается покончить с собой, его спасает Нассе, ангел-хранитель, который предлагает ему шанс стать новым богом. Для этого ему придется сразиться с 12 другими кандидатами в течение 999 дней. Мирай, который когда-то был на самом дне, теперь обнаруживает, что обладает сверхъестественными способностями в королевской битве за высший титул.",
+      "year": 2021,
+      "format": "TV",
+      "episodes": 24,
+      "score": 58,
+      "popularity": 131478,
+      "anilistId": 127401,
+      "malId": 44961,
+      "url": "https://anilist.co/anime/127401",
+      "synopsisEn": "When life becomes too much for Mirai to bear and attempts taking his own life, he’s saved by Nasse, a guardian angel who offers him a chance at becoming the new god. To do so, he must face off against 12 other candidates within 999 days. Mirai, who was once at rock bottom, now finds himself with supernatural powers in a battle royale for the highest title."
+    },
+    {
+      "id": "look-back-174788",
+      "title": "Оглянись",
+      "titleOriginal": "Look Back",
+      "titleEnglish": "LOOK BACK",
+      "genres": [
+        "drama",
+        "slice-of-life"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174788-9LsUnn0oEppv.jpg",
+      "synopsis": "Аюму Фуджино — четвероклассница, которая рисует мангу для школьной газеты. Ее искусство делает ее звездой класса, но однажды ей говорят, что Кёмото, ученица, которая отказывается приходить в школу, тоже хотела бы представить мангу для газеты...",
+      "year": 2024,
+      "format": "MOVIE",
+      "episodes": 1,
+      "score": 86,
+      "popularity": 130762,
+      "anilistId": 174788,
+      "malId": 58125,
+      "url": "https://anilist.co/anime/174788",
+      "synopsisEn": "Ayumu Fujino is a fourth grader who draws a manga strip for the school newspaper. Her art makes her the star of the class, but one day she's told that Kyomoto, a student who refuses to come to school, would also like to submit a manga for the paper..."
+    },
+    {
+      "id": "jojo-s-bizarre-adventure-stone-ocean-part-2-146722",
+      "title": "Невероятные приключения ДжоДжо: Каменный океан. Часть 2",
+      "titleOriginal": "JoJo no Kimyou na Bouken: Stone Ocean Part 2",
+      "titleEnglish": "JoJo's Bizarre Adventure: STONE OCEAN Part 2",
+      "genres": [
+        "adventure",
+        "supernatural",
+        "drama"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx146722-hiZU7M33fBhn.jpg",
+      "synopsis": "Наследие семьи Джостаров продолжается вместе с Джолин, когда она и ее товарищи сражаются с новыми пользователями стенда за решеткой тюрьмы Green Dolphin Street.",
+      "year": 2022,
+      "format": "ONA",
+      "episodes": 26,
+      "score": 82,
+      "popularity": 130701,
+      "anilistId": 146722,
+      "malId": 51367,
+      "url": "https://anilist.co/anime/146722",
+      "synopsisEn": "The legacy of the Joestar family continues with Jolyne as she and her companions take on new Stand users behind the bars of Green Dolphin Street Prison."
+    },
+    {
+      "id": "banished-from-the-hero-s-party-i-decided-to-live-a-quiet-lif-126213",
+      "title": "Изгнанный из отряда героя, я решил жить спокойно в глуши",
+      "titleOriginal": "Shin no Nakama ja Nai to Yuusha no Party wo Oidasareta node, Henkyou de Slow Life suru Koto ni shimashita",
+      "titleEnglish": "Banished from the Hero’s Party, I Decided to Live a Quiet Life in the Countryside",
+      "genres": [
+        "adventure",
+        "romance",
+        "slice-of-life",
+        "fantasy"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx126213-cXF3hsCcOipI.jpg",
+      "synopsis": "Героический и могучий искатель приключений мечтает... открыть аптеку? Рэд когда-то был частью отряда Героя, группы, которой суждено спасти мир, сражаясь с Бушующим Повелителем Демонов. Но после того, как его предал товарищ, Рэд надеется начать все заново, открыв небольшую аптеку в сонном городке на границе. Хотя цель сохранить его прошлую жизнь в секрете, это будет непросто... особенно когда прекрасная искательница приключений из его прошлого просит переехать сюда.",
+      "year": 2021,
+      "format": "TV",
+      "episodes": 13,
+      "score": 68,
+      "popularity": 130192,
+      "anilistId": 126213,
+      "malId": 44037,
+      "url": "https://anilist.co/anime/126213",
+      "synopsisEn": "A heroic and mighty adventurer dreams of...opening a pharmacy? Red was once a part of the Hero’s party, a group destined to save the world by fighting the Raging Demon Lord. But after being betrayed by his comrade, Red hopes to start anew by opening a small apothecary in a sleepy town on the frontier. While keeping his past life a secret is the goal, it won’t be easy...especially when a beautiful adventurer from his past asks to move in."
+    },
+    {
+      "id": "natsume-s-book-of-friends-season-1-4081",
+      "title": "Тетрадь дружбы Нацумэ",
+      "titleOriginal": "Natsume Yuujinchou",
+      "titleEnglish": "Natsume's Book of Friends Season 1",
+      "genres": [
+        "supernatural",
+        "drama",
+        "slice-of-life",
+        "fantasy"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx4081-xi08naD69tjr.jpg",
+      "synopsis": "Нацумэ всегда был изгоем, потому что унаследовал от бабушки способность видеть ёкай. Переехав в родной город своей бабушки и случайно освободив ёкая, заточенного в статуе Счастливого Кота, он узнает о «Книге друзей» своей бабушки, которая содержит имена ёкай, которых она победила, и позволяет ее владельцу командовать ёкаем, названным внутри.",
+      "year": 2008,
+      "format": "TV",
+      "episodes": 13,
+      "score": 80,
+      "popularity": 130161,
+      "anilistId": 4081,
+      "malId": 4081,
+      "url": "https://anilist.co/anime/4081",
+      "synopsisEn": "Natsume has always been an outcast because he inherited his grandmother's ability to see yokai. After moving to his grandmother's hometown and accidentally releasing a yokai imprisoned in a Lucky Cat statue, he learns about his grandmother's \"Book of Friends,\" which contains the names of the yokai she defeated, and allows its wielder to command the yokai named within."
+    },
+    {
+      "id": "orb-on-the-movements-of-the-earth-151514",
+      "title": "О движении Земли",
+      "titleOriginal": "Chi. Chikyuu no Undou ni Tsuite",
+      "titleEnglish": "Orb: On the Movements of the Earth",
+      "genres": [
+        "psychological",
+        "drama"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx151514-Y0d82Ah2ZOHX.jpg",
+      "synopsis": "Место действия — Европа XV века. Это было время, когда еретические идеи приводили к сожжению на костре тех, кто обладал таким мышлением за свои убеждения. Ожидается, что главный герой, Рафал, вундеркинд, будет изучать теологию, самый важный предмет того времени, в университете, где он планирует пропустить класс. Однако однажды он встречает загадочного человека и теперь изучает возможную «истину» среди еретических мыслей!",
+      "year": 2024,
+      "format": "TV",
+      "episodes": 25,
+      "score": 86,
+      "popularity": 129127,
+      "anilistId": 151514,
+      "malId": 52215,
+      "url": "https://anilist.co/anime/151514",
+      "synopsisEn": "The setting is 15th-century Europe. It was a time when heretical ideas lead those to who possessed such a mindset to being burned at the stake for their beliefs. The protagonist, Rafał, a child prodigy, is expected to major in theology, the most important subject at the time, at the university where he plans to skip a grade. One day, however, he comes across a mysterious man, and is now studying a possible \"truth\" in the midst of heretical thought!"
     },
     {
       "id": "id-invaded-110350",
@@ -9815,6 +11317,27 @@
       "synopsisEn": "Welcome to Kura, an organization that investigates crime using the Mizuhanome system which senses the drive to kill. Sakaido is a brilliant detective and pilot of the Mizuhanome. To solve a case, he enters the world of the killer's unconscious mind: the id well. In the shadows of brutal and puzzling cases lurks John Walker, the Serial Killer Creator. Where will Sakaido's pursuit lead?"
     },
     {
+      "id": "gate-2-21364",
+      "title": "Врата: там бьются наши воины 2",
+      "titleOriginal": "GATE: Jieitai Kanochi nite, Kaku Tatakaeri Part 2",
+      "titleEnglish": "Gate 2",
+      "genres": [
+        "adventure",
+        "fantasy"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx21364-6ikYd5J46dt0.jpg",
+      "synopsis": "Прошло несколько месяцев после печально известного инцидента в Гиндзе, когда напряженность между Империей и JSDF обострилась в обширном и загадочном «Особом регионе» из-за мирных переговоров. Жадность и любопытство мировых держав также начали расти, поскольку стали известны сообщения о технологических ограничениях архаичных цивилизаций магического царства.",
+      "year": 2016,
+      "format": "TV",
+      "episodes": 12,
+      "score": 75,
+      "popularity": 129105,
+      "anilistId": 21364,
+      "malId": 31637,
+      "url": "https://anilist.co/anime/21364",
+      "synopsisEn": "Several months have passed since the infamous Ginza Incident, with tensions between the Empire and JSDF escalating in the vast and mysterious \"Special Region\" over peace negotiations. The greed and curiosity of the global powers have also begun to grow, as reports about the technological limitations of the magical realm's archaic civilizations come to light."
+    },
+    {
       "id": "kemono-jihen-114085",
       "title": "Kemono Jihen",
       "titleOriginal": "Kemono Jihen",
@@ -9837,6 +11360,27 @@
       "synopsisEn": "Special detective Kohachi Inugami is sent to investigate a grisly phenomenon involving animal corpses near a remote mountain village. But after meeting a strange boy who agrees to help, he discovers cursed supernatural forces at work. Little by little, Inugami uncovers the truth behind the killings and the boy who may not even be human."
     },
     {
+      "id": "tanaka-kun-is-always-listless-21495",
+      "title": "Танака-кун всегда вялый",
+      "titleOriginal": "Tanaka-kun wa Itsumo Kedaruge",
+      "titleEnglish": "Tanaka-kun is Always Listless",
+      "genres": [
+        "school",
+        "slice-of-life"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx21495-I6p0OKzKBFjw.png",
+      "synopsis": "Для старшеклассника Танаки апатия — это образ жизни. Известный своей невнимательностью и способностью заснуть где угодно, Танака молится, чтобы каждый день был таким же спокойным, как и предыдущий, стремясь сохранить свой ленивый образ жизни, насколько это возможно, избегая ситуаций, которые требуют от него напряжения.",
+      "year": 2016,
+      "format": "TV",
+      "episodes": 12,
+      "score": 76,
+      "popularity": 128327,
+      "anilistId": 21495,
+      "malId": 32093,
+      "url": "https://anilist.co/anime/21495",
+      "synopsisEn": "For high school student Tanaka, the act of being listless is a way of life. Known for his inattentiveness and ability to fall asleep anywhere, Tanaka prays that each day will be as uneventful as the last, seeking to preserve his lazy lifestyle however he can by avoiding situations that require him to exert himself."
+    },
+    {
       "id": "gosick-8425",
       "title": "Gosick",
       "titleOriginal": "GOSICK",
@@ -9857,6 +11401,28 @@
       "malId": 8425,
       "url": "https://anilist.co/anime/8425",
       "synopsisEn": "Kazuya Kujou is a foreign student at Saint Marguerite Academy, a luxurious boarding school in the Southern European country of Sauville. Originally from Japan, his jet-black hair and dark brown eyes cause his peers to shun him and give him the nickname \"Black Reaper,\" based on a popular urban legend about the traveler who brings death in the spring. On a day like any other, Kujou visits the school's extravagant library in search of ghost stories."
+    },
+    {
+      "id": "ping-pong-the-animation-20607",
+      "title": "Пинг-понг",
+      "titleOriginal": "Ping Pong THE ANIMATION",
+      "titleEnglish": "Ping Pong the Animation",
+      "genres": [
+        "school",
+        "psychological",
+        "drama"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20607-fIOxVISIl0HY.jpg",
+      "synopsis": "Цукимото Макото (по прозвищу Улыбка) — тихий старшеклассник, друживший с громким и энергичным Хосино Юката (по прозвищу Пеко). Они оба ходят в клуб настольного тенниса и очень хороши в этом, хотя личность Смайла не позволяет ему выиграть у Пеко. Однако учитель клуба замечает талант Смайла и пытается научить его спортивному упорству.",
+      "year": 2014,
+      "format": "TV",
+      "episodes": 11,
+      "score": 86,
+      "popularity": 127447,
+      "anilistId": 20607,
+      "malId": 22135,
+      "url": "https://anilist.co/anime/20607",
+      "synopsisEn": "Tsukimoto Makoto (nicknamed Smile) is a quiet high-schooler who's been friends with the loud and energetic Hoshino Yukata (nicknamed Peko). They're both in the table tennis club and are very good at it, though Smile's personality prevents him from winning against Peko. The club teacher however notices Smile's talent and tries to make him gain some sportive tenacity."
     },
     {
       "id": "combatants-will-be-dispatched-116588",
@@ -9993,6 +11559,116 @@
       "synopsisEn": "Cyberpunk: Edgerunners 2 pulls you back into Night City, where lives become entangled to the extreme. Weak, a washed-up cyberpunk legend, is now forced to live without chrome as he searches for a sense of purpose in a world that’s passed him by. Meanwhile, the deadly nomad D sets out on a path to revenge that brings him close to corpo secrets never meant to be found."
     },
     {
+      "id": "wistoria-wand-and-sword-season-2-182300",
+      "title": "Вистория: Меч и жезл 2",
+      "titleOriginal": "Tsue to Tsurugi no Wistoria Season 2",
+      "titleEnglish": "Wistoria: Wand and Sword Season 2",
+      "genres": [
+        "adventure",
+        "drama",
+        "fantasy"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx182300-IYkq5KrkQq1V.jpg",
+      "synopsis": "Уилл, неудачливый студент магической академии, не умеющий использовать магию, стремится присоединиться к магам высшего уровня, Магии Вандер, чтобы выполнить обещание, данное своей подруге детства Эльфарии. Поскольку он владеет мечом вместо палочки, его способности постепенно признаются в академии. Во время общестуденческой тренировки в подземелье, которую он проводит с Лианной и другими лучшими учениками своего курса, они попадают в засаду таинственного мага.",
+      "year": 2026,
+      "format": "TV",
+      "episodes": 12,
+      "score": 82,
+      "popularity": 126448,
+      "anilistId": 182300,
+      "malId": 59983,
+      "url": "https://anilist.co/anime/182300",
+      "synopsisEn": "Will, a washout student at a magical academy who is unable to use magic, is aiming to join the top tier of mages, the Magia Vander, to fulfill a promise to his childhood friend, Elfaria. Wielding a sword instead of a wand, his abilities are slowly recognized within the academy. During the all-student praxis dungeon training he undertakes with Lihanna and the other top students of his year, they are ambushed by a mysterious mage."
+    },
+    {
+      "id": "tower-of-god-season-2-153406",
+      "title": "Башня Бога 2",
+      "titleOriginal": "Kami no Tou: Tower of God 2nd Season",
+      "titleEnglish": "Tower of God Season 2",
+      "genres": [
+        "adventure",
+        "detective",
+        "drama",
+        "fantasy"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx153406-dU2RLKgMUF2U.jpg",
+      "synopsis": "Джа Ваннань, похоже, не может пройти 20-й этаж. Даже после того, как он терпит неудачу снова и снова, он отказывается сдаваться. В своем путешествии он встречает загадочного и могущественного персонажа по имени Виоле. Ваннань приглашает Виоле присоединиться к его команде постоянных клиентов. Их путешествие продолжается, и на каждом шагу возникают новые испытания.",
+      "year": 2024,
+      "format": "TV",
+      "episodes": 26,
+      "score": 66,
+      "popularity": 126182,
+      "anilistId": 153406,
+      "malId": 52635,
+      "url": "https://anilist.co/anime/153406",
+      "synopsisEn": "Ja Wangnan can’t seem to pass the 20th Floor. Even after failing time and time again, he refuses to give up. On his journey, he meets a mysterious and powerful character named Viole. Wangnan invites Viole to join his team of Regulars. Their journey continues with new challenges at every turn."
+    },
+    {
+      "id": "skeleton-knight-in-another-world-132474",
+      "title": "Рыцарь-скелет вступает в параллельный мир",
+      "titleOriginal": "Gaikotsu Kishi-sama, Tadaima Isekai e Odekakechuu",
+      "titleEnglish": "Skeleton Knight in Another World",
+      "genres": [
+        "adventure",
+        "fantasy"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx132474-J2ECHSPkfb9g.jpg",
+      "synopsis": "Однажды геймер играл в видеоигры, пока не заснул… а когда проснулся, то оказался в игровом мире – в виде скелета! Оснащенный мощным оружием и доспехами своего аватара, но остающийся пугающим скелетообразным обликом, Арк должен найти себе место в этой новой, фантастической стране. Все его надежды на спокойную жизнь рушатся, когда его пути пересекаются с прекрасной эльфийской воительницей, отправляющей его в путешествие, полное конфликтов и приключений.",
+      "year": 2022,
+      "format": "TV",
+      "episodes": 12,
+      "score": 70,
+      "popularity": 126092,
+      "anilistId": 132474,
+      "malId": 48760,
+      "url": "https://anilist.co/anime/132474",
+      "synopsisEn": "One day, a gamer played video games until he fell asleep…and when he woke up, he found himself in the game world–as a skeleton! Equipped with the powerful weapons and armor of his avatar but stuck with its frightening skeletal appearance, Arc has to find a place for himself in this new, fantastical land. All his hopes for a quiet life are dashed when he crosses paths with a beautiful elven warrior, setting him on a journey full of conflict and adventure."
+    },
+    {
+      "id": "bleach-thousand-year-blood-war-the-conflict-169755",
+      "title": "Блич: Тысячелетняя кровавая война — Конфликт",
+      "titleOriginal": "BLEACH: Sennen Kessen-hen - Soukoku-tan",
+      "titleEnglish": "BLEACH: Thousand-Year Blood War - The Conflict",
+      "genres": [
+        "adventure",
+        "supernatural"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx169755-Rqb7MjnzdTc6.jpg",
+      "synopsis": "После впечатляющей битвы с Ичибэем Хёсубэ — лидером Королевской гвардии Общества душ — могущественный Яхве переходит к финальной стадии своего генерального плана. Он стремится убить Короля душ, существо, само существование которого поддерживает статус-кво трех миров: Уэко Мундо, Общества душ и царства людей, из которого родом Ичиго Куросаки и его ближайшие друзья.",
+      "year": 2024,
+      "format": "TV",
+      "episodes": 14,
+      "score": 86,
+      "popularity": 125853,
+      "anilistId": 169755,
+      "malId": 56784,
+      "url": "https://anilist.co/anime/169755",
+      "synopsisEn": "After an awe-inspiring battle with Ichibei Hyousube—leader of the Soul Society's Royal Guard—the powerful Yhwach moves into the final stage of his master plan. He aims to slay the Soul King, the being whose very existence maintains the status quo of three worlds: Hueco Mundo, the Soul Society, and the realm of humans that Ichigo Kurosaki and his closest friends hail from."
+    },
+    {
+      "id": "owarimonogatari-second-season-21745",
+      "title": "Повесть о конце: Второй сезон",
+      "titleOriginal": "Owarimonogatari (Ge)",
+      "titleEnglish": "Owarimonogatari Second Season",
+      "genres": [
+        "supernatural",
+        "romance",
+        "psychological",
+        "detective"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx21745-VrhhJjZNdBXV.png",
+      "synopsis": "Третий и «последний сезон» серии «Моногатари», часть 4/5. Содержит арки «Ад Майой», «Свидание Хитаги» и «Уги Дарк» из легких романов Оваримоногатари. Коёми просыпается и видит перед собой Майои Хатикудзи, девушку, которая предположительно отправилась в загробную жизнь. Она сообщает Коёми, что сейчас они находятся в Авичи, самом нижнем уровне ада.",
+      "year": 2017,
+      "format": "TV",
+      "episodes": 7,
+      "score": 89,
+      "popularity": 125587,
+      "anilistId": 21745,
+      "malId": 35247,
+      "url": "https://anilist.co/anime/21745",
+      "synopsisEn": "Third and “Final Season” of the Monogatari Series, part 4/5. Contains the arcs Mayoi Hell, Hitagi Rendezvous, and Ougi Dark from the Owarimonogatari light novels. Koyomi wakes up to see Mayoi Hachikuji before him, the girl who supposedly had gone to the afterlife. She tells Koyomi that they are currently in Avichi, the lowest levels of hell."
+    },
+    {
       "id": "evangelion-3-0-you-can-not-redo-3785",
       "title": "Evangelion: 3.0 You Can (Not) Redo",
       "titleOriginal": "Evangelion Shin Movie: Kyuu",
@@ -10013,6 +11689,27 @@
       "malId": 3785,
       "url": "https://anilist.co/anime/3785",
       "synopsisEn": "14 years after third impact, Ikari Shinji awakens to a world he does not remember. He hasn't aged. Much of Earth is laid in ruins, Nerv has been dismantled, and people who he once protected have turned against him. Befriending the enigmatic Nagisa Kaworu, Shinji continues the fight against the angels and realizes the fighting is far from over, even when it could be against his former allies."
+    },
+    {
+      "id": "tsukimichi-moonlit-fantasy-season-2-139518",
+      "title": "Цукимити: Лунное путешествие в другой мир 2",
+      "titleOriginal": "Tsuki ga Michibiku Isekai Douchuu 2nd Season",
+      "titleEnglish": "TSUKIMICHI -Moonlit Fantasy- Season 2",
+      "genres": [
+        "adventure",
+        "fantasy"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx139518-GZWYKM8Kg1S2.png",
+      "synopsis": "После того, как Макото Мисуми побеждает Мицуруги и Софию Булгу, человечество на время спасается от атакующей армии демонов. Богиня знает о растущей силе Макото и считает его не столько помехой, сколько соперником. Макото продолжает свой путь к дальнейшему расширению своего сообщества изгоев и общению с большим количеством людей. Но будет ли он достаточно силен, чтобы сдержать надвигающуюся бурю?",
+      "year": 2024,
+      "format": "TV",
+      "episodes": 25,
+      "score": 78,
+      "popularity": 125375,
+      "anilistId": 139518,
+      "malId": 49889,
+      "url": "https://anilist.co/anime/139518",
+      "synopsisEn": "After Makoto Misumi defeats Mitsurugi and Sofia Bulga, humanity is saved from the attacking demon army—for the time being. The goddess is aware of Makoto’s growing power, and she sees him as less of a nuisance and more of a rival. Makoto continues his journey to further expand his community of outcasts and connect with more hyumans. But will he be strong enough to hold off the coming storm?"
     },
     {
       "id": "chihayafuru-10800",
@@ -10108,6 +11805,27 @@
       "synopsisEn": "It is the year 20XX. Earth has been assaulted by monsters known as 'the Enemy of Humanity'. In order to deal with this threat, special schools comprised of teenagers with extraordinary abilities were formed. These people, who came to be known as 'the Talented', have abilities that defy the rules of reality. Among these superpowered individuals was an outlier, someone who was sent to one of these schools despite having no innate special abilities whatsoever."
     },
     {
+      "id": "reincarnated-as-a-sword-139587",
+      "title": "Перерождение в меч",
+      "titleOriginal": "Tensei Shitara Ken Deshita",
+      "titleEnglish": "Reincarnated as a Sword",
+      "genres": [
+        "adventure",
+        "fantasy"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx139587-rbZVcigCRtHY.jpg",
+      "synopsis": "Некоторые главные герои исекай перевоплощаются в могущественных воинов или опытных волшебников, но наш главный герой переродился в другой жизни как разумный меч! He’s taken up by Fran, a desperate girl fleeing evil-doers intent on selling her into slavery. With her new weapon’s help and guidance, she’s able to strike down her captors and secure her freedom.",
+      "year": 2022,
+      "format": "ONA",
+      "episodes": 12,
+      "score": 74,
+      "popularity": 124604,
+      "anilistId": 139587,
+      "malId": 49891,
+      "url": "https://anilist.co/anime/139587",
+      "synopsisEn": "Some isekai protagonists are reincarnated as powerful warriors or skilled wizards, but our protagonist was reborn in another life as a sentient sword! He’s taken up by Fran, a desperate girl fleeing evil-doers intent on selling her into slavery. With her new weapon’s help and guidance, she’s able to strike down her captors and secure her freedom."
+    },
+    {
       "id": "classroom-of-the-elite-4th-season-second-year-first-semester-180745",
       "title": "Classroom of the Elite 4th Season: Second Year, First Semester",
       "titleOriginal": "Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e 4th Season 2-nensei-hen Ichi Gakki",
@@ -10128,6 +11846,52 @@
       "malId": 59708,
       "url": "https://anilist.co/anime/180745",
       "synopsisEn": "As Ayanokouji and his classmates begin their second year at the Advanced Nurturing High School, they’re greeted by a fresh gauntlet of exams and a fresh batch of rather unique first-year students. They’ll have to get to know each other quickly, because the first special exam pairs the first-years with the second-years on a written test—with only the second-years facing expulsion if their team performs poorly! Worse yet?"
+    },
+    {
+      "id": "hanamonogatari-20593",
+      "title": "Повесть о цветке",
+      "titleOriginal": "Hanamonogatari",
+      "titleEnglish": "Hanamonogatari",
+      "genres": [
+        "supernatural",
+        "psychological",
+        "detective",
+        "drama"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20593-ri6S0Qt3mFkv.jpg",
+      "synopsis": "Второй сезон сериала «Моногатари», часть 2/2. Содержит арку Дьявол Суруга из ранобэ «Ханамоногатари». Теперь, когда Коёми Арараги и Хитаги Сенджогахара закончили обучение, в частной средней школе Наоэцу осталось мало знакомых лиц. Один из них — Суруга Канбару, обладатель Обезьяньей лапы.",
+      "year": 2014,
+      "format": "TV",
+      "episodes": 5,
+      "score": 78,
+      "popularity": 124565,
+      "anilistId": 20593,
+      "malId": 21855,
+      "url": "https://anilist.co/anime/20593",
+      "synopsisEn": "Second season of the Monogatari Series, part 2/2. Contains the arc Suruga Devil from the Hanamonogatari light novel. Now that Koyomi Araragi and Hitagi Senjougahara have graduated, few familiar faces remain at Naoetsu Private High School. One of them is Suruga Kanbaru, holder of the Monkey's Paw."
+    },
+    {
+      "id": "kimi-ni-todoke-from-me-to-you-season-2-9656",
+      "title": "Дотянуться до тебя 2",
+      "titleOriginal": "Kimi ni Todoke 2ND SEASON",
+      "titleEnglish": "Kimi ni Todoke: From Me to You Season 2",
+      "genres": [
+        "romance",
+        "school",
+        "drama",
+        "slice-of-life"
+      ],
+      "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx9656-vckh2wNj3FwY.jpg",
+      "synopsis": "Савако Куронума и ее друзья только начали второй год обучения в средней школе и снова учатся в одном классе. Чтобы сделать ситуацию еще интереснее, ученик мужского пола, недавно переведенный в их класс, сидит рядом с Куронумой и проявляет к ней интерес. С какими препятствиями столкнутся Савако и Казехая в следующий раз? Примечание. Включает эпизод 0 «Kataomoi/A Crush».",
+      "year": 2011,
+      "format": "TV",
+      "episodes": 13,
+      "score": 79,
+      "popularity": 124066,
+      "anilistId": 9656,
+      "malId": 9656,
+      "url": "https://anilist.co/anime/9656",
+      "synopsisEn": "Sawako Kuronuma and her friends have just begun their second year of high school and they are in the same class together again. To make matters more interesting a male student newly transferred into their class is seated right next to Kuronuma and has taken an interest in her. What hurdles will Sawako and Kazehaya face next? Note: Includes episode 0, \"Kataomoi/A Crush\"."
     },
     {
       "id": "ajin-demi-human-21341",
@@ -21954,5 +23718,6 @@
     "translatedAt": "2026-11-19T15:26:29.575Z",
     "synopsisRu": 980,
     "total": 980
-  }
+  },
+  "updatedAt": "2026-11-25T17:28:46.164Z"
 }
