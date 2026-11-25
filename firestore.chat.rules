@@ -1,0 +1,50 @@
+// Правила Firestore для чата сообщества (js/chat-core.js → коллекция chat_messages).
+//
+// КАК ПРИМЕНИТЬ: Firebase Console → Firestore Database → Rules. Скопируйте блок
+// «match /chat_messages/{messageId} { … }» ВНУТРЬ уже существующего блока
+//   match /databases/{database}/documents { … }
+// рядом с вашими правилами для users и festivals, затем нажмите «Опубликовать».
+//
+// Файл намеренно НЕ подключён в firebase.json: команда `firebase deploy --only firestore:rules`
+// заменила бы ВСЕ правила проекта этим файлом и удалила бы ваши правила для users / festivals.
+//
+// Что проверяется:
+//   • читать могут все (в том числе гости);
+//   • создавать — только вошедшие (request.auth != null), от своего имени (uid = auth.uid);
+//   • текст — строка, не пустая после обрезки пробелов, не длиннее 500 символов;
+//   • имя — строка 1–40 символов; время — серверное (request.time), подделать нельзя;
+//   • в документе только поля text, uid, name, createdAt;
+//   • редактировать сообщения нельзя никому;
+//   • удалять любые сообщения может только администратор — UID в функции isChatAdmin()
+//     (тот же UID записан в js/chat-core.js → ADMIN_UIDS).
+
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    match /chat_messages/{messageId} {
+      // Администратор чата (Firebase Console → Authentication → UID пользователя)
+      function isChatAdmin() {
+        return request.auth != null && request.auth.uid == 'rZMCKbIfA3NZX7Nj1YiXCB4aib22';
+      }
+
+      allow read: if true;
+
+      allow create: if request.auth != null
+        && request.resource.data.keys().hasOnly(['text', 'uid', 'name', 'createdAt'])
+        && request.resource.data.keys().hasAll(['text', 'uid', 'name', 'createdAt'])
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.text is string
+        && request.resource.data.text.trim().size() > 0
+        && request.resource.data.text.size() <= 500
+        && request.resource.data.name is string
+        && request.resource.data.name.size() > 0
+        && request.resource.data.name.size() <= 40
+        && request.resource.data.createdAt == request.time;
+
+      allow update: if false;
+      allow delete: if isChatAdmin();
+    }
+
+  }
+}

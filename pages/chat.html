@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Чат сообщества — Anime Fan Club</title>
+    <meta name="description" content="Живой чат фанатов аниме: читать могут все, писать — зарегистрированные пользователи.">
+    <link rel="icon" href="../img/logo-32.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="../img/logo-192.png" type="image/png" sizes="192x192">
+    <link rel="apple-touch-icon" href="../img/logo-180.png">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/site-search.css">
+    <link rel="stylesheet" href="../css/theme.css">
+    <link rel="stylesheet" href="../css/palette.css">
+    <link rel="stylesheet" href="../css/chat.css">
+    <style>
+        :root {
+            --bg: #0a0506;
+            --panel: rgba(20, 9, 11, 0.96);
+            --red: #c8102e;
+            --red-deep: #8f0e22;
+            --glow: #ff2440;
+            --text: #f2e4e5;
+            --muted: #b9a0a3;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            font-family: 'Roboto', 'Segoe UI', sans-serif;
+            color: var(--text);
+            background:
+                radial-gradient(ellipse 90% 420px at 50% -120px, rgba(160, 10, 30, 0.35), transparent 70%),
+                var(--bg);
+        }
+
+        /* ───── Шапка (как на странице «Контакты») ───── */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 16px;
+            background: var(--panel);
+            border-bottom: 1px solid rgba(140, 10, 26, 0.5);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px 18px;
+        }
+
+        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .logo-img { display: block; width: 44px; height: 44px; flex-shrink: 0; }
+
+        .logo-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--glow);
+            text-shadow: 0 0 14px rgba(200, 16, 46, 0.8);
+            white-space: nowrap;
+        }
+
+        .top-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+
+        .btn-home {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 38px;
+            padding: 8px 16px;
+            border: 1px solid rgba(255, 36, 64, 0.35);
+            border-radius: 11px;
+            background: var(--red-deep);
+            color: #fff;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+
+        .btn-home:hover { background: var(--red); }
+        .btn-home[aria-current="page"] { background: var(--red); box-shadow: 0 0 12px rgba(255, 36, 64, 0.35); }
+
+        .site-search-icon { color: var(--glow); }
+        .site-search-input { background: rgba(10, 5, 6, 0.9); }
+        .site-search-input:hover { border-color: rgba(200, 16, 46, 0.6); }
+        .site-search-input:focus { border-color: var(--red); box-shadow: 0 0 12px rgba(200, 16, 46, 0.4); }
+
+        /* ───── Окно чата на всю высоту ───── */
+        main {
+            flex: 1;
+            display: flex;
+            min-height: 0;
+            width: 100%;
+            max-width: min(1000px, calc(100% - 40px));
+            margin: 20px auto;
+        }
+
+        .chat-room {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 460px;
+            border: 1px solid rgba(140, 10, 26, 0.55);
+            border-radius: 16px;
+            background: var(--panel);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 40, 64, 0.08);
+            overflow: hidden;
+        }
+
+        .room-head {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px 16px;
+            padding: 16px 20px;
+            border-bottom: 1px solid rgba(140, 10, 26, 0.5);
+            background: linear-gradient(180deg, rgba(200, 16, 46, 0.16), rgba(20, 9, 11, 0));
+        }
+
+        .room-title { flex: 1; min-width: 200px; }
+
+        .room-title h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(20px, 3.4vw, 26px);
+            letter-spacing: 0.03em;
+            color: var(--red);
+            text-shadow: 0 0 16px rgba(255, 36, 64, 0.4);
+        }
+
+        .room-sub { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; margin-top: 4px; font-size: 13px; color: var(--muted); }
+
+        .room-user {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .room-user-name { font-size: 14px; color: var(--muted); }
+        .room-user-name b { color: #ff8a99; }
+        .room-user[hidden] { display: none; }
+
+        .chat-room .chat-list { flex: 1; min-height: 0; padding: 18px 20px; }
+        .chat-room .chat-msg { max-width: min(78%, 640px); }
+        .chat-room .chat-msg-text { font-size: 15px; }
+
+        .room-foot { padding: 14px 20px 16px; border-top: 1px solid rgba(140, 10, 26, 0.45); background: #0a0506; }
+        .room-foot .chat-guest { flex-direction: row; justify-content: center; flex-wrap: wrap; font-size: 15px; }
+        .chat-form .chat-input { min-height: 46px; }
+        .chat-form .chat-btn { min-height: 46px; padding: 8px 20px; }
+        .chat-hint { color: #8c7478; }
+
+        footer {
+            padding: 16px;
+            text-align: center;
+            font-size: 13px;
+            color: #8c7478;
+            background: #0c0506;
+            border-top: 1px solid rgba(140, 10, 26, 0.35);
+        }
+
+        footer a { color: var(--red); }
+
+        /* на высоком экране чат занимает всё окно, страница не прокручивается */
+        @media (min-height: 700px) and (min-width: 701px) {
+            body { height: 100vh; overflow: hidden; }
+            .chat-room { min-height: 0; }
+        }
+
+        @media (max-width: 700px) {
+            header { padding: 12px; }
+            .logo-text { font-size: 21px; }
+            .header-actions .site-search { flex-basis: 100%; }
+            .header-actions .site-search-input,
+            .header-actions .site-search-input:focus { width: 100%; height: 44px; font-size: 16px; }
+            .btn-home { min-height: 42px; padding: 8px 12px; font-size: 14px; }
+            main { width: auto; max-width: none; margin: 12px 10px; }
+            .chat-room { height: calc(100dvh - 24px); min-height: 420px; border-radius: 14px; }
+            .room-head { padding: 12px 14px; gap: 8px; }
+            .room-title { min-width: 0; flex-basis: 100%; }
+            .room-sub span:last-child { display: none; }
+            .room-user { width: 100%; }
+            .room-user-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 13px; }
+            .room-user .chat-btn { min-height: 34px; padding: 4px 12px; font-size: 13px; }
+            .chat-room .chat-list { padding: 14px 12px; }
+            .chat-room .chat-msg { max-width: 90%; }
+            .room-foot { padding: 12px; }
+            .chat-hint { display: none; }
+        }
+    </style>
+</head>
+<body data-no-chat-widget>
+    <header>
+        <div class="header-actions">
+            <a class="logo" href="../index.html" aria-label="Anime Fan Club — на главную">
+                <img class="logo-img" src="../img/logo-header.webp" alt="" width="44" height="44">
+                <span class="logo-text">Anime Fan Club</span>
+            </a>
+            <nav class="top-nav" aria-label="Разделы сайта">
+                <a class="btn-home" href="../index.html">На главную</a>
+                <a class="btn-home" href="movies.html">Каталог</a>
+                <a class="btn-home" href="chat.html" aria-current="page">Чат</a>
+                <a class="btn-home" href="contacts.html">Контакты</a>
+            </nav>
+            <div data-site-search></div>
+        </div>
+    </header>
+
+    <main>
+        <section class="chat-room" aria-labelledby="roomTitle">
+            <div class="room-head">
+                <div class="room-title">
+                    <h1 id="roomTitle">Чат сообщества</h1>
+                    <div class="room-sub">
+                        <span class="chat-status" id="chatStatus" data-state="connecting">Подключаемся…</span>
+                        <span>Будьте вежливы и не спойлерите без предупреждения</span>
+                    </div>
+                </div>
+                <div class="room-user" id="roomUser" hidden>
+                    <span class="room-user-name">Вы вошли как <b id="roomUserName"></b></span>
+                    <a class="chat-btn ghost" href="login.html">Профиль</a>
+                    <button type="button" class="chat-btn ghost" id="logoutBtn">Выйти</button>
+                </div>
+            </div>
+
+            <div class="chat-list" id="chatList" role="log" aria-live="polite" aria-label="Сообщения чата">
+                <p class="chat-note">Загружаем сообщения…</p>
+            </div>
+
+            <div class="room-foot">
+                <!-- гость: только чтение -->
+                <div class="chat-guest" id="chatGuest">
+                    <span>Писать в чат могут только зарегистрированные пользователи</span>
+                    <a class="chat-btn" id="loginLink" href="login.html">Войти / Регистрация</a>
+                </div>
+                <!-- вошедший пользователь -->
+                <form class="chat-form" id="chatForm" hidden>
+                    <div class="chat-form-row">
+                        <textarea class="chat-input" id="chatInput" rows="1" maxlength="500" placeholder="Напишите сообщение…" aria-label="Сообщение в чат"></textarea>
+                        <button type="submit" class="chat-btn" id="sendBtn">Отправить</button>
+                    </div>
+                    <div class="chat-form-meta">
+                        <span class="chat-form-error" id="chatError" aria-live="polite"></span>
+                        <span><span class="chat-hint">Enter — отправить, Shift+Enter — новая строка · </span><span id="chatCounter">0/500</span></span>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2026 Anime Fan Club · <a href="contacts.html">О проекте и контакты</a>
+    </footer>
+
+    <script src="../js/movies-data.js"></script>
+    <script src="../js/anime-search.js"></script>
+    <script src="../js/site-search.js"></script>
+    <script src="../js/chat-core.js"></script>
+    <script>
+        (function () {
+            const Chat = window.AnimeChat;
+            const listEl = document.getElementById("chatList");
+            const statusEl = document.getElementById("chatStatus");
+            const guest = document.getElementById("chatGuest");
+            const form = document.getElementById("chatForm");
+            const input = document.getElementById("chatInput");
+            const sendBtn = document.getElementById("sendBtn");
+            const errorEl = document.getElementById("chatError");
+            const counterEl = document.getElementById("chatCounter");
+            const roomUser = document.getElementById("roomUser");
+            let lastList = [];
+            // ошибка удаления сообщения (кнопка есть только у администратора) — под полем ввода
+            const renderOpts = { days: true, onError: text => { errorEl.textContent = text; } };
+            let cooldownTimer = null;
+
+            input.maxLength = Chat.MAX_LEN;
+            document.getElementById("loginLink").href = Chat.loginUrl();
+
+            function setStatus(state) {
+                statusEl.dataset.state = state;
+                statusEl.textContent = state === "online" ? "В сети" : state === "offline" ? "Нет соединения" : "Подключаемся…";
+            }
+
+            Chat.subscribe(150, list => {
+                lastList = list;
+                Chat.render(listEl, list, renderOpts);
+            }, err => {
+                const p = document.createElement("p");
+                p.className = "chat-note is-error";
+                p.textContent = Chat.errorText(err);
+                listEl.replaceChildren(p);
+            }, setStatus);
+
+            window.addEventListener("offline", () => setStatus("offline"));
+            window.addEventListener("online", () => setStatus("connecting"));
+
+            Chat.onUser(user => {
+                guest.hidden = !!user;
+                form.hidden = !user;
+                roomUser.hidden = !user;
+                document.getElementById("roomUserName").textContent = user ? user.name : "";
+                if (lastList.length) Chat.render(listEl, lastList, renderOpts);
+            });
+
+            document.getElementById("logoutBtn").addEventListener("click", () => {
+                Chat.signOut().catch(err => { errorEl.textContent = Chat.errorText(err); });
+            });
+
+            function autosize() {
+                input.style.height = "auto";
+                input.style.height = Math.min(input.scrollHeight, 140) + "px";
+                counterEl.textContent = input.value.length + "/" + Chat.MAX_LEN;
+                counterEl.classList.toggle("is-over", input.value.length >= Chat.MAX_LEN);
+            }
+
+            input.addEventListener("input", () => { autosize(); errorEl.textContent = ""; });
+            input.addEventListener("keydown", e => {
+                if (e.key === "Enter" && !e.shiftKey && !e.isComposing) { e.preventDefault(); form.requestSubmit(); }
+            });
+
+            // Кулдаун: после отправки кнопка недоступна несколько секунд (защита от флуда)
+            function startCooldown() {
+                let left = Math.ceil(Chat.COOLDOWN_MS / 1000);
+                sendBtn.disabled = true;
+                sendBtn.textContent = left + " с";
+                clearInterval(cooldownTimer);
+                cooldownTimer = setInterval(() => {
+                    left -= 1;
+                    if (left <= 0) {
+                        clearInterval(cooldownTimer);
+                        sendBtn.disabled = false;
+                        sendBtn.textContent = "Отправить";
+                    } else sendBtn.textContent = left + " с";
+                }, 1000);
+            }
+
+            form.addEventListener("submit", e => {
+                e.preventDefault();
+                if (sendBtn.disabled) return;
+                sendBtn.disabled = true;
+                Chat.send(input.value).then(() => {
+                    input.value = "";
+                    autosize();
+                    listEl.scrollTop = listEl.scrollHeight;
+                    startCooldown();
+                }).catch(err => {
+                    errorEl.textContent = Chat.errorText(err);
+                    if (err && err.message === "cooldown") startCooldown();
+                    else sendBtn.disabled = false;
+                });
+            });
+        })();
+    </script>
+</body>
+</html>

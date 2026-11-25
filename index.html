@@ -387,6 +387,7 @@
   <link rel="stylesheet" href="css/site-search.css">
   <link rel="stylesheet" href="css/theme.css">
   <link rel="stylesheet" href="css/palette.css">
+  <link rel="stylesheet" href="css/chat.css">
 </head>
 <body class="fade-in">
 
@@ -481,7 +482,8 @@
 
       <a href="pages/favorites.html">Избранное</a>
       <a href="pages/ssylky.html">AnimeVerse</a>
-      <a href="#">Контакты</a>
+      <a href="pages/chat.html">Чат</a>
+      <a href="pages/contacts.html">Контакты</a>
     </nav>
   </header>
 
@@ -559,7 +561,7 @@
   </section>
 
   <footer>
-    &copy; 2026 Anime Fan Club. Контакты: <a href="#">info@animefan.com</a>
+    &copy; 2026 Anime Fan Club · <a href="pages/contacts.html">О проекте и контакты</a>
   </footer>
 
   <canvas id="stars"></canvas>
@@ -727,5 +729,8 @@
 <!-- поиск в шапке: общий движок (аниме + фильмы, синонимы) и строка с подсказками -->
 <script src="js/anime-search.js"></script>
 <script src="js/site-search.js"></script>
+<!-- чат сообщества: кнопка в правом нижнем углу (js/chat-core.js + js/chat-widget.js) -->
+<script src="js/chat-core.js" defer></script>
+<script src="js/chat-widget.js" defer></script>
 </body>
 </html>
