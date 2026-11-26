@@ -35,7 +35,7 @@
             align-items: stretch;
             gap: 20px;
             width: 96%;
-            max-width: 1440px;
+            max-width: min(1890px, calc(100% - 48px));
             min-height: calc(100vh - 32px);
             margin: 16px auto;
         }
@@ -252,7 +252,7 @@
         .movie-description {
             font-size: 17px;
             color: #f2e4e5;
-            max-width: 78ch;
+            max-width: 96ch;
         }
 
         .movie-description p + p {
@@ -301,7 +301,7 @@
         }
 
         .movie-source {
-            max-width: 78ch;
+            max-width: 96ch;
             margin-top: 22px;
             padding-top: 14px;
             border-top: 1px solid rgba(255, 255, 255, 0.08);

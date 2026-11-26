@@ -161,7 +161,7 @@
       grid-template-columns: minmax(0, 1fr) auto;
       align-items: center;
       gap: 40px;
-      max-width: 1200px;
+      max-width: 1600px;
       margin: 0 auto;
     }
     .banner-content { text-align: left; }
@@ -251,6 +251,19 @@
     .news-more { display: inline-block; margin-top: 4px; font-weight: bold; font-size: 14px; color: #c8102e; }
     a.news-item:hover .news-more { text-decoration: underline; }
     .news-all { margin: 26px 0 0; }
+    /* «Новости аниме» на широком экране — сетка карточек, а не узкая колонка посередине */
+    @media (min-width: 900px) {
+      .news-section {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+        gap: 22px;
+        max-width: min(1600px, calc(100% - 48px));
+        margin: 0 auto;
+        box-sizing: border-box;
+      }
+      .news-section > h2, .news-section > .news-all { grid-column: 1 / -1; }
+      .news-section > .news-item { max-width: none; margin: 0; }
+    }
     .news-all a { color: #ff2440; font-weight: bold; }
 
     /* Подвал */
