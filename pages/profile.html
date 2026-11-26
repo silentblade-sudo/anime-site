@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль Игрока — Anime Fan Club</title>
+    <meta name="description" content="Терминал Системы: уровень, ранг, квесты, звания, рамки и награды Игрока Anime Fan Club.">
+    <link rel="icon" href="../img/logo-32.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="../img/logo-192.png" type="image/png" sizes="192x192">
+    <link rel="apple-touch-icon" href="../img/logo-180.png">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/site-search.css">
+    <link rel="stylesheet" href="../css/back-to-top.css">
+    <link rel="stylesheet" href="../css/theme.css">
+    <link rel="stylesheet" href="../css/palette.css">
+    <link rel="stylesheet" href="../css/chat.css">
+    <link rel="stylesheet" href="../css/player.css">
+    <link rel="stylesheet" href="../css/profile.css">
+</head>
+<body>
+    <header>
+        <div class="header-actions">
+            <a class="logo" href="../index.html" aria-label="Anime Fan Club — на главную">
+                <img class="logo-img" src="../img/logo-header.webp" alt="" width="44" height="44">
+                <span class="logo-text">Anime Fan Club</span>
+            </a>
+            <nav class="top-nav" aria-label="Разделы сайта">
+                <a class="btn-home" href="../index.html">На главную</a>
+                <a class="btn-home" href="movies.html">Каталог</a>
+                <a class="btn-home" href="chat.html">Чат</a>
+                <a class="btn-home" href="ssylky.html">AnimeVerse</a>
+            </nav>
+            <a class="player-chip is-guest" data-player-chip href="login.html">👤 Вход</a>
+            <div data-site-search></div>
+        </div>
+    </header>
+
+    <main class="sys" aria-live="polite">
+        <!-- Загрузка -->
+        <section class="sys-window sys-gate" id="sysLoading">
+            <div class="sys-bar"><span>[ СИСТЕМА ]</span></div>
+            <p class="sys-text">Синхронизация с Системой…</p>
+        </section>
+
+        <!-- Гость -->
+        <section class="sys-window sys-gate" id="sysGate" hidden>
+            <div class="sys-bar"><span>[ ОШИБКА ДОСТУПА ]</span></div>
+            <p class="sys-text">Игрок не опознан. Войдите в аккаунт, чтобы открыть Терминал Системы: уровень, квесты, звания и награды.</p>
+            <a class="sys-btn primary" id="gateLogin" href="login.html">Войти / Регистрация</a>
+        </section>
+
+        <div id="playerUi" hidden>
+            <!-- ═════ Уведомление Системы: статус ═════ -->
+            <section class="sys-window" aria-labelledby="noticeTitle">
+                <div class="sys-bar" id="noticeTitle"><span>[ УВЕДОМЛЕНИЕ СИСТЕМЫ ]</span></div>
+                <div class="status-grid">
+                    <span class="pf-avatar pf-avatar-xl pf-frame-common" id="bigAvatar" aria-hidden="true">?</span>
+                    <div>
+                        <p class="welcome"><span id="welcomeText"></span><span class="cursor" aria-hidden="true"></span></p>
+                        <h1 class="p-name" id="pName">Игрок</h1>
+                        <p class="p-title" id="pTitle"></p>
+                    </div>
+                    <div class="p-level">
+                        <div class="p-level-num"><small>LV.</small><span id="pLevel">1</span></div>
+                        <span class="rank-badge" id="pRank">E-ранг</span>
+                    </div>
+                    <div class="exp-row">
+                        <div class="exp-head"><span>EXP</span><span id="expText">0 / 100</span></div>
+                        <div class="exp-bar" role="progressbar" aria-label="Опыт до следующего уровня" aria-valuemin="0" id="expBar">
+                            <div class="exp-fill" id="expFill"></div>
+                        </div>
+                    </div>
+                    <div class="stats">
+                        <div class="stat"><b id="stCollection">0</b><span>тайтлов в коллекции</span></div>
+                        <div class="stat"><b id="stWatched">0</b><span>отмечено просмотров</span></div>
+                        <div class="stat"><b id="stChat">0</b><span>сообщений в чате</span></div>
+                        <div class="stat"><b id="stStreak">0</b><span>дней тренировок подряд</span></div>
+                    </div>
+                    <div class="status-actions">
+                        <a class="sys-btn" href="ssylky.html">🗂️ Коллекция AnimeVerse</a>
+                        <a class="sys-btn ghost" href="favorites.html">★ Избранное</a>
+                        <button type="button" class="sys-btn ghost" id="logoutBtn">⏻ Выйти из аккаунта</button>
+                    </div>
+                </div>
+            </section>
+
+            <div class="sys-cols">
+                <!-- ═════ Настройки Игрока ═════ -->
+                <section class="sys-window" aria-labelledby="settingsTitle">
+                    <div class="sys-bar" id="settingsTitle"><span>[ НАСТРОЙКИ ИГРОКА ]</span></div>
+                    <form class="field" id="nickForm" novalidate>
+                        <label for="nickInput">Никнейм</label>
+                        <div class="field-row">
+                            <input class="sys-input" id="nickInput" maxlength="24" autocomplete="nickname" placeholder="Как вас называть, Игрок?">
+                            <button type="submit" class="sys-btn primary" id="nickSave">Сохранить</button>
+                        </div>
+                        <span class="field-hint" id="nickHint">2–24 символа: буквы, цифры, пробел, «_», «-», «.». Ник виден в шапке, профиле и чате.</span>
+                    </form>
+                    <div class="field">
+                        <label for="titleSelect">Звание</label>
+                        <select class="sys-select" id="titleSelect"></select>
+                        <span class="field-hint">Новые звания открываются за уровни и квесты.</span>
+                    </div>
+                    <div class="field">
+                        <span class="field-label" id="framesLabel">Рамка аватара</span>
+                        <div class="frames" id="framesList" role="group" aria-labelledby="framesLabel"></div>
+                    </div>
+                </section>
+
+                <!-- ═════ Квесты ═════ -->
+                <section class="sys-window" aria-labelledby="questsTitle">
+                    <div class="sys-bar" id="questsTitle"><span>[ КВЕСТЫ СИСТЕМЫ ]</span></div>
+                    <p class="quest-group">ЕЖЕДНЕВНОЕ ЗАДАНИЕ</p>
+                    <ul class="quests" id="dailyList"></ul>
+                    <p class="quest-group">СЮЖЕТНЫЕ ЗАДАНИЯ</p>
+                    <ul class="quests" id="questList"></ul>
+                </section>
+            </div>
+
+            <!-- ═════ Журнал просмотров ═════ -->
+            <section class="sys-window" aria-labelledby="watchTitle">
+                <div class="sys-bar" id="watchTitle"><span>[ ЖУРНАЛ ПРОЙДЕННЫХ МИРОВ ]</span></div>
+                <p class="sys-text">Отметьте просмотренные аниме — они пойдут в квесты «Первый пройденный мир», «Летописец» и «Покоритель врат». Коллекция AnimeVerse и избранное сайта учитываются автоматически.</p>
+                <div class="field watch-search" style="margin: 14px 0 0;">
+                    <label for="watchInput">Отметить просмотр аниме</label>
+                    <input class="sys-input" id="watchInput" autocomplete="off" placeholder="Начните вводить название…" aria-autocomplete="list" aria-controls="watchSuggest">
+                    <ul class="suggest" id="watchSuggest" hidden></ul>
+                </div>
+                <ul class="watched-list" id="watchedList"></ul>
+            </section>
+
+            <!-- ═════ Инвентарь ═════ -->
+            <section class="sys-window" aria-labelledby="invTitle">
+                <div class="sys-bar" id="invTitle"><span>[ ИНВЕНТАРЬ ]</span></div>
+                <div class="inv-tabs" role="group" aria-label="Что показать">
+                    <button type="button" class="inv-tab" data-type="all" aria-pressed="true">Все</button>
+                    <button type="button" class="inv-tab" data-type="artifact" aria-pressed="false">Артефакты</button>
+                    <button type="button" class="inv-tab" data-type="title" aria-pressed="false">Звания</button>
+                    <button type="button" class="inv-tab" data-type="frame" aria-pressed="false">Рамки</button>
+                </div>
+                <p class="sys-text" id="invSummary" style="margin-bottom: 12px;"></p>
+                <ul class="inventory" id="inventoryList"></ul>
+            </section>
+        </div>
+    </main>
+
+    <!-- Уведомление: LEVEL UP / квест выполнен -->
+    <dialog class="sys-dialog" id="levelDialog" aria-labelledby="levelTitle">
+        <div class="sys-window">
+            <div class="sys-bar"><span id="levelBar">[ СИСТЕМА ]</span></div>
+            <p class="levelup-title" id="levelTitle">LEVEL UP!</p>
+            <p class="levelup-sub" id="levelSub"></p>
+            <ul class="levelup-list" id="levelList"></ul>
+            <button type="button" class="sys-btn primary" id="levelOk">Принять</button>
+        </div>
+    </dialog>
+
+    <div class="sys-toast" id="sysToast" role="status" hidden></div>
+
+    <footer>
+        &copy; 2026 Anime Fan Club · <a href="contacts.html">О проекте и контакты</a>
+    </footer>
+
+    <script src="../js/movies-data.js"></script>
+    <script src="../js/anime-search.js"></script>
+    <script src="../js/site-search.js"></script>
+    <script src="../js/chat-core.js"></script>
+    <script src="../js/player-core.js"></script>
+    <script src="../js/player-chip.js"></script>
+    <script src="../js/profile-page.js"></script>
+    <script src="../js/chat-widget.js" defer></script>
+    <script src="../js/back-to-top.js" defer></script>
+</body>
+</html>

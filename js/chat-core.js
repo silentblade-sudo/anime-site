@@ -58,13 +58,20 @@
     return n.slice(0, 40);
   }
 
+  // Ник для чата: никнейм из профиля игрока users/{uid}.username (меняется в pages/profile.html)
+  // → имя аккаунта → «Фанат аниме». Почту не показываем.
   function resolveName(user) {
     var direct = cleanName(user.displayName);
-    if (direct) return Promise.resolve(direct);
     return db.collection('users').doc(user.uid).get()
-      .then(function (snap) { return cleanName(snap.exists && snap.data().username) || 'Фанат аниме'; })
-      .catch(function () { return 'Фанат аниме'; });
+      .then(function (snap) { return cleanName(snap.exists && snap.data().username) || direct || 'Фанат аниме'; })
+      .catch(function () { return direct || 'Фанат аниме'; });
   }
+
+  // Ник сменили в профиле (на этой же вкладке) — новые сообщения уходят уже под ним
+  window.addEventListener('animeverse:player', function (e) {
+    var name = cleanName(e.detail && e.detail.name);
+    if (name && currentUser && e.detail.uid === currentUser.uid) { currentUser.name = name; emitUser(); }
+  });
 
   function emitUser() {
     userListeners.forEach(function (cb) { try { cb(currentUser); } catch (e) { console.error(e); } });
@@ -283,6 +290,8 @@
     formatTime: formatTime,
     formatDay: formatDay,
     currentUser: function () { return currentUser; },
+    // общий Firebase для других модулей сайта (профиль игрока, мини-карточка в шапке)
+    services: function () { return ready().then(function () { return { db: db, auth: auth, firebase: window.firebase }; }); },
     ROOT: ROOT,
     MAX_LEN: MAX_LEN,
     COOLDOWN_MS: COOLDOWN_MS
