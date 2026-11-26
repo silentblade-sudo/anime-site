@@ -72,6 +72,9 @@
     avatar_flame_priestess: { type: 'avatar', cat: 'heroine', file: 'flame-priestess.svg', name: 'Огненная жрица', rarity: 'legendary', desc: 'Служительница огненных врат.' },
     avatar_s_rank_goddess: { type: 'avatar', cat: 'heroine', file: 's-rank-goddess.svg', name: 'Богиня S-ранга', rarity: 'legendary', desc: 'Сияние, доступное лишь сильнейшим.' },
     avatar_shadow_monarch: { type: 'avatar', cat: 'hunter', file: 'shadow-monarch.svg', name: 'Монарх Теней', rarity: 'legendary', desc: 'Повелитель армии теней.' },
+    // личная аватарка владельца сайта: видна и доступна только аккаунту с этим UID (exclusive),
+    // арт показывается целиком (fit: contain), без обрезки цепей и роз
+    avatar_exclusive_crimson_moon: { type: 'avatar', cat: 'heroine', file: 'exclusive-crimson-moon.webp', fit: 'contain', exclusive: 'rZMCKbIfA3NZX7Nj1YiXCB4aib22', name: 'Алая луна', rarity: 'legendary', desc: 'Личная аватарка владельца Anime Fan Club.' },
     // звания (показываются под ником) — только за заслуги
     title_awakened: { type: 'title', name: 'Пробуждённый', rarity: 'common', icon: '✨', desc: 'Система признала нового игрока.' },
     title_guild_voice: { type: 'title', name: 'Голос гильдии', rarity: 'rare', icon: '📣', desc: 'Слово, услышанное гильдией.' },
@@ -205,24 +208,42 @@
     });
   }
 
-  // Открытые награды: по уровню + за полученные квесты
+  // ───────── эксклюзивы ─────────
+  // Чей профиль сейчас открыт (uid вошедшего). Эксклюзивная награда видна и открыта только своему владельцу:
+  // для остальных её нет ни в выборе, ни в инвентаре, ни в списках наград.
+  var viewerUid = null;
+  function setViewer(uid) { viewerUid = uid || null; }
+  function isVisible(id, uid) {
+    var r = REWARDS[id];
+    if (!r) return false;
+    if (!r.exclusive) return true;
+    return (uid !== undefined ? uid : viewerUid) === r.exclusive;
+  }
+  function visibleRewardIds() { return Object.keys(REWARDS).filter(function (id) { return isVisible(id); }); }
+
+  // Открытые награды: по уровню + за полученные квесты (+ личные эксклюзивы владельца)
   function computeUnlocked(p) {
     var lv = levelInfo(p.exp).level;
     var set = {};
     LEVEL_REWARDS.forEach(function (r) { if (lv >= r.level) r.rewards.forEach(function (id) { set[id] = 1; }); });
     var claimed = p.claimedQuests || {};
     QUESTS.forEach(function (q) { if (claimed[q.id] && q.rewards) q.rewards.forEach(function (id) { set[id] = 1; }); });
+    Object.keys(REWARDS).forEach(function (id) { if (REWARDS[id].exclusive && isVisible(id)) set[id] = 1; });
     return Object.keys(set);
   }
 
   // Где взять награду (для заблокированных в инвентаре)
   function rewardSource(id) {
+    if (REWARDS[id] && REWARDS[id].exclusive) return 'Личная награда владельца сайта';
     for (var i = 0; i < LEVEL_REWARDS.length; i++) if (LEVEL_REWARDS[i].rewards.indexOf(id) !== -1) return 'Достичь ' + LEVEL_REWARDS[i].level + ' уровня';
     for (var j = 0; j < QUESTS.length; j++) if ((QUESTS[j].rewards || []).indexOf(id) !== -1) return 'Квест «' + QUESTS[j].title + '»';
     return '';
   }
 
   // ───────── аватарки ─────────
+  // Арт целиком (contain) или кадрированный портрет (cover)
+  function avatarFit(id) { return REWARDS[id] && REWARDS[id].fit === 'contain' ? 'contain' : 'cover'; }
+
   function avatarUrl(id) {
     var r = REWARDS[id];
     if (!r || r.type !== 'avatar' || !r.file) return null;
@@ -269,13 +290,17 @@
   var CHIP_KEY = 'animeverse_player';
   function chipData(uid, p, user) {
     var info = levelInfo(p.exp);
+    var prevViewer = viewerUid;
+    viewerUid = uid; // эксклюзивы проверяются по владельцу этой карточки
+    var avatar = currentAvatar(p), frame = currentFrame(p);
+    viewerUid = prevViewer;
     return {
       uid: uid,
       name: String(p.username || (user && user.displayName) || 'Игрок').slice(0, 24),
       level: info.level,
       rank: rankFor(info.level).short,
-      frame: currentFrame(p),
-      avatar: currentAvatar(p),
+      frame: frame,
+      avatar: avatar,
     };
   }
   function publish(data) {
@@ -293,7 +318,8 @@
 
   window.AnimePlayer = {
     RANKS: RANKS, REWARDS: REWARDS, QUESTS: QUESTS, LEVEL_REWARDS: LEVEL_REWARDS, DEFAULT_AVATAR: DEFAULT_AVATAR,
-    avatarUrl: avatarUrl, currentAvatar: currentAvatar, currentFrame: currentFrame, currentTitle: currentTitle,
+    avatarUrl: avatarUrl, avatarFit: avatarFit, currentAvatar: currentAvatar,
+    setViewer: setViewer, isVisible: isVisible, visibleRewardIds: visibleRewardIds, currentFrame: currentFrame, currentTitle: currentTitle,
     expToNext: expToNext, levelInfo: levelInfo, rankFor: rankFor,
     questStates: questStates, computeUnlocked: computeUnlocked, rewardSource: rewardSource,
     collectionCount: collectionCount, todayKey: todayKey, yesterdayKey: yesterdayKey,

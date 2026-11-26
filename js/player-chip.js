@@ -26,6 +26,7 @@
       var img = new Image();
       img.alt = '';
       img.decoding = 'async';
+      if (P.avatarFit(d.avatar) === 'contain') img.className = 'is-contain';
       img.src = url;
       av.appendChild(img);
     } else {
@@ -74,7 +75,8 @@
   function verify() {
     P.services().then(function (s) {
       s.auth.onAuthStateChanged(function (user) {
-        if (!user) { P.clearCache(); renderGuest(); return; }
+        if (!user) { P.setViewer(null); P.clearCache(); renderGuest(); return; }
+        P.setViewer(user.uid);
         P.load(user.uid).then(function (p) {
           var d = P.chipData(user.uid, p, user);
           renderPlayer(d);

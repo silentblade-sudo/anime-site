@@ -14,7 +14,8 @@
 //   • текст — строка, не пустая после обрезки пробелов, не длиннее 500 символов;
 //   • имя — строка 1–40 символов; время — серверное (request.time), подделать нельзя;
 //   • в документе только поля text, uid, name, createdAt и необязательное avatar
-//     (id аватарки Игрока вида avatar_xxx — картинка из img/avatars/ сайта);
+//     (id аватарки Игрока вида avatar_xxx — картинка из img/avatars/ сайта;
+//     личную avatar_exclusive_crimson_moon может ставить только владелец — isChatAdmin());
 //   • редактировать сообщения нельзя никому;
 //   • удалять любые сообщения может только администратор — UID в функции isChatAdmin()
 //     (тот же UID записан в js/chat-core.js → ADMIN_UIDS).
@@ -44,7 +45,9 @@ service cloud.firestore {
         && request.resource.data.createdAt == request.time
         && (!('avatar' in request.resource.data)
             || (request.resource.data.avatar is string
-                && request.resource.data.avatar.matches('^avatar_[a-z0-9_]{1,40}$')));
+                && request.resource.data.avatar.matches('^avatar_[a-z0-9_]{1,40}$')
+                // личная аватарка «Алая луна» — только у владельца сайта
+                && (request.resource.data.avatar != 'avatar_exclusive_crimson_moon' || isChatAdmin())));
 
       allow update: if false;
       allow delete: if isChatAdmin();

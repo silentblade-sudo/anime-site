@@ -69,6 +69,7 @@
     return db.collection('users').doc(user.uid).get()
       .then(function (snap) {
         var data = snap.exists ? snap.data() : {};
+        if (window.AnimePlayer && window.AnimePlayer.setViewer) window.AnimePlayer.setViewer(user.uid);
         var avatar = window.AnimePlayer && window.AnimePlayer.currentAvatar ? window.AnimePlayer.currentAvatar(data) : cleanAvatar(data.selectedAvatar);
         return { name: cleanName(data.username) || direct || 'Фанат аниме', avatar: cleanAvatar(avatar) };
       })
@@ -259,11 +260,15 @@
       // мини-аватарка автора: картинка из img/avatars/ или буква ника
       var ava = document.createElement('span');
       ava.className = 'chat-msg-ava';
-      var url = m.avatar && m.avatar !== 'avatar_initial' && window.AnimePlayer ? window.AnimePlayer.avatarUrl(m.avatar) : null;
+      var AP = window.AnimePlayer;
+      // личная аватарка — только у сообщений её владельца (чужое сообщение с ней покажет букву)
+      var allowed = AP && m.avatar && AP.isVisible ? AP.isVisible(m.avatar, m.uid) : true;
+      var url = allowed && m.avatar && m.avatar !== 'avatar_initial' && AP ? AP.avatarUrl(m.avatar) : null;
       if (url) {
         var img = new Image();
         img.alt = '';
         img.loading = 'lazy';
+        if (AP.avatarFit && AP.avatarFit(m.avatar) === 'contain') img.className = 'is-contain';
         img.src = url;
         ava.appendChild(img);
       } else {

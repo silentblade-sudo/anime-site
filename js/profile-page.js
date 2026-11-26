@@ -37,6 +37,7 @@
       var img = new Image();
       img.alt = '';
       img.decoding = 'async';
+      if (P.avatarFit(avatarId) === 'contain') img.className = 'is-contain'; // арт целиком, без обрезки
       img.src = url;
       node.replaceChildren(img);
     } else {
@@ -87,11 +88,12 @@
     // аватарки: открытые первыми, дальше по редкости
     var avs = $('avatarsList');
     avs.replaceChildren();
-    Object.keys(P.REWARDS).filter(function (id) {
+    P.visibleRewardIds().filter(function (id) {
       var r = P.REWARDS[id];
       return r.type === 'avatar' && (avatarCat === 'all' || r.cat === avatarCat || (avatarCat !== 'all' && r.cat === 'special'));
     }).sort(function (a, b) {
-      return (u[b] ? 1 : 0) - (u[a] ? 1 : 0) || RARITY_ORDER[P.REWARDS[a].rarity] - RARITY_ORDER[P.REWARDS[b].rarity];
+      return (P.REWARDS[b].exclusive ? 1 : 0) - (P.REWARDS[a].exclusive ? 1 : 0) // личная — первой
+        || (u[b] ? 1 : 0) - (u[a] ? 1 : 0) || RARITY_ORDER[P.REWARDS[a].rarity] - RARITY_ORDER[P.REWARDS[b].rarity];
     }).forEach(function (id) {
       var r = P.REWARDS[id];
       var b = el('button', 'av-opt');
@@ -110,7 +112,7 @@
     tl.replaceChildren();
     var current = selectedTitle();
     var any = false;
-    Object.keys(P.REWARDS).filter(function (id) { return P.REWARDS[id].type === 'title'; })
+    P.visibleRewardIds().filter(function (id) { return P.REWARDS[id].type === 'title'; })
       .sort(function (a, b) { return (u[b] ? 1 : 0) - (u[a] ? 1 : 0); })
       .forEach(function (id) {
         var r = P.REWARDS[id];
@@ -128,7 +130,7 @@
     // рамки: превью с текущей аватаркой
     var frames = $('framesList');
     frames.replaceChildren();
-    Object.keys(P.REWARDS).forEach(function (id) {
+    P.visibleRewardIds().forEach(function (id) {
       var r = P.REWARDS[id];
       if (r.type !== 'frame') return;
       var b = el('button', 'frame-opt');
@@ -209,7 +211,7 @@
     var u = unlockedSet();
     var list = $('inventoryList');
     list.replaceChildren();
-    var ids = Object.keys(P.REWARDS).filter(function (id) { return invFilter === 'all' || P.REWARDS[id].type === invFilter; });
+    var ids = P.visibleRewardIds().filter(function (id) { return invFilter === 'all' || P.REWARDS[id].type === invFilter; });
     // открытые — первыми
     ids.sort(function (a, b) { return (u[b] ? 1 : 0) - (u[a] ? 1 : 0); });
     ids.forEach(function (id) {
@@ -223,7 +225,7 @@
       li.appendChild(el('span', 'item-src', (u[id] ? 'Получено: ' : 'Как получить: ') + (P.rewardSource(id) || 'с самого начала')));
       list.appendChild(li);
     });
-    var total = Object.keys(P.REWARDS).length;
+    var total = P.visibleRewardIds().length;
     $('invSummary').textContent = 'Открыто наград: ' + Object.keys(u).length + ' из ' + total + '.';
   }
 
@@ -389,6 +391,7 @@
 
   // ───────── запуск ─────────
   function showGate() {
+    if (P) P.setViewer(null);
     $('sysLoading').hidden = true;
     $('playerUi').hidden = true;
     $('sysGate').hidden = false;
@@ -397,6 +400,7 @@
 
   function start(u) {
     user = u;
+    P.setViewer(u.uid); // личные эксклюзивы видны только своему владельцу
     Promise.all([P.load(u.uid), P.chatCount(u.uid)]).then(function (res) {
       player = res[0] || {};
       chatCount = res[1] || 0;

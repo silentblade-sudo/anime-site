@@ -22,6 +22,8 @@
 }
 
 .pf-avatar img { position: relative; z-index: 0; width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block; }
+/* арт целиком (личная аватарка «Алая луна»): без обрезки, на тёмном поле */
+.pf-avatar img.is-contain { object-fit: contain; background: #0a0506; }
 
 /* слои рамки: ::before — кольцо/аура за аватаром, ::after — свечение внутрь поверх картинки */
 .pf-avatar::before,
