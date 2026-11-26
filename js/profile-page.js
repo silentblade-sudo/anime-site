@@ -23,37 +23,44 @@
   }
 
   function frameClass(id) { return 'pf-' + String(id || 'frame_common').replace('_', '-'); }
+  function initial(name) { return (String(name || '?').match(/[\p{L}\p{N}]/u) || ['?'])[0].toUpperCase(); }
 
-  function setAvatar(node, name, frame) {
-    node.className = node.className.replace(/\bpf-frame-[a-z]+\b/g, '').trim() + ' ' + frameClass(frame);
-    node.textContent = (String(name || '?').match(/[\p{L}\p{N}]/u) || ['?'])[0].toUpperCase();
-    if (user && /^https:\/\//.test(user.photoURL || '')) {
+  // Аватар: картинка выбранной аватарки внутри рамки; буква — только у «Инициала»
+  function avatarNode(avatarId, frame, extraCls) {
+    var node = el('span', 'pf-avatar ' + frameClass(frame) + (extraCls ? ' ' + extraCls : ''));
+    fillAvatar(node, avatarId);
+    return node;
+  }
+  function fillAvatar(node, avatarId) {
+    var url = avatarId && avatarId !== 'avatar_initial' ? P.avatarUrl(avatarId) : null;
+    if (url) {
       var img = new Image();
       img.alt = '';
-      img.referrerPolicy = 'no-referrer';
-      img.onload = function () { node.replaceChildren(img); };
-      img.src = user.photoURL;
+      img.decoding = 'async';
+      img.src = url;
+      node.replaceChildren(img);
+    } else {
+      node.textContent = initial(player && player.username);
     }
+  }
+  function setAvatar(node, frame, avatarId) {
+    node.className = node.className.replace(/\bpf-frame-[a-z]+\b/g, '').trim() + ' ' + frameClass(frame);
+    fillAvatar(node, avatarId);
   }
 
   function unlockedSet() { var s = {}; P.computeUnlocked(player).forEach(function (id) { s[id] = 1; }); return s; }
-
-  function selectedFrame() {
-    var u = unlockedSet();
-    return player.selectedFrame && u[player.selectedFrame] ? player.selectedFrame : 'frame_common';
-  }
-  function selectedTitle() {
-    var u = unlockedSet();
-    return player.selectedTitle && u[player.selectedTitle] ? player.selectedTitle : 'title_rank_e';
-  }
+  function selectedFrame() { return P.currentFrame(player); }
+  function selectedTitle() { return P.currentTitle(player); }
+  function selectedAvatar() { return P.currentAvatar(player); }
 
   function renderStatus() {
     var info = P.levelInfo(player.exp);
     var rank = P.rankFor(info.level);
     var name = player.username || 'Игрок';
+    var title = selectedTitle();
     $('welcomeText').textContent = 'Добро пожаловать, Игрок ' + name + '.';
     $('pName').textContent = name;
-    $('pTitle').textContent = '«' + P.REWARDS[selectedTitle()].name + '»';
+    $('pTitle').textContent = title ? '«' + P.REWARDS[title].name + '»' : 'Без звания — заслужите первое в квестах Системы';
     $('pLevel').textContent = info.level;
     $('pRank').textContent = rank.name;
     $('pRank').dataset.rank = rank.id;
@@ -61,7 +68,7 @@
     $('expFill').style.width = Math.round(info.into / info.need * 100) + '%';
     $('expBar').setAttribute('aria-valuemax', info.need);
     $('expBar').setAttribute('aria-valuenow', info.into);
-    setAvatar($('bigAvatar'), name, selectedFrame());
+    setAvatar($('bigAvatar'), selectedFrame(), selectedAvatar());
     $('stCollection').textContent = P.collectionCount(player);
     $('stWatched').textContent = (player.watched || []).length;
     $('stChat').textContent = chatCount >= 10 ? '10+' : chatCount;
@@ -69,21 +76,56 @@
     $('stStreak').textContent = streak;
   }
 
+  var RARITY_ORDER = { common: 0, rare: 1, epic: 2, legendary: 3 };
+  var avatarCat = 'all';
+
   function renderSettings() {
     var nick = $('nickInput');
     if (document.activeElement !== nick) nick.value = player.username || '';
     var u = unlockedSet();
-    var sel = $('titleSelect');
-    sel.replaceChildren();
-    Object.keys(P.REWARDS).forEach(function (id) {
-      var r = P.REWARDS[id];
-      if (r.type !== 'title' || !u[id]) return;
-      var o = el('option', null, r.name);
-      o.value = id;
-      sel.appendChild(o);
-    });
-    sel.value = selectedTitle();
 
+    // аватарки: открытые первыми, дальше по редкости
+    var avs = $('avatarsList');
+    avs.replaceChildren();
+    Object.keys(P.REWARDS).filter(function (id) {
+      var r = P.REWARDS[id];
+      return r.type === 'avatar' && (avatarCat === 'all' || r.cat === avatarCat || (avatarCat !== 'all' && r.cat === 'special'));
+    }).sort(function (a, b) {
+      return (u[b] ? 1 : 0) - (u[a] ? 1 : 0) || RARITY_ORDER[P.REWARDS[a].rarity] - RARITY_ORDER[P.REWARDS[b].rarity];
+    }).forEach(function (id) {
+      var r = P.REWARDS[id];
+      var b = el('button', 'av-opt');
+      b.type = 'button';
+      b.dataset.avatar = id;
+      b.disabled = !u[id];
+      b.setAttribute('aria-pressed', String(selectedAvatar() === id));
+      b.title = u[id] ? r.desc : 'Заблокировано: ' + P.rewardSource(id);
+      b.setAttribute('aria-label', r.name + (u[id] ? '' : ' — заблокировано: ' + P.rewardSource(id)));
+      b.append(avatarNode(id, 'frame_common'), el('span', 'av-rarity rarity-' + r.rarity, { common: 'обычная', rare: 'редкая', epic: 'эпическая', legendary: 'легендарная' }[r.rarity]), el('span', null, u[id] ? r.name : P.rewardSource(id)));
+      avs.appendChild(b);
+    });
+
+    // звания: только заслуженные можно надеть, закрытые — с условием получения
+    var tl = $('titlesList');
+    tl.replaceChildren();
+    var current = selectedTitle();
+    var any = false;
+    Object.keys(P.REWARDS).filter(function (id) { return P.REWARDS[id].type === 'title'; })
+      .sort(function (a, b) { return (u[b] ? 1 : 0) - (u[a] ? 1 : 0); })
+      .forEach(function (id) {
+        var r = P.REWARDS[id];
+        if (u[id]) any = true;
+        var b = el('button', 'title-opt');
+        b.type = 'button';
+        b.dataset.title = id;
+        b.disabled = !u[id];
+        b.setAttribute('aria-pressed', String(current === id));
+        b.append(el('b', null, r.icon + ' ' + r.name), el('small', null, u[id] ? r.desc : 'Как получить: ' + P.rewardSource(id)));
+        tl.appendChild(b);
+      });
+    if (!any) tl.prepend(el('p', 'title-none', 'Пока нет ни одного звания. Выполните «Первое пробуждение» — и Система выдаст первое.'));
+
+    // рамки: превью с текущей аватаркой
     var frames = $('framesList');
     frames.replaceChildren();
     Object.keys(P.REWARDS).forEach(function (id) {
@@ -95,14 +137,12 @@
       b.disabled = !u[id];
       b.setAttribute('aria-pressed', String(selectedFrame() === id));
       b.title = u[id] ? r.desc : 'Заблокировано: ' + P.rewardSource(id);
-      var av = el('span', 'pf-avatar ' + frameClass(id));
-      av.textContent = (String(player.username || '?').match(/[\p{L}\p{N}]/u) || ['?'])[0].toUpperCase();
-      b.append(av, el('span', null, r.name));
+      b.append(avatarNode(selectedAvatar(), id), el('span', null, r.name));
       frames.appendChild(b);
     });
   }
 
-  function rewardNames(ids) { return (ids || []).map(function (id) { return P.REWARDS[id] ? P.REWARDS[id].icon + ' ' + P.REWARDS[id].name : id; }).join(', '); }
+  function rewardNames(ids) { return (ids || []).map(function (id) { var r = P.REWARDS[id]; return r ? (r.type === 'avatar' ? '🖼️ аватар «' + r.name + '»' : r.icon + ' ' + r.name) : id; }).join(', '); }
 
   function questItem(st) {
     var q = st.quest;
@@ -162,7 +202,7 @@
     if (!(player.watched || []).length) list.appendChild(el('li', 'sys-text', 'Журнал пуст — отметьте первый просмотренный тайтл.'));
   }
 
-  var TYPE_NAMES = { frame: 'РАМКА', title: 'ЗВАНИЕ', artifact: 'АРТЕФАКТ' };
+  var TYPE_NAMES = { frame: 'РАМКА', title: 'ЗВАНИЕ', artifact: 'АРТЕФАКТ', avatar: 'АВАТАР' };
   var RARITY_NAMES = { common: 'обычн.', rare: 'редк.', epic: 'эпич.', legendary: 'легенд.' };
 
   function renderInventory() {
@@ -176,7 +216,8 @@
       var r = P.REWARDS[id];
       var li = el('li', 'item rarity-' + r.rarity + (u[id] ? '' : ' is-locked'));
       var icon = el('span', 'item-icon');
-      if (r.type === 'frame') icon.appendChild(el('span', 'pf-avatar ' + frameClass(id), (String(player.username || '?').match(/[\p{L}\p{N}]/u) || ['?'])[0].toUpperCase()));
+      if (r.type === 'frame') icon.appendChild(avatarNode(selectedAvatar(), id));
+      else if (r.type === 'avatar') icon.appendChild(avatarNode(id, 'frame_common'));
       else icon.textContent = r.icon;
       li.append(icon, el('span', 'item-type', TYPE_NAMES[r.type] + ' · ' + RARITY_NAMES[r.rarity]), el('span', 'item-name', r.name), el('span', 'item-desc', r.desc));
       li.appendChild(el('span', 'item-src', (u[id] ? 'Получено: ' : 'Как получить: ') + (P.rewardSource(id) || 'с самого начала')));
@@ -195,7 +236,7 @@
   }
 
   function publishChip() {
-    P.publish(P.chipData(user.uid, Object.assign({}, player, { selectedFrame: selectedFrame() }), user));
+    P.publish(P.chipData(user.uid, player, user));
   }
 
   // ───────── действия ─────────
@@ -226,6 +267,9 @@
     var next = Object.assign({}, player, patch);
     patch.level = P.levelInfo(patch.exp).level;
     patch.unlockedRewards = P.computeUnlocked(next);
+    // новое звание Система надевает сама (последнее из полученных)
+    var newTitles = patch.unlockedRewards.filter(function (id) { return !unlockedBefore[id] && P.REWARDS[id].type === 'title'; });
+    if (newTitles.length) patch.selectedTitle = newTitles[newTitles.length - 1];
     P.save(user.uid, patch).then(function () {
       Object.assign(player, patch);
       var fresh = patch.unlockedRewards.filter(function (id) { return !unlockedBefore[id]; });
@@ -246,7 +290,11 @@
     list.replaceChildren(el('li', null, '⚡ +' + exp + ' EXP за «' + q.title + '»'));
     fresh.forEach(function (id) {
       var r = P.REWARDS[id];
-      list.appendChild(el('li', null, r.icon + ' Новая награда: ' + r.name + ' (' + TYPE_NAMES[r.type].toLowerCase() + ')'));
+      var li = el('li');
+      if (r.type === 'avatar') li.appendChild(avatarNode(id, 'frame_crimson'));
+      else if (r.type === 'frame') li.appendChild(avatarNode(selectedAvatar(), id));
+      li.appendChild(el('span', null, (r.type === 'avatar' || r.type === 'frame' ? '' : r.icon + ' ') + 'Новая награда: ' + r.name + ' (' + TYPE_NAMES[r.type].toLowerCase() + ')' + (r.type === 'title' && player.selectedTitle === id ? ' — надето' : '')));
+      list.appendChild(li);
     });
     if (levelUp && P.rankFor(after).id !== P.rankFor(before).id) list.appendChild(el('li', null, '🏅 Новый ранг: ' + P.rankFor(after).name));
     var d = $('levelDialog');
@@ -362,6 +410,13 @@
         player.level = level;
         player.unlockedRewards = unlocked;
       }
+      // звания уже заслужены, но ни одно не надето (или надетое больше не существует) — Система надевает самое редкое
+      if (!P.currentTitle(player)) {
+        var rarity = { common: 0, rare: 1, epic: 2, legendary: 3 };
+        var best = unlocked.filter(function (id) { return P.REWARDS[id].type === 'title'; })
+          .sort(function (a, b) { return rarity[P.REWARDS[b].rarity] - rarity[P.REWARDS[a].rarity]; })[0];
+        if (best) { player.selectedTitle = best; P.save(u.uid, { selectedTitle: best }).catch(function () {}); }
+      }
       $('sysLoading').hidden = true;
       $('sysGate').hidden = true;
       $('playerUi').hidden = false;
@@ -375,17 +430,37 @@
   }
 
   $('nickForm').addEventListener('submit', saveNick);
-  $('titleSelect').addEventListener('change', function (e) { choose('selectedTitle', e.target.value, 'Звание установлено: ' + P.REWARDS[e.target.value].name); });
-  $('framesList').addEventListener('click', function (e) {
-    var b = e.target.closest('.frame-opt');
+  $('titlesList').addEventListener('click', function (e) {
+    if (!player) return;
+    var b = e.target.closest('.title-opt');
     if (!b || b.disabled) return;
+    if (!unlockedSet()[b.dataset.title]) return; // закрытое звание выбрать нельзя
+    choose('selectedTitle', b.dataset.title, 'Звание установлено: ' + P.REWARDS[b.dataset.title].name);
+  });
+  $('avatarsList').addEventListener('click', function (e) {
+    if (!player) return;
+    var b = e.target.closest('.av-opt');
+    if (!b || b.disabled || !unlockedSet()[b.dataset.avatar]) return;
+    choose('selectedAvatar', b.dataset.avatar, 'Аватар установлен: ' + P.REWARDS[b.dataset.avatar].name);
+  });
+  Array.prototype.forEach.call(document.querySelectorAll('.av-tab'), function (t) {
+    t.addEventListener('click', function () {
+      avatarCat = t.dataset.cat;
+      document.querySelectorAll('.av-tab').forEach(function (x) { x.setAttribute('aria-pressed', String(x === t)); });
+      if (player) renderSettings();
+    });
+  });
+  $('framesList').addEventListener('click', function (e) {
+    if (!player) return;
+    var b = e.target.closest('.frame-opt');
+    if (!b || b.disabled || !unlockedSet()[b.dataset.frame]) return;
     choose('selectedFrame', b.dataset.frame, 'Рамка установлена: ' + P.REWARDS[b.dataset.frame].name);
   });
-  Array.prototype.forEach.call(document.querySelectorAll('.inv-tab'), function (t) {
+  Array.prototype.forEach.call(document.querySelectorAll('.inv-filter'), function (t) {
     t.addEventListener('click', function () {
       invFilter = t.dataset.type;
-      document.querySelectorAll('.inv-tab').forEach(function (x) { x.setAttribute('aria-pressed', String(x === t)); });
-      renderInventory();
+      document.querySelectorAll('.inv-filter').forEach(function (x) { x.setAttribute('aria-pressed', String(x === t)); });
+      if (player) renderInventory();
     });
   });
   var watchTimer = null;

@@ -97,9 +97,18 @@
                         <span class="field-hint" id="nickHint">2–24 символа: буквы, цифры, пробел, «_», «-», «.». Ник виден в шапке, профиле и чате.</span>
                     </form>
                     <div class="field">
-                        <label for="titleSelect">Звание</label>
-                        <select class="sys-select" id="titleSelect"></select>
-                        <span class="field-hint">Новые звания открываются за уровни и квесты.</span>
+                        <span class="field-label" id="avatarsLabel">Аватар Игрока</span>
+                        <div class="inv-tabs av-tabs" role="group" aria-label="Какие аватарки показать">
+                            <button type="button" class="inv-tab av-tab" data-cat="all" aria-pressed="true">Все</button>
+                            <button type="button" class="inv-tab av-tab" data-cat="heroine" aria-pressed="false">Героини</button>
+                            <button type="button" class="inv-tab av-tab" data-cat="hunter" aria-pressed="false">Охотники</button>
+                        </div>
+                        <div class="avatars" id="avatarsList" role="group" aria-labelledby="avatarsLabel"></div>
+                    </div>
+                    <div class="field">
+                        <span class="field-label" id="titlesLabel">Звание</span>
+                        <div class="titles" id="titlesList" role="group" aria-labelledby="titlesLabel"></div>
+                        <span class="field-hint">Звания не выбираются просто так — каждое нужно заслужить квестом или уровнем. Новое звание надевается само.</span>
                     </div>
                     <div class="field">
                         <span class="field-label" id="framesLabel">Рамка аватара</span>
@@ -133,10 +142,11 @@
             <section class="sys-window" aria-labelledby="invTitle">
                 <div class="sys-bar" id="invTitle"><span>[ ИНВЕНТАРЬ ]</span></div>
                 <div class="inv-tabs" role="group" aria-label="Что показать">
-                    <button type="button" class="inv-tab" data-type="all" aria-pressed="true">Все</button>
-                    <button type="button" class="inv-tab" data-type="artifact" aria-pressed="false">Артефакты</button>
-                    <button type="button" class="inv-tab" data-type="title" aria-pressed="false">Звания</button>
-                    <button type="button" class="inv-tab" data-type="frame" aria-pressed="false">Рамки</button>
+                    <button type="button" class="inv-tab inv-filter" data-type="all" aria-pressed="true">Все</button>
+                    <button type="button" class="inv-tab inv-filter" data-type="artifact" aria-pressed="false">Артефакты</button>
+                    <button type="button" class="inv-tab inv-filter" data-type="title" aria-pressed="false">Звания</button>
+                    <button type="button" class="inv-tab inv-filter" data-type="avatar" aria-pressed="false">Аватарки</button>
+                    <button type="button" class="inv-tab inv-filter" data-type="frame" aria-pressed="false">Рамки</button>
                 </div>
                 <p class="sys-text" id="invSummary" style="margin-bottom: 12px;"></p>
                 <ul class="inventory" id="inventoryList"></ul>

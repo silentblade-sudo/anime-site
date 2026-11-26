@@ -132,11 +132,7 @@ header {
 /* ───── Уведомление Системы: статус игрока ───── */
 .status-grid { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 18px 24px; align-items: center; }
 
-.pf-avatar.pf-avatar-xl { width: 104px; height: 104px; font-size: 42px; }
-.pf-avatar-xl.pf-frame-common { box-shadow: 0 0 0 3px #6e0a17; }
-.pf-avatar-xl.pf-frame-crimson { box-shadow: 0 0 0 3px #ff2440, 0 0 20px rgba(255, 36, 64, 0.6); }
-.pf-avatar-xl.pf-frame-shadow::before,
-.pf-avatar-xl.pf-frame-flame::before { inset: -7px; }
+.pf-avatar.pf-avatar-xl { width: 116px; height: 116px; font-size: 46px; margin: 10px; }
 
 .welcome { margin-bottom: 4px; font-size: 15px; color: var(--muted); }
 .welcome .cursor { display: inline-block; width: 8px; height: 1em; margin-left: 2px; vertical-align: -2px; background: var(--glow); animation: sys-blink 1s steps(1) infinite; }
@@ -218,10 +214,70 @@ header {
   text-align: center;
   cursor: pointer;
 }
-.frame-opt .pf-avatar { width: 44px; height: 44px; font-size: 18px; }
+.frame-opt .pf-avatar { width: 48px; height: 48px; font-size: 18px; margin: 6px; }
 .frame-opt[aria-pressed="true"] { border-color: var(--glow); box-shadow: 0 0 12px rgba(255, 36, 64, 0.45); background: rgba(200, 16, 46, 0.18); }
 .frame-opt:disabled { cursor: not-allowed; opacity: 0.4; }
 .frame-opt:disabled::after { content: '🔒'; position: absolute; top: 4px; right: 6px; font-size: 12px; }
+
+/* Аватарки */
+.av-tabs { margin-bottom: 8px; }
+.avatars { display: grid; grid-template-columns: repeat(auto-fill, minmax(76px, 1fr)); gap: 8px; }
+.av-opt {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  padding: 8px 4px 7px;
+  border: 1px solid rgba(140, 10, 26, 0.55);
+  border-radius: 3px;
+  background: rgba(10, 5, 6, 0.7);
+  color: var(--text);
+  font: inherit;
+  font-size: 11px;
+  line-height: 1.2;
+  text-align: center;
+  cursor: pointer;
+}
+.av-opt .pf-avatar { width: 54px; height: 54px; font-size: 20px; }
+.av-opt span:last-child { overflow-wrap: anywhere; }
+.av-opt[aria-pressed="true"] { border-color: var(--glow); box-shadow: 0 0 0 1px var(--glow), 0 0 14px rgba(255, 36, 64, 0.5); background: rgba(200, 16, 46, 0.2); }
+.av-opt:disabled { cursor: not-allowed; }
+.av-opt:disabled .pf-avatar { filter: grayscale(0.85) brightness(0.45); }
+.av-opt:disabled::after { content: '🔒'; position: absolute; top: 4px; right: 5px; font-size: 12px; }
+.av-rarity { font-size: 9px; letter-spacing: 0.06em; text-transform: uppercase; }
+.av-rarity.rarity-rare { color: #ff5a6e; }
+.av-rarity.rarity-epic { color: var(--glow); }
+.av-rarity.rarity-legendary { color: var(--soft); text-shadow: 0 0 8px rgba(255, 36, 64, 0.8); }
+.av-rarity.rarity-common { color: var(--muted); }
+
+/* Звания */
+.titles { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; }
+.title-opt {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 8px 10px;
+  border: 1px solid rgba(140, 10, 26, 0.55);
+  border-radius: 3px;
+  background: rgba(10, 5, 6, 0.7);
+  color: var(--text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.title-opt b { font-size: 13px; }
+.title-opt small { font-size: 11px; color: #9c8285; }
+.title-opt[aria-pressed="true"] { border-color: var(--glow); box-shadow: 0 0 12px rgba(255, 36, 64, 0.45); background: rgba(200, 16, 46, 0.2); }
+.title-opt:disabled { cursor: not-allowed; opacity: 0.5; }
+.title-opt:disabled::after { content: '🔒'; position: absolute; top: 6px; right: 8px; font-size: 11px; }
+.title-none { grid-column: 1 / -1; font-size: 13px; color: var(--muted); }
+
+/* аватар в окне награды */
+.levelup-list li { display: flex; align-items: center; gap: 10px; }
+.levelup-list .pf-avatar { width: 40px; height: 40px; margin: 4px; }
 
 /* Квесты */
 .quest-group { margin-bottom: 8px; font-family: 'Orbitron', sans-serif; font-size: 12px; letter-spacing: 0.1em; color: var(--soft); }
@@ -277,7 +333,8 @@ header {
   background: rgba(10, 5, 6, 0.75);
   text-align: center;
 }
-.item-icon { display: grid; place-items: center; width: 52px; height: 52px; font-size: 28px; }
+.item-icon { display: grid; place-items: center; width: 64px; height: 64px; font-size: 28px; }
+.item-icon .pf-avatar { width: 56px; height: 56px; font-size: 20px; }
 .item-name { font-weight: 700; font-size: 14px; color: #fff; }
 .item-type { font-family: 'Orbitron', sans-serif; font-size: 10px; letter-spacing: 0.08em; }
 .item-desc { font-size: 12px; color: var(--muted); }
@@ -351,6 +408,8 @@ footer a { color: var(--red); }
   .quest { grid-template-columns: minmax(0, 1fr); }
   .quest-claim { width: 100%; }
   .inventory { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .avatars { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .titles { grid-template-columns: minmax(0, 1fr); }
   .sys-input, .sys-select { font-size: 16px; }
 }
 

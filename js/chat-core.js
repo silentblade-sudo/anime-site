@@ -60,17 +60,29 @@
 
   // Ник для чата: никнейм из профиля игрока users/{uid}.username (меняется в pages/profile.html)
   // → имя аккаунта → «Фанат аниме». Почту не показываем.
-  function resolveName(user) {
+  // Аватарка из профиля игрока (id вида avatar_xxx; проверка открытости — в js/player-core.js)
+  var AVATAR_RX = /^avatar_[a-z0-9_]{1,40}$/;
+  function cleanAvatar(id) { return typeof id === 'string' && AVATAR_RX.test(id) ? id : null; }
+
+  function resolveProfile(user) {
     var direct = cleanName(user.displayName);
     return db.collection('users').doc(user.uid).get()
-      .then(function (snap) { return cleanName(snap.exists && snap.data().username) || direct || 'Фанат аниме'; })
-      .catch(function () { return direct || 'Фанат аниме'; });
+      .then(function (snap) {
+        var data = snap.exists ? snap.data() : {};
+        var avatar = window.AnimePlayer && window.AnimePlayer.currentAvatar ? window.AnimePlayer.currentAvatar(data) : cleanAvatar(data.selectedAvatar);
+        return { name: cleanName(data.username) || direct || 'Фанат аниме', avatar: cleanAvatar(avatar) };
+      })
+      .catch(function () { return { name: direct || 'Фанат аниме', avatar: null }; });
   }
 
-  // Ник сменили в профиле (на этой же вкладке) — новые сообщения уходят уже под ним
+  // Ник или аватарку сменили в профиле — новые сообщения уходят уже с ними
   window.addEventListener('animeverse:player', function (e) {
-    var name = cleanName(e.detail && e.detail.name);
-    if (name && currentUser && e.detail.uid === currentUser.uid) { currentUser.name = name; emitUser(); }
+    var d = e.detail || {};
+    if (!currentUser || d.uid !== currentUser.uid) return;
+    var name = cleanName(d.name);
+    if (name) currentUser.name = name;
+    if (d.avatar !== undefined) currentUser.avatar = cleanAvatar(d.avatar);
+    emitUser();
   });
 
   function emitUser() {
@@ -90,9 +102,9 @@
         auth = app.auth();
         auth.onAuthStateChanged(function (user) {
           if (!user) { currentUser = null; userKnown = true; emitUser(); return; }
-          resolveName(user).then(function (name) {
+          resolveProfile(user).then(function (prof) {
             if (!auth.currentUser || auth.currentUser.uid !== user.uid) return; // успели выйти
-            currentUser = { uid: user.uid, name: name };
+            currentUser = { uid: user.uid, name: prof.name, avatar: prof.avatar };
             userKnown = true;
             emitUser();
           });
@@ -115,7 +127,7 @@
             var d = doc.data({ serverTimestamps: 'estimate' }) || {};
             if (typeof d.text !== 'string') return;
             var ts = d.createdAt && d.createdAt.toDate ? d.createdAt.toDate() : new Date();
-            list.push({ id: doc.id, text: d.text, uid: d.uid || '', name: cleanName(d.name) || 'Фанат аниме', at: ts, pending: doc.metadata.hasPendingWrites });
+            list.push({ id: doc.id, text: d.text, uid: d.uid || '', name: cleanName(d.name) || 'Фанат аниме', avatar: cleanAvatar(d.avatar), at: ts, pending: doc.metadata.hasPendingWrites });
           });
           list.reverse();
           if (onStatus) onStatus(snap.metadata.fromCache && !navigator.onLine ? 'offline' : 'online');
@@ -146,11 +158,21 @@
     var wait = lastSent + COOLDOWN_MS - Date.now();
     if (wait > 0) { var e = new Error('cooldown'); e.wait = wait; return Promise.reject(e); }
     lastSent = Date.now();
-    return db.collection(COLLECTION).add({
+    var msg = {
       text: text,
       uid: auth.currentUser.uid,
       name: currentUser.name,
       createdAt: firebase.firestore.FieldValue.serverTimestamp()
+    };
+    var avatar = cleanAvatar(currentUser.avatar);
+    if (avatar) msg.avatar = avatar;
+    return db.collection(COLLECTION).add(msg).catch(function (err) {
+      // старые правила (без поля avatar) отклоняют такое сообщение — отправляем без аватарки
+      if (avatar && err && err.code === 'permission-denied') {
+        delete msg.avatar;
+        return db.collection(COLLECTION).add(msg);
+      }
+      throw err;
     }).catch(function (err) { lastSent = 0; throw err; });
   }
 
@@ -234,7 +256,20 @@
       time.className = 'chat-msg-time';
       time.dateTime = m.at.toISOString();
       time.textContent = m.pending ? 'отправляется…' : formatTime(m.at);
-      head.append(name, time);
+      // мини-аватарка автора: картинка из img/avatars/ или буква ника
+      var ava = document.createElement('span');
+      ava.className = 'chat-msg-ava';
+      var url = m.avatar && m.avatar !== 'avatar_initial' && window.AnimePlayer ? window.AnimePlayer.avatarUrl(m.avatar) : null;
+      if (url) {
+        var img = new Image();
+        img.alt = '';
+        img.loading = 'lazy';
+        img.src = url;
+        ava.appendChild(img);
+      } else {
+        ava.textContent = (String(m.name).match(/[\p{L}\p{N}]/u) || ['?'])[0].toUpperCase();
+      }
+      head.append(ava, name, time);
       // Кнопка удаления — только у администратора; гостям и обычным пользователям не создаётся вовсе
       if (admin && !m.pending) {
         var del = document.createElement('button');

@@ -41,27 +41,49 @@
   }
 
   // ───────── награды ─────────
-  // type: frame | title | artifact; rarity: common | rare | epic | legendary
+  // type: frame | title | artifact | avatar; rarity: common | rare | epic | legendary
+  // Звания — только за заслуги: ни одно не выдаётся просто так, у каждого есть квест или уровень.
   var REWARDS = {
-    // рамки аватара (CSS-классы pf-frame-*)
-    frame_common: { type: 'frame', name: 'Обычная рамка', rarity: 'common', icon: '⬜', desc: 'Стандартная рамка пробуждённого игрока.' },
-    frame_crimson: { type: 'frame', name: 'Алая рамка', rarity: 'rare', icon: '🟥', desc: 'Рамка, закалённая в пятнадцати вратах.' },
-    frame_epic: { type: 'frame', name: 'Пульс маны', rarity: 'epic', icon: '💠', desc: 'Эпическая рамка с пульсирующим свечением.' },
-    frame_shadow: { type: 'frame', name: 'Теневая рамка', rarity: 'legendary', icon: '🌑', desc: 'Легендарная рамка из живой тьмы.' },
-    frame_flame: { type: 'frame', name: 'Огненная рамка', rarity: 'legendary', icon: '🔥', desc: 'Легендарная рамка багрового пламени.' },
-    // звания (показываются под ником)
-    title_rank_e: { type: 'title', name: 'Охотник E-ранга', rarity: 'common', icon: '🎖️', desc: 'Каждый путь начинается с самого низа.' },
+    // рамки-порталы (CSS-классы pf-frame-* в css/player.css)
+    frame_common: { type: 'frame', name: 'Обычная рамка', rarity: 'common', icon: '⬛', desc: 'Строгий тёмно-стальной контур пробуждённого.' },
+    frame_crimson: { type: 'frame', name: 'Алые врата', rarity: 'rare', icon: '🟥', desc: 'Глубокий багровый портал с дыханием энергии.' },
+    frame_epic: { type: 'frame', name: 'Разлом Бездны', rarity: 'epic', icon: '🌀', desc: 'Затягивающий тёмно-алый вихрь с вращающимся кольцом.' },
+    frame_shadow: { type: 'frame', name: 'Теневой портал', rarity: 'legendary', icon: '🌑', desc: 'Многослойная аура теней из глубины врат.' },
+    frame_flame: { type: 'frame', name: 'Пламя Монарха', rarity: 'legendary', icon: '🔥', desc: 'Живой огненно-алый контур с потоками энергии и искрами.' },
+    // аватарки (img/avatars/, рисует tools/build-avatars.mjs); cat: heroine | hunter | special
+    avatar_initial: { type: 'avatar', cat: 'special', name: 'Инициал', rarity: 'common', icon: '🔤', desc: 'Первая буква ника — запасной вариант.' },
+    avatar_awakened_hunter: { type: 'avatar', cat: 'hunter', file: 'awakened-hunter.svg', name: 'Пробуждённый охотник', rarity: 'common', desc: 'Только что прошёл через алые врата.' },
+    avatar_night_blade: { type: 'avatar', cat: 'hunter', file: 'night-blade.svg', name: 'Ночной клинок', rarity: 'common', desc: 'Тень в капюшоне с клинком за спиной.' },
+    avatar_scarlet_valkyrie: { type: 'avatar', cat: 'heroine', file: 'scarlet-valkyrie.svg', name: 'Алая валькирия', rarity: 'rare', desc: 'Крылатая воительница в серебряных доспехах.' },
+    avatar_night_kitsune: { type: 'avatar', cat: 'heroine', file: 'night-kitsune.svg', name: 'Ночная кицунэ', rarity: 'rare', desc: 'Лисица-оборотень у врат Бездны.' },
+    avatar_system_neophyte: { type: 'avatar', cat: 'hunter', file: 'system-neophyte.svg', name: 'Неофит Системы', rarity: 'rare', desc: 'Руны Системы признали нового игрока.' },
+    avatar_crimson_swordswoman: { type: 'avatar', cat: 'heroine', file: 'crimson-swordswoman.svg', name: 'Алая мечница', rarity: 'rare', desc: 'Клинок, закалённый в багровом свете.' },
+    avatar_world_wanderer: { type: 'avatar', cat: 'heroine', file: 'world-wanderer.svg', name: 'Странница миров', rarity: 'rare', desc: 'Прошла через первые изумрудные врата.' },
+    avatar_chronicle_keeper: { type: 'avatar', cat: 'heroine', file: 'chronicle-keeper.svg', name: 'Хранительница хроник', rarity: 'epic', desc: 'Записывает истории всех пройденных миров.' },
+    avatar_gate_guardian: { type: 'avatar', cat: 'hunter', file: 'gate-guardian.svg', name: 'Страж врат', rarity: 'rare', desc: 'Закованный в сталь страж фиолетового разлома.' },
+    avatar_blood_princess: { type: 'avatar', cat: 'heroine', file: 'blood-princess.webp', name: 'Кровавая принцесса', rarity: 'epic', desc: 'Готическая героиня в алых розах под кровавой луной.' },
+    avatar_abyss_lady: { type: 'avatar', cat: 'heroine', file: 'abyss-lady.svg', name: 'Леди Бездны', rarity: 'epic', desc: 'Рогатая владычица тёмного разлома.' },
+    avatar_monarch_shade: { type: 'avatar', cat: 'hunter', file: 'monarch-shade.svg', name: 'Тень Монарха', rarity: 'legendary', desc: 'Воин из армии теней.' },
+    avatar_shadow_empress: { type: 'avatar', cat: 'heroine', file: 'shadow-empress.svg', name: 'Императрица теней', rarity: 'legendary', desc: 'Корона из тьмы и фиолетового пламени.' },
+    avatar_guild_herald: { type: 'avatar', cat: 'heroine', file: 'guild-herald.svg', name: 'Вестница гильдии', rarity: 'rare', desc: 'Её голос слышит вся гильдия.' },
+    avatar_scarlet_oracle: { type: 'avatar', cat: 'heroine', file: 'scarlet-oracle.svg', name: 'Алый оракул', rarity: 'epic', desc: 'Провидица в алых розах.' },
+    avatar_dawn_valkyrie: { type: 'avatar', cat: 'heroine', file: 'dawn-valkyrie.svg', name: 'Валькирия рассвета', rarity: 'epic', desc: 'Сияет после недели тренировок.' },
+    avatar_dragon_heart: { type: 'avatar', cat: 'hunter', file: 'dragon-heart.svg', name: 'Сердце дракона', rarity: 'epic', desc: 'Охотник, в чьей груди горит драконье пламя.' },
+    avatar_flame_priestess: { type: 'avatar', cat: 'heroine', file: 'flame-priestess.svg', name: 'Огненная жрица', rarity: 'legendary', desc: 'Служительница огненных врат.' },
+    avatar_s_rank_goddess: { type: 'avatar', cat: 'heroine', file: 's-rank-goddess.svg', name: 'Богиня S-ранга', rarity: 'legendary', desc: 'Сияние, доступное лишь сильнейшим.' },
+    avatar_shadow_monarch: { type: 'avatar', cat: 'hunter', file: 'shadow-monarch.svg', name: 'Монарх Теней', rarity: 'legendary', desc: 'Повелитель армии теней.' },
+    // звания (показываются под ником) — только за заслуги
+    title_awakened: { type: 'title', name: 'Пробуждённый', rarity: 'common', icon: '✨', desc: 'Система признала нового игрока.' },
+    title_guild_voice: { type: 'title', name: 'Голос гильдии', rarity: 'rare', icon: '📣', desc: 'Слово, услышанное гильдией.' },
+    title_chronicler: { type: 'title', name: 'Летописец', rarity: 'rare', icon: '📖', desc: 'Хранитель историй десяти миров.' },
+    title_gate_conqueror: { type: 'title', name: 'Покоритель врат', rarity: 'epic', icon: '🌀', desc: 'Тридцать миров покорены.' },
+    title_tireless: { type: 'title', name: 'Неутомимый', rarity: 'epic', icon: '⚡', desc: 'Семь дней тренировок без устали.' },
     title_rank_d: { type: 'title', name: 'Охотник D-ранга', rarity: 'common', icon: '🎖️', desc: 'Первые шаги остались позади.' },
     title_rank_c: { type: 'title', name: 'Охотник C-ранга', rarity: 'rare', icon: '🎖️', desc: 'Опытный боец гильдии.' },
     title_rank_b: { type: 'title', name: 'Охотник B-ранга', rarity: 'rare', icon: '🎖️', desc: 'Сила, с которой считаются.' },
     title_rank_a: { type: 'title', name: 'Охотник A-ранга', rarity: 'epic', icon: '🏅', desc: 'Элита среди охотников.' },
     title_rank_s: { type: 'title', name: 'Охотник S-ранга', rarity: 'epic', icon: '🏅', desc: 'Сильнейшие из сильнейших.' },
     title_monarch: { type: 'title', name: 'Монарх Теней', rarity: 'legendary', icon: '👑', desc: 'Вершина Системы.' },
-    title_awakened: { type: 'title', name: 'Пробуждённый', rarity: 'common', icon: '✨', desc: 'Система признала нового игрока.' },
-    title_gate_conqueror: { type: 'title', name: 'Покоритель врат', rarity: 'epic', icon: '🌀', desc: 'Тридцать миров покорены.' },
-    title_guild_voice: { type: 'title', name: 'Голос гильдии', rarity: 'rare', icon: '📣', desc: 'Слово, услышанное гильдией.' },
-    title_chronicler: { type: 'title', name: 'Летописец', rarity: 'rare', icon: '📖', desc: 'Хранитель историй десяти миров.' },
-    title_tireless: { type: 'title', name: 'Неутомимый', rarity: 'epic', icon: '⚡', desc: 'Семь дней тренировок без устали.' },
     // артефакты и подарки
     artifact_mana_crystal: { type: 'artifact', name: 'Кристалл маны', rarity: 'common', icon: '💎', desc: 'Первый дар Системы пробуждённому.' },
     artifact_gate_key: { type: 'artifact', name: 'Ключ от врат', rarity: 'common', icon: '🗝️', desc: 'Открывает дорогу в новые миры.' },
@@ -73,33 +95,35 @@
     artifact_shadow_crown: { type: 'artifact', name: 'Корона теней', rarity: 'legendary', icon: '👑', desc: 'Носит лишь Монарх.' }
   };
 
-  // Награды за уровень (открываются сами, без квеста)
+  var DEFAULT_AVATAR = 'avatar_awakened_hunter';
+
+  // Награды за уровень (открываются сами); на 1-м — стартовые рамка и аватарки (без званий!)
   var LEVEL_REWARDS = [
-    { level: 1, rewards: ['frame_common', 'title_rank_e'] },
+    { level: 1, rewards: ['frame_common', 'avatar_awakened_hunter', 'avatar_night_blade', 'avatar_scarlet_valkyrie', 'avatar_night_kitsune', 'avatar_initial'] },
     { level: 5, rewards: ['title_rank_d'] },
-    { level: 10, rewards: ['title_rank_c', 'artifact_dragon_heart'] },
+    { level: 10, rewards: ['title_rank_c', 'artifact_dragon_heart', 'avatar_dragon_heart'] },
     { level: 15, rewards: ['title_rank_b'] },
-    { level: 20, rewards: ['title_rank_a', 'frame_flame'] },
-    { level: 30, rewards: ['title_rank_s'] },
-    { level: 40, rewards: ['title_monarch', 'artifact_shadow_crown'] }
+    { level: 20, rewards: ['title_rank_a', 'frame_flame', 'avatar_flame_priestess'] },
+    { level: 30, rewards: ['title_rank_s', 'avatar_s_rank_goddess'] },
+    { level: 40, rewards: ['title_monarch', 'artifact_shadow_crown', 'avatar_shadow_monarch'] }
   ];
 
   // ───────── квесты ─────────
   // metric — откуда берётся прогресс (см. metrics()); daily — можно выполнять раз в день
   var QUESTS = [
     { id: 'daily', daily: true, title: 'Ежедневная тренировка Игрока', desc: 'Загляните в Систему и отметьтесь. Серия дней даёт бонус опыта.', metric: 'daily', target: 1, exp: 50 },
-    { id: 'awaken', title: 'Первое пробуждение', desc: 'Задайте свой никнейм в настройках профиля.', metric: 'nickname', target: 1, exp: 100, rewards: ['title_awakened', 'artifact_mana_crystal'] },
-    { id: 'gates_5', title: 'Покоритель врат I', desc: 'Соберите 5 тайтлов: избранное, коллекция AnimeVerse или отметки просмотра.', metric: 'collection', target: 5, exp: 100, rewards: ['artifact_gate_key'] },
-    { id: 'gates_15', title: 'Покоритель врат II', desc: 'Соберите 15 тайтлов в коллекции.', metric: 'collection', target: 15, exp: 200, rewards: ['frame_crimson'] },
-    { id: 'gates_30', title: 'Покоритель врат III', desc: 'Соберите 30 тайтлов в коллекции.', metric: 'collection', target: 30, exp: 350, rewards: ['title_gate_conqueror'] },
-    { id: 'gates_50', title: 'Покоритель врат IV', desc: 'Соберите 50 тайтлов в коллекции.', metric: 'collection', target: 50, exp: 600, rewards: ['frame_shadow'] },
-    { id: 'watched_1', title: 'Первый пройденный мир', desc: 'Отметьте просмотр хотя бы одного аниме.', metric: 'watched', target: 1, exp: 50, rewards: ['artifact_scroll'] },
-    { id: 'watched_10', title: 'Летописец', desc: 'Отметьте просмотр 10 аниме.', metric: 'watched', target: 10, exp: 250, rewards: ['title_chronicler'] },
-    { id: 'guild_1', title: 'Голос гильдии', desc: 'Напишите сообщение в чат сообщества.', metric: 'chat', target: 1, exp: 80, rewards: ['title_guild_voice'] },
-    { id: 'guild_10', title: 'Глас гильдии', desc: 'Напишите 10 сообщений в чат сообщества.', metric: 'chat', target: 10, exp: 250, rewards: ['artifact_guild_seal'] },
+    { id: 'awaken', title: 'Первое пробуждение', desc: 'Задайте свой никнейм в настройках профиля.', metric: 'nickname', target: 1, exp: 100, rewards: ['title_awakened', 'artifact_mana_crystal', 'avatar_system_neophyte', 'avatar_crimson_swordswoman'] },
+    { id: 'gates_5', title: 'Покоритель врат I', desc: 'Соберите 5 тайтлов: избранное, коллекция AnimeVerse или отметки просмотра.', metric: 'collection', target: 5, exp: 100, rewards: ['frame_crimson', 'artifact_gate_key', 'avatar_gate_guardian'] },
+    { id: 'gates_15', title: 'Покоритель врат II', desc: 'Соберите 15 тайтлов в коллекции.', metric: 'collection', target: 15, exp: 200, rewards: ['avatar_blood_princess'] },
+    { id: 'gates_30', title: 'Покоритель врат III', desc: 'Соберите 30 тайтлов в коллекции.', metric: 'collection', target: 30, exp: 350, rewards: ['title_gate_conqueror', 'avatar_abyss_lady'] },
+    { id: 'gates_50', title: 'Покоритель врат IV', desc: 'Соберите 50 тайтлов в коллекции.', metric: 'collection', target: 50, exp: 600, rewards: ['frame_shadow', 'avatar_monarch_shade', 'avatar_shadow_empress'] },
+    { id: 'watched_1', title: 'Первый пройденный мир', desc: 'Отметьте просмотр хотя бы одного аниме.', metric: 'watched', target: 1, exp: 50, rewards: ['artifact_scroll', 'avatar_world_wanderer'] },
+    { id: 'watched_10', title: 'Летописец', desc: 'Отметьте просмотр 10 аниме.', metric: 'watched', target: 10, exp: 250, rewards: ['title_chronicler', 'avatar_chronicle_keeper'] },
+    { id: 'guild_1', title: 'Голос гильдии', desc: 'Напишите сообщение в чат сообщества.', metric: 'chat', target: 1, exp: 80, rewards: ['title_guild_voice', 'avatar_guild_herald'] },
+    { id: 'guild_10', title: 'Глас гильдии', desc: 'Напишите 10 сообщений в чат сообщества.', metric: 'chat', target: 10, exp: 250, rewards: ['artifact_guild_seal', 'avatar_scarlet_oracle'] },
     { id: 'scout', title: 'Разведка', desc: 'Загляните в каталог и в график выхода аниме.', metric: 'scout', target: 2, exp: 60, rewards: ['artifact_dungeon_map'] },
     { id: 'genres_5', title: 'Знаток жанров', desc: 'Посетите 5 разных страниц жанров.', metric: 'genres', target: 5, exp: 120, rewards: ['artifact_rune'] },
-    { id: 'streak_7', title: 'Неделя тренировок', desc: 'Выполните ежедневную тренировку 7 раз.', metric: 'dailyTotal', target: 7, exp: 300, rewards: ['frame_epic', 'title_tireless'] }
+    { id: 'streak_7', title: 'Неделя тренировок', desc: 'Выполните ежедневную тренировку 7 раз.', metric: 'dailyTotal', target: 7, exp: 300, rewards: ['frame_epic', 'title_tireless', 'avatar_dawn_valkyrie'] }
   ];
 
   // ───────── посещения разделов (для квестов «Разведка» и «Знаток жанров») ─────────
@@ -198,6 +222,23 @@
     return '';
   }
 
+  // ───────── аватарки ─────────
+  function avatarUrl(id) {
+    var r = REWARDS[id];
+    if (!r || r.type !== 'avatar' || !r.file) return null;
+    var root = window.AnimeChat && window.AnimeChat.ROOT ? window.AnimeChat.ROOT : new URL('../', document.currentScript ? document.currentScript.src : location.href).href;
+    return root + 'img/avatars/' + r.file;
+  }
+  // Выбранное, но только если оно открыто; иначе — стартовое
+  function pickUnlocked(p, field, type, fallback) {
+    var id = p[field];
+    if (id && REWARDS[id] && REWARDS[id].type === type && computeUnlocked(p).indexOf(id) !== -1) return id;
+    return fallback;
+  }
+  function currentAvatar(p) { return pickUnlocked(p, 'selectedAvatar', 'avatar', DEFAULT_AVATAR); }
+  function currentFrame(p) { return pickUnlocked(p, 'selectedFrame', 'frame', 'frame_common'); }
+  function currentTitle(p) { return pickUnlocked(p, 'selectedTitle', 'title', null); }
+
   // ───────── Firestore ─────────
   function services() {
     if (!window.AnimeChat || !window.AnimeChat.services) return Promise.reject(new Error('Нет модуля js/chat-core.js'));
@@ -233,8 +274,8 @@
       name: String(p.username || (user && user.displayName) || 'Игрок').slice(0, 24),
       level: info.level,
       rank: rankFor(info.level).short,
-      frame: p.selectedFrame && REWARDS[p.selectedFrame] ? p.selectedFrame : 'frame_common',
-      photo: user && /^https:\/\//.test(user.photoURL || '') ? user.photoURL : null
+      frame: currentFrame(p),
+      avatar: currentAvatar(p),
     };
   }
   function publish(data) {
@@ -251,7 +292,8 @@
   else watchScheduleVisit();
 
   window.AnimePlayer = {
-    RANKS: RANKS, REWARDS: REWARDS, QUESTS: QUESTS, LEVEL_REWARDS: LEVEL_REWARDS,
+    RANKS: RANKS, REWARDS: REWARDS, QUESTS: QUESTS, LEVEL_REWARDS: LEVEL_REWARDS, DEFAULT_AVATAR: DEFAULT_AVATAR,
+    avatarUrl: avatarUrl, currentAvatar: currentAvatar, currentFrame: currentFrame, currentTitle: currentTitle,
     expToNext: expToNext, levelInfo: levelInfo, rankFor: rankFor,
     questStates: questStates, computeUnlocked: computeUnlocked, rewardSource: rewardSource,
     collectionCount: collectionCount, todayKey: todayKey, yesterdayKey: yesterdayKey,

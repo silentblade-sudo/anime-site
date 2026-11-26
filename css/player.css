@@ -1,7 +1,9 @@
-/* Профиль Игрока: мини-карточка в шапке (js/player-chip.js) и рамки аватара (общие с pages/profile.html).
-   Палитра сайта: #0a0506, #c8102e, #ff2440. */
+/* Профиль Игрока: мини-карточка в шапке (js/player-chip.js), аватар и рамки-порталы
+   (общие с pages/profile.html). Палитра сайта: #0a0506, #c8102e, #ff2440.
+   Рамки масштабируются вместе с аватаром (размеры колец — в процентах),
+   анимируются только transform и opacity — без лагов даже в шапке. */
 
-/* ───────── Аватар и рамки ───────── */
+/* ───────── Аватар ───────── */
 .pf-avatar {
   position: relative;
   display: inline-grid;
@@ -19,31 +21,110 @@
   isolation: isolate;
 }
 
-.pf-avatar img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block; }
+.pf-avatar img { position: relative; z-index: 0; width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block; }
 
-.pf-frame-common { box-shadow: 0 0 0 2px #6e0a17; }
-.pf-frame-crimson { box-shadow: 0 0 0 2px #ff2440, 0 0 10px rgba(255, 36, 64, 0.6); }
-.pf-frame-epic { box-shadow: 0 0 0 2px #ff2440, 0 0 0 4px rgba(200, 16, 46, 0.35); animation: pf-pulse 1.8s ease-in-out infinite; }
+/* слои рамки: ::before — кольцо/аура за аватаром, ::after — свечение внутрь поверх картинки */
+.pf-avatar::before,
+.pf-avatar::after { content: ''; position: absolute; border-radius: 50%; pointer-events: none; }
+.pf-avatar::before { inset: -9%; z-index: -1; }
+.pf-avatar::after { inset: 0; z-index: 1; }
 
-/* легендарные — вращающееся кольцо за аватаром */
-.pf-frame-shadow::before,
+/* Обычная рамка — строгий тёмно-стальной контур */
+.pf-frame-common::before {
+  inset: -7%;
+  background: conic-gradient(from 210deg, #5d6470, #23272e, #8a919c, #2a2e35, #5d6470);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+}
+.pf-frame-common::after { box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08), inset 0 -6px 10px rgba(0, 0, 0, 0.45); }
+
+/* Алые врата — глубокий багровый портал, внутреннее свечение и «дыхание» энергии */
+.pf-frame-crimson::before {
+  inset: -10%;
+  background: radial-gradient(closest-side, transparent 80%, #ff2440 84%, #8f0e22 92%, rgba(143, 14, 34, 0) 100%);
+  box-shadow: 0 0 10px 2px rgba(255, 36, 64, 0.55);
+  animation: pf-breathe 3.2s ease-in-out infinite;
+}
+.pf-frame-crimson::after {
+  background: radial-gradient(circle, transparent 55%, rgba(200, 16, 46, 0.25) 75%, rgba(255, 36, 64, 0.65) 100%);
+  box-shadow: inset 0 0 0 1.5px #ff2440;
+}
+
+/* Разлом Бездны — затягивающий тёмно-алый вихрь с вращающимся кольцом */
+.pf-frame-epic { box-shadow: 0 0 0 2px rgba(10, 0, 4, 0.9), 0 0 16px 4px rgba(200, 16, 46, 0.45); }
+.pf-frame-epic::before {
+  inset: -14%;
+  background:
+    conic-gradient(from 0deg, transparent 0 8%, #ff2440 12%, transparent 22% 33%, #c8102e 40%, transparent 50% 58%, #ff5a6e 64%, transparent 74% 83%, #8f0e22 90%, transparent 100%);
+  -webkit-mask: radial-gradient(closest-side, transparent 68%, #000 72%, #000 96%, transparent 100%);
+  mask: radial-gradient(closest-side, transparent 68%, #000 72%, #000 96%, transparent 100%);
+  filter: drop-shadow(0 0 4px rgba(255, 36, 64, 0.9));
+  animation: pf-spin 3.6s linear infinite;
+}
+.pf-frame-epic::after {
+  background:
+    repeating-conic-gradient(from 0deg, rgba(255, 36, 64, 0.22) 0 6deg, transparent 6deg 24deg),
+    radial-gradient(circle, transparent 50%, rgba(60, 0, 15, 0.7) 100%);
+  -webkit-mask: radial-gradient(circle, transparent 52%, #000 80%);
+  mask: radial-gradient(circle, transparent 52%, #000 80%);
+  box-shadow: inset 0 0 0 1.5px rgba(255, 36, 64, 0.9);
+  animation: pf-spin 7s linear infinite reverse;
+}
+
+/* Теневой портал — мистическая аура теней с многослойной глубокой подсветкой */
+.pf-frame-shadow {
+  box-shadow:
+    0 0 0 2px #050102,
+    0 0 0 3px rgba(255, 36, 64, 0.5),
+    0 0 14px 5px rgba(0, 0, 0, 0.95),
+    0 0 26px 9px rgba(110, 10, 23, 0.6),
+    0 0 40px 14px rgba(20, 0, 6, 0.8);
+}
+.pf-frame-shadow::before {
+  inset: -18%;
+  background:
+    conic-gradient(from 90deg, #000 0%, #3a0610 8%, #ff2440 10%, #3a0610 12%, #000 22%, #1a0b0e 34%, #6e0a17 44%, #c8102e 46%, #000 56%, #2a0510 68%, #ff5a6e 70%, #2a0510 72%, #000 84%, #6e0a17 94%, #000 100%);
+  -webkit-mask: radial-gradient(closest-side, transparent 62%, #000 70%, rgba(0, 0, 0, 0.75) 86%, transparent 100%);
+  mask: radial-gradient(closest-side, transparent 62%, #000 70%, rgba(0, 0, 0, 0.75) 86%, transparent 100%);
+  animation: pf-spin 9s linear infinite;
+}
+.pf-frame-shadow::after {
+  background: radial-gradient(circle, transparent 46%, rgba(0, 0, 0, 0.5) 76%, rgba(10, 0, 4, 0.95) 100%);
+  box-shadow: inset 0 0 0 1.5px rgba(255, 36, 64, 0.6), inset 0 0 14px rgba(110, 10, 23, 0.8);
+  animation: pf-breathe 4.5s ease-in-out infinite;
+}
+
+/* Пламя Монарха — живой огненно-алый контур, потоки энергии и искры */
+.pf-frame-flame { box-shadow: 0 0 18px 5px rgba(255, 36, 64, 0.55), 0 0 34px 10px rgba(200, 16, 46, 0.3); }
 .pf-frame-flame::before {
-  content: '';
-  position: absolute;
-  inset: -4px;
-  z-index: -1;
-  border-radius: 50%;
-  animation: pf-spin 4s linear infinite;
+  inset: -15%;
+  background:
+    conic-gradient(from 0deg, #ff2440, #ffd0d6, #ff2440 14%, #8f0e22 22%, #ff5a6e 34%, #c8102e 46%, #ff2440 58%, #ffd0d6 66%, #ff2440 74%, #6e0a17 86%, #ff2440);
+  -webkit-mask: radial-gradient(closest-side, transparent 70%, #000 74%, #000 90%, transparent 100%);
+  mask: radial-gradient(closest-side, transparent 70%, #000 74%, #000 90%, transparent 100%);
+  filter: drop-shadow(0 0 5px rgba(255, 36, 64, 1));
+  animation: pf-spin 2.4s linear infinite;
 }
-.pf-frame-shadow::before { background: conic-gradient(#000, #3a0610, #c8102e, #000, #1a0b0e, #ff2440, #000); filter: drop-shadow(0 0 6px rgba(120, 0, 25, 0.9)); }
-.pf-frame-flame::before { background: conic-gradient(#ff2440, #ff8a99, #c8102e, #ff2440, #6e0a17, #ff5a6e, #ff2440); filter: drop-shadow(0 0 8px rgba(255, 36, 64, 0.85)); }
-.pf-frame-shadow { box-shadow: 0 0 14px rgba(0, 0, 0, 0.9); }
+.pf-frame-flame::after {
+  inset: -24%;
+  z-index: 2;
+  /* искры вокруг аватара */
+  background:
+    radial-gradient(circle at 50% 2%, #fff 0 1.5%, transparent 3%),
+    radial-gradient(circle at 92% 30%, #ffd0d6 0 1.4%, transparent 3%),
+    radial-gradient(circle at 80% 88%, #ff5a6e 0 1.6%, transparent 3.2%),
+    radial-gradient(circle at 12% 76%, #fff 0 1.2%, transparent 2.6%),
+    radial-gradient(circle at 6% 24%, #ff8a99 0 1.4%, transparent 3%),
+    radial-gradient(circle at 50% 50%, transparent 40%, rgba(200, 16, 46, 0.2) 41%, transparent 42%);
+  animation: pf-spin 6s linear infinite reverse, pf-flicker 1.4s ease-in-out infinite;
+}
 
-@keyframes pf-pulse {
-  0%, 100% { box-shadow: 0 0 0 2px #ff2440, 0 0 4px 2px rgba(255, 36, 64, 0.35); }
-  50% { box-shadow: 0 0 0 2px #ff5a6e, 0 0 16px 5px rgba(255, 36, 64, 0.7); }
-}
 @keyframes pf-spin { to { transform: rotate(360deg); } }
+@keyframes pf-breathe { 0%, 100% { opacity: 0.75; transform: scale(0.97); } 50% { opacity: 1; transform: scale(1.04); } }
+@keyframes pf-flicker { 0%, 100% { opacity: 0.85; } 50% { opacity: 0.45; } }
+
+/* в мини-карточке шапки — потоньше и без искр, чтобы не наезжать на текст */
+.player-chip .pf-frame-flame::after { display: none; }
+.player-chip .pf-avatar::before { inset: -8%; }
 
 /* ───────── Мини-карточка в шапке ───────── */
 .player-chip {
@@ -85,5 +166,5 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .pf-frame-epic, .pf-frame-shadow::before, .pf-frame-flame::before { animation: none; }
+  .pf-avatar::before, .pf-avatar::after { animation: none !important; }
 }

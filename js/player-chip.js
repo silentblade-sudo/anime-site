@@ -18,16 +18,18 @@
 
   function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
 
+  // Аватар: выбранная аватарка из img/avatars/ внутри выбранной рамки; буква — только для «Инициала»
   function avatar(d, size) {
     var av = el('span', 'pf-avatar pf-' + (d.frame || 'frame_common').replace('_', '-') + (size ? ' pf-avatar-' + size : ''));
-    var letter = (String(d.name || '?').match(/[\p{L}\p{N}]/u) || ['?'])[0].toUpperCase();
-    av.textContent = letter;
-    if (d.photo) {
+    var url = d.avatar && d.avatar !== 'avatar_initial' ? P.avatarUrl(d.avatar) : null;
+    if (url) {
       var img = new Image();
       img.alt = '';
-      img.referrerPolicy = 'no-referrer';
-      img.onload = function () { av.replaceChildren(img); };
-      img.src = d.photo;
+      img.decoding = 'async';
+      img.src = url;
+      av.appendChild(img);
+    } else {
+      av.textContent = (String(d.name || '?').match(/[\p{L}\p{N}]/u) || ['?'])[0].toUpperCase();
     }
     return av;
   }

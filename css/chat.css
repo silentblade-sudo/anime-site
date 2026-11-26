@@ -50,6 +50,24 @@
 
 .chat-msg.is-own .chat-msg-name { color: #ff8a99; }
 
+/* мини-аватарка автора сообщения */
+.chat-msg-head { align-items: center; }
+.chat-msg-ava {
+  display: inline-grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #2a1216;
+  box-shadow: 0 0 0 1px rgba(255, 36, 64, 0.55);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+}
+.chat-msg-ava img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
 /* Удаление сообщения — кнопка только у администратора (js/chat-core.js → ADMIN_UIDS) */
 .chat-msg-del {
   display: inline-flex;
