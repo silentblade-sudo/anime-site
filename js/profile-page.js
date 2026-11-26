@@ -280,10 +280,46 @@
       var fresh = patch.unlockedRewards.filter(function (id) { return !unlockedBefore[id]; });
       renderAll();
       publishChip();
+      notifyClaim(q, gained, before, patch.level, fresh);
       showReward(q, gained, before, patch.level, fresh);
     }).catch(function (err) {
       toast('Не удалось сохранить прогресс: ' + (err && err.code === 'permission-denied' ? 'нет доступа к профилю в базе.' : 'проверьте подключение.'));
     }).then(function () { busy = false; });
+  }
+
+  // ───────── уведомления (js/player-notify.js) ─────────
+  var REWARD_NOTE = {
+    frame: ['🌀', 'Открыта рамка-портал'], avatar: ['🖼️', 'Новая аватарка'],
+    title: ['🎖️', 'Получено звание'], artifact: ['💎', 'Новый артефакт']
+  };
+  function rewardEvent(id, at) {
+    var r = P.REWARDS[id];
+    if (!r) return null;
+    var n = REWARD_NOTE[r.type];
+    return { id: 'reward:' + id, cat: 'reward', icon: n[0], title: n[1] + ': «' + r.name + '»', text: r.desc, href: 'profile.html#invTitle', at: at };
+  }
+  function notifyClaim(q, exp, before, after, fresh) {
+    if (!window.AnimeNotify) return;
+    var t = Date.now(), today = P.todayKey();
+    var list = [{ id: 'quest-done:' + q.id + (q.daily ? ':' + today : ''), cat: 'quest', icon: '✅', title: 'Квест завершён: «' + q.title + '»', text: 'Награда получена: +' + exp + ' EXP.', href: 'profile.html#questsTitle', at: t }];
+    fresh.forEach(function (id) { var e = rewardEvent(id, t); if (e) list.push(e); });
+    if (after > before) list.push({ id: 'level:' + after, cat: 'reward', icon: '⚡', title: 'LEVEL UP! LV. ' + before + ' → LV. ' + after, text: 'Новый уровень Игрока.', href: 'profile.html', at: t });
+    var r0 = P.rankFor(before), r1 = P.rankFor(after);
+    if (r1.id !== r0.id) list.push({ id: 'rank:' + r1.id, cat: 'reward', icon: '🏅', title: 'Новый ранг: ' + r1.name, text: 'Система повысила ваш ранг охотника.', href: 'profile.html', at: t });
+    window.AnimeNotify.push(list);
+    window.AnimeNotify.markRead('quest-ready:' + q.id + (q.daily ? ':' + today : ''));
+  }
+  var notifyRendered = false;
+  function startNotify(u) {
+    if (!window.AnimeNotify) return;
+    window.AnimeNotify.attach(u.uid, Object.assign({}, player, { __chatCount: chatCount }));
+    // история уже открытых наград (кроме стартовых) — чтобы лента отражала прогресс с первого входа
+    var starters = {};
+    (P.LEVEL_REWARDS[0] || { rewards: [] }).rewards.forEach(function (id) { starters[id] = 1; });
+    var hist = P.computeUnlocked(player).filter(function (id) { return !starters[id]; })
+      .map(function (id) { var e = rewardEvent(id, Date.now() - 60000); if (e) e.read = true; return e; }).filter(Boolean);
+    window.AnimeNotify.push(hist);
+    if (!notifyRendered) { window.AnimeNotify.render($('notifyBox'), {}); notifyRendered = true; }
   }
 
   function showReward(q, exp, before, after, fresh) {
@@ -427,6 +463,7 @@
       $('sysLoading').hidden = true;
       $('sysGate').hidden = true;
       $('playerUi').hidden = false;
+      startNotify(u);
       renderAll();
       publishChip();
     }).catch(function (err) {

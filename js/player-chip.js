@@ -35,6 +35,68 @@
     return av;
   }
 
+  // ───────── колокольчик уведомлений рядом с карточкой (js/player-notify.js) ─────────
+  var BELL_SVG = '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M12 3a6 6 0 0 0-6 6v3.6L4.4 15.5A1 1 0 0 0 5.3 17h13.4a1 1 0 0 0 .9-1.5L18 12.6V9a6 6 0 0 0-6-6z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9.5 19.5a2.5 2.5 0 0 0 5 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+  var bells = [];
+  function ensureBells() {
+    if (!window.AnimeNotify || bells.length) return;
+    chips.forEach(function (a) {
+      var wrap = el('span', 'nt-bell-wrap');
+      var btn = el('button', 'nt-bell');
+      btn.type = 'button';
+      btn.setAttribute('aria-label', 'Уведомления');
+      btn.setAttribute('aria-expanded', 'false');
+      btn.innerHTML = BELL_SVG;
+      var badge = el('span', 'nt-badge');
+      badge.hidden = true;
+      btn.appendChild(badge);
+      var panel = el('div', 'nt-panel');
+      panel.hidden = true;
+      panel.setAttribute('role', 'dialog');
+      panel.setAttribute('aria-label', 'Уведомления Системы');
+      var title = el('div', 'nt-panel-title', '[ УВЕДОМЛЕНИЯ СИСТЕМЫ ]');
+      var box = el('div');
+      panel.append(title, box);
+      wrap.append(btn, panel);
+      a.parentNode.insertBefore(wrap, a);
+      var rendered = false;
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var open = panel.hidden;
+        document.querySelectorAll('.nt-panel').forEach(function (p) { p.hidden = true; });
+        document.querySelectorAll('.nt-bell').forEach(function (b) { b.setAttribute('aria-expanded', 'false'); });
+        if (!open) return;
+        if (!rendered) { window.AnimeNotify.render(box, { limit: 30, moreHref: ROOT + 'pages/profile.html#notifyTitle' }); rendered = true; }
+        window.AnimeNotify.checkSchedule(true);
+        panel.hidden = false;
+        btn.setAttribute('aria-expanded', 'true');
+      });
+      panel.addEventListener('click', function (e) { e.stopPropagation(); });
+      bells.push({ wrap: wrap, badge: badge });
+    });
+    document.addEventListener('click', function () {
+      document.querySelectorAll('.nt-panel').forEach(function (p) { p.hidden = true; });
+      document.querySelectorAll('.nt-bell').forEach(function (b) { b.setAttribute('aria-expanded', 'false'); });
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') document.querySelectorAll('.nt-panel').forEach(function (p) { p.hidden = true; });
+    });
+    window.AnimeNotify.onChange(updateBadges);
+    updateBadges();
+  }
+  function updateBadges() {
+    var n = window.AnimeNotify ? window.AnimeNotify.unread() : 0;
+    bells.forEach(function (b) {
+      b.badge.hidden = !n;
+      b.badge.textContent = n > 99 ? '99+' : String(n);
+      b.wrap.querySelector('.nt-bell').setAttribute('aria-label', n ? 'Уведомления: непрочитанных ' + n : 'Уведомления');
+    });
+  }
+  function removeBells() {
+    bells.forEach(function (b) { b.wrap.remove(); });
+    bells = [];
+  }
+
   function renderPlayer(d) {
     chips.forEach(function (a) {
       a.classList.remove('is-guest');
@@ -49,6 +111,8 @@
   }
 
   function renderGuest() {
+    removeBells();
+    if (window.AnimeNotify) window.AnimeNotify.detach();
     chips.forEach(function (a) {
       a.classList.remove('is-player');
       if (!a.classList.contains('login-btn')) a.classList.add('is-guest');
@@ -80,6 +144,8 @@
         P.load(user.uid).then(function (p) {
           var d = P.chipData(user.uid, p, user);
           renderPlayer(d);
+          // лента уведомлений: события из профиля, квестов, расписания и сайта
+          if (window.AnimeNotify) { window.AnimeNotify.attach(user.uid, p); ensureBells(); }
           try { localStorage.setItem('animeverse_player', JSON.stringify(d)); } catch (e) {}
         }).catch(function () {
           renderPlayer(P.chipData(user.uid, { username: user.displayName }, user));
