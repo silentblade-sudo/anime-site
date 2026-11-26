@@ -179,6 +179,7 @@
     }
   </style>
   <link rel="stylesheet" href="../css/theme.css">
+  <link rel="stylesheet" href="../css/player.css">
 </head>
 <body>
   <header>
@@ -212,5 +213,11 @@
   <footer>
     <p>&copy; 2025 Miside Protocol. Все права защищены.</p>
   </footer>
+<!-- уведомления Игрока: плавающий колокольчик внизу слева, только для вошедших (js/player-chip.js).
+     Плавающий чат сюда не подключается: chat-core.js — только доступ к аккаунту, без виджета. -->
+<script src="../js/chat-core.js" defer></script>
+<script src="../js/player-core.js" defer></script>
+<script src="../js/player-notify.js" defer></script>
+<script src="../js/player-chip.js" defer></script>
 </body>
 </html>

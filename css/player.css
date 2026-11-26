@@ -275,7 +275,18 @@
 .nt-more { margin-left: auto; font-size: 12.5px; color: #ff8a99; text-decoration: none; }
 .nt-more:hover { text-decoration: underline; }
 
+/* Плавающий колокольчик — на страницах без шапки сайта (игры, плеер, страница тайтла): внизу слева,
+   справа внизу остаётся кнопка чата. Лента открывается вверх. */
+.nt-float { position: fixed; left: 18px; bottom: 18px; z-index: 1150; }
+.nt-float .nt-bell { width: 48px; height: 48px; box-shadow: 0 8px 22px rgba(0, 0, 0, 0.55); }
+/* панель — в <body>, position: fixed; координаты ставит js/player-chip.js */
+.nt-panel.nt-portal { position: fixed; top: 70px; right: auto; z-index: 5000; }
+.nt-panel.nt-portal-float { top: auto; max-height: min(560px, calc(100vh - 110px)); }
+
 @media (max-width: 600px) {
   .nt-panel { position: fixed; top: 70px; left: 8px; right: 8px; width: auto; max-height: calc(100dvh - 90px); }
+  .nt-float { left: 12px; bottom: 12px; }
+  .nt-panel.nt-portal { top: 70px; bottom: auto; left: 8px; right: 8px; }
+  .nt-panel.nt-portal-float { top: auto; bottom: 74px; max-height: calc(100dvh - 100px); }
   .nt-bell { width: 38px; height: 38px; }
 }

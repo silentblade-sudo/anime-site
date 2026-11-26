@@ -21,7 +21,9 @@
   if (window.AnimeNotify) return;
 
   var MAX = 80;                        // сколько событий хранить
-  var EP_WINDOW = 36 * 3600;           // «новая серия» — вышла не раньше 36 ч назад
+  var EP_WINDOW = 72 * 3600;           // «новая серия» — вышла не раньше 3 суток назад
+  var SOON_EP = 24 * 3600;             // серия из коллекции выйдет в ближайшие 24 ч — предупреждаем заранее
+  var REST_LIMIT = 8;                  // не из коллекции — не больше 8 свежих событий расписания
   var SOON_WINDOW = 7 * 24 * 3600;     // «скоро премьера/сезон» — в ближайшие 7 дней
   var CHECK_EVERY = 20 * 60 * 1000;    // расписание и квесты перепроверяются не чаще раза в 20 мин
   var CATS = { quest: 'Задания', reward: 'Награды', episode: 'Серии', site: 'Сайт' };
@@ -35,6 +37,7 @@
   ];
 
   var uid = null, player = null;
+  var chatN = null;           // число сообщений Игрока в чате (для квестов гильдии), null — ещё не известно
   var items = [];
   var gone = {};              // ключи очищенных уведомлений — повторно не появятся
   var listeners = [];
@@ -126,7 +129,7 @@
     var P = window.AnimePlayer;
     if (!P || !p) return [];
     var today = P.todayKey();
-    return P.questStates(p, { chatCount: p.__chatCount || 0 }).filter(function (s) { return s.done && !s.claimed; }).map(function (s) {
+    return P.questStates(p, { chatCount: chatN != null ? chatN : (p.__chatCount || 0) }).filter(function (s) { return s.done && !s.claimed; }).map(function (s) {
       var q = s.quest;
       return {
         id: 'quest-ready:' + q.id + (q.daily ? ':' + today : ''),
@@ -167,9 +170,20 @@
       if (!it.airingAt || !it.nextEpisode) return;
       var at = it.airingAt, ep = it.nextEpisode;
       while (at + 7 * 86400 <= t) { at += 7 * 86400; ep++; }   // файл устарел — считаем по неделям
-      if (at > t || t - at > EP_WINDOW) return;
-      if (it.episodes && ep > it.episodes) return;
       var fav = isFav(it, favs);
+      if (at > t) {
+        // серия из коллекции выходит в ближайшие сутки — отдельное напоминание
+        if (fav && at - t <= SOON_EP && !(it.episodes && ep > it.episodes)) {
+          out.push({ id: 'ep-soon:' + it.anilistId + ':' + ep, cat: 'episode', icon: '⏳', fav: true,
+            title: 'Скоро серия ' + ep + ' — «' + it.title + '»',
+            text: 'Выйдет ' + new Date(at * 1000).toLocaleString('ru-RU', { day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit' }) + '.',
+            href: linkFor(it), at: now() });
+        }
+        at -= 7 * 86400; ep--;                                     // предыдущая серия — вышла неделю назад
+        if (ep < 1 || at > t) return;                             // перерыв в показе — прошлой серии на этой неделе не было
+      }
+      if (t - at > EP_WINDOW) return;
+      if (it.episodes && ep > it.episodes) return;
       out.push({ id: 'ep:' + it.anilistId + ':' + ep, cat: 'episode', icon: fav ? '⭐' : '📺', fav: fav,
         title: (fav ? 'Из вашей коллекции: ' : 'Вышла ') + 'серия ' + ep + ' — «' + it.title + '»',
         text: 'Новая серия онгоинга уже доступна' + (it.episodes ? ' (' + ep + ' из ' + it.episodes + ')' : '') + '.',
@@ -190,7 +204,7 @@
     });
     // приоритет — тайтлы из коллекции; из остальных — не больше 6 свежих, чтобы не засыпать ленту
     var favOnes = out.filter(function (e) { return e.fav; });
-    var rest = out.filter(function (e) { return !e.fav; }).sort(function (a, b) { return b.at - a.at; }).slice(0, 6);
+    var rest = out.filter(function (e) { return !e.fav; }).sort(function (a, b) { return b.at - a.at; }).slice(0, REST_LIMIT);
     return favOnes.concat(rest);
   }
 
@@ -199,30 +213,77 @@
     var last = 0;
     try { last = Number(sessionStorage.getItem(stamp)) || 0; } catch (e) {}
     if (!force && now() - last < CHECK_EVERY) return;
-    try { sessionStorage.setItem(stamp, String(now())); } catch (e) {}
+    var forUid = uid;
     fetch(ROOT + 'data/schedule.json', { cache: 'no-cache' })
       .then(function (r) { return r.ok ? r.json() : null; })
-      .then(function (data) { if (data) push(scheduleEvents(data, player)); })
+      .then(function (data) {
+        if (!data || !uid || uid !== forUid) return;
+        try { sessionStorage.setItem(stamp, String(now())); } catch (e) {}
+        push(scheduleEvents(data, player));
+      })
       .catch(function () {});
   }
 
   // ───────── включение для вошедшего ─────────
+  // «Можно забрать награду» для уже полученного квеста (на другой вкладке/устройстве) или вчерашней
+  // ежедневной тренировки — отмечаем прочитанным, чтобы бейдж не висел зря.
+  function settleQuests(p) {
+    var P = window.AnimePlayer;
+    if (!P || !p) return false;
+    var today = P.todayKey();
+    var claimed = p.claimedQuests || {};
+    var changed = false;
+    items.forEach(function (it) {
+      if (it.read || it.id.indexOf('quest-ready:') !== 0) return;
+      var parts = it.id.split(':');               // quest-ready:<id>[:<день>]
+      var stale = parts[2] ? (parts[2] !== today || p.lastDailyClaim === today) : !!claimed[parts[1]];
+      if (stale) { it.read = true; changed = true; }
+    });
+    return changed;
+  }
+
+  function resetFor(newUid) {
+    uid = newUid; player = null; chatN = null; items = []; gone = {};
+    merge(loadLocal());
+  }
+
+  // Мгновенно — только из локального кэша (до ответа Firestore; в облако ничего не пишет)
+  function attachLocal(newUid) {
+    if (!newUid || uid === newUid) return;
+    resetFor(newUid);
+    merge(siteEvents());
+    sortItems();
+    saveLocal();
+    emit();
+    checkSchedule(false);
+  }
+
+  // Полная лента — по документу users/{uid}
   function attach(newUid, doc) {
     if (!newUid) return;
-    var sameUser = uid === newUid;
-    uid = newUid;
-    player = doc || player || {};
-    if (!sameUser) { items = []; gone = {}; merge(loadLocal()); }
+    if (uid !== newUid) resetFor(newUid);
+    player = Object.assign({}, player || {}, doc || {});
+    if (player.__chatCount != null) chatN = player.__chatCount;
     (Array.isArray(player.notificationsCleared) ? player.notificationsCleared : []).forEach(function (id) { if (typeof id === 'string') gone[id] = 1; });
     var before = items.length;
     merge(Array.isArray(player.notifications) ? player.notifications : []);
     merge(siteEvents());
     merge(questEvents(player));
-    commit(items.length !== before || !Array.isArray(player.notifications));
+    var settled = settleQuests(player);
+    commit(settled || items.length !== before || !Array.isArray(player.notifications));
     checkSchedule(false);
   }
 
-  function detach() { uid = null; player = null; items = []; gone = {}; emit(); }
+  // Пересчитать квесты (стало известно число сообщений в чате, изменились посещения и т. п.)
+  function refreshQuests(extra) {
+    if (extra && extra.chatCount != null) chatN = extra.chatCount;
+    if (!uid || !player) return;
+    var added = merge(questEvents(player));
+    var settled = settleQuests(player);
+    if (added || settled) commit();
+  }
+
+  function detach() { uid = null; player = null; chatN = null; items = []; gone = {}; emit(); }
 
   // ───────── чтение ─────────
   function markRead(id) {
@@ -328,9 +389,9 @@
   }
 
   window.AnimeNotify = {
-    attach: attach, detach: detach, push: push, list: list, unread: unread,
+    attach: attach, attachLocal: attachLocal, refreshQuests: refreshQuests, detach: detach, push: push, list: list, unread: unread,
     markRead: markRead, markAllRead: markAllRead, clearRead: clearRead,
     onChange: onChange, render: render, checkSchedule: checkSchedule,
-    questEvents: questEvents, isAttached: function () { return !!uid; }, CATS: CATS
+    questEvents: questEvents, isAttached: function () { return !!uid; }, hasPlayer: function () { return !!player; }, CATS: CATS
   };
 })();

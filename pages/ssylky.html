@@ -1560,6 +1560,12 @@ body.modal-open { overflow: hidden; }
 }
 </style>
   <link rel="stylesheet" href="../css/theme.css">
+<link rel="stylesheet" href="../css/player.css">
+<style>
+  /* колокольчик в шапке AnimeVerse: пустой контейнер не занимает места */
+  .nav-bell { display: inline-flex; }
+  .nav-bell:empty { display: none; }
+</style>
 </head>
 <body>
 
@@ -1662,6 +1668,7 @@ body.modal-open { overflow: hidden; }
             🎭
             <div class="avatar-upload-overlay">📷</div>
           </div>
+          <span class="nav-bell" data-notify-bell></span>
           <a href="../index.html" class="site-back-link">← На сайт</a>
         </div>
       </nav>
@@ -1894,6 +1901,11 @@ body.modal-open { overflow: hidden; }
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
 <script src="../js/firebase-config.js"></script>
+<!-- колокольчик уведомлений Игрока в шапке (общий аккаунт сайта; без плавающего чата) -->
+<script src="../js/chat-core.js" defer></script>
+<script src="../js/player-core.js" defer></script>
+<script src="../js/player-notify.js" defer></script>
+<script src="../js/player-chip.js" defer></script>
 
 <script>
 // ============================================================

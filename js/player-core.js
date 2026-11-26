@@ -150,7 +150,7 @@
     var changed = false;
     if (/\/movies\.html$/.test(path) && !v.catalog) { v.catalog = 1; changed = true; }
     if (/\/news\.html$/.test(path) && location.hash === '#schedule' && !v.schedule) { v.schedule = 1; changed = true; }
-    if (document.querySelector('.anime-list') && /\/pages\/[a-z-]+\.html$/.test(path) && !/(favorites|movies|news|content|contacts|chat|profile|login|page\d?)\.html$/.test(path)) {
+    if (document.querySelector('.anime-list') && /\/pages\/[a-z-]+\.html$/.test(path) && !/(favorites|movies|news|content|contacts|chat|profile|login|ssylky|page\d?)\.html$/.test(path)) {
       var page = path.split('/').pop();
       v.genres = Array.isArray(v.genres) ? v.genres : [];
       if (v.genres.indexOf(page) === -1) { v.genres.push(page); changed = true; }
