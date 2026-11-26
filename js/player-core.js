@@ -72,6 +72,15 @@
     avatar_flame_priestess: { type: 'avatar', cat: 'heroine', file: 'flame-priestess.svg', name: 'Огненная жрица', rarity: 'legendary', desc: 'Служительница огненных врат.' },
     avatar_s_rank_goddess: { type: 'avatar', cat: 'heroine', file: 's-rank-goddess.svg', name: 'Богиня S-ранга', rarity: 'legendary', desc: 'Сияние, доступное лишь сильнейшим.' },
     avatar_shadow_monarch: { type: 'avatar', cat: 'hunter', file: 'shadow-monarch.svg', name: 'Монарх Теней', rarity: 'legendary', desc: 'Повелитель армии теней.' },
+    // готические/монохромные героини — слоты pin-* (свои картинки: tools/avatar-sources/, см. README там)
+    avatar_pin_white_reaper: { type: 'avatar', cat: 'heroine', file: 'pin-white-reaper.svg', name: 'Белая жница', rarity: 'rare', desc: 'Седые пряди, кружево и алые слёзы.' },
+    avatar_pin_noir_gothic: { type: 'avatar', cat: 'heroine', file: 'pin-noir-gothic.svg', name: 'Готика нуар', rarity: 'rare', desc: 'Чёрное каре, кружево и розы в монохроме.' },
+    avatar_pin_crimson_smile: { type: 'avatar', cat: 'heroine', file: 'pin-crimson-smile.svg', name: 'Алая усмешка', rarity: 'rare', desc: 'Дерзкая улыбка с клычком на фоне кровавой луны.' },
+    avatar_pin_moon_witch: { type: 'avatar', cat: 'heroine', file: 'pin-moon-witch.svg', name: 'Лунная ведьма', rarity: 'epic', desc: 'Руны и вуаль у лиловых врат.' },
+    avatar_pin_silver_vampire: { type: 'avatar', cat: 'heroine', file: 'pin-silver-vampire.svg', name: 'Серебряная вампирша', rarity: 'epic', desc: 'Серебро волос и алый взгляд.' },
+    avatar_pin_bloody_lace: { type: 'avatar', cat: 'heroine', file: 'pin-bloody-lace.svg', name: 'Кровавое кружево', rarity: 'epic', desc: 'Белый хвост, алые розы и кружевной ворот.' },
+    avatar_pin_raven_queen: { type: 'avatar', cat: 'heroine', file: 'pin-raven-queen.svg', name: 'Королева воронов', rarity: 'legendary', desc: 'Корона из тьмы и аура цвета запёкшейся крови.' },
+    avatar_pin_mono_angel: { type: 'avatar', cat: 'heroine', file: 'pin-mono-angel.svg', name: 'Монохромный ангел', rarity: 'legendary', desc: 'Белые крылья, нимб и чёрно-белый мир.' },
     // личная аватарка владельца сайта: видна и доступна только аккаунту с этим UID (exclusive),
     // арт показывается целиком (fit: contain), без обрезки цепей и роз
     avatar_exclusive_crimson_moon: { type: 'avatar', cat: 'heroine', file: 'exclusive-crimson-moon.webp', fit: 'contain', exclusive: 'rZMCKbIfA3NZX7Nj1YiXCB4aib22', name: 'Алая луна', rarity: 'legendary', desc: 'Личная аватарка владельца Anime Fan Club.' },
@@ -102,11 +111,12 @@
 
   // Награды за уровень (открываются сами); на 1-м — стартовые рамка и аватарки (без званий!)
   var LEVEL_REWARDS = [
-    { level: 1, rewards: ['frame_common', 'avatar_awakened_hunter', 'avatar_night_blade', 'avatar_scarlet_valkyrie', 'avatar_night_kitsune', 'avatar_initial'] },
+    { level: 1, rewards: ['frame_common', 'avatar_awakened_hunter', 'avatar_night_blade', 'avatar_scarlet_valkyrie', 'avatar_night_kitsune', 'avatar_initial', 'avatar_pin_white_reaper', 'avatar_pin_noir_gothic', 'avatar_pin_crimson_smile'] },
     { level: 5, rewards: ['title_rank_d'] },
     { level: 10, rewards: ['title_rank_c', 'artifact_dragon_heart', 'avatar_dragon_heart'] },
-    { level: 15, rewards: ['title_rank_b'] },
+    { level: 15, rewards: ['title_rank_b', 'avatar_pin_raven_queen'] },
     { level: 20, rewards: ['title_rank_a', 'frame_flame', 'avatar_flame_priestess'] },
+    { level: 25, rewards: ['avatar_pin_mono_angel'] },
     { level: 30, rewards: ['title_rank_s', 'avatar_s_rank_goddess'] },
     { level: 40, rewards: ['title_monarch', 'artifact_shadow_crown', 'avatar_shadow_monarch'] }
   ];
@@ -118,14 +128,14 @@
     { id: 'awaken', title: 'Первое пробуждение', desc: 'Задайте свой никнейм в настройках профиля.', metric: 'nickname', target: 1, exp: 100, rewards: ['title_awakened', 'artifact_mana_crystal', 'avatar_system_neophyte', 'avatar_crimson_swordswoman'] },
     { id: 'gates_5', title: 'Покоритель врат I', desc: 'Соберите 5 тайтлов: избранное, коллекция AnimeVerse или отметки просмотра.', metric: 'collection', target: 5, exp: 100, rewards: ['frame_crimson', 'artifact_gate_key', 'avatar_gate_guardian'] },
     { id: 'gates_15', title: 'Покоритель врат II', desc: 'Соберите 15 тайтлов в коллекции.', metric: 'collection', target: 15, exp: 200, rewards: ['avatar_crimson_rose'] },
-    { id: 'gates_30', title: 'Покоритель врат III', desc: 'Соберите 30 тайтлов в коллекции.', metric: 'collection', target: 30, exp: 350, rewards: ['title_gate_conqueror', 'avatar_abyss_lady'] },
+    { id: 'gates_30', title: 'Покоритель врат III', desc: 'Соберите 30 тайтлов в коллекции.', metric: 'collection', target: 30, exp: 350, rewards: ['title_gate_conqueror', 'avatar_abyss_lady', 'avatar_pin_bloody_lace'] },
     { id: 'gates_50', title: 'Покоритель врат IV', desc: 'Соберите 50 тайтлов в коллекции.', metric: 'collection', target: 50, exp: 600, rewards: ['frame_shadow', 'avatar_monarch_shade', 'avatar_shadow_empress'] },
     { id: 'watched_1', title: 'Первый пройденный мир', desc: 'Отметьте просмотр хотя бы одного аниме.', metric: 'watched', target: 1, exp: 50, rewards: ['artifact_scroll', 'avatar_world_wanderer'] },
     { id: 'watched_10', title: 'Летописец', desc: 'Отметьте просмотр 10 аниме.', metric: 'watched', target: 10, exp: 250, rewards: ['title_chronicler', 'avatar_chronicle_keeper'] },
     { id: 'guild_1', title: 'Голос гильдии', desc: 'Напишите сообщение в чат сообщества.', metric: 'chat', target: 1, exp: 80, rewards: ['title_guild_voice', 'avatar_guild_herald'] },
     { id: 'guild_10', title: 'Глас гильдии', desc: 'Напишите 10 сообщений в чат сообщества.', metric: 'chat', target: 10, exp: 250, rewards: ['artifact_guild_seal', 'avatar_scarlet_oracle'] },
-    { id: 'scout', title: 'Разведка', desc: 'Загляните в каталог и в график выхода аниме.', metric: 'scout', target: 2, exp: 60, rewards: ['artifact_dungeon_map'] },
-    { id: 'genres_5', title: 'Знаток жанров', desc: 'Посетите 5 разных страниц жанров.', metric: 'genres', target: 5, exp: 120, rewards: ['artifact_rune'] },
+    { id: 'scout', title: 'Разведка', desc: 'Загляните в каталог и в график выхода аниме.', metric: 'scout', target: 2, exp: 60, rewards: ['artifact_dungeon_map', 'avatar_pin_moon_witch'] },
+    { id: 'genres_5', title: 'Знаток жанров', desc: 'Посетите 5 разных страниц жанров.', metric: 'genres', target: 5, exp: 120, rewards: ['artifact_rune', 'avatar_pin_silver_vampire'] },
     { id: 'streak_7', title: 'Неделя тренировок', desc: 'Выполните ежедневную тренировку 7 раз.', metric: 'dailyTotal', target: 7, exp: 300, rewards: ['frame_epic', 'title_tireless', 'avatar_dawn_valkyrie'] }
   ];
 

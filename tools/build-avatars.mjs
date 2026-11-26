@@ -15,7 +15,7 @@
  * Параметры персонажей — в массиве AVATARS ниже. Персонажи и стиль — оригинальные.
  * «Алая луна» (exclusive-crimson-moon.webp) — арт с баннера главной, генератором не трогается.
  */
-import { writeFileSync, mkdirSync } from 'node:fs';
+import { writeFileSync, mkdirSync, existsSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -33,6 +33,9 @@ const WORLDS = {
   frost:   { sky: ['#0a1a2e', '#010409'], core: '#c8f4ff', mid: '#2f86e0', ring: '#6ad0ff', dust: '#d8f7ff', rim: '#8adcff' },
   forest:  { sky: ['#08201a', '#010604'], core: '#c4ffe0', mid: '#1e9e6a', ring: '#4ae0a4', dust: '#d4ffe8', rim: '#7af0c0' },
   void:    { sky: ['#140608', '#000000'], core: '#ff5a6e', mid: '#5a0612', ring: '#ff2440', dust: '#ff8a99', rim: '#ff3b55' },
+  // монохром с алым акцентом — для готических образов
+  mono:    { sky: ['#1c1c20', '#000000'], core: '#e8e8ee', mid: '#4a4a52', ring: '#ff2440', dust: '#f2f2f6', rim: '#ffffff' },
+  blood:   { sky: ['#240206', '#000000'], core: '#ff3048', mid: '#7a0010', ring: '#ff1a3a', dust: '#ff9aa8', rim: '#ff4d64' },
 };
 
 // ───────── персонажи ─────────
@@ -60,6 +63,16 @@ const AVATARS = [
   { file: 'flame-priestess', world: 'flame', style: 'long', hair: ['#ff4a34', '#6a0a06', '#ffb08a'], eye: '#ffd06b', skin: '#f8dccc', outfit: ['#340a06', '#0c0201'], acc: ['horns', 'flames', 'gem', 'choker'] },
   { file: 's-rank-goddess', world: 'dawn', style: 'long', hair: ['#fff8ec', '#cdb8a8', '#ffffff'], eye: '#ff2440', skin: '#fce9e0', outfit: ['#f2eaf0', '#8c7e8a'], acc: ['halo', 'crown', 'wings'] },
   { file: 'shadow-monarch', world: 'void', style: 'spiky', hair: ['#16121c', '#000000', '#3a3048'], eye: '#ff2440', skin: '#dac0b4', outfit: ['#0e0b12', '#000000'], acc: ['aura', 'crown', 'collar', 'cape'], male: true },
+  // ── слоты «pin-*»: свои картинки кладутся в tools/avatar-sources/<file>.(webp|png|jpg) ──
+  //    focus — точка лица (0..1 по ширине/высоте картинки), zoom — увеличение при кадрировании в круг
+  { file: 'pin-white-reaper', slot: true, focus: [0.5, 0.36], zoom: 1.15, world: 'mono', style: 'long', hair: ['#f4f4f8', '#9a9aa6', '#ffffff'], eye: '#ff1a3a', skin: '#f4e6e2', outfit: ['#141416', '#000000'], acc: ['lace', 'tears', 'choker'], grayscale: true },
+  { file: 'pin-noir-gothic', slot: true, focus: [0.5, 0.36], zoom: 1.15, world: 'mono', style: 'bob', hair: ['#1a1a1e', '#000000', '#5a5a64'], eye: '#ff2440', skin: '#efe2de', outfit: ['#0c0c0e', '#000000'], acc: ['lace', 'roses', 'earring'], grayscale: true },
+  { file: 'pin-crimson-smile', slot: true, focus: [0.5, 0.38], zoom: 1.15, world: 'blood', style: 'twin', hair: ['#2a2a30', '#050505', '#6a6a78'], eye: '#ff1a3a', skin: '#f6e0d8', outfit: ['#1a0206', '#000000'], acc: ['fang', 'ribbon', 'choker'] },
+  { file: 'pin-moon-witch', slot: true, focus: [0.5, 0.36], zoom: 1.15, world: 'shadow', style: 'long', hair: ['#e9e4f6', '#8e86ac', '#ffffff'], eye: '#b993ff', skin: '#f6e6e4', outfit: ['#1c1230', '#05020c'], acc: ['veil', 'runes', 'gem'] },
+  { file: 'pin-silver-vampire', slot: true, focus: [0.5, 0.36], zoom: 1.15, world: 'blood', style: 'wavy', hair: ['#d6d6de', '#6a6a78', '#ffffff'], eye: '#ff1a3a', skin: '#f2e4e4', outfit: ['#160206', '#000000'], acc: ['fang', 'lace', 'gem'] },
+  { file: 'pin-raven-queen', slot: true, focus: [0.5, 0.36], zoom: 1.15, world: 'void', style: 'long', hair: ['#121216', '#000000', '#44445a'], eye: '#ff2440', skin: '#eedcd6', outfit: ['#0a0a0e', '#000000'], acc: ['crown', 'lace', 'aura'] },
+  { file: 'pin-bloody-lace', slot: true, focus: [0.5, 0.36], zoom: 1.15, world: 'blood', style: 'ponytail', hair: ['#f0f0f4', '#a0a0aa', '#ffffff'], eye: '#ff1a3a', skin: '#f6e4de', outfit: ['#2a0208', '#060001'], acc: ['lace', 'roses', 'tears'] },
+  { file: 'pin-mono-angel', slot: true, focus: [0.5, 0.36], zoom: 1.15, world: 'mono', style: 'wavy', hair: ['#fafafc', '#b4b4be', '#ffffff'], eye: '#ff2440', skin: '#f8ecea', outfit: ['#e8e8ee', '#6a6a74'], acc: ['halo', 'wings', 'lace'], grayscale: true },
 ];
 
 // ───────── помощники ─────────
@@ -292,6 +305,14 @@ function body(a, w) {
     s += `<path d="M92 194 L110 172 L128 206 L146 172 L164 194 L152 216 L128 226 L104 216 Z" fill="${mix(a.outfit[0], '#ffffff', 0.18)}" stroke="${w.ring}" stroke-width="1.2"/>
           <path d="M110 172 L128 206 L146 172" stroke="${shade(a.outfit[1], 0.6)}" stroke-width="1" fill="none"/>`;
   }
+  if (a.acc.includes('lace')) {
+    let lace = '';
+    for (let i = 0; i < 9; i++) {
+      const x = 96 + i * 8;
+      lace += `<path d="M${x} 190 q4 10 8 0" fill="none" stroke="#f0f0f4" stroke-width="1.1" opacity="0.85"/><circle cx="${x + 4}" cy="196" r="1.2" fill="#f0f0f4" opacity="0.8"/>`;
+    }
+    s += `<path d="M92 188 C110 200 146 200 164 188 L160 196 C144 206 112 206 96 196 Z" fill="#0a0a0c" stroke="#f0f0f4" stroke-width="0.8"/>${lace}`;
+  }
   if (a.acc.includes('choker')) {
     s += `<path d="M112 172 C122 178 134 178 144 172" stroke="#0c0306" stroke-width="5" fill="none" stroke-linecap="round"/><circle cx="128" cy="180" r="3.2" fill="${w.ring}" filter="url(#glow)"/>`;
   }
@@ -353,11 +374,15 @@ function face(a, w) {
   s += eye(110, 1) + eye(146, -1);
   s += `<path d="M129 136 C128 140 127 142 125 144 C127 145 129 145 131 144" fill="none" stroke="${shade(a.skin, 0.62)}" stroke-width="1.1" stroke-linecap="round"/>`;
   s += `<circle cx="130" cy="140" r="1" fill="#fff" opacity="0.6"/>`;
-  if (!a.acc.includes('mask')) {
+  if (a.acc.includes('fang')) {
+    // дерзкая улыбка с клычком
+    s += `<path d="M119 151 C124 157 132 157 138 150" fill="#5a0612" stroke="#2a0408" stroke-width="1.2"/><path d="M131 152.5 l1.6 3.6 l1.6 -3.4 Z" fill="#fff"/><path d="M137 150 l2 -1.5" stroke="#2a0408" stroke-width="1.2" stroke-linecap="round"/>`;
+  } else if (!a.acc.includes('mask')) {
     s += male
       ? `<path d="M120 154 C124 156 132 156 137 153" fill="none" stroke="${shade(a.skin, 0.5)}" stroke-width="1.5" stroke-linecap="round"/>`
       : `<path d="M121 153 C125 156.5 131 156.5 135 153" fill="none" stroke="#b03a50" stroke-width="1.6" stroke-linecap="round"/><path d="M124 156 C127 158 129 158 132 156" fill="#ff8a9a" opacity="0.55"/><path d="M126 154.5 l3 0" stroke="#fff" stroke-width="0.8" opacity="0.6"/>`;
   }
+  if (a.acc.includes('tears')) s += `<path d="M106 136 C105 142 106 148 104 154" stroke="#c8102e" stroke-width="1.6" fill="none" stroke-linecap="round" opacity="0.9"/><circle cx="104" cy="155" r="1.6" fill="#c8102e"/>`;
   if (a.acc.includes('scar')) s += `<path d="M150 108 L159 142" stroke="#b8505a" stroke-width="1.6" opacity="0.85"/><path d="M152 118 l6 -2 M155 130 l6 -2" stroke="#b8505a" stroke-width="1" opacity="0.7"/>`;
   if (a.acc.includes('mark')) s += `<path d="M128 92 l4 7 l-4 7 l-4 -7 Z" fill="${w.ring}" filter="url(#glow)"/>`;
   if (a.acc.includes('mask')) s += `<path d="M92 138 C110 146 146 146 164 138 C162 160 148 174 128 178 C108 174 94 160 92 138 Z" fill="#0f0f14"/><path d="M96 145 C116 151 140 151 160 145" stroke="${w.ring}" stroke-width="1.6" opacity="0.85"/><path d="M104 160 C116 166 140 166 152 160" stroke="#26262e" stroke-width="1"/>`;
@@ -400,10 +425,47 @@ function front(a, w) {
   return s;
 }
 
-let made = 0;
+// Своя картинка для слота: tools/avatar-sources/<file>.(webp|png|jpg|jpeg) → встраивается в тот же SVG
+const SOURCES = path.join(ROOT, 'tools', 'avatar-sources');
+const MIME = { webp: 'image/webp', png: 'image/png', jpg: 'image/jpeg', jpeg: 'image/jpeg' };
+function slotPhoto(a) {
+  if (!a.slot) return null;
+  for (const ext of Object.keys(MIME)) {
+    const p = path.join(SOURCES, a.file + '.' + ext);
+    if (existsSync(p)) return { data: readFileSync(p).toString('base64'), mime: MIME[ext], name: path.basename(p) };
+  }
+  return null;
+}
+// Кадрирование: картинка «cover» в квадрат 256, затем увеличение zoom с центром в точке лица focus
+function photoSvg(a, w, ph) {
+  const z = a.zoom || 1.15, [fx, fy] = a.focus || [0.5, 0.38];
+  const size = 256 * z;
+  const x = 128 - fx * size, y = 128 - fy * size;
+  return `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 256 256" width="256" height="256">
+<defs><clipPath id="circle"><circle cx="128" cy="128" r="128"/></clipPath>
+<radialGradient id="vig" cx="50%" cy="44%" r="70%"><stop offset="0.62" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="0.6"/></radialGradient></defs>
+<g clip-path="url(#circle)">
+  <rect width="256" height="256" fill="#0a0506"/>
+  <image x="${f(Math.min(0, Math.max(256 - size, x)))}" y="${f(Math.min(0, Math.max(256 - size, y)))}" width="${f(size)}" height="${f(size)}" preserveAspectRatio="xMidYMid slice" href="data:${ph.mime};base64,${ph.data}" xlink:href="data:${ph.mime};base64,${ph.data}"/>
+  <rect width="256" height="256" fill="url(#vig)"/>
+  <circle cx="128" cy="128" r="126.5" fill="none" stroke="${w.ring}" stroke-width="2" opacity="0.4"/>
+</g>
+</svg>
+`;
+}
+
+let made = 0, photos = [], waiting = [];
 for (const [i, a] of AVATARS.entries()) {
   seed = 7919 * (i + 3);
   const w = WORLDS[a.world];
+  const ph = slotPhoto(a);
+  if (ph) {
+    writeFileSync(path.join(OUT, a.file + '.svg'), photoSvg(a, w, ph));
+    photos.push(a.file + ' ← ' + ph.name);
+    made++;
+    continue;
+  }
+  if (a.slot) waiting.push(a.file);
   LINE = shade(a.hair[1], 0.45);
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">${defs(a, w)}
 <g clip-path="url(#circle)">
@@ -425,3 +487,5 @@ for (const [i, a] of AVATARS.entries()) {
   made++;
 }
 console.log(`готово: ${made} аватарок → img/avatars/`);
+if (photos.length) console.log('встроены свои картинки:\n  ' + photos.join('\n  '));
+if (waiting.length) console.log('слоты без своей картинки (нарисованы генератором) — можно положить в tools/avatar-sources/:\n  ' + waiting.map(n => n + '.webp | .png | .jpg').join('\n  '));
