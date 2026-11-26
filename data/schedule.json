@@ -1,0 +1,4275 @@
+{
+ "generatedAt": "2026-11-26T16:31:44.142Z",
+ "source": {
+  "name": "AniList GraphQL API",
+  "url": "https://anilist.co",
+  "note": "Русские названия и описания — из каталога сайта; для новых тайтлов переведены автоматически"
+ },
+ "ongoing": [
+  {
+   "anilistId": 210482,
+   "catalogId": null,
+   "title": "Бег Стального Шара Невероятные приключения ДжоДжо 2-3 Этапы",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "JoJo no Kimyou na Bouken: Steel Ball Run - 2nd & 3rd STAGE",
+   "titleEnglish": "STEEL BALL RUN JoJo's Bizarre Adventure 2nd - 3rd STAGE",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx210482-P1VNKbqdJ6Zj.jpg",
+   "format": "ONA",
+   "studio": "david production",
+   "genres": [
+    "Экшен",
+    "Приключения",
+    "Драма",
+    "Детектив",
+    "Сверхъестественное"
+   ],
+   "episodes": 11,
+   "season": "FALL",
+   "seasonYear": 2026,
+   "startDate": {
+    "year": 2026,
+    "month": 9,
+    "day": 25
+   },
+   "popularity": 54183,
+   "synopsis": "На 2-м ЭТАПЕ через пустыню протяженностью около 750 миль — землю, которой Джонни Джостар и Джайро Цеппели должны бросить вызов, находится территория, которую боятся называть «Пальмой Дьявола». В 1875 году угроза, таившаяся в этой пустыне, уничтожила кавалерию из 26 человек, вызвав страх у местного населения.",
+   "url": "https://anilist.co/anime/210482",
+   "nextEpisode": 10,
+   "airingAt": 1795766400
+  },
+  {
+   "anilistId": 158871,
+   "catalogId": "pokemon-horizons-the-series-158871",
+   "title": "Pokémon Horizons: Серия",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "Pocket Monsters (2023)",
+   "titleEnglish": "Pokémon Horizons: The Series",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx158871-GBM9AMDfDRSu.jpg",
+   "format": "TV",
+   "studio": "OLM",
+   "genres": [
+    "Экшен",
+    "Приключения",
+    "Фэнтези"
+   ],
+   "episodes": null,
+   "season": "SPRING",
+   "seasonYear": 2023,
+   "startDate": {
+    "year": 2023,
+    "month": 4,
+    "day": 14
+   },
+   "popularity": 25166,
+   "synopsis": "В новой серии «Покемон» разворачивается новая история о мечтах и приключениях, действие которой происходит по всему миру Покемонов, а главными героями являются девочка по имени Лико и мальчик по имени Рой.",
+   "url": "https://anilist.co/anime/158871",
+   "nextEpisode": 159,
+   "airingAt": 1795773300
+  },
+  {
+   "anilistId": 203275,
+   "catalogId": null,
+   "title": "Герб Дьявола",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "Demons' Crest",
+   "titleEnglish": "Devils' Crest",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/b203275-YyNHygkzIjMC.jpg",
+   "format": "ONA",
+   "studio": "Production I.G",
+   "genres": [
+    "Экшен",
+    "Приключения",
+    "Фэнтези"
+   ],
+   "episodes": null,
+   "season": "FALL",
+   "seasonYear": 2026,
+   "startDate": {
+    "year": 2026,
+    "month": 11,
+    "day": 6
+   },
+   "popularity": 13107,
+   "synopsis": "Шестиклассник Юма Ашихара и его сестра-близнец Сава играют в Actual Magic, совершенно новую MMORPG в виртуальной реальности, когда она внезапно начинает сливаться с реальным миром. Среди всего этого хаоса и неразберихи становится ясно, что смерть скрывается за каждым углом, в том числе, когда Юма сталкивается со своей одноклассницей Сумикой.",
+   "url": "https://anilist.co/anime/203275",
+   "nextEpisode": 5,
+   "airingAt": 1795780800
+  },
+  {
+   "anilistId": 186742,
+   "catalogId": null,
+   "title": "Определенный темный предмет",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "Toaru Anbu no ITEM",
+   "titleEnglish": "A Certain Dark Item",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx186742-v7yfbefc8fuO.png",
+   "format": "TV",
+   "studio": "J.C.STAFF",
+   "genres": [
+    "Экшен",
+    "Фантастика"
+   ],
+   "episodes": 11,
+   "season": "FALL",
+   "seasonYear": 2026,
+   "startDate": {
+    "year": 2026,
+    "month": 10,
+    "day": 9
+   },
+   "popularity": 18374,
+   "synopsis": "Это история четырех девушек, живущих на «Темной стороне» Академгорода. В Академгороде, где «ESP» было признано общей наукой. За миром стоит организация Темной стороны, которая выполняет миссии, которые нельзя обнародовать. «ИТЕМ» — элитный отряд, состоящий из четырех девушек. Такицубо Рико может читать и отслеживать поля AIM, излучаемые теми, у кого есть способности.",
+   "url": "https://anilist.co/anime/186742",
+   "nextEpisode": 8,
+   "airingAt": 1795786200
+  },
+  {
+   "anilistId": 195516,
+   "catalogId": "the-apothecary-diaries-season-3-195516",
+   "title": "Монолог фармацевта 3",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "Kusuriya no Hitorigoto 3rd Season",
+   "titleEnglish": "The Apothecary Diaries Season 3",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx195516-MJpUZlOberqH.jpg",
+   "format": "TV",
+   "studio": "OLM",
+   "genres": [
+    "Драма",
+    "Детектив"
+   ],
+   "episodes": 12,
+   "season": "FALL",
+   "seasonYear": 2026,
+   "startDate": {
+    "year": 2026,
+    "month": 10,
+    "day": 2
+   },
+   "popularity": 117502,
+   "synopsis": "После восстания клана Ши ситуация наконец-то стабилизировалась, и Маомао вернулась к своей прежней жизни аптекарши в квартале развлечений. Однажды, под впечатлением от завтрака, поданного в «Доме Вердигрис», Маомао почувствовала нечто необычное и начала расследовать, в чём же заключается истинная природа этого явления.",
+   "url": "https://anilist.co/anime/195516",
+   "nextEpisode": 9,
+   "airingAt": 1795788000
+  },
+  {
+   "anilistId": 205909,
+   "catalogId": "firefly-wedding-205909",
+   "title": "Свадьба Светлячка",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "Hotaru no Yomeiri",
+   "titleEnglish": "Firefly Wedding",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx205909-DM0fAzNQulod.jpg",
+   "format": "TV",
+   "studio": "david production",
+   "genres": [
+    "Драма",
+    "Романтика"
+   ],
+   "episodes": 12,
+   "season": "FALL",
+   "seasonYear": 2026,
+   "startDate": {
+    "year": 2026,
+    "month": 10,
+    "day": 9
+   },
+   "popularity": 60062,
+   "synopsis": "На первый взгляд у Сатоко есть всё — она красива, является дочерью дворянина и находится в самом подходящем для замужества возрасте. К сожалению, она также тяжело больна, и ей осталось жить совсем недолго. Не успев заключить брак, который восстановил бы её репутацию в глазах семьи, она становится мишенью таинственного убийцы Синпэя, и её планы оказываются под угрозой. Чтобы спастись, она делает отчаянное предложение — предложение руки и сердца!",
+   "url": "https://anilist.co/anime/205909",
+   "nextEpisode": 8,
+   "airingAt": 1795789800
+  },
+  {
+   "anilistId": 204650,
+   "catalogId": null,
+   "title": "Туген Анки: Арка Водопада Никко Кегон",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "Tougen Anki: Nikko・Kegon no Taki-hen",
+   "titleEnglish": "TOUGEN ANKI: Nikko Kegon Falls Arc",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx204650-cAQOzQ84Lwk8.png",
+   "format": "TV",
+   "studio": "Studio Hibari",
+   "genres": [
+    "Экшен",
+    "Детектив",
+    "Сверхъестественное"
+   ],
+   "episodes": 12,
+   "season": "FALL",
+   "seasonYear": 2026,
+   "startDate": {
+    "year": 2026,
+    "month": 10,
+    "day": 2
+   },
+   "popularity": 23337,
+   "synopsis": "После сражений в Киото и Нериме ученики Академии Расэцу стали сильнее. Но Яороши покидает академию, чтобы присоединиться к Бригаде Они для «полного уничтожения Момотаро». Когда Сики понимает, что они также нацелены на мирных жителей, он отправляется за Яороши, чтобы вернуть его. Тем временем в Никко на вершине старого водопада Кегон находится исследовательский центр для ужасающих экспериментов…",
+   "url": "https://anilist.co/anime/204650",
+   "nextEpisode": 9,
+   "airingAt": 1795789800
+  },
+  {
+   "anilistId": 203490,
+   "catalogId": null,
+   "title": "Пожалуйста, извините моих младших братьев",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "Uchi no Otouto-domo ga Sumimasen",
+   "titleEnglish": "Please Excuse My Younger Brothers",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx203490-YQXiymUiDQNA.jpg",
+   "format": "TV",
+   "studio": "Lay-duce",
+   "genres": [
+    "Комедия",
+    "Романтика",
+    "Повседневность"
+   ],
+   "episodes": 24,
+   "season": "SUMMER",
+   "seasonYear": 2026,
+   "startDate": {
+    "year": 2026,
+    "month": 7,
+    "day": 4
+   },
+   "popularity": 14167,
+   "synopsis": "В центре манги — старшеклассник Ито Хадзуи. Во время весенних каникул в конце первого года обучения в средней школе мать Ито снова выходит замуж, и Ито переезжает жить к своей новой семье, становясь Ито Наритой. Приехав в свой новый дом, Ито потрясена, узнав, что теперь у нее есть четыре младших сводных брата.",
+   "url": "https://anilist.co/anime/203490",
+   "nextEpisode": 21,
+   "airingAt": 1795791600
+  },
+  {
+   "anilistId": 178083,
+   "catalogId": null,
+   "title": "Арка Токийские мстители: Война трех титанов",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "Tokyo Revengers: Santen Sensou-hen",
+   "titleEnglish": "Tokyo Revengers: War of the Three Titans Arc",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx178083-bg7pg6TCHwtG.jpg",
+   "format": "TV",
+   "studio": "LIDENFILMS",
+   "genres": [
+    "Экшен",
+    "Драма",
+    "Романтика",
+    "Сверхъестественное"
+   ],
+   "episodes": 13,
+   "season": "FALL",
+   "seasonYear": 2026,
+   "startDate": {
+    "year": 2026,
+    "month": 10,
+    "day": 3
+   },
+   "popularity": 41517,
+   "synopsis": "Продолжение Токийских мстителей: Тендзику-хен.",
+   "url": "https://anilist.co/anime/178083",
+   "nextEpisode": 9,
+   "airingAt": 1795796580
+  },
+  {
+   "anilistId": 966,
+   "catalogId": null,
+   "title": "Шин Чан",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "Crayon Shin-chan",
+   "titleEnglish": "Shin Chan",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/b966-QUCdKAk4ls9J.jpg",
+   "format": "TV",
+   "studio": "Shin-Ei Animation",
+   "genres": [
+    "Комедия",
+    "Этти",
+    "Повседневность"
+   ],
+   "episodes": null,
+   "season": "SPRING",
+   "seasonYear": 1992,
+   "startDate": {
+    "year": 1992,
+    "month": 4,
+    "day": 13
+   },
+   "popularity": 20502,
+   "synopsis": "Crayon Shin-chan рассказывает о дурацких выходках и приключениях пятилетнего Шинноске «Син» Нохары и его родителей, соседей и друзей. Действие происходит в Касукабе, префектура Сайтама, Япония. Многие шутки в сериале связаны с порой странным, неестественным и неуместным использованием языка Шин-чаном, а также с его неуместным поведением.",
+   "url": "https://anilist.co/anime/966",
+   "nextEpisode": 1363,
+   "airingAt": 1795851000
+  },
+  {
+   "anilistId": 8687,
+   "catalogId": null,
+   "title": "Doraemon (2005)",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "Doraemon (2005)",
+   "titleEnglish": null,
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/b8687-bBnJMGnih4PT.jpg",
+   "format": "TV",
+   "studio": "Shin-Ei Animation",
+   "genres": [
+    "Приключения",
+    "Комедия",
+    "Фантастика"
+   ],
+   "episodes": null,
+   "season": "SPRING",
+   "seasonYear": 2005,
+   "startDate": {
+    "year": 2005,
+    "month": 4,
+    "day": 15
+   },
+   "popularity": 8154,
+   "synopsis": "Новый сериал «Дораэмон», созданный той же командой, что и сериал 1979 года (совместно со Studio Pierrot), с новыми актерами и персоналом озвучивания, а также обновленным дизайном персонажей.",
+   "url": "https://anilist.co/anime/8687",
+   "nextEpisode": 943,
+   "airingAt": 1795852800
+  },
+  {
+   "anilistId": 195571,
+   "catalogId": null,
+   "title": "Киноварная маска",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "Shuiro no Kamen",
+   "titleEnglish": "The Vermilion Mask",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx195571-fvj7u5GI7BRT.jpg",
+   "format": "TV",
+   "studio": "100studio",
+   "genres": [
+    "Экшен",
+    "Драма",
+    "Сверхъестественное"
+   ],
+   "episodes": null,
+   "season": "FALL",
+   "seasonYear": 2026,
+   "startDate": {
+    "year": 2026,
+    "month": 10,
+    "day": 10
+   },
+   "popularity": 19318,
+   "synopsis": "«Маска» дает силу любому, кто ее носит. Временами это означает бесконечные возможности или невообразимую трагедию... Перу, ученик легендарного мастера масок Гастона Ру, попадает под контроль «Маски Бога-Воина» и непреднамеренно убивает своих друзей и даже своего хозяина.",
+   "url": "https://anilist.co/anime/195571",
+   "nextEpisode": 8,
+   "airingAt": 1795854600
+  },
+  {
+   "anilistId": 212799,
+   "catalogId": "the-seven-knights-of-the-marronnier-kingdom-212799",
+   "title": "Семь рыцарей королевства Марронье",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "Marronnier Oukoku no Shichinin no Kishi",
+   "titleEnglish": "The Seven Knights of the Marronnier Kingdom",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx212799-n7WDdic7IL1z.png",
+   "format": "TV",
+   "studio": "J.C.STAFF",
+   "genres": [
+    "Драма",
+    "Фэнтези",
+    "Романтика"
+   ],
+   "episodes": 20,
+   "season": "FALL",
+   "seasonYear": 2026,
+   "startDate": {
+    "year": 2026,
+    "month": 10,
+    "day": 3
+   },
+   "popularity": 8111,
+   "synopsis": "В самом сердце континента, состоящего из восьми королевств, расположено Королевство Марронье. У его генерала, Барибары, есть семь сыновей, каждый из которых обладает уникальным даром и служит командиром рыцарей. Объединённые единой благородной целью — однажды героически спасти принцессу, — братья отправляются в качестве послов доброй воли в семь соседних королевств. Какие встречи, испытания и судьбы ждут их в этих неизвестных землях?",
+   "url": "https://anilist.co/anime/212799",
+   "nextEpisode": 9,
+   "airingAt": 1795857900
+  },
+  {
+   "anilistId": 180894,
+   "catalogId": null,
+   "title": "Военные хроники Ромелии",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "Romelia Senki: Maou wo Taoshita nochi mo Jinrui Yabasou dakara Guntai Soshiki Shita",
+   "titleEnglish": "Romelia War Chronicle",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx180894-o3pz4DWFm3je.png",
+   "format": "ONA",
+   "studio": "Atra",
+   "genres": [
+    "Приключения",
+    "Драма",
+    "Фэнтези"
+   ],
+   "episodes": 12,
+   "season": "FALL",
+   "seasonYear": 2026,
+   "startDate": {
+    "year": 2026,
+    "month": 10,
+    "day": 3
+   },
+   "popularity": 20908,
+   "synopsis": "Ромелии и ее группе удается победить Короля Демонов Зельгиса, хотя безрассудная атака принца Генриха вынуждает их вступить в изнурительную битву. После этого Ромелию называют «мертвым грузом» за то, что она не сражалась напрямую, и принц в одностороннем порядке разрывает помолвку. Лишенная возможности участвовать в праздновании победы, Ромелия возвращается домой только для того, чтобы встретить холодное безразличие со стороны своей семьи и общества.",
+   "url": "https://anilist.co/anime/180894",
+   "nextEpisode": 9,
+   "airingAt": 1795867200
+  },
+  {
+   "anilistId": 187402,
+   "catalogId": null,
+   "title": "Сказка о тайном святом",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "Tensei shita Dai Seijo wa, Seijo de Aru Koto wo Hita Kakusu",
+   "titleEnglish": "A Tale of the Secret Saint",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx187402-ReKkLwFmMV3q.jpg",
+   "format": "ONA",
+   "studio": "Felix Film",
+   "genres": [
+    "Экшен",
+    "Приключения",
+    "Фэнтези"
+   ],
+   "episodes": null,
+   "season": "FALL",
+   "seasonYear": 2026,
+   "startDate": {
+    "year": 2026,
+    "month": 10,
+    "day": 3
+   },
+   "popularity": 21405,
+   "synopsis": "Фиа всегда мечтала стать рыцарем. Рожденная в семье рыцарей, она наименее талантлива среди них, но она все еще цепляется за свою надежду и тренируется изо всех сил. Когда наступает день, когда ей предстоит убить маленького демона и доказать свою ценность, вместо этого она оказывается лицом к лицу с драконом!",
+   "url": "https://anilist.co/anime/187402",
+   "nextEpisode": 10,
+   "airingAt": 1795870800
+  },
+  {
+   "anilistId": 204389,
+   "catalogId": null,
+   "title": "Появился дикий последний босс! 2 сезон",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "Yasei no Last Boss ga Arawareta! 2nd Season",
+   "titleEnglish": "A Wild Last Boss Appeared! Season 2",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx204389-jCoFCeTthDMy.jpg",
+   "format": "ONA",
+   "studio": "WAO World",
+   "genres": [
+    "Экшен",
+    "Приключения",
+    "Фэнтези"
+   ],
+   "episodes": null,
+   "season": "FALL",
+   "seasonYear": 2026,
+   "startDate": {
+    "year": 2026,
+    "month": 9,
+    "day": 26
+   },
+   "popularity": 26458,
+   "synopsis": "Второй сезон Yasei no Last Boss ga Arawareta!",
+   "url": "https://anilist.co/anime/204389",
+   "nextEpisode": 10,
+   "airingAt": 1795872600
+  },
+  {
+   "anilistId": 195604,
+   "catalogId": null,
+   "title": "Чёрный клевер 2",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "Black Clover 2nd Season",
+   "titleEnglish": "Black Clover Season 2",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx195604-tSZcfKbVqSEG.jpg",
+   "format": "TV",
+   "studio": "Studio Pierrot",
+   "genres": [
+    "Экшен",
+    "Приключения",
+    "Комедия",
+    "Фэнтези"
+   ],
+   "episodes": null,
+   "season": "FALL",
+   "seasonYear": 2026,
+   "startDate": {
+    "year": 2026,
+    "month": 10,
+    "day": 3
+   },
+   "popularity": 114453,
+   "synopsis": "Когда тирания охватывает Королевство Клевер, Аста и Рыцари-волшебники начинают отчаянный набег на Пиковое Королевство, чтобы спасти капитанов своих отрядов от Темной Триады. Но их миссия приводит их к жестокой битве против сил, превосходящих все, с чем они когда-либо сталкивались. Теперь Аста должен преодолеть невероятные трудности, чтобы защитить своих друзей и выполнить обещание, данное Юно.",
+   "url": "https://anilist.co/anime/195604",
+   "nextEpisode": 9,
+   "airingAt": 1795874400
+  },
+  {
+   "anilistId": 199007,
+   "catalogId": null,
+   "title": "#Я ищу зомби",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "#Zombie Sagashitemasu",
+   "titleEnglish": "#I'm Looking For a Zombie",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx199007-8R1HsnflnHJE.jpg",
+   "format": "TV",
+   "studio": "Studio Comet",
+   "genres": [
+    "Экшен",
+    "Комедия",
+    "Ужасы",
+    "Детектив",
+    "Сверхъестественное"
+   ],
+   "episodes": 12,
+   "season": "FALL",
+   "seasonYear": 2026,
+   "startDate": {
+    "year": 2026,
+    "month": 10,
+    "day": 3
+   },
+   "popularity": 12591,
+   "synopsis": "Пусть это разрушенный город, разоренный зомби, но для Аки и ее друзей это потрясающе! Выросшая, слушая только истории о старом мире и загадочной эпидемии, уничтожившей человечество, она вместе с друзьями детства отправляется на поиски пропавшего отца. За пределами безопасной маленькой деревни дело быстро перерастает в борьбу за выживание, но они никогда не чувствовали себя более живыми.",
+   "url": "https://anilist.co/anime/199007",
+   "nextEpisode": 8,
+   "airingAt": 1795876200
+  },
+  {
+   "anilistId": 203473,
+   "catalogId": null,
+   "title": "Коллекционер Ужасов",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "Kyoufu Collector",
+   "titleEnglish": "HORROR COLLECTOR",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/b203473-pzyaqV432Qko.jpg",
+   "format": "TV",
+   "studio": "Studio Palette",
+   "genres": [
+    "Ужасы",
+    "Детектив",
+    "Сверхъестественное"
+   ],
+   "episodes": 12,
+   "season": "FALL",
+   "seasonYear": 2026,
+   "startDate": {
+    "year": 2026,
+    "month": 10,
+    "day": 10
+   },
+   "popularity": 7675,
+   "synopsis": "Городские легенды оживают… Каждый слышал городскую легенду раньше, но мало кто когда-либо сталкивался с ней лицом к лицу. Эти явления повсюду, существующие в тени реальности. Их становится все больше и больше после безликого ребенка, которого видели по всей Японии. Если вы увидите ее или одну из городских легенд, которые она приносит, молитесь, чтобы мальчик в красном капюшоне нашел вас, пока не стало слишком поздно.",
+   "url": "https://anilist.co/anime/203473",
+   "nextEpisode": 8,
+   "airingAt": 1795877100
+  },
+  {
+   "anilistId": 169581,
+   "catalogId": null,
+   "title": "Волшебный исследователь",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "Magical★Explorer: Eroge no Yuujin Chara ni Tensei Shitakedo, Game Chishiki Tsukatte Jiyuu ni Ikiru",
+   "titleEnglish": "Magical Explorer",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx169581-UlAviVH36Hxi.png",
+   "format": "ONA",
+   "studio": "WHITE FOX",
+   "genres": [
+    "Экшен",
+    "Приключения",
+    "Этти",
+    "Фэнтези",
+    "Романтика"
+   ],
+   "episodes": 13,
+   "season": "FALL",
+   "seasonYear": 2026,
+   "startDate": {
+    "year": 2026,
+    "month": 9,
+    "day": 27
+   },
+   "popularity": 28640,
+   "synopsis": "Немногие игры пользуются большим уважением среди любителей (кхм) ценителей японских эротических видеоигр, чем Magical Explorer. Однажды наш любящий грязь герой просыпается и обнаруживает, что он перевоплотился в тело главного героя игры-лодки мечты! Вернее, его незадачливый лучший друг из комиксов Косуке Такиото.",
+   "url": "https://anilist.co/anime/169581",
+   "nextEpisode": 10,
+   "airingAt": 1795878000
+  },
+  {
+   "anilistId": 209872,
+   "catalogId": "ranma1-2-2024-season-3-209872",
+   "title": "Ранма1/2 (2024) 3 сезон",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "Ranma 1/2 (2024) 3rd Season",
+   "titleEnglish": "Ranma1/2 (2024) Season 3",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx209872-RBeVPqwejHFp.jpg",
+   "format": "TV",
+   "studio": "MAPPA",
+   "genres": [
+    "Экшен",
+    "Комедия",
+    "Романтика"
+   ],
+   "episodes": null,
+   "season": "FALL",
+   "seasonYear": 2026,
+   "startDate": {
+    "year": 2026,
+    "month": 10,
+    "day": 4
+   },
+   "popularity": 19342,
+   "synopsis": "Третий сезон сериала «Ранма 1/2» (2024). Ранму и Акане предстоит столкнуться с новыми соперниками и пережить новые приключения: Кёльн тренирует Рёгу, «печеньевая война» выходит из-под контроля, а Шампу затевает новые интриги.",
+   "url": "https://anilist.co/anime/209872",
+   "nextEpisode": 9,
+   "airingAt": 1795881300
+  },
+  {
+   "anilistId": 202250,
+   "catalogId": null,
+   "title": "Волшебный репомен: Меня бросила моя группа, и я заработаю с милой феей поддержки, чтобы стать сильнейшим!",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "Kashita Maryoku wa [Revo Barai] de Kyousei Choushuu",
+   "titleEnglish": "Magic Repo Man: Dumped by My Party, I’ll Cash In With a Cute Support Fairy to Become the Strongest!",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx202250-mpm2cvr92Au2.jpg",
+   "format": "TV",
+   "studio": "SynergySP",
+   "genres": [
+    "Экшен",
+    "Приключения",
+    "Фэнтези"
+   ],
+   "episodes": 12,
+   "season": "FALL",
+   "seasonYear": 2026,
+   "startDate": {
+    "year": 2026,
+    "month": 10,
+    "day": 4
+   },
+   "popularity": 29095,
+   "synopsis": "Если есть что-то, чего вам всегда не хватает в мире мечей и колдовства в стиле RPG, так это магические очки! Независимо от того, используете ли вы заклинания, приемы или демонстрируете невероятные способности, вам придется потратить эти очки, чтобы нанести реальный урон. Но что, если у тебя закончится? Лент является членом многообещающей группы, известной как «Пронзающие небеса», и благодаря своему уникальному Дару он может одалживать другим огромное количество магии.",
+   "url": "https://anilist.co/anime/202250",
+   "nextEpisode": 9,
+   "airingAt": 1795883400
+  },
+  {
+   "anilistId": 189123,
+   "catalogId": null,
+   "title": "Синяя коробка, 2 сезон",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "Ao no Hako Season 2",
+   "titleEnglish": "Blue Box Season 2",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx189123-0secXELIhkIW.jpg",
+   "format": "TV",
+   "studio": "Electric Circus",
+   "genres": [
+    "Романтика",
+    "Повседневность",
+    "Спорт"
+   ],
+   "episodes": 12,
+   "season": "FALL",
+   "seasonYear": 2026,
+   "startDate": {
+    "year": 2026,
+    "month": 10,
+    "day": 4
+   },
+   "popularity": 55069,
+   "synopsis": "Второй сезон Ао но Хако. Пока Тайки и Тинацу преодолевают свои развивающиеся чувства, разрушенная дружба из прошлого и жестокая конкуренция омрачают дорогу к национальным соревнованиям.",
+   "url": "https://anilist.co/anime/189123",
+   "nextEpisode": 8,
+   "airingAt": 1795937400
+  },
+  {
+   "anilistId": 191788,
+   "catalogId": null,
+   "title": "Аоаши 2 сезон",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "Aoashi 2nd Season",
+   "titleEnglish": "Aoashi Season 2",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx191788-XC6F24LdX6a4.jpg",
+   "format": "TV",
+   "studio": "TMS Entertainment",
+   "genres": [
+    "Спорт"
+   ],
+   "episodes": 24,
+   "season": "FALL",
+   "seasonYear": 2026,
+   "startDate": {
+    "year": 2026,
+    "month": 10,
+    "day": 4
+   },
+   "popularity": 29461,
+   "synopsis": "Игра Аои Асито теперь принесла ему место в команде А, но его быстро подавляет суровая новая реальность. В окружении таких элитных игроков, как Курибаяси и Акуцу, тренировки столь же беспощадны, как и матчи. В этой талантливой Премьер-лиге U-18 Асито должен развиваться или быть сокрушенным, если он когда-либо будет признан.",
+   "url": "https://anilist.co/anime/191788",
+   "nextEpisode": 9,
+   "airingAt": 1795939200
+  },
+  {
+   "anilistId": 213657,
+   "catalogId": null,
+   "title": "Миссия: Семья Ёдзакура, 2 сезон, часть 2",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "Yozakura-san Chi no Daisakusen 2nd Season Part 2",
+   "titleEnglish": "Mission: Yozakura Family Season 2 Part 2",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx213657-ORNXVEBCjXaz.jpg",
+   "format": "TV",
+   "studio": "SILVER LINK.",
+   "genres": [
+    "Экшен",
+    "Комедия",
+    "Романтика"
+   ],
+   "episodes": null,
+   "season": "FALL",
+   "seasonYear": 2026,
+   "startDate": {
+    "year": 2026,
+    "month": 10,
+    "day": 11
+   },
+   "popularity": 11371,
+   "synopsis": "Второй кур второго сезона Ёдзакура-сан Чи но Дайсакусен.",
+   "url": "https://anilist.co/anime/213657",
+   "nextEpisode": 8,
+   "airingAt": 1795939200
+  },
+  {
+   "anilistId": 118123,
+   "catalogId": null,
+   "title": "Holo no Graffiti",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "Holo no Graffiti",
+   "titleEnglish": null,
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx118123-xqn5fYsjKXJU.png",
+   "format": "ONA",
+   "studio": "Cover Corp",
+   "genres": [
+    "Экшен",
+    "Приключения",
+    "Комедия"
+   ],
+   "episodes": null,
+   "season": "SPRING",
+   "seasonYear": 2019,
+   "startDate": {
+    "year": 2019,
+    "month": 5,
+    "day": 5
+   },
+   "popularity": 14931,
+   "synopsis": "От разгадки секретов открытия и закрытия дверей до обезвреживания пакетов-сюрпризов, более известных как бомбы, — в офисе Hololive Production никогда не бывает скучно! Holo no Graffiti рассказывает об эксцентричной команде виртуальных ютуберов, также известных как «VTubers», которые ведут свою абсурдную, но веселую повседневную жизнь, подробно описывая все свои милые моменты и неудачи.",
+   "url": "https://anilist.co/anime/118123",
+   "nextEpisode": 394,
+   "airingAt": 1795942800
+  },
+  {
+   "anilistId": 186541,
+   "catalogId": null,
+   "title": "Переродиться космическим наемником: я проснулся, пилотируя сильнейший звездолет!",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "Mezametara Saikyou Soubi to Uchuusen-mochi datta node, Ikkodate Mezashite Youhei to shite Jiyuu ni Ikitai",
+   "titleEnglish": "Reborn as a Space Mercenary: I Woke Up Piloting the Strongest Starship!",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx186541-caYpLsLmbCh7.jpg",
+   "format": "TV",
+   "studio": "studio A-CAT",
+   "genres": [
+    "Экшен",
+    "Комедия",
+    "Драма",
+    "Меха",
+    "Романтика",
+    "Фантастика"
+   ],
+   "episodes": 13,
+   "season": "FALL",
+   "seasonYear": 2026,
+   "startDate": {
+    "year": 2026,
+    "month": 10,
+    "day": 4
+   },
+   "popularity": 33161,
+   "synopsis": "Сато Такахиро был обычным офисным работником и любителем игр до того дня, когда он проснулся на космическом корабле, который странным образом напоминал корабль из любимой космической стрелялки. Имея украшенный корабль, команду, полную малышек, и фантастическую вселенную, которую предстоит исследовать, он собирается максимально использовать свою удачу и создать жизнь, о которой всегда мечтал!",
+   "url": "https://anilist.co/anime/186541",
+   "nextEpisode": 9,
+   "airingAt": 1795955400
+  },
+  {
+   "anilistId": 209499,
+   "catalogId": null,
+   "title": "Танк Стул",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "TANK CHAIR: Sensha Isu",
+   "titleEnglish": "TANK CHAIR",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx209499-S0sWFrCpft85.jpg",
+   "format": "TV",
+   "studio": "POLYGON PICTURES",
+   "genres": [
+    "Экшен",
+    "Фантастика"
+   ],
+   "episodes": null,
+   "season": "FALL",
+   "seasonYear": 2026,
+   "startDate": {
+    "year": 2026,
+    "month": 10,
+    "day": 4
+   },
+   "popularity": 10131,
+   "synopsis": "Шизука берет на себя самую опасную работу убийцы, но убивает не она. Скорее, это ее брат Наги, сильный убийца, который принял пулю, чтобы защитить свою сестру, оставив его в коматозном состоянии и вынужденным передвигаться в инвалидной коляске. Однако Шизука нашла способ разбудить своего брата: ему придется столкнуться с намерением убить!",
+   "url": "https://anilist.co/anime/209499",
+   "nextEpisode": 9,
+   "airingAt": 1795960800
+  },
+  {
+   "anilistId": 206814,
+   "catalogId": "dragon-ball-super-beerus-206814",
+   "title": "Жемчуг дракона Супер: Берус",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "Dragon Ball Super: Beerus",
+   "titleEnglish": "Dragon Ball Super: Beerus",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx206814-PVVzRbf1IQpe.jpg",
+   "format": "TV",
+   "studio": "Toei Animation",
+   "genres": [
+    "Экшен",
+    "Приключения",
+    "Фантастика"
+   ],
+   "episodes": null,
+   "season": "FALL",
+   "seasonYear": 2026,
+   "startDate": {
+    "year": 2026,
+    "month": 10,
+    "day": 11
+   },
+   "popularity": 33366,
+   "synopsis": "Прошло несколько лет с момента ожесточённой битвы с Маджин Бу, и Земля наконец обрела кратковременный покой. В то же время Бирус, Бог Разрушения, пробуждается от своего долгого, глубокого сна. Даже Кай и Верховный Кай, зная о подавляющей силе Бируса, способной уничтожить целые планеты, с большим страхом наблюдают за его пробуждением… Тем временем Бирус слышит слухи о саянце, победившем Фризу, — и внезапно появляется перед Гоку.",
+   "url": "https://anilist.co/anime/206814",
+   "nextEpisode": 8,
+   "airingAt": 1795961700
+  },
+  {
+   "anilistId": 212888,
+   "catalogId": null,
+   "title": "Перегруженный",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "Tempal: Item no Chikara",
+   "titleEnglish": "Overgeared",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx212888-NhyvqPt5aIuJ.jpg",
+   "format": "ONA",
+   "studio": "J.C.STAFF",
+   "genres": [
+    "Экшен",
+    "Приключения",
+    "Комедия",
+    "Фэнтези"
+   ],
+   "episodes": 12,
+   "season": "FALL",
+   "seasonYear": 2026,
+   "startDate": {
+    "year": 2026,
+    "month": 9,
+    "day": 27
+   },
+   "popularity": 72814,
+   "synopsis": "Син Ён-У (он же Грид), неудачливый человек в жизни и игрок низкого уровня в популярной VR-игре «Satisfy», находит мощный предмет, который приносит ему редкий легендарный классовый титул: «Преемник Пагмы». Теперь он опытный кузнец, который может выковать уникальное оружие и экипировать самое мощное снаряжение в игре.",
+   "url": "https://anilist.co/anime/212888",
+   "nextEpisode": 10,
+   "airingAt": 1795962600
+  },
+  {
+   "anilistId": 185756,
+   "catalogId": null,
+   "title": "Как перевоплощенный аристократ, я буду использовать свои навыки оценки, чтобы подняться в мире (3 сезон)",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "Tensei Kizoku, Kantei Skill de Nariagaru 3rd Season",
+   "titleEnglish": "As a Reincarnated Aristocrat, I'll Use My Appraisal Skill to Rise in the World Season 3",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx185756-xPCl0RyQ7fXD.jpg",
+   "format": "TV",
+   "studio": "GeyeG Pictures",
+   "genres": [
+    "Приключения",
+    "Фэнтези"
+   ],
+   "episodes": 12,
+   "season": "FALL",
+   "seasonYear": 2026,
+   "startDate": {
+    "year": 2026,
+    "month": 9,
+    "day": 27
+   },
+   "popularity": 32503,
+   "synopsis": "Третий сезон Тенсей Кизоку, Кантей Скилл де Нариагару. Примечание. 4 сентября 2026 года было объявлено, что GeyeG Pictures возьмет на себя производство студии MOTHER, сохранив при этом тот же персонал.",
+   "url": "https://anilist.co/anime/185756",
+   "nextEpisode": 10,
+   "airingAt": 1795962600
+  },
+  {
+   "anilistId": 205896,
+   "catalogId": null,
+   "title": "Полное очищение «Другого мира под властью богини» с нулевыми верующими",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "Shinja Zero no Megami-sama to Hajimeru Isekai Kouryaku",
+   "titleEnglish": "Full Clearing Another World under a Goddess with Zero Believers",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx205896-ElrV8oVAsuax.jpg",
+   "format": "TV",
+   "studio": "HORNETS",
+   "genres": [
+    "Приключения",
+    "Фэнтези"
+   ],
+   "episodes": null,
+   "season": "FALL",
+   "seasonYear": 2026,
+   "startDate": {
+    "year": 2026,
+    "month": 10,
+    "day": 11
+   },
+   "popularity": 26195,
+   "synopsis": "Игрок в ролевые игры Макото Такацуки попадает в другой мир с ужасными навыками и характеристиками. Но вскоре он встречает богиню по имени Ной, которая просит его стать ее первым верующим в обмен на благословения.",
+   "url": "https://anilist.co/anime/205896",
+   "nextEpisode": 8,
+   "airingAt": 1795962600
+  },
+  {
+   "anilistId": 200455,
+   "catalogId": null,
+   "title": "Хоть я и очень робкая благородная девушка, я приняла пари от своего хитрого жениха.",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "Yowaki MAX Reijou Nano ni, Ratsuwan Konyakusha-sama no Kake ni Notte Shimatta",
+   "titleEnglish": "Even Though I'm a Super Timid Noble Girl, I Accepted the Bet From My Cunning Fiancé",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx200455-P3XStRQMJ7Di.png",
+   "format": "TV",
+   "studio": "Jumondou",
+   "genres": [
+    "Комедия",
+    "Фэнтези",
+    "Романтика"
+   ],
+   "episodes": 12,
+   "season": "FALL",
+   "seasonYear": 2026,
+   "startDate": {
+    "year": 2026,
+    "month": 10,
+    "day": 4
+   },
+   "popularity": 15381,
+   "synopsis": "Я переродилась злодейской дочерью в отомэ-игре с обратным гаремом. Переболев высокой температурой в возрасте 10 лет, Пиа Роквелл внезапно вспомнила свою прошлую жизнь, когда она была студенткой университета в Японии. Но эта супер робкая девушка не хочет идти по пути злодейки, а хочет, наконец, использовать свои знания, полученные в аспирантуре, чтобы получить докторскую степень по палеонтологии.",
+   "url": "https://anilist.co/anime/200455",
+   "nextEpisode": 9,
+   "airingAt": 1795962600
+  },
+  {
+   "anilistId": 206774,
+   "catalogId": null,
+   "title": "Теперь, когда я могу управлять реальностью с помощью курсора мыши, я буду кликать по девушкам!",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "Mouse Cursor de Genjitsu wo Sousa Dekiru You ni Natta node, Onnanoko wo Ippai Click Shimasu",
+   "titleEnglish": "Now That I Can Control Reality With A Mouse Cursor, I'm Gonna Click Away On The Girls!",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx206774-gXVdrySlLY6y.jpg",
+   "format": "TV_SHORT",
+   "studio": "Studio Houkiboshi",
+   "genres": [
+    "Этти",
+    "Романтика",
+    "Сверхъестественное"
+   ],
+   "episodes": 8,
+   "season": "FALL",
+   "seasonYear": 2026,
+   "startDate": {
+    "year": 2026,
+    "month": 10,
+    "day": 5
+   },
+   "popularity": 8502,
+   "synopsis": "Что, если бы вы могли управлять реальностью с помощью курсора мыши? Однажды во время урока Такуми — отаку — замечает, что курсор его мыши выскочил за пределы экрана. В панике он просит своего друга детства Моне, сидящего рядом с ним, взглянуть, но его отмахиваются...",
+   "url": "https://anilist.co/anime/206774",
+   "nextEpisode": 7,
+   "airingAt": 1795964400
+  },
+  {
+   "anilistId": 211877,
+   "catalogId": null,
+   "title": "Друг моей подруги",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "Kanojo no Tomodachi",
+   "titleEnglish": "My Girlfriend's Friend",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx211877-yWQ2r7XmWvG6.jpg",
+   "format": "TV_SHORT",
+   "studio": "Quad",
+   "genres": [
+    "Драма",
+    "Этти",
+    "Романтика"
+   ],
+   "episodes": 12,
+   "season": "FALL",
+   "seasonYear": 2026,
+   "startDate": {
+    "year": 2026,
+    "month": 10,
+    "day": 5
+   },
+   "popularity": 15274,
+   "synopsis": "Впервые в жизни у меня есть девушка. Но ее подруга соблазняет меня таким соблазнительным телом... Что бы ты сделал, если бы подруга твоей девушки пришла к тебе в таком виде?",
+   "url": "https://anilist.co/anime/211877",
+   "nextEpisode": 9,
+   "airingAt": 1795968300
+  },
+  {
+   "anilistId": 208025,
+   "catalogId": null,
+   "title": "Я встречаюсь с Темным Призывателем",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "Dark Summoner to Dekiteiru",
+   "titleEnglish": "I'm Dating a Dark Summoner",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx208025-JKvqWNr8rz8l.jpg",
+   "format": "TV_SHORT",
+   "studio": "AtoriE",
+   "genres": [
+    "Комедия",
+    "Этти",
+    "Фэнтези",
+    "Романтика"
+   ],
+   "episodes": 12,
+   "season": "FALL",
+   "seasonYear": 2026,
+   "startDate": {
+    "year": 2026,
+    "month": 10,
+    "day": 5
+   },
+   "popularity": 32656,
+   "synopsis": "Амона — темный призыватель с демоническими силами. Рони — набожный священник, но слишком нервный. По всем правилам они должны ненавидеть друг друга. Вместо этого они в конечном итоге быстро отслеживают свою дугу превращения врагов в любовников с помощью связи на одну ночь, которая каким-то образом настаивает на том, чтобы стать повторяющимся событием.",
+   "url": "https://anilist.co/anime/208025",
+   "nextEpisode": 9,
+   "airingAt": 1795969200
+  },
+  {
+   "anilistId": 207191,
+   "catalogId": "hello-i-am-a-witch-and-my-crush-wants-me-to-make-a-love-poti-207191",
+   "title": "Здравствуйте, я ведьма, и моя возлюбленная хочет, чтобы я приготовила любовное зелье!",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "Doumo, Suki na Hito ni Horegusuri wo Irai Sareta Majo desu.",
+   "titleEnglish": "Hello, I am a Witch and my Crush Wants me to Make a Love Potion!",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx207191-VgkIzfH92WoZ.jpg",
+   "format": "TV",
+   "studio": "diomedéa",
+   "genres": [
+    "Фэнтези",
+    "Романтика"
+   ],
+   "episodes": 12,
+   "season": "FALL",
+   "seasonYear": 2026,
+   "startDate": {
+    "year": 2026,
+    "month": 10,
+    "day": 5
+   },
+   "popularity": 35885,
+   "synopsis": "«Сделай мне любовный эликсир». И этим единственным предложением тайная влюблённость Доброй Волшебницы Озера в блестящего сэра Хариджа заканчивается разбитым сердцем. Тем не менее, когда он обещает помочь ей собрать ингредиенты, Роза в восторге от возможности полюбоваться мужчиной, с которым в обычной жизни ей никогда бы не довелось общаться. Она учится сдерживать своё колотящееся сердце во время их обычных натянутых разговоров… но что ей делать, когда он неожиданно появляется у её порога с хлебом и банкой яблочного масла?",
+   "url": "https://anilist.co/anime/207191",
+   "nextEpisode": 9,
+   "airingAt": 1796041800
+  },
+  {
+   "anilistId": 209219,
+   "catalogId": null,
+   "title": "Так что же плохого в том, чтобы переродиться в гоблина?",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "Tensei Goblin Dakedo Shitsumon Aru?",
+   "titleEnglish": "So What's Wrong with Getting Reborn as a Goblin?",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx209219-3yhKlRx0LX3p.jpg",
+   "format": "ONA",
+   "studio": "BAKKKA",
+   "genres": [
+    "Экшен",
+    "Приключения",
+    "Комедия",
+    "Драма",
+    "Фэнтези",
+    "Романтика"
+   ],
+   "episodes": 12,
+   "season": "FALL",
+   "seasonYear": 2026,
+   "startDate": {
+    "year": 2026,
+    "month": 10,
+    "day": 5
+   },
+   "popularity": 25278,
+   "synopsis": "Альтруистическая натура офисного работника Акиры Ягами обычно приводит его к неприятностям. Когда он умирает после того, как спас ребенка от встречного движения... он перевоплощается в другом мире как гоблин?! Обычно гоблины живут всего семь дней, но вновь обретенные способности Акиры позволяют ему бросить вызов обычной продолжительности жизни этого вида... и являются ключом к его пути к тому, чтобы стать самым сильным гоблином на свете!",
+   "url": "https://anilist.co/anime/209219",
+   "nextEpisode": 9,
+   "airingAt": 1796043600
+  },
+  {
+   "anilistId": 160803,
+   "catalogId": null,
+   "title": "Перезапуск проекта MAGICAL GIRL RAISING PROJECT",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "Mahou Shoujo Ikusei Keikaku: restart",
+   "titleEnglish": "MAGICAL GIRL RAISING PROJECT restart",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx160803-Rcr3IvhE7q9c.png",
+   "format": "TV",
+   "studio": "SynergySP",
+   "genres": [
+    "Экшен",
+    "Фэнтези",
+    "Махо-сёдзё",
+    "Триллер"
+   ],
+   "episodes": null,
+   "season": "FALL",
+   "seasonYear": 2026,
+   "startDate": {
+    "year": 2026,
+    "month": 10,
+    "day": 6
+   },
+   "popularity": 8058,
+   "synopsis": "Некоторые волшебные девушки дерутся. Другие этого не делают. Каждая девушка-волшебница, выбранная таинственной Страной Волшебства, существующей без ведома остального мира, наделена уникальной силой. Печка, чья магия делает еду вкусной, вынуждена принять участие в загадочной виртуальной игре вместе с 16 незнакомыми девушками-волшебницами, каждая из которых обладает своей неповторимой индивидуальностью.",
+   "url": "https://anilist.co/anime/160803",
+   "nextEpisode": 9,
+   "airingAt": 1796058000
+  },
+  {
+   "anilistId": 206949,
+   "catalogId": null,
+   "title": "Ниа Листон: Безжалостная дева",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "Kyouran Reijou Nia Liston",
+   "titleEnglish": "Nia Liston: The Merciless Maiden",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx206949-4HYI3YuP0eLI.png",
+   "format": "TV",
+   "studio": "KONAMI animation",
+   "genres": [
+    "Экшен",
+    "Фэнтези"
+   ],
+   "episodes": 25,
+   "season": "FALL",
+   "seasonYear": 2026,
+   "startDate": {
+    "year": 2026,
+    "month": 10,
+    "day": 6
+   },
+   "popularity": 33852,
+   "synopsis": "Великая героиня лежит непобежденной на смертном одре, сожалея, что так и не нашла врага, который мог бы ее победить. Она никогда не намеревалась встретить свою судьбу где-либо, кроме как на поле битвы, и ее мирная кончина заставляет ее отчаянно желать, чтобы все могло быть иначе... Но когда она внезапно приходит в себя в теле молодой, хрупкой Нии Листон, ее ждет совершенно новая битва впереди.",
+   "url": "https://anilist.co/anime/206949",
+   "nextEpisode": 9,
+   "airingAt": 1796127900
+  },
+  {
+   "anilistId": 209502,
+   "catalogId": null,
+   "title": "Холодный Сато-сан мил только мне",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "Shiotaiou no Satou-san ga Ore ni dake Amai",
+   "titleEnglish": "The Cold Sato-san is Only Sweet to Me",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx209502-C81oN8M4Smlo.jpg",
+   "format": "TV",
+   "studio": "Tezuka Productions",
+   "genres": [
+    "Комедия",
+    "Романтика"
+   ],
+   "episodes": 12,
+   "season": "FALL",
+   "seasonYear": 2026,
+   "startDate": {
+    "year": 2026,
+    "month": 10,
+    "day": 6
+   },
+   "popularity": 25472,
+   "synopsis": "Сато-сан — недосягаемый цветок класса. С одноклассниками она всегда холодна и резка, но только я знаю, что она на самом деле очень милая, когда улыбается, даже если она не очень хороший фотограф. Ошио-кун дружелюбный и жизнерадостный, но только я знаю, что после школы он работает в семейном кафе. Он отлично справляется с аккаунтом кафе в социальных сетях, а от его озорной улыбки у меня замирает сердце!",
+   "url": "https://anilist.co/anime/209502",
+   "nextEpisode": 9,
+   "airingAt": 1796130000
+  },
+  {
+   "anilistId": 198727,
+   "catalogId": null,
+   "title": "Титосэ в бутылке Рамуне 2-й кур",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "Chitose-kun wa Ramune Bin no Naka Part 2",
+   "titleEnglish": "Chitose Is in the Ramune Bottle 2nd Cour",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx198727-BL0JTpg0G8tq.jpg",
+   "format": "TV",
+   "studio": "feel.",
+   "genres": [
+    "Комедия",
+    "Романтика"
+   ],
+   "episodes": 11,
+   "season": "FALL",
+   "seasonYear": 2026,
+   "startDate": {
+    "year": 2026,
+    "month": 10,
+    "day": 13
+   },
+   "popularity": 17860,
+   "synopsis": "Вторая часть Титосэ-кун ва Рамунэ Бин но Нака.",
+   "url": "https://anilist.co/anime/198727",
+   "nextEpisode": 8,
+   "airingAt": 1796133600
+  },
+  {
+   "anilistId": 200294,
+   "catalogId": null,
+   "title": "Суперэкстрасенс-полицейский Чоджо",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "Choujun! Choujou Senpai",
+   "titleEnglish": "Super Psychic Policeman Chojo",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx200294-E6KIgkFaJOfG.jpg",
+   "format": "TV",
+   "studio": "Arvo Animation",
+   "genres": [
+    "Комедия",
+    "Повседневность"
+   ],
+   "episodes": 12,
+   "season": "FALL",
+   "seasonYear": 2026,
+   "startDate": {
+    "year": 2026,
+    "month": 10,
+    "day": 6
+   },
+   "popularity": 8112,
+   "synopsis": "Настоящий полицейский дуэт здесь, чтобы сохранить мир! Офицер-новичок Нао только что присоединился к отряду. Она имеет черный пояс по дзюдо и за свою безумную силу получила прозвище «Горилла». Еще есть ее партнер Чоджо, обладающий всеми мыслимыми экстрасенсорными способностями. Но парень, который умеет читать мысли, похоже, все равно не может читать комнату. Теперь эти двое вместе занимаются преступностью в Чинджуку.",
+   "url": "https://anilist.co/anime/200294",
+   "nextEpisode": 9,
+   "airingAt": 1796133600
+  },
+  {
+   "anilistId": 187316,
+   "catalogId": null,
+   "title": "Суйкоден",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "Gensou Suikoden",
+   "titleEnglish": "Suikoden",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx187316-jucYCojVTjSY.jpg",
+   "format": "TV",
+   "studio": "KONAMI animation",
+   "genres": [
+    "Экшен",
+    "Приключения",
+    "Фэнтези"
+   ],
+   "episodes": 23,
+   "season": "FALL",
+   "seasonYear": 2026,
+   "startDate": {
+    "year": 2026,
+    "month": 10,
+    "day": 3
+   },
+   "popularity": 8295,
+   "synopsis": "Рилиу и Джоуи всегда сражались бок о бок, мечтая о будущем за пределами поля боя. Но когда война охватывает Хайлендское королевство, друзья детства оказываются вовлечены в борьбу, гораздо большую, чем они сами. Когда 108 Звезд Судьбы начинают собираться, мальчикам предстоит столкнуться с конфликтом, который бросит вызов их убеждениям и подвергнет испытанию их дружбу.",
+   "url": "https://anilist.co/anime/187316",
+   "nextEpisode": 9,
+   "airingAt": 1796135400
+  },
+  {
+   "anilistId": 207329,
+   "catalogId": null,
+   "title": "Уволенный маг, предоставляющий читы, наслаждается второй арендой жизни",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "Tsuihou Sareta Cheat Fuyo Majutsushi wa Kimama na Second Life wo Ouka Suru.: Ore wa Buki dake ja Naku, Arayuru Mono ni \"Kyouka Point\" wo Fuyo Dekiru shi, Ore no Ishi de Itsudemo Kouka wo Kaijo Dekiru kedo, Nokotta Hitotachi Daijoubu?",
+   "titleEnglish": "The Laid-Off Cheat-Granting Mage Enjoys a Second Lease on Life",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/b207329-6VPeZIDfF4Sr.png",
+   "format": "TV",
+   "studio": "P.A.WORKS",
+   "genres": [
+    "Приключения",
+    "Комедия",
+    "Фэнтези",
+    "Повседневность"
+   ],
+   "episodes": 12,
+   "season": "FALL",
+   "seasonYear": 2026,
+   "startDate": {
+    "year": 2026,
+    "month": 10,
+    "day": 7
+   },
+   "popularity": 56046,
+   "synopsis": "Однажды Рейна, чародея, внезапно исключают из своей гильдии. Но вместо того, чтобы отчаиваться, он заявляет: «Теперь я могу все!» и начинает возвращать огромное количество очков улучшения, которые он когда-то вложил в снаряжение своих товарищей по гильдии, отправляясь на совершенно новый путь искателя приключений.",
+   "url": "https://anilist.co/anime/207329",
+   "nextEpisode": 9,
+   "airingAt": 1796137200
+  },
+  {
+   "anilistId": 207809,
+   "catalogId": null,
+   "title": "Красная река",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "Sora wa Akai Kawa no Hotori",
+   "titleEnglish": "Red River",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx207809-cpS7CAyjN7iP.jpg",
+   "format": "TV",
+   "studio": "Tatsunoko Production",
+   "genres": [
+    "Экшен",
+    "Приключения",
+    "Драма",
+    "Фэнтези",
+    "Романтика"
+   ],
+   "episodes": 24,
+   "season": "SUMMER",
+   "seasonYear": 2026,
+   "startDate": {
+    "year": 2026,
+    "month": 7,
+    "day": 8
+   },
+   "popularity": 12343,
+   "synopsis": "После того, как таинственная рука утаскивает ее под лужу, современный японский подросток Юри просыпается в Хеттской империи 14 века до нашей эры. Втянутая в смертельную борьбу за трон, она присоединяется к принцу Кейлу, чтобы сражаться с убийцами, перехитрить королевские заговоры и выжить в мире, находящемся в состоянии войны. Поскольку ее подвиги приносят ей славу богини Иштар, Юри приходится выбирать между своей старой жизнью и неопределенным будущим.",
+   "url": "https://anilist.co/anime/207809",
+   "nextEpisode": 22,
+   "airingAt": 1796142900
+  },
+  {
+   "anilistId": 152677,
+   "catalogId": "the-detective-is-already-dead-season-2-152677",
+   "title": "Детектив уже мёртв 2",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "Tantei wa Mou, Shindeiru. Season 2",
+   "titleEnglish": "The Detective Is Already Dead Season 2",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx152677-gtJbgjE94lCN.png",
+   "format": "TV",
+   "studio": "ENGI",
+   "genres": [
+    "Комедия",
+    "Драма",
+    "Детектив",
+    "Романтика",
+    "Сверхъестественное"
+   ],
+   "episodes": 13,
+   "season": "FALL",
+   "seasonYear": 2026,
+   "startDate": {
+    "year": 2026,
+    "month": 10,
+    "day": 7
+   },
+   "popularity": 27804,
+   "synopsis": "После того как Кимихико вместе с прекрасной детективом Сиестой, обладательницей серебристых волос, предотвратил похищение самолета, он вел жизнь, путешествуя по миру и раскрывая преступления — пока Сиеста не погибла. Год спустя новое дело вновь раскроет старые раны, поскольку в нем переплетутся убийство, заговор и его погибшая напарница!",
+   "url": "https://anilist.co/anime/152677",
+   "nextEpisode": 9,
+   "airingAt": 1796214600
+  },
+  {
+   "anilistId": 211778,
+   "catalogId": null,
+   "title": "Самая сильная ведьма в мире",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "Sekai Saikyou no Majo, Hajimemashita",
+   "titleEnglish": "The World's Strongest Witch",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx211778-0MXK5HqVFBYH.jpg",
+   "format": "TV",
+   "studio": "Bridge",
+   "genres": [
+    "Экшен",
+    "Комедия",
+    "Фэнтези"
+   ],
+   "episodes": null,
+   "season": "FALL",
+   "seasonYear": 2026,
+   "startDate": {
+    "year": 2026,
+    "month": 10,
+    "day": 7
+   },
+   "popularity": 24561,
+   "synopsis": "Используя свой навык SSS-ранга, Интернет, чтобы сокрушить амбиции своей бывшей семьи, Лорна может свободно путешествовать по миру. Ее следующая остановка — портовый город Аквас, где она надеется осмотреть достопримечательности и отведать свежих морепродуктов. Но когда она прибывает, это место оказывается на грани разрушения из-за определенного еженедельного задания… Хорошо, что на стороне Лорны боги!",
+   "url": "https://anilist.co/anime/211778",
+   "nextEpisode": 9,
+   "airingAt": 1796216400
+  },
+  {
+   "anilistId": 176314,
+   "catalogId": null,
+   "title": "Сасаки и Пипс 2",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "Sasaki to Pii-chan Season 2",
+   "titleEnglish": "Sasaki and Peeps Season 2",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx176314-lpvca6vjmkeO.jpg",
+   "format": "TV",
+   "studio": "SILVER LINK.",
+   "genres": [
+    "Комедия",
+    "Фэнтези",
+    "Махо-сёдзё"
+   ],
+   "episodes": 12,
+   "season": "FALL",
+   "seasonYear": 2026,
+   "startDate": {
+    "year": 2026,
+    "month": 10,
+    "day": 7
+   },
+   "popularity": 17093,
+   "synopsis": "Второй сезон Сасаки для Пии-чана.",
+   "url": "https://anilist.co/anime/176314",
+   "nextEpisode": 9,
+   "airingAt": 1796216400
+  },
+  {
+   "anilistId": 178868,
+   "catalogId": null,
+   "title": "Волшебный рыцарь Райерт (2026)",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "Magic Knight Rayearth (2026)",
+   "titleEnglish": "Magic Knight Rayearth (2026)",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx178868-mfp0HIHNJNAm.jpg",
+   "format": "TV",
+   "studio": "E&H Production",
+   "genres": [
+    "Приключения",
+    "Фэнтези",
+    "Махо-сёдзё",
+    "Меха"
+   ],
+   "episodes": null,
+   "season": "FALL",
+   "seasonYear": 2026,
+   "startDate": {
+    "year": 2026,
+    "month": 10,
+    "day": 7
+   },
+   "popularity": 12904,
+   "synopsis": "Хикару Шидо, Уми Рюузаки и Фуу Ходзи не из Сефиро. Во время школьной экскурсии к Токийской башне мысли трех девочек заняты совсем не разными мирами, наполненными волшебством и чудесами. Так продолжалось до тех пор, пока принцесса Эмерод, Столп Сефиро, не взывает к Рыцарям-волшебникам, чтобы те спасли ее мир – и это как раз те трое!",
+   "url": "https://anilist.co/anime/178868",
+   "nextEpisode": 9,
+   "airingAt": 1796222700
+  },
+  {
+   "anilistId": 159042,
+   "catalogId": null,
+   "title": "Перерождение в меч 2",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "Tensei Shitara Ken Deshita 2nd Season",
+   "titleEnglish": "Reincarnated as a Sword Season 2",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx159042-GGFwlDskc5vR.png",
+   "format": "ONA",
+   "studio": "C2C",
+   "genres": [
+    "Экшен",
+    "Приключения",
+    "Фэнтези"
+   ],
+   "episodes": 12,
+   "season": "FALL",
+   "seasonYear": 2026,
+   "startDate": {
+    "year": 2026,
+    "month": 10,
+    "day": 1
+   },
+   "popularity": 58062,
+   "synopsis": "Второй сезон Тенсей Ситара Кен Дешита. Примечание. Каждая серия транслировалась за неделю до телетрансляции, начинающейся 1 октября 2026 года на канале Abema. Регулярное вещание началось 8 октября 2026 года.",
+   "url": "https://anilist.co/anime/159042",
+   "nextEpisode": 10,
+   "airingAt": 1796225400
+  },
+  {
+   "anilistId": 172192,
+   "catalogId": null,
+   "title": "«Магия возвращающегося должна быть особенной», 2-й сезон",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "Kikansha no Mahou wa Tokubetsu desu 2nd Season",
+   "titleEnglish": "A Returner's Magic Should be Special Season 2",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx172192-W7P5xEUaxF3y.jpg",
+   "format": "TV",
+   "studio": "Arvo Animation",
+   "genres": [
+    "Экшен",
+    "Приключения",
+    "Фэнтези"
+   ],
+   "episodes": null,
+   "season": "FALL",
+   "seasonYear": 2026,
+   "startDate": {
+    "year": 2026,
+    "month": 10,
+    "day": 8
+   },
+   "popularity": 37287,
+   "synopsis": "На земле, где доминируют грозные Теневые миры, большая часть человечества была уничтожена. Чтобы спасти свою планету от надвигающейся гибели, шесть отважных героев вступают в опасную битву... и терпят неудачу. Но появляется проблеск надежды, когда Дезир, один из последних магов, внезапно отправляется назад во времени на 13 лет! Теперь, вооружившись знаниями о мрачном будущем, сможет ли он изменить ход истории и спасти мир?",
+   "url": "https://anilist.co/anime/172192",
+   "nextEpisode": 9,
+   "airingAt": 1796226300
+  },
+  {
+   "anilistId": 206401,
+   "catalogId": "fx-fighter-kurumi-chan-206401",
+   "title": "FX Fighter Куруми-чан",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "FX Senshi Kurumi-chan",
+   "titleEnglish": "FX Fighter Kurumi-chan",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx206401-8cAebkI0i8BA.png",
+   "format": "TV",
+   "studio": "Passione",
+   "genres": [
+    "Драма",
+    "Повседневность"
+   ],
+   "episodes": 12,
+   "season": "FALL",
+   "seasonYear": 2026,
+   "startDate": {
+    "year": 2026,
+    "month": 10,
+    "day": 1
+   },
+   "popularity": 20338,
+   "synopsis": "Студентка университета Куруми Фукуга наконец-то осуществила свою давнюю мечту — начать торговать на валютном рынке (FX), движимая желанием возместить 20 миллионов иен, которые потеряла при торговле её покойная мать. «Я легко их верну», — подумала она, но мир, в который она попадает, в мгновение ока может превратиться в рай или ад. Нереализованные убытки, ограничение убытков, неудержимые колебания курсов… но она всё равно хочет покупать, продавать и зарабатывать деньги!",
+   "url": "https://anilist.co/anime/206401",
+   "nextEpisode": 10,
+   "airingAt": 1796301000
+  },
+  {
+   "anilistId": 213805,
+   "catalogId": null,
+   "title": "Ледяные валы 2 сезон",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "Koori no Jouheki 2nd Season",
+   "titleEnglish": "The Ramparts of Ice Season 2",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx213805-Nokui3uWlIlw.png",
+   "format": "TV",
+   "studio": "Studio KAI",
+   "genres": [
+    "Комедия",
+    "Драма",
+    "Романтика",
+    "Повседневность"
+   ],
+   "episodes": 13,
+   "season": "FALL",
+   "seasonYear": 2026,
+   "startDate": {
+    "year": 2026,
+    "month": 10,
+    "day": 2
+   },
+   "popularity": 42737,
+   "synopsis": "Коюки, изолированная девушка; Мики, бывший школьный кумир; Минато, парень, не имеющий понятия о личном пространстве; и Юта, нежный баскетболист. Неуклюжая, разочаровывающая, но глубоко милая — эта ансамблевая драма взросления, в которой переплетаются сердца, продолжается. По мере того, как они становятся ближе, Коюки и Минато начинают испытывать друг к другу чувства, выходящие за рамки простой дружбы.",
+   "url": "https://anilist.co/anime/213805",
+   "nextEpisode": 10,
+   "airingAt": 1796309760
+  },
+  {
+   "anilistId": 180136,
+   "catalogId": null,
+   "title": "Изгнанный тяжелый рыцарь знает, как обмануть систему",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "Tsuihou Sareta Tensei Juukishi wa Game Chishiki de Musou Suru",
+   "titleEnglish": "The Exiled Heavy Knight Knows How to Game the System",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx180136-gtMTCRlOD4OE.jpg",
+   "format": "TV",
+   "studio": "GoHands",
+   "genres": [
+    "Экшен",
+    "Фэнтези"
+   ],
+   "episodes": 26,
+   "season": "SUMMER",
+   "seasonYear": 2026,
+   "startDate": {
+    "year": 2026,
+    "month": 7,
+    "day": 3
+   },
+   "popularity": 79185,
+   "synopsis": "Будущее Элимаса Эдвона, родившегося в престижной семье мастеров фехтования, рушится, когда он пробуждает так называемый «неполноценный» класс Тяжелых Рыцарей. Отвергнутый и изгнанный, он вновь обретает воспоминания о другой жизни и понимает, что этот мир отражает VR-игру, которую он когда-то освоил. Вооруженный знаниями, которыми больше никто не обладает, он намеревается переписать свою судьбу и доказать силу «самого слабого» класса.",
+   "url": "https://anilist.co/anime/180136",
+   "nextEpisode": 23,
+   "airingAt": 1796311560
+  },
+  {
+   "anilistId": 212503,
+   "catalogId": null,
+   "title": "Колдун Ледяного Клинка будет править миром II",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "Hyouken no Majutsushi ga Sekai wo Suberu II",
+   "titleEnglish": "The Iceblade Sorcerer Shall Rule the World II",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx212503-sXBpRZr96c4e.jpg",
+   "format": "TV",
+   "studio": "Zero-G",
+   "genres": [
+    "Экшен",
+    "Приключения",
+    "Фэнтези"
+   ],
+   "episodes": null,
+   "season": "FALL",
+   "seasonYear": 2026,
+   "startDate": {
+    "year": 2026,
+    "month": 10,
+    "day": 9
+   },
+   "popularity": 24849,
+   "synopsis": "Однажды исключенный из элитной Академии Волшебства Арнольда как единственный обычный студент, Рэй Уайт – тайно Колдун Ледяного Клинка – наконец-то заслужил свое место. С новым учебным годом приходит новое испытание: Магическая война, грандиозное соревнование, в котором команды соперничающих школ противостоят друг другу. Но зловещая тень нависла над Рэем и его друзьями, пока другие великие волшебники планируют свои следующие действия.",
+   "url": "https://anilist.co/anime/212503",
+   "nextEpisode": 9,
+   "airingAt": 1796315280
+  },
+  {
+   "anilistId": 235,
+   "catalogId": "detective-conan-235",
+   "title": "Детектив Конан",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "Meitantei Conan",
+   "titleEnglish": "Detective Conan",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx235-MyYT7K3chBdO.jpg",
+   "format": "TV",
+   "studio": "TMS Entertainment",
+   "genres": [
+    "Приключения",
+    "Комедия",
+    "Детектив",
+    "Психология"
+   ],
+   "episodes": null,
+   "season": "WINTER",
+   "seasonYear": 1996,
+   "startDate": {
+    "year": 1996,
+    "month": 1,
+    "day": 8
+   },
+   "popularity": 81882,
+   "synopsis": "Кудо Синичи — семнадцатилетний школьный детектив, которого люди называют «современным Шерлоком Холмсом». Однако однажды ночью после свидания со своей возлюбленной с детства, Ран, Синичи стал свидетелем незаконной сделки и, застигнутый врасплох, был сбит с ног, потерял сознание и получил дозу наркотика, которая должна была убить его... но, очнувшись, он обнаружил, что уменьшился до размеров семилетнего ребёнка.",
+   "url": "https://anilist.co/anime/235",
+   "nextEpisode": 1222,
+   "airingAt": 1796461200
+  },
+  {
+   "anilistId": 191656,
+   "catalogId": null,
+   "title": "Даже в студенческом совете есть свои дыры!",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "Seitokai ni mo Ana wa Aru!",
+   "titleEnglish": "Even the Student Council Has Its Holes!",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx191656-xFHtxM8SUTdU.png",
+   "format": "TV",
+   "studio": "Passione",
+   "genres": [
+    "Комедия",
+    "Этти",
+    "Повседневность"
+   ],
+   "episodes": 12,
+   "season": "FALL",
+   "seasonYear": 2026,
+   "startDate": {
+    "year": 2026,
+    "month": 10,
+    "day": 4
+   },
+   "popularity": 58001,
+   "synopsis": "Это Академия Фуджинасу, частная средняя школа с лучшими учениками, расположенная на окраине города. Первокурсница средней школы Умэ Мизуноэ имеет отличные оценки на уроках японского языка и получила множество литературных наград. Однако его ужасные оценки по естественным наукам мешают ему подняться на ступень выше.",
+   "url": "https://anilist.co/anime/191656",
+   "nextEpisode": 9,
+   "airingAt": 1796484600
+  },
+  {
+   "anilistId": 204011,
+   "catalogId": null,
+   "title": "САЙРЕН",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "PSYЯEN",
+   "titleEnglish": "PSYREN",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx204011-j45RZoqYbdZK.jpg",
+   "format": "TV",
+   "studio": "Satelight",
+   "genres": [
+    "Экшен",
+    "Приключения",
+    "Фантастика"
+   ],
+   "episodes": null,
+   "season": "FALL",
+   "seasonYear": 2026,
+   "startDate": {
+    "year": 2026,
+    "month": 10,
+    "day": 5
+   },
+   "popularity": 25591,
+   "synopsis": "Однажды старшеклассник Агеха Ёсина подбирает загадочную «красную телефонную карточку», оставленную в общественной телефонной будке. Несколько дней спустя его подруга детства и одноклассница Сакурако Амамия, у которой была такая же карта, внезапно бесследно исчезает.",
+   "url": "https://anilist.co/anime/204011",
+   "nextEpisode": 7,
+   "airingAt": 1796652000
+  },
+  {
+   "anilistId": 21,
+   "catalogId": "one-piece-21",
+   "title": "Ван-Пис",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "ONE PIECE",
+   "titleEnglish": "ONE PIECE",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx21-ELSYx3yMPcKM.jpg",
+   "format": "TV",
+   "studio": "Toei Animation",
+   "genres": [
+    "Экшен",
+    "Приключения",
+    "Комедия",
+    "Драма",
+    "Фэнтези"
+   ],
+   "episodes": null,
+   "season": "FALL",
+   "seasonYear": 1999,
+   "startDate": {
+    "year": 1999,
+    "month": 10,
+    "day": 20
+   },
+   "popularity": 773283,
+   "synopsis": "Голд Роджер был известен как Король пиратов — самое могущественное и печально известное существо, когда-либо бороздившее воды Гранд-Лайн. Пленение и гибель Роджера, организованные Мировым правительством, привели к переломам во всём мире. Его последние слова перед смертью раскрыли местонахождение величайшего сокровища в мире — «Оне Пис».",
+   "url": "https://anilist.co/anime/21",
+   "nextEpisode": 1181,
+   "airingAt": 1798985760
+  }
+ ],
+ "premieres": [
+  {
+   "anilistId": 200929,
+   "catalogId": null,
+   "title": "Дневники аптекаря: сокровище покойной дамы",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "Kusuriya no Hitorigoto: Bouhi no Hihou",
+   "titleEnglish": "The Apothecary Diaries: The Late Lady’s Treasure",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx200929-dx3hnftE7K7C.jpg",
+   "format": "MOVIE",
+   "studio": "TOHO animation STUDIO",
+   "genres": [
+    "Драма",
+    "Детектив"
+   ],
+   "episodes": 1,
+   "season": "FALL",
+   "seasonYear": 2026,
+   "startDate": {
+    "year": 2026,
+    "month": 12,
+    "day": 11
+   },
+   "popularity": 34112,
+   "synopsis": "Занавес поднимается над новой загадкой тайного сокровища, спрятанного в городе на воде. Император отдает Цзиньши приказ. Он должен исполнить последнее желание скончавшейся пять лет назад наложницы, вернув ее на родину. Чтобы вернуть ее семье, Джинши осматривает останки и обнаруживает, что они в первозданном состоянии. Она прекрасна, как будто еще жива.",
+   "url": "https://anilist.co/anime/200929",
+   "nextEpisode": 1,
+   "airingAt": 1796914800
+  },
+  {
+   "anilistId": 186741,
+   "catalogId": null,
+   "title": "Himekishi-sama no Himo",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "Himekishi-sama no Himo",
+   "titleEnglish": null,
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx186741-jfAFI71jie1x.jpg",
+   "format": "TV",
+   "studio": "BLADE",
+   "genres": [
+    "Экшен",
+    "Приключения",
+    "Комедия",
+    "Фэнтези",
+    "Романтика"
+   ],
+   "episodes": null,
+   "season": "WINTER",
+   "seasonYear": 2027,
+   "startDate": {
+    "year": 2027,
+    "month": 1,
+    "day": 3
+   },
+   "popularity": 8374,
+   "synopsis": "Мэтью — всего лишь еще один паразит в хаотичном городе-подземелье Серый Сосед. Люди говорят, что он ленивый слабак, который играет в азартные игры и пропивает все деньги, которые получает от своей хранительницы, принцессы-рыцаря Арвина. Но правда в том, что никто в этом городе не знает, какой он на самом деле — безжалостный защитник, который работает в тени и сделает все возможное ради своей любовницы.",
+   "url": "https://anilist.co/anime/186741",
+   "nextEpisode": 1,
+   "airingAt": 1798986600
+  },
+  {
+   "anilistId": 207251,
+   "catalogId": null,
+   "title": "Mairimashita! Iruma-kun: If Episode of Mafia",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "Mairimashita! Iruma-kun: If Episode of Mafia",
+   "titleEnglish": null,
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx207251-1opGPW7xVHQ8.jpg",
+   "format": "TV",
+   "studio": "Tatsunoko Production",
+   "genres": [
+    "Экшен",
+    "Комедия"
+   ],
+   "episodes": 12,
+   "season": "WINTER",
+   "seasonYear": 2027,
+   "startDate": {
+    "year": 2027,
+    "month": 1,
+    "day": 4
+   },
+   "popularity": 6087,
+   "synopsis": "В этом совершенно новом спин-оффе безудержного популярного сериала Ирума — бедный, но добрый мальчик, который растет в безжалостных городских трущобах. Однажды Ирума дает тяжело раненому старику последнюю буханку хлеба и вылечивает незнакомца - только для того, чтобы узнать, что старший джентльмен - не кто иной, как Дон Салливан, лидер вавилонской мафии!",
+   "url": "https://anilist.co/anime/207251",
+   "nextEpisode": 1,
+   "airingAt": 1799071200
+  },
+  {
+   "anilistId": 197619,
+   "catalogId": null,
+   "title": "Невеста Мастера Барьеров",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "Kekkaishi no Ichirinka",
+   "titleEnglish": "Bride of the Barrier Master",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx197619-EZYu0cg8NADa.jpg",
+   "format": "TV",
+   "studio": "TROYCA",
+   "genres": [
+    "Драма",
+    "Фэнтези",
+    "Романтика"
+   ],
+   "episodes": null,
+   "season": "WINTER",
+   "seasonYear": 2027,
+   "startDate": {
+    "year": 2027,
+    "month": 1,
+    "day": 6
+   },
+   "popularity": 6531,
+   "synopsis": "Хана Ичисе — из ответвленной семьи одного из пяти магических кланов, создающих барьеры, которые защищают и поддерживают Японию. Но в глазах ее матери и отца она второстепенная по сравнению со своей талантливой старшей сестрой-близнецом. Когда в пятнадцать лет раскрывается истинный потенциал Ханы, она решает сохранить свои вновь обретенные способности в секрете, в том числе и от родителей, чтобы вести спокойную жизнь.",
+   "url": "https://anilist.co/anime/197619"
+  },
+  {
+   "anilistId": 186822,
+   "catalogId": "the-guy-she-was-interested-in-wasn-t-a-guy-at-all-186822",
+   "title": "Парень, который ее интересовал, вообще не был парнем",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "Ki ni Natteru Hito ga Otoko ja Nakatta",
+   "titleEnglish": "The Guy She Was Interested In Wasn't a Guy At All",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx186822-9zsR5NtOP0yJ.jpg",
+   "format": "TV",
+   "studio": "CloverWorks",
+   "genres": [
+    "Музыка",
+    "Романтика"
+   ],
+   "episodes": null,
+   "season": "WINTER",
+   "seasonYear": 2027,
+   "startDate": {
+    "year": 2027,
+    "month": 1,
+    "day": 8
+   },
+   "popularity": 37437,
+   "synopsis": "Модная и жизнерадостная старшеклассница Ая без памяти влюбилась в сотрудника местного магазина компакт-дисков. В нём есть некая загадочность, он отлично одевается и обладает безупречным музыкальным вкусом. Но она и не подозревает, что этот, казалось бы, парень на самом деле — её одноклассница Мицуки! Мицуки обычно держится в стороне, но, поскольку её парта стоит прямо рядом с партой Аи, ей невольно приходится внимательно следить за тем, как та влюбляется.",
+   "url": "https://anilist.co/anime/186822",
+   "nextEpisode": 1,
+   "airingAt": 1799416800
+  },
+  {
+   "anilistId": 204579,
+   "catalogId": null,
+   "title": "Jirai nan desu ka? Chihara-san",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "Jirai nan desu ka? Chihara-san",
+   "titleEnglish": null,
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx204579-2MZs9F70Fp2M.png",
+   "format": "TV",
+   "studio": "SynergySP",
+   "genres": [
+    "Комедия",
+    "Романтика",
+    "Повседневность"
+   ],
+   "episodes": null,
+   "season": "WINTER",
+   "seasonYear": 2027,
+   "startDate": {
+    "year": 2027,
+    "month": 1,
+    "day": 8
+   },
+   "popularity": 13524,
+   "synopsis": "Девушка, сидящая рядом со мной в начале нового семестра, по слухам, является девушкой-«миной»… но… действительно ли Чихара-сан — «мина», о которой все говорят?",
+   "url": "https://anilist.co/anime/204579",
+   "nextEpisode": 1,
+   "airingAt": 1799335560
+  },
+  {
+   "anilistId": 183960,
+   "catalogId": null,
+   "title": "Потусторонний Манчкин: давайте пробежим подземелье, имея всего 1 HP!",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "Isekai Munchkin: HP 1 no Mama de Saikyou Saisoku Dungeon Kouryaku",
+   "titleEnglish": "Otherworldly Munchkin: Let's Speedrun the Dungeon with Only 1 HP!",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx183960-Hgd9AMxsOyPa.jpg",
+   "format": "TV",
+   "studio": "Durandal",
+   "genres": [
+    "Экшен",
+    "Приключения",
+    "Фэнтези"
+   ],
+   "episodes": null,
+   "season": "WINTER",
+   "seasonYear": 2027,
+   "startDate": {
+    "year": 2027,
+    "month": 1,
+    "day": 8
+   },
+   "popularity": 7604,
+   "synopsis": "16-летний Юкито Кирихара живет со своей 14-летней сестрой Саной, которой он дорожит больше, чем кто-либо другой. Но когда за его окном появляется огр в поисках Саны (само по себе шокирующее событие), Юкито бросается спасать ее — и погибает. Таинственная женщина пообещала ему реинкарнацию, которая дает ему лист персонажа из загадочной книги.",
+   "url": "https://anilist.co/anime/183960",
+   "nextEpisode": 1,
+   "airingAt": 1799335800
+  },
+  {
+   "anilistId": 208766,
+   "catalogId": null,
+   "title": "Bless",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "Bless",
+   "titleEnglish": null,
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx208766-FIvJRb63ztBJ.jpg",
+   "format": "TV",
+   "studio": "A-1 Pictures",
+   "genres": [
+    "Повседневность"
+   ],
+   "episodes": null,
+   "season": "WINTER",
+   "seasonYear": 2027,
+   "startDate": {
+    "year": 2027,
+    "month": 1,
+    "day": 8
+   },
+   "popularity": 7337,
+   "synopsis": "Они говорили, что Айе суждено было стать моделью, а Джун издевались из-за ее веснушек. Вместе они вернут себе право заявить о себе в вдохновляющей манге о моде, в которой задаются острые вопросы о том, что на самом деле значит быть красивым и что нужно, чтобы преодолеть произвольную систему, которая, кажется, уважает талант больше, чем тяжелый труд.",
+   "url": "https://anilist.co/anime/208766"
+  },
+  {
+   "anilistId": 205130,
+   "catalogId": null,
+   "title": "Historié",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "Historié",
+   "titleEnglish": null,
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx205130-oasZ91IQMhMN.jpg",
+   "format": "TV",
+   "studio": "LIDENFILMS",
+   "genres": [
+    "Приключения",
+    "Драма",
+    "Психология"
+   ],
+   "episodes": null,
+   "season": "WINTER",
+   "seasonYear": 2027,
+   "startDate": {
+    "year": 2027,
+    "month": 1,
+    "day": 8
+   },
+   "popularity": 7087,
+   "synopsis": "Шокировав мир «Паразитом», Хитоши Ивааки вернулся с сериалом, над которым ему не терпелось заняться еще до своего дебюта в профессиональной манге! Историческая эпопея, действие которой происходит в древние времена, Historie рассказывает историю Эвмена, молодого человека, обладающего сообразительностью и огромной судьбой, которую ему предстоит осуществить.",
+   "url": "https://anilist.co/anime/205130",
+   "nextEpisode": 1,
+   "airingAt": 1799425380
+  },
+  {
+   "anilistId": 202564,
+   "catalogId": null,
+   "title": "Kakunaru Ue wa",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "Kakunaru Ue wa",
+   "titleEnglish": null,
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx202564-gueNtbyEJWfm.jpg",
+   "format": "TV",
+   "studio": "ROLL2",
+   "genres": [
+    "Комедия",
+    "Этти",
+    "Романтика"
+   ],
+   "episodes": null,
+   "season": "WINTER",
+   "seasonYear": 2027,
+   "startDate": {
+    "year": 2027,
+    "month": 1,
+    "day": 9
+   },
+   "popularity": 15669,
+   "synopsis": "Противоположности притягиваются в этой истеричной ром-коме о двух школьных художниках манги, которые не могут отдохнуть! Старшеклассница Дуиби Уэхара Юки создала идеальную героиню романтической комедии — она застенчивая, легкомысленная и совершенно целомудренная.",
+   "url": "https://anilist.co/anime/202564",
+   "nextEpisode": 1,
+   "airingAt": 1799422200
+  },
+  {
+   "anilistId": 197620,
+   "catalogId": null,
+   "title": "Секиро: Без поражения",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "SEKIRO: NO DEFEAT",
+   "titleEnglish": "Sekiro: No Defeat",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx197620-COEsbB1otIdR.png",
+   "format": "TV",
+   "studio": "Qzil.la",
+   "genres": [
+    "Экшен",
+    "Приключения",
+    "Фэнтези",
+    "Сверхъестественное"
+   ],
+   "episodes": 8,
+   "season": "WINTER",
+   "seasonYear": 2027,
+   "startDate": {
+    "year": 2027,
+    "month": 1,
+    "day": null
+   },
+   "popularity": 22296,
+   "synopsis": "Время — Сэнгоку. Япония расколота на множество независимых стран, вовлеченных в непрекращающуюся войну. В центре лежит Ашина, земля священной земли и древних тайн. Спустя два десятилетия после того, как Святой Меч Иссин Ашина вернул себе регион в результате жестокого переворота, изнутри возникла новая угроза: Министерство внутренних дел. Отчаявшись защитить свою родину, внук Иссина Геничиро обращается к запретным силам.",
+   "url": "https://anilist.co/anime/197620"
+  },
+  {
+   "anilistId": 216624,
+   "catalogId": null,
+   "title": "Охотник за возрождением класса SSS",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "Shishite Ikiru SSS-kyuu Hunter",
+   "titleEnglish": "SSS-Class Revival Hunter",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx216624-ZgSowlLTtu3G.png",
+   "format": "TV",
+   "studio": "STUDIO fu",
+   "genres": [
+    "Экшен",
+    "Приключения",
+    "Фэнтези"
+   ],
+   "episodes": null,
+   "season": "WINTER",
+   "seasonYear": 2027,
+   "startDate": {
+    "year": 2027,
+    "month": 1,
+    "day": null
+   },
+   "popularity": 9674,
+   "synopsis": "Внезапно появилась таинственная башня, кишащая монстрами, привлекающая охотников, готовых рисковать своей жизнью ради славы и богатства. Гонг-Джа Ким, слабый Охотник F-ранга, проводит дни, завидуя Императору Пламени, который правит как лучший Охотник. Но его шанс на величие наконец-то появляется, когда он объединяет силы с Императором Меча и получает редкий навык S-ранга с одной ноткой: он должен умереть, чтобы активировать его.",
+   "url": "https://anilist.co/anime/216624"
+  },
+  {
+   "anilistId": 196333,
+   "catalogId": null,
+   "title": "Хираясуми",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "Hirayasumi",
+   "titleEnglish": "Hirayasumi",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx196333-HRmwgn8j8tvi.jpg",
+   "format": "TV",
+   "studio": "Production +h",
+   "genres": [
+    "Комедия",
+    "Драма",
+    "Повседневность"
+   ],
+   "episodes": null,
+   "season": "WINTER",
+   "seasonYear": 2027,
+   "startDate": {
+    "year": 2027,
+    "month": 1,
+    "day": null
+   },
+   "popularity": 8387,
+   "synopsis": "Обладая беззаботным взглядом на жизнь, Хирото лучше, чем кто-либо другой, знает, что замедление — иногда лучший способ двигаться вперед. У 29-летнего беззаботного Хирото Икуты нет ни девушки, ни постоянной работы, ни планов на будущее, и он очень счастлив. Однако не всем легко понять беззаботное отношение Хирото.",
+   "url": "https://anilist.co/anime/196333"
+  },
+  {
+   "anilistId": 194213,
+   "catalogId": null,
+   "title": "призрак – конец ночи",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "ghost／yoru no hate",
+   "titleEnglish": "ghost – end of night",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx194213-MZDr0UcflB0Y.jpg",
+   "format": "MOVIE",
+   "studio": "MADHOUSE",
+   "genres": [
+    "Сверхъестественное"
+   ],
+   "episodes": 1,
+   "season": "WINTER",
+   "seasonYear": 2027,
+   "startDate": {
+    "year": 2027,
+    "month": 2,
+    "day": 11
+   },
+   "popularity": 8302,
+   "synopsis": "У каждого есть «призрак» в сердце. Это подлинное чувство, но оно невыразимо. В этом произведении девушка Ника выступает против абсурдности мира, чтобы защитить «звездное небо». Эта сложная работа выражает одиночество и героизм Ники, а также тонкость ее сердца в ее взаимодействии с другими.",
+   "url": "https://anilist.co/anime/194213",
+   "nextEpisode": 1,
+   "airingAt": 1802271600
+  },
+  {
+   "anilistId": 211496,
+   "catalogId": null,
+   "title": "Кагурабачи",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "Kagurabachi",
+   "titleEnglish": "Kagurabachi",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx211496-zBucCHCPFFgy.png",
+   "format": "TV",
+   "studio": "Cypic",
+   "genres": [
+    "Экшен",
+    "Драма",
+    "Фэнтези"
+   ],
+   "episodes": null,
+   "season": "SPRING",
+   "seasonYear": 2027,
+   "startDate": {
+    "year": 2027,
+    "month": 4,
+    "day": null
+   },
+   "popularity": 33575,
+   "synopsis": "Юный Тихиро проводит дни, тренируясь под руководством своего знаменитого отца-мечника. Однажды он надеется сам стать великим мастером мечей. Глупый отец и серьезный сын — они думали, что эти дни будут длиться вечно. Но внезапно случается трагедия. Темный день, пропитанный кровью. Тихиро и его клинок теперь живут только ради мести.",
+   "url": "https://anilist.co/anime/211496"
+  },
+  {
+   "anilistId": 199597,
+   "catalogId": null,
+   "title": "Youchien WARS",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "Youchien WARS",
+   "titleEnglish": null,
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx199597-meLNcHRyqMR6.jpg",
+   "format": "TV",
+   "studio": "Sunrise",
+   "genres": [
+    "Экшен",
+    "Комедия",
+    "Драма",
+    "Романтика"
+   ],
+   "episodes": null,
+   "season": "SPRING",
+   "seasonYear": 2027,
+   "startDate": {
+    "year": 2027,
+    "month": 4,
+    "day": null
+   },
+   "popularity": 10233,
+   "synopsis": "Добро пожаловать в детский сад Нуар, эксклюзивную школу для детей мировой элиты. Рита, одна из учительниц, искала парня, но пока безуспешно. Однажды убийца преследует одного из детей... и он просто мечтает?! Погрузитесь в эту захватывающую романтическую комедию, действие которой разворачивается в самом «безопасном» детском саду в мире!",
+   "url": "https://anilist.co/anime/199597"
+  },
+  {
+   "anilistId": 211304,
+   "catalogId": null,
+   "title": "Megane, Tokidoki, Yankee-kun",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "Megane, Tokidoki, Yankee-kun",
+   "titleEnglish": null,
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx211304-PItzmt5h2yMC.jpg",
+   "format": "TV",
+   "studio": "WAO World",
+   "genres": [
+    "Комедия",
+    "Драма",
+    "Романтика"
+   ],
+   "episodes": null,
+   "season": "SPRING",
+   "seasonYear": 2027,
+   "startDate": {
+    "year": 2027,
+    "month": 4,
+    "day": null
+   },
+   "popularity": 7498,
+   "synopsis": "Момосе всегда мечтал о мирной школьной жизни. Она не хочет иметь ничего общего с хулиганами, правонарушителями или нарушителями спокойствия. Когда она знакомится с Ичикурой, неприметным черноволосым мальчиком в очках, он выглядит обычным симпатичным парнем. Но оказывается, что еще в средней школе он был гнусным преступником! Он продолжает уверять ее, что изменил свой образ жизни, но у него все еще есть умение затевать драки!",
+   "url": "https://anilist.co/anime/211304"
+  },
+  {
+   "anilistId": 179068,
+   "catalogId": null,
+   "title": "Всеведущий читатель",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "Zenchiteki na Dokusha no Shiten kara",
+   "titleEnglish": "Omniscient Reader",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx179068-wlmOf8c4HnXf.jpg",
+   "format": "TV",
+   "studio": null,
+   "genres": [
+    "Экшен",
+    "Приключения",
+    "Фэнтези"
+   ],
+   "episodes": null,
+   "season": null,
+   "seasonYear": null,
+   "startDate": {
+    "year": 2027,
+    "month": null,
+    "day": null
+   },
+   "popularity": 29322,
+   "synopsis": "Докча был обычным офисным работником, единственным интересом которого было чтение любимого веб-романа «Три способа выжить в апокалипсисе». Но когда роман внезапно становится реальностью, он единственный человек, который знает, чем закончится мир. Вооруженный этим осознанием, Докча использует свое понимание, чтобы изменить ход истории и мир, каким он его знает.",
+   "url": "https://anilist.co/anime/179068"
+  },
+  {
+   "anilistId": 219282,
+   "catalogId": null,
+   "title": "Bocchi the Rock!: Hoshi no Ashiato",
+   "franchise": "РОК-ТИХОНЯ!",
+   "titleAuto": false,
+   "titleOriginal": "Bocchi the Rock!: Hoshi no Ashiato",
+   "titleEnglish": null,
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx219282-GGsicK5XZMBy.jpg",
+   "format": "MOVIE",
+   "studio": "CloverWorks",
+   "genres": [
+    "Музыка",
+    "Повседневность"
+   ],
+   "episodes": 1,
+   "season": null,
+   "seasonYear": null,
+   "startDate": {
+    "year": 2027,
+    "month": null,
+    "day": null
+   },
+   "popularity": 19511,
+   "synopsis": "ДО того, как группа KESSOKU появилась — ИСТОРИЯ О МЕЧТАХ ДВУХ СЕСТРОВ, НАЧИНАЮЩАЯСЯ С ПРОЩАНИЯ. Новый фильм для Скалы Бокки!",
+   "url": "https://anilist.co/anime/219282"
+  },
+  {
+   "anilistId": 213131,
+   "catalogId": null,
+   "title": "Koiseyo Mayakashi Tenshi-domo",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "Koiseyo Mayakashi Tenshi-domo",
+   "titleEnglish": null,
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx213131-8Kksqofy66fL.jpg",
+   "format": "TV",
+   "studio": "MAPPA",
+   "genres": [
+    "Комедия",
+    "Романтика"
+   ],
+   "episodes": null,
+   "season": null,
+   "seasonYear": null,
+   "startDate": {
+    "year": 2027,
+    "month": null,
+    "day": null
+   },
+   "popularity": 9404,
+   "synopsis": "Весь сахар, никаких специй и все красиво… такое впечатление производит на окружающих красивая первоклассница и президент класса «ангел-сердцеед» Отоги Кацура. На самом деле Отоги дерзкая, напористая и без проблем вызывает придурка, когда видит его — полную противоположность своему тихому коллеге вице-президенту, столь же красивой и, казалось бы, идеальной Токи Ниномаэ.",
+   "url": "https://anilist.co/anime/213131"
+  },
+  {
+   "anilistId": 184321,
+   "catalogId": null,
+   "title": "Amayo no Tsuki",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "Amayo no Tsuki",
+   "titleEnglish": null,
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx184321-NMRDVG3iNXxh.jpg",
+   "format": "TV",
+   "studio": "CompTown",
+   "genres": [
+    "Драма",
+    "Романтика",
+    "Повседневность"
+   ],
+   "episodes": null,
+   "season": null,
+   "seasonYear": null,
+   "startDate": {
+    "year": 2027,
+    "month": null,
+    "day": null
+   },
+   "popularity": 8413,
+   "synopsis": "Однажды, спеша на урок игры на фортепиано, девушка по имени Саки сталкивается с кем-то на улице. Когда Саки приходит в себя, незнакомка подбирает ноты, которые Саки уронила, протягивает их Саки вместе с пластырем и продолжает свой путь, не говоря ни слова.",
+   "url": "https://anilist.co/anime/184321"
+  },
+  {
+   "anilistId": 187261,
+   "catalogId": null,
+   "title": "Haikyuu!!: Bakemono-tachi no Iku Tokoro",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "Haikyuu!!: Bakemono-tachi no Iku Tokoro",
+   "titleEnglish": null,
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx187261-VSwmu8ef3Zvb.jpg",
+   "format": "SPECIAL",
+   "studio": "Production I.G",
+   "genres": [
+    "Комедия",
+    "Драма",
+    "Спорт"
+   ],
+   "episodes": null,
+   "season": null,
+   "seasonYear": null,
+   "startDate": {
+    "year": 2027,
+    "month": null,
+    "day": null
+   },
+   "popularity": 7681,
+   "synopsis": "Четвертьфинал весеннего турнира по волейболу среди старших классов, в котором принимают участие Академия Фукурудани под руководством Котаро Бокуто и Старшая школа Муджиназака под руководством Вакацу Кирю.",
+   "url": "https://anilist.co/anime/187261"
+  },
+  {
+   "anilistId": 215855,
+   "catalogId": null,
+   "title": "ONE PIECE FILM: GOD VALLEY",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "ONE PIECE FILM: GOD VALLEY",
+   "titleEnglish": null,
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/b215855-z86bqRqVcr13.png",
+   "format": "MOVIE",
+   "studio": null,
+   "genres": [],
+   "episodes": 1,
+   "season": "SUMMER",
+   "seasonYear": 2027,
+   "startDate": {
+    "year": 2027,
+    "month": null,
+    "day": null
+   },
+   "popularity": 7680,
+   "synopsis": "",
+   "url": "https://anilist.co/anime/215855"
+  },
+  {
+   "anilistId": 195350,
+   "catalogId": null,
+   "title": "ЭЛЕСЕЕД",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "Eleceed",
+   "titleEnglish": "ELECEED",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx195350-pceoSf9RvMkl.jpg",
+   "format": "TV",
+   "studio": "Dandelion Animation Studio",
+   "genres": [
+    "Экшен",
+    "Комедия",
+    "Сверхъестественное"
+   ],
+   "episodes": null,
+   "season": null,
+   "seasonYear": null,
+   "startDate": {
+    "year": 2027,
+    "month": null,
+    "day": null
+   },
+   "popularity": 6465,
+   "synopsis": "Джи-Ю — добросердечный молодой человек, который использует молниеносную кошачью реакцию, чтобы тайно сделать мир лучше — по одному спасенному маленькому ребенку или приемному питомцу. Кайден — секретный агент в бегах, который оказывается застрявшим в теле… хм… решительно толстого старого пушистого кота.",
+   "url": "https://anilist.co/anime/195350"
+  },
+  {
+   "anilistId": 193699,
+   "catalogId": null,
+   "title": "Akuyaku Reijou no Naka no Hito",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "Akuyaku Reijou no Naka no Hito",
+   "titleEnglish": null,
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx193699-BrNIip2KM28S.jpg",
+   "format": "TV",
+   "studio": "ROLL2",
+   "genres": [
+    "Драма",
+    "Фэнтези"
+   ],
+   "episodes": null,
+   "season": null,
+   "seasonYear": null,
+   "startDate": {
+    "year": 2027,
+    "month": null,
+    "day": null
+   },
+   "popularity": 6386,
+   "synopsis": "Девушка, перевоплотившаяся в Ремилию, злодейка из отомэ-игры, пытается очистить свое имя. Однако настоящая Ремилия, которая все это время наблюдала внутри, просыпается. Теперь пришло время мести настоящей злодейки!",
+   "url": "https://anilist.co/anime/193699"
+  },
+  {
+   "anilistId": 169102,
+   "catalogId": null,
+   "title": "РИТМ И ДВИЖЕНИЕ",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "BEAT&MOTION",
+   "titleEnglish": "BEAT & MOTION",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx169102-KICGasKLwtiQ.png",
+   "format": "ONA",
+   "studio": "MAPPA",
+   "genres": [
+    "Драма",
+    "Музыка",
+    "Романтика"
+   ],
+   "episodes": null,
+   "season": null,
+   "seasonYear": null,
+   "startDate": {
+    "year": 2027,
+    "month": null,
+    "day": null
+   },
+   "popularity": 6157,
+   "synopsis": "BEAT & MOTION — это история о музыке, анимации и объединении творческих мечтаний Тацухико, молодого человека, потерявшего из виду свою мечту, и Нико, инди-музыканта, которая отказывается отказываться от своей. Хотя они и конфликтуют, они раскрывают талант друг друга и начинают двигаться к творческому видению, которого ни один из них не может достичь в одиночку.",
+   "url": "https://anilist.co/anime/169102"
+  },
+  {
+   "anilistId": 162561,
+   "catalogId": null,
+   "title": "NARUTO×NINKU",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "NARUTO×NINKU",
+   "titleEnglish": null,
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx162561-Uk4eZAwcmcWk.jpg",
+   "format": "TV",
+   "studio": "PIERROT FILMS",
+   "genres": [
+    "Экшен",
+    "Приключения",
+    "Комедия"
+   ],
+   "episodes": 4,
+   "season": null,
+   "seasonYear": null,
+   "startDate": null,
+   "popularity": 16024,
+   "synopsis": "«Я отправляюсь на миссию на века, слышишь?!» Члены Команды 7 Наруто, Саске и Сакура получают задание от Какаши. Поскольку Какаши не может участвовать сам, Наруто назначается исполняющим обязанности лидера. В результате этого решения Наруто полностью мотивирован на успех миссии. Однако по пути Команда 7 оказывается затерянной в другом мире.",
+   "url": "https://anilist.co/anime/162561"
+  },
+  {
+   "anilistId": 126016,
+   "catalogId": null,
+   "title": "AKIRA (Shin Anime)",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "AKIRA (Shin Anime)",
+   "titleEnglish": null,
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx126016-9PaIQHxFyyho.png",
+   "format": "TV",
+   "studio": "Sunrise",
+   "genres": [
+    "Экшен",
+    "Драма",
+    "Ужасы",
+    "Психология",
+    "Фантастика",
+    "Сверхъестественное"
+   ],
+   "episodes": null,
+   "season": null,
+   "seasonYear": null,
+   "startDate": null,
+   "popularity": 14627,
+   "synopsis": "Проект, анонсированный на Anime Expo 2019, представляет собой полную адаптацию постапокалиптической киберпанк-манги Оотомо Кацухиро «AKIRA».",
+   "url": "https://anilist.co/anime/126016"
+  },
+  {
+   "anilistId": 204738,
+   "catalogId": null,
+   "title": "Ruri Dragon",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "Ruri Dragon",
+   "titleEnglish": null,
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx204738-KeWrOGnjUuk1.png",
+   "format": "TV",
+   "studio": "Kyoto Animation",
+   "genres": [
+    "Комедия",
+    "Повседневность",
+    "Сверхъестественное"
+   ],
+   "episodes": null,
+   "season": null,
+   "seasonYear": null,
+   "startDate": null,
+   "popularity": 13076,
+   "synopsis": "Ну, полудракон. Ее мама признает, что Рури унаследовала свои драконьи черты от отца, который, да, на самом деле дракон. Как будто общение с любопытными одноклассниками уже не было достаточно сложной задачей, Рури и ее драконьи гены буквально разжигают жар посреди лекции. Ее обычная жизнь скоро станет совсем не такой!",
+   "url": "https://anilist.co/anime/204738"
+  },
+  {
+   "anilistId": 213338,
+   "catalogId": null,
+   "title": "Jimoto Saikou!",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "Jimoto Saikou!",
+   "titleEnglish": null,
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx213338-0FDrGJy80s0W.jpg",
+   "format": "ONA",
+   "studio": "MAPPA",
+   "genres": [
+    "Экшен",
+    "Комедия",
+    "Драма"
+   ],
+   "episodes": null,
+   "season": null,
+   "seasonYear": null,
+   "startDate": null,
+   "popularity": 9846,
+   "synopsis": "Это история о девушках, которые ни разу не покинули родной город и, несмотря на все несчастья, с которыми столкнулись, продолжают говорить: «Мой родной город – лучший!»",
+   "url": "https://anilist.co/anime/213338"
+  },
+  {
+   "anilistId": 87497,
+   "catalogId": null,
+   "title": "MEKAKUCITY RELOAD",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "MEKAKUCITY RELOAD",
+   "titleEnglish": null,
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/87497-9N85pTLaQhoa.jpg",
+   "format": "TV",
+   "studio": null,
+   "genres": [],
+   "episodes": null,
+   "season": null,
+   "seasonYear": null,
+   "startDate": null,
+   "popularity": 7831,
+   "synopsis": "Четырехсерийная потоковая программа Niconico «Seek at Mekakucity», которая началась 7 августа и в которой участвовали персонажи Kagerou Project, завершилась во вторник объявлением о том, что франшиза получит «больше аниме». В конце видео раскрывается предварительное название нового аниме: «Перезагрузка Мекакусити».",
+   "url": "https://anilist.co/anime/87497"
+  },
+  {
+   "anilistId": 166457,
+   "catalogId": null,
+   "title": "Ousama Ranking Movie",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "Ousama Ranking Movie",
+   "titleEnglish": null,
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/b166457-hI9SK3OcEQ54.png",
+   "format": "MOVIE",
+   "studio": null,
+   "genres": [
+    "Приключения",
+    "Фэнтези"
+   ],
+   "episodes": 1,
+   "season": null,
+   "seasonYear": null,
+   "startDate": null,
+   "popularity": 7663,
+   "synopsis": "Новый фильм «Рейтинг королей», о котором было объявлено в специальной программе «Рейтинг Усамы: Юки но Киненхи», а затем и на официальном аккаунте в Твиттере, находится в стадии производства. Примечание. Отношения являются предварительными и будут обновлены, когда будет объявлено больше информации.",
+   "url": "https://anilist.co/anime/166457"
+  },
+  {
+   "anilistId": 163794,
+   "catalogId": null,
+   "title": "Боксер",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "The Boxer",
+   "titleEnglish": "The Boxer",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx163794-4bbozKfTVtVb.jpg",
+   "format": "TV",
+   "studio": "Studio JEMI",
+   "genres": [
+    "Экшен",
+    "Спорт"
+   ],
+   "episodes": 12,
+   "season": null,
+   "seasonYear": null,
+   "startDate": null,
+   "popularity": 7135,
+   "synopsis": "Талант, дарованный монстру. Это благословение или проклятие? К., легендарный тренер по боксу, воспитавший множество чемпионов мира, ищет своего «последнего ученика». Затем он встречает Ю, мальчика в переулке, который просто стоит там, принимая удар за ударом. Мальчик не проявляет ни гнева, ни боевого духа, однако К. видит в нем нечто запредельное: талант непостижимого потенциала.",
+   "url": "https://anilist.co/anime/163794"
+  },
+  {
+   "anilistId": 211709,
+   "catalogId": null,
+   "title": "Go-toubun no Hanayome: Shunkashuutou",
+   "franchise": "Пять невест",
+   "titleAuto": false,
+   "titleOriginal": "Go-toubun no Hanayome: Shunkashuutou",
+   "titleEnglish": null,
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx211709-eLIMRJ4Twp8e.jpg",
+   "format": "TV",
+   "studio": null,
+   "genres": [
+    "Комедия",
+    "Драма",
+    "Романтика",
+    "Повседневность"
+   ],
+   "episodes": null,
+   "season": null,
+   "seasonYear": null,
+   "startDate": null,
+   "popularity": 6838,
+   "synopsis": "The Quintessential Quintuplets: Spring, Summer, Autumn, Winter представляет собой адаптацию официального романа-продолжения, написанного Хадзиме Асано, — произведения, которое изображает «продолжение оригинальной истории» — под полным руководством оригинального автора манги Неги Харубы.",
+   "url": "https://anilist.co/anime/211709"
+  },
+  {
+   "anilistId": 213796,
+   "catalogId": null,
+   "title": "Majo to Ryouken",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "Majo to Ryouken",
+   "titleEnglish": null,
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx213796-gNn3J5akXWwx.jpg",
+   "format": "TV",
+   "studio": "TriF studio",
+   "genres": [
+    "Приключения",
+    "Фэнтези"
+   ],
+   "episodes": null,
+   "season": null,
+   "seasonYear": null,
+   "startDate": null,
+   "popularity": 6701,
+   "synopsis": "Амелия, королевство драконов с монополией на магическую силу, вновь вторгается в другие земли во главе со свирепой королевой Амелией. Ее взгляд устремлен на Кампусфеллоу, маленькую страну огня и железа, которая такими темпами неизбежно падет… Ради выживания страны лорд Бад Грейс придумывает последний план — объединиться с той, что известна только как Ведьма, объектом бесчисленных ужасающих…",
+   "url": "https://anilist.co/anime/213796"
+  },
+  {
+   "anilistId": 148316,
+   "catalogId": null,
+   "title": "Hi-DRIVERS",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "Hi-DRIVERS",
+   "titleEnglish": null,
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx148316-1NEqvHUGczKY.jpg",
+   "format": "TV",
+   "studio": null,
+   "genres": [
+    "Экшен",
+    "Спорт"
+   ],
+   "episodes": null,
+   "season": null,
+   "seasonYear": null,
+   "startDate": null,
+   "popularity": 6633,
+   "synopsis": "Hi-DRIVERS, расположенный в Годтенбере, районе у подножия горы Фудзи, с районами, сильно различающимися по городскому пейзажу и культуре, рассказывает о жизни команд уличных гонщиков, которые собираются и соревнуются в ежедневных гонках, где единственное правило состоит в том, что «скорость решает все».",
+   "url": "https://anilist.co/anime/148316"
+  },
+  {
+   "anilistId": 114441,
+   "catalogId": null,
+   "title": "Ane Naru Mono",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "Ane Naru Mono",
+   "titleEnglish": null,
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/b114441-DkWOy3ykZxmt.png",
+   "format": "OVA",
+   "studio": null,
+   "genres": [
+    "Этти",
+    "Ужасы",
+    "Романтика",
+    "Повседневность",
+    "Сверхъестественное"
+   ],
+   "episodes": null,
+   "season": null,
+   "seasonYear": null,
+   "startDate": null,
+   "popularity": 6600,
+   "synopsis": "Когда сирота встречает жуткого демона Шуб-Ниггурата, «Черный лесной козел с тысячей детенышей» предлагает ему одно желание. Его просьба: «Стань моей старшей сестрой».",
+   "url": "https://anilist.co/anime/114441"
+  },
+  {
+   "anilistId": 213316,
+   "catalogId": null,
+   "title": "Nisemono no Renkinjutsushi",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "Nisemono no Renkinjutsushi",
+   "titleEnglish": null,
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx213316-wbyH3WRK0qKB.jpg",
+   "format": "TV",
+   "studio": "Passione",
+   "genres": [
+    "Комедия",
+    "Драма",
+    "Этти",
+    "Фэнтези",
+    "Психология",
+    "Романтика",
+    "Повседневность"
+   ],
+   "episodes": null,
+   "season": null,
+   "seasonYear": null,
+   "startDate": null,
+   "popularity": 6402,
+   "synopsis": "В городе-государстве Орихалкония, где алхимия и магия глубоко вплетены в повседневную жизнь, перевоплощенный человек по имени Парацельс зарабатывает скромную жизнь как алхимик, скрывая при этом свои мощные навыки мошенничества. Однако однажды он заключает контракт с Норой, рабыней-волшебницей, и встречает Коко, эльфийку, лишенную конечностей и всех чувств.",
+   "url": "https://anilist.co/anime/213316"
+  },
+  {
+   "anilistId": 211710,
+   "catalogId": null,
+   "title": "Go-toubun no Hanayome (Shinsaku OVA)",
+   "franchise": "Пять невест",
+   "titleAuto": false,
+   "titleOriginal": "Go-toubun no Hanayome (Shinsaku OVA)",
+   "titleEnglish": null,
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx211710-Cmeq84reFr56.jpg",
+   "format": "OVA",
+   "studio": null,
+   "genres": [
+    "Комедия",
+    "Драма",
+    "Романтика",
+    "Повседневность"
+   ],
+   "episodes": null,
+   "season": null,
+   "seasonYear": null,
+   "startDate": null,
+   "popularity": 6398,
+   "synopsis": "Этот проект впервые воплощает в жизнь — в анимационной форме — эпизоды оригинальной манги, которые никогда не появлялись в предыдущих аниме-сериалах. Примечание. Название и отношения являются предварительными и могут быть изменены.",
+   "url": "https://anilist.co/anime/211710"
+  },
+  {
+   "anilistId": 213396,
+   "catalogId": null,
+   "title": "Higurashi no Naku Koro ni (Shin Anime)",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "Higurashi no Naku Koro ni (Shin Anime)",
+   "titleEnglish": null,
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx213396-OJFP3YkNcPGK.jpg",
+   "format": "TV",
+   "studio": "Studio DEEN",
+   "genres": [
+    "Ужасы",
+    "Детектив",
+    "Психология",
+    "Сверхъестественное",
+    "Триллер"
+   ],
+   "episodes": null,
+   "season": null,
+   "seasonYear": null,
+   "startDate": null,
+   "popularity": 6045,
+   "synopsis": "Все, с возвращением. Примечание. Название и отношения являются предварительными и могут быть изменены.",
+   "url": "https://anilist.co/anime/213396"
+  }
+ ],
+ "sequels": [
+  {
+   "anilistId": 177704,
+   "catalogId": null,
+   "title": "MASHLE: МАГИЯ И МЫШЦЫ Арка финального экзамена Divine Visionary Tri-Magicathlon",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "MASHLE: Sanma Taisou Shinkakusha Saishuu Shiken-hen",
+   "titleEnglish": "MASHLE: MAGIC AND MUSCLES The Tri-Magicathlon Divine Visionary Final Exam Arc",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx177704-f2TBC7j9d7ug.png",
+   "format": "TV",
+   "studio": "A-1 Pictures",
+   "genres": [
+    "Экшен",
+    "Комедия",
+    "Фэнтези"
+   ],
+   "episodes": null,
+   "season": "WINTER",
+   "seasonYear": 2027,
+   "startDate": {
+    "year": 2027,
+    "month": 1,
+    "day": 9
+   },
+   "popularity": 45227,
+   "synopsis": "Третий сезон MASHLE, адаптирующий арку финального экзамена Tri-Magic-Athalon Divine Visionary.",
+   "url": "https://anilist.co/anime/177704",
+   "prequel": {
+    "anilistId": 166610,
+    "title": "MASHLE: Магия и мускулы. Экзамен на звание Вестника Бога",
+    "catalogId": "mashle-magic-and-muscles-season-2-166610"
+   }
+  },
+  {
+   "anilistId": 189323,
+   "catalogId": null,
+   "title": "Рубеж Шангри-Ла 3",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "Shangri-La Frontier 3rd Season",
+   "titleEnglish": "Shangri-La Frontier Season 3",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx189323-gHXhqIOBUY8F.jpg",
+   "format": "TV",
+   "studio": "C2C",
+   "genres": [
+    "Экшен",
+    "Приключения",
+    "Комедия",
+    "Фэнтези",
+    "Фантастика"
+   ],
+   "episodes": null,
+   "season": "WINTER",
+   "seasonYear": 2027,
+   "startDate": {
+    "year": 2027,
+    "month": 1,
+    "day": 10
+   },
+   "popularity": 41861,
+   "synopsis": "Третий сезон Шангри-Ла Фронтьер.",
+   "url": "https://anilist.co/anime/189323",
+   "nextEpisode": 1,
+   "airingAt": 1800172800,
+   "sequel": {
+    "season": 3
+   },
+   "prequel": {
+    "anilistId": 176508,
+    "title": "Shangri-La Frontier Season 2",
+    "catalogId": null
+   }
+  },
+  {
+   "anilistId": 204363,
+   "catalogId": null,
+   "title": "Дни Сакамото 2",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "SAKAMOTO DAYS 2nd Season",
+   "titleEnglish": "SAKAMOTO DAYS Season 2",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx204363-MtBgHE8uhEpJ.jpg",
+   "format": "TV",
+   "studio": "TMS Entertainment",
+   "genres": [
+    "Экшен",
+    "Комедия"
+   ],
+   "episodes": null,
+   "season": "WINTER",
+   "seasonYear": 2027,
+   "startDate": {
+    "year": 2027,
+    "month": 1,
+    "day": 19
+   },
+   "popularity": 31592,
+   "synopsis": "Второй сезон SAKAMOTO DAYS.",
+   "url": "https://anilist.co/anime/204363",
+   "nextEpisode": 1,
+   "airingAt": 1800284400,
+   "sequel": {
+    "season": 2
+   },
+   "prequel": {
+    "anilistId": 184237,
+    "title": "SAKAMOTO DAYS Part 2",
+    "catalogId": null
+   }
+  },
+  {
+   "anilistId": 169579,
+   "catalogId": null,
+   "title": "Лучший в мире ассасин переродился в другом мире аристократом 2",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "Sekai Saikou no Ansatsusha, Isekai Kizoku ni Tensei suru 2nd Season",
+   "titleEnglish": null,
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx169579-KxMH0iq7jlPr.png",
+   "format": "TV",
+   "studio": "SILVER LINK.",
+   "genres": [
+    "Экшен",
+    "Приключения",
+    "Драма",
+    "Фэнтези",
+    "Детектив",
+    "Романтика"
+   ],
+   "episodes": null,
+   "season": "WINTER",
+   "seasonYear": 2027,
+   "startDate": {
+    "year": 2027,
+    "month": 1,
+    "day": null
+   },
+   "popularity": 31819,
+   "synopsis": "Второй сезон Sekai Saikou no Ansatsusha, Isekai Kizoku ni Tensei suru.",
+   "url": "https://anilist.co/anime/169579",
+   "sequel": {
+    "season": 2
+   },
+   "prequel": {
+    "anilistId": 129898,
+    "title": "Лучший в мире ассасин переродился в другом мире аристократом",
+    "catalogId": "the-world-s-finest-assassin-gets-reincarnated-in-another-wor-129898"
+   }
+  },
+  {
+   "anilistId": 204747,
+   "catalogId": null,
+   "title": "Ванпанчмен 3. Часть 2",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "One Punch Man 3 Part 2",
+   "titleEnglish": "One Punch Man Season 3 Part 2",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx204747-INMrngH10Kwq.png",
+   "format": "TV",
+   "studio": "J.C.STAFF",
+   "genres": [
+    "Экшен",
+    "Комедия",
+    "Фантастика",
+    "Сверхъестественное"
+   ],
+   "episodes": null,
+   "season": "WINTER",
+   "seasonYear": 2027,
+   "startDate": {
+    "year": 2027,
+    "month": 1,
+    "day": null
+   },
+   "popularity": 19014,
+   "synopsis": "Второй кур третьего сезона One Punch Man.",
+   "url": "https://anilist.co/anime/204747",
+   "sequel": {
+    "season": 3,
+    "part": 2
+   },
+   "prequel": {
+    "anilistId": 153800,
+    "title": "One-Punch Man Season 3",
+    "catalogId": "one-punch-man-season-3-153800"
+   }
+  },
+  {
+   "anilistId": 181951,
+   "catalogId": null,
+   "title": "Волчица и пряности 2",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "Ookami to Koushinryou: MERCHANT MEETS THE WISE WOLF 2nd Season",
+   "titleEnglish": null,
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx181951-jTcWy5CUkS7L.jpg",
+   "format": "TV",
+   "studio": "Passione",
+   "genres": [
+    "Приключения",
+    "Фэнтези",
+    "Романтика"
+   ],
+   "episodes": null,
+   "season": "WINTER",
+   "seasonYear": 2027,
+   "startDate": {
+    "year": 2027,
+    "month": 1,
+    "day": null
+   },
+   "popularity": 17979,
+   "synopsis": "Второй сезон сериала «Оками — Коусинрё: ТОРГОВЕЦ ВСТРЕЧАЕТ МУДРЫХ ВОЛКОВ».",
+   "url": "https://anilist.co/anime/181951",
+   "sequel": {
+    "season": 2
+   },
+   "prequel": {
+    "anilistId": 145728,
+    "title": "Spice and Wolf: MERCHANT MEETS THE WISE WOLF",
+    "catalogId": null
+   }
+  },
+  {
+   "anilistId": 213752,
+   "catalogId": null,
+   "title": "MARRIAGETOXIN 2nd Season",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "MARRIAGETOXIN 2nd Season",
+   "titleEnglish": null,
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx213752-UNsERPORVGfJ.jpg",
+   "format": "TV",
+   "studio": "bones film",
+   "genres": [
+    "Экшен",
+    "Комедия",
+    "Драма",
+    "Романтика"
+   ],
+   "episodes": null,
+   "season": "WINTER",
+   "seasonYear": 2027,
+   "startDate": {
+    "year": 2027,
+    "month": 1,
+    "day": null
+   },
+   "popularity": 16295,
+   "synopsis": "Второй сезон БРАЧНОГО ТОКСИНА.",
+   "url": "https://anilist.co/anime/213752",
+   "sequel": {
+    "season": 2
+   },
+   "prequel": {
+    "anilistId": 199547,
+    "title": "MARRIAGETOXIN",
+    "catalogId": null
+   }
+  },
+  {
+   "anilistId": 185657,
+   "catalogId": null,
+   "title": "Вприпрыжку в лоферах 2",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "Skip to Loafer 2nd Season",
+   "titleEnglish": "Skip and Loafer Season 2",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx185657-Kff82v3RiKl2.jpg",
+   "format": "TV",
+   "studio": "P.A.WORKS",
+   "genres": [
+    "Комедия",
+    "Романтика",
+    "Повседневность"
+   ],
+   "episodes": null,
+   "season": "SPRING",
+   "seasonYear": 2027,
+   "startDate": {
+    "year": 2027,
+    "month": 4,
+    "day": null
+   },
+   "popularity": 21654,
+   "synopsis": "Второй сезон Skip to Loafer.",
+   "url": "https://anilist.co/anime/185657",
+   "sequel": {
+    "season": 2
+   },
+   "prequel": {
+    "anilistId": 141911,
+    "title": "Вприпрыжку в лоферах",
+    "catalogId": "skip-and-loafer-141911"
+   }
+  },
+  {
+   "anilistId": 200927,
+   "catalogId": null,
+   "title": "Монолог фармацевта 3. Часть 2",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "Kusuriya no Hitorigoto 3rd Season Part 2",
+   "titleEnglish": null,
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx200927-IXFYyIb728bM.png",
+   "format": "TV",
+   "studio": "OLM",
+   "genres": [
+    "Драма",
+    "Детектив"
+   ],
+   "episodes": 12,
+   "season": "SPRING",
+   "seasonYear": 2027,
+   "startDate": {
+    "year": 2027,
+    "month": 4,
+    "day": null
+   },
+   "popularity": 15286,
+   "synopsis": "Второй кур третьего сезона Kusuriya no Hitorigoto.",
+   "url": "https://anilist.co/anime/200927",
+   "sequel": {
+    "season": 3,
+    "part": 2
+   },
+   "prequel": {
+    "anilistId": 195516,
+    "title": "Монолог фармацевта 3",
+    "catalogId": "the-apothecary-diaries-season-3-195516"
+   }
+  },
+  {
+   "anilistId": 217331,
+   "catalogId": null,
+   "title": "О моём перерождении в слизь 4. Часть 3",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "Tensei Shitara Slime Datta Ken 4th Season Part 3",
+   "titleEnglish": null,
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx217331-iennFNPU2f7K.png",
+   "format": "TV",
+   "studio": null,
+   "genres": [
+    "Экшен",
+    "Приключения",
+    "Комедия",
+    "Фэнтези"
+   ],
+   "episodes": null,
+   "season": "SUMMER",
+   "seasonYear": 2027,
+   "startDate": {
+    "year": 2027,
+    "month": 7,
+    "day": null
+   },
+   "popularity": 19885,
+   "synopsis": "Часть 3 Тенсей Ситара Слайм Датта Кен 4-го сезона. Примечание. Поскольку это третий курс сезона, он помечен как «Часть 3».",
+   "url": "https://anilist.co/anime/217331",
+   "sequel": {
+    "season": 4,
+    "part": 3
+   },
+   "prequel": {
+    "anilistId": 182205,
+    "title": "That Time I Got Reincarnated as a Slime Season 4",
+    "catalogId": null
+   }
+  },
+  {
+   "anilistId": 209939,
+   "catalogId": null,
+   "title": "Провожающая в последний путь Фрирен 3",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "Sousou no Frieren 3rd Season",
+   "titleEnglish": null,
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx209939-g2Njkml1rheG.jpg",
+   "format": "TV",
+   "studio": "MADHOUSE",
+   "genres": [
+    "Приключения",
+    "Драма",
+    "Фэнтези"
+   ],
+   "episodes": null,
+   "season": "FALL",
+   "seasonYear": 2027,
+   "startDate": {
+    "year": 2027,
+    "month": 10,
+    "day": null
+   },
+   "popularity": 50136,
+   "synopsis": "Третий сезон Sousou no Frieren.",
+   "url": "https://anilist.co/anime/209939",
+   "sequel": {
+    "season": 3
+   },
+   "prequel": {
+    "anilistId": 182255,
+    "title": "Провожающая в последний путь Фрирен 2",
+    "catalogId": "frieren-beyond-journey-s-end-season-2-182255"
+   }
+  },
+  {
+   "anilistId": 178031,
+   "catalogId": null,
+   "title": "Подземелье вкусностей 2",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "Dungeon Meshi 2nd Season",
+   "titleEnglish": "Delicious in Dungeon Season 2",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx178031-XNWYP6Qf18bB.png",
+   "format": "ONA",
+   "studio": "TRIGGER",
+   "genres": [
+    "Приключения",
+    "Комедия",
+    "Фэнтези"
+   ],
+   "episodes": null,
+   "season": "FALL",
+   "seasonYear": 2027,
+   "startDate": {
+    "year": 2027,
+    "month": 10,
+    "day": null
+   },
+   "popularity": 48354,
+   "synopsis": "Второй сезон Dungeon Meshi.",
+   "url": "https://anilist.co/anime/178031",
+   "sequel": {
+    "season": 2
+   },
+   "prequel": {
+    "anilistId": 153518,
+    "title": "Подземелье вкусностей",
+    "catalogId": "delicious-in-dungeon-153518"
+   }
+  },
+  {
+   "anilistId": 198966,
+   "catalogId": null,
+   "title": "Дандадан 3",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "Dandadan 3rd Season",
+   "titleEnglish": null,
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx198966-9Ji1GwIyRiiu.jpg",
+   "format": "TV",
+   "studio": "Science SARU",
+   "genres": [
+    "Экшен",
+    "Комедия",
+    "Драма",
+    "Фэнтези",
+    "Фантастика",
+    "Сверхъестественное"
+   ],
+   "episodes": null,
+   "season": null,
+   "seasonYear": null,
+   "startDate": {
+    "year": 2027,
+    "month": null,
+    "day": null
+   },
+   "popularity": 56915,
+   "synopsis": "Третий сезон Дандадана.",
+   "url": "https://anilist.co/anime/198966",
+   "sequel": {
+    "season": 3
+   },
+   "prequel": {
+    "anilistId": 185660,
+    "title": "DAN DA DAN Season 2",
+    "catalogId": "dan-da-dan-season-2-185660"
+   }
+  },
+  {
+   "anilistId": 181641,
+   "catalogId": null,
+   "title": "Иногда Аля внезапно кокетничает по-русски 2",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "Tokidoki Bosotto Rossiya-go de Dereru Tonari no Alya-san Season 2",
+   "titleEnglish": null,
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx181641-4BnzXGnA7CJL.jpg",
+   "format": "TV",
+   "studio": "Doga Kobo",
+   "genres": [
+    "Комедия",
+    "Романтика",
+    "Повседневность"
+   ],
+   "episodes": null,
+   "season": null,
+   "seasonYear": null,
+   "startDate": {
+    "year": 2027,
+    "month": null,
+    "day": null
+   },
+   "popularity": 53072,
+   "synopsis": "Второй сезон Токидоки Босотто Россияго де Дереру Тонари но Аля-сан.",
+   "url": "https://anilist.co/anime/181641",
+   "sequel": {
+    "season": 2
+   },
+   "prequel": {
+    "anilistId": 162804,
+    "title": "Иногда Аля внезапно кокетничает по-русски",
+    "catalogId": "alya-sometimes-hides-her-feelings-in-russian-162804"
+   }
+  },
+  {
+   "anilistId": 171952,
+   "catalogId": null,
+   "title": "Kage no Jitsuryokusha ni Naritakute!: Zankyou-hen",
+   "franchise": "Кардинал теней",
+   "titleAuto": false,
+   "titleOriginal": "Kage no Jitsuryokusha ni Naritakute!: Zankyou-hen",
+   "titleEnglish": null,
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx171952-uB8CTTCBI1u5.jpg",
+   "format": "MOVIE",
+   "studio": "Nexus",
+   "genres": [
+    "Экшен",
+    "Комедия",
+    "Фэнтези"
+   ],
+   "episodes": 1,
+   "season": null,
+   "seasonYear": null,
+   "startDate": {
+    "year": 2027,
+    "month": null,
+    "day": null
+   },
+   "popularity": 51763,
+   "synopsis": "Театральное продолжение Kage no Jitsuryokusha ni Naritakute! 2-й сезон.",
+   "url": "https://anilist.co/anime/171952",
+   "prequel": {
+    "anilistId": 161964,
+    "title": "Кардинал теней 2",
+    "catalogId": "the-eminence-in-shadow-season-2-161964"
+   }
+  },
+  {
+   "anilistId": 217434,
+   "catalogId": null,
+   "title": "Реинкарнация безработного 3. Часть 2",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "Mushoku Tensei III: Isekai Ittara Honki Dasu Part 2",
+   "titleEnglish": null,
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx217434-xqZNBp5U3hgY.jpg",
+   "format": "TV",
+   "studio": "Studio Bind",
+   "genres": [
+    "Приключения",
+    "Драма",
+    "Этти",
+    "Фэнтези"
+   ],
+   "episodes": null,
+   "season": null,
+   "seasonYear": null,
+   "startDate": {
+    "year": 2027,
+    "month": null,
+    "day": null
+   },
+   "popularity": 32698,
+   "synopsis": "Вторая часть третьего сезона Мушоку Тенсей: Исэкай Иттара Хонки Дасу.",
+   "url": "https://anilist.co/anime/217434",
+   "sequel": {
+    "part": 2
+   },
+   "prequel": {
+    "anilistId": 178789,
+    "title": "Реинкарнация безработного 3",
+    "catalogId": "mushoku-tensei-jobless-reincarnation-season-3-178789"
+   }
+  },
+  {
+   "anilistId": 187924,
+   "catalogId": null,
+   "title": "Да благословят боги этот прекрасный мир! 4",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "Kono Subarashii Sekai ni Shukufuku wo! 4",
+   "titleEnglish": null,
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx187924-Jcepw4CE9iI9.jpg",
+   "format": "TV",
+   "studio": "ENGI",
+   "genres": [
+    "Экшен",
+    "Приключения",
+    "Комедия",
+    "Этти",
+    "Фэнтези"
+   ],
+   "episodes": null,
+   "season": null,
+   "seasonYear": null,
+   "startDate": {
+    "year": 2027,
+    "month": null,
+    "day": null
+   },
+   "popularity": 24550,
+   "synopsis": "Четвертый сезон Коно Субараши Секаи ни Шукуфуку wo!",
+   "url": "https://anilist.co/anime/187924",
+   "sequel": {
+    "season": 4
+   },
+   "prequel": {
+    "anilistId": 136804,
+    "title": "Да благословят боги этот прекрасный мир! 3",
+    "catalogId": "konosuba-god-s-blessing-on-this-wonderful-world-3-136804"
+   }
+  },
+  {
+   "anilistId": 174871,
+   "catalogId": null,
+   "title": "Haikyuu!!: VS Chiisana Kyojin",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "Haikyuu!!: VS Chiisana Kyojin",
+   "titleEnglish": null,
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx174871-NQ2LbAn6RBCd.jpg",
+   "format": "MOVIE",
+   "studio": "Production I.G",
+   "genres": [
+    "Комедия",
+    "Драма",
+    "Спорт"
+   ],
+   "episodes": 1,
+   "season": null,
+   "seasonYear": null,
+   "startDate": {
+    "year": 2027,
+    "month": null,
+    "day": null
+   },
+   "popularity": 22419,
+   "synopsis": "Продолжение Haikyuu!!: Gomi Suteba no Kessen. Второй фильм Хайкю!! ФИНАЛ.",
+   "url": "https://anilist.co/anime/174871",
+   "prequel": {
+    "anilistId": 153658,
+    "title": "HAIKYU!! The Dumpster Battle",
+    "catalogId": null
+   }
+  },
+  {
+   "anilistId": 213477,
+   "catalogId": null,
+   "title": "Добро пожаловать в класс для особо одарённых 2",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e 5th Season 2-nensei-hen Ni Gakki - Zenhan",
+   "titleEnglish": null,
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx213477-PtHVy5u7YFSk.jpg",
+   "format": "TV",
+   "studio": "Lerche",
+   "genres": [
+    "Драма",
+    "Психология"
+   ],
+   "episodes": null,
+   "season": null,
+   "seasonYear": null,
+   "startDate": {
+    "year": 2027,
+    "month": null,
+    "day": null
+   },
+   "popularity": 19177,
+   "synopsis": "Пятый сезон Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e.",
+   "url": "https://anilist.co/anime/213477",
+   "sequel": {
+    "season": 2
+   },
+   "prequel": {
+    "anilistId": 180745,
+    "title": "Classroom of the Elite 4th Season: Second Year, First Semester",
+    "catalogId": "classroom-of-the-elite-4th-season-second-year-first-semester-180745"
+   }
+  },
+  {
+   "anilistId": 199185,
+   "catalogId": null,
+   "title": "Восхождение героя щита 5",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "Tate no Yuusha no Nariagari Season 5",
+   "titleEnglish": null,
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx199185-1svTWhAN0Orh.jpg",
+   "format": "TV",
+   "studio": "Kinema Citrus",
+   "genres": [
+    "Экшен",
+    "Приключения",
+    "Фэнтези"
+   ],
+   "episodes": null,
+   "season": null,
+   "seasonYear": null,
+   "startDate": {
+    "year": 2027,
+    "month": null,
+    "day": null
+   },
+   "popularity": 18149,
+   "synopsis": "Пятый сезон Tate no Yuusha no Nariagari.",
+   "url": "https://anilist.co/anime/199185",
+   "sequel": {
+    "season": 5
+   },
+   "prequel": {
+    "anilistId": 173780,
+    "title": "The Rising of the Shield Hero Season 4",
+    "catalogId": "the-rising-of-the-shield-hero-season-4-173780"
+   }
+  },
+  {
+   "anilistId": 219714,
+   "catalogId": null,
+   "title": "Семья шпиона 4",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "SPY×FAMILY Season 4",
+   "titleEnglish": null,
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx219714-1qmlRk0eU1tb.jpg",
+   "format": "TV",
+   "studio": "WIT STUDIO",
+   "genres": [
+    "Экшен",
+    "Комедия",
+    "Повседневность",
+    "Сверхъестественное"
+   ],
+   "episodes": null,
+   "season": null,
+   "seasonYear": null,
+   "startDate": {
+    "year": 2027,
+    "month": null,
+    "day": null
+   },
+   "popularity": 15193,
+   "synopsis": "Четвертый сезон SPY×FAMILY.",
+   "url": "https://anilist.co/anime/219714",
+   "sequel": {
+    "season": 4
+   },
+   "prequel": {
+    "anilistId": 177937,
+    "title": "SPY x FAMILY Season 3",
+    "catalogId": "spy-x-family-season-3-177937"
+   }
+  },
+  {
+   "anilistId": 186712,
+   "catalogId": "bocchi-the-rock-2nd-season-186712",
+   "title": "РОК-ТИХОНЯ! 2",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "Bocchi the Rock! 2nd Season",
+   "titleEnglish": null,
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx186712-d5I2TjUQcHuI.jpg",
+   "format": "TV",
+   "studio": "CloverWorks",
+   "genres": [
+    "Комедия",
+    "Музыка",
+    "Повседневность"
+   ],
+   "episodes": null,
+   "season": null,
+   "seasonYear": null,
+   "startDate": null,
+   "popularity": 43607,
+   "synopsis": "Мы вернёмся! Второй сезон «Bocchi the Rock!»",
+   "url": "https://anilist.co/anime/186712",
+   "sequel": {
+    "season": 2
+   },
+   "prequel": {
+    "anilistId": 130003,
+    "title": "РОК-ТИХОНЯ!",
+    "catalogId": "bocchi-the-rock-130003"
+   }
+  },
+  {
+   "anilistId": 213702,
+   "catalogId": null,
+   "title": "Ателье колдовских колпаков 2",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "Tongari Boushi no Atelier 2nd Season",
+   "titleEnglish": "Witch Hat Atelier Season 2",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx213702-vCWQFcAfDF8c.jpg",
+   "format": "TV",
+   "studio": "BUG FILMS",
+   "genres": [
+    "Экшен",
+    "Драма",
+    "Фэнтези"
+   ],
+   "episodes": null,
+   "season": null,
+   "seasonYear": null,
+   "startDate": null,
+   "popularity": 39134,
+   "synopsis": "Второй сезон Tongari Boushi no Atelier.",
+   "url": "https://anilist.co/anime/213702",
+   "sequel": {
+    "season": 2
+   },
+   "prequel": {
+    "anilistId": 147105,
+    "title": "Ателье колдовских колпаков",
+    "catalogId": "witch-hat-atelier-147105"
+   }
+  },
+  {
+   "anilistId": 195200,
+   "catalogId": null,
+   "title": "Клинок, Рассекающий Демонов: Бесконечный Замок. Часть 2",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "Kimetsu no Yaiba: Mugenjou-hen Movie 2",
+   "titleEnglish": "Demon Slayer: Kimetsu no Yaiba Infinity Castle Part 2",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx195200-wJaLJ4mDDKGc.png",
+   "format": "MOVIE",
+   "studio": "ufotable",
+   "genres": [
+    "Экшен",
+    "Приключения",
+    "Драма",
+    "Сверхъестественное"
+   ],
+   "episodes": 1,
+   "season": null,
+   "seasonYear": null,
+   "startDate": null,
+   "popularity": 37136,
+   "synopsis": "Вторая часть экранизации театральной трилогии арки «Бесконечный замок».",
+   "url": "https://anilist.co/anime/195200",
+   "sequel": {
+    "part": 2
+   },
+   "prequel": {
+    "anilistId": 178788,
+    "title": "Клинок, Рассекающий Демонов: Бесконечный Замок",
+    "catalogId": "demon-slayer-kimetsu-no-yaiba-infinity-castle-178788"
+   }
+  },
+  {
+   "anilistId": 209827,
+   "catalogId": null,
+   "title": "[Oshi no Ko] Final Season",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "[Oshi no Ko] Final Season",
+   "titleEnglish": null,
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx209827-uHqVlWylCpTT.jpg",
+   "format": "TV",
+   "studio": "Doga Kobo",
+   "genres": [
+    "Драма",
+    "Детектив",
+    "Психология",
+    "Сверхъестественное"
+   ],
+   "episodes": null,
+   "season": null,
+   "seasonYear": null,
+   "startDate": null,
+   "popularity": 31367,
+   "synopsis": "Четвертый и последний сезон «Оши но Ко».",
+   "url": "https://anilist.co/anime/209827",
+   "sequel": {
+    "final": true
+   },
+   "prequel": {
+    "anilistId": 182587,
+    "title": "OSHI NO KO Season 3",
+    "catalogId": null
+   }
+  },
+  {
+   "anilistId": 178467,
+   "catalogId": null,
+   "title": "Цукимити: Лунное путешествие в другой мир 3",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "Tsuki ga Michibiku Isekai Douchuu 3rd Season",
+   "titleEnglish": null,
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx178467-mw0zYp9gVfiO.png",
+   "format": "TV",
+   "studio": null,
+   "genres": [
+    "Экшен",
+    "Приключения",
+    "Комедия",
+    "Фэнтези"
+   ],
+   "episodes": null,
+   "season": null,
+   "seasonYear": null,
+   "startDate": null,
+   "popularity": 31077,
+   "synopsis": "Третий сезон Tsuki ga Michibiku Isekai Douchuu.",
+   "url": "https://anilist.co/anime/178467",
+   "sequel": {
+    "season": 3
+   },
+   "prequel": {
+    "anilistId": 139518,
+    "title": "Цукимити: Лунное путешествие в другой мир 2",
+    "catalogId": "tsukimichi-moonlit-fantasy-season-2-139518"
+   }
+  },
+  {
+   "anilistId": 204436,
+   "catalogId": null,
+   "title": "Гачиакута 2",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "Gachiakuta 2nd Season",
+   "titleEnglish": "Gachiakuta Season 2",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx204436-bJJsu28NEiIO.jpg",
+   "format": "TV",
+   "studio": "bones film",
+   "genres": [
+    "Экшен",
+    "Драма",
+    "Фэнтези"
+   ],
+   "episodes": null,
+   "season": null,
+   "seasonYear": null,
+   "startDate": null,
+   "popularity": 29975,
+   "synopsis": "Второй сезон Гачиакуты.",
+   "url": "https://anilist.co/anime/204436",
+   "sequel": {
+    "season": 2
+   },
+   "prequel": {
+    "anilistId": 178025,
+    "title": "Гачиакута",
+    "catalogId": "gachiakuta-178025"
+   }
+  },
+  {
+   "anilistId": 209895,
+   "catalogId": null,
+   "title": "Jujutsu Kaisen: Shimetsu Kaiyuu - Kouhen",
+   "franchise": "Магическая битва",
+   "titleAuto": false,
+   "titleOriginal": "Jujutsu Kaisen: Shimetsu Kaiyuu - Kouhen",
+   "titleEnglish": null,
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx209895-vTRv4YqkdAbX.jpg",
+   "format": "TV",
+   "studio": "MAPPA",
+   "genres": [
+    "Экшен",
+    "Драма",
+    "Сверхъестественное"
+   ],
+   "episodes": null,
+   "season": null,
+   "seasonYear": null,
+   "startDate": null,
+   "popularity": 28411,
+   "synopsis": "Четвертый сезон Дзю-дзюцу Кайсен.",
+   "url": "https://anilist.co/anime/209895",
+   "prequel": {
+    "anilistId": 172463,
+    "title": "JUJUTSU KAISEN Season 3: The Culling Game Part 1",
+    "catalogId": "jujutsu-kaisen-season-3-the-culling-game-part-1-172463"
+   }
+  },
+  {
+   "anilistId": 213846,
+   "catalogId": null,
+   "title": "Соло-прокачка: за пределами системы",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "Ore dake Level Up na Ken: Beyond the System",
+   "titleEnglish": "Solo Leveling: Beyond the System",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx213846-M5s9a58Vng7Q.png",
+   "format": "MOVIE",
+   "studio": "A-1 Pictures",
+   "genres": [
+    "Экшен",
+    "Фэнтези"
+   ],
+   "episodes": 1,
+   "season": null,
+   "seasonYear": null,
+   "startDate": null,
+   "popularity": 26598,
+   "synopsis": "Продолжение фильма «Рудская дама: Level Up na Ken: Season 2 — Arise from the Shadow».",
+   "url": "https://anilist.co/anime/213846",
+   "prequel": {
+    "anilistId": 176496,
+    "title": "Solo Leveling Season 2 -Arise from the Shadow-",
+    "catalogId": "solo-leveling-season-2-arise-from-the-shadow-176496"
+   }
+  },
+  {
+   "anilistId": 189796,
+   "catalogId": null,
+   "title": "Слишком много проигравших героинь! 2",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "Make Heroine ga Oosugiru! 2nd Season",
+   "titleEnglish": null,
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx189796-SGKMQjRDac1y.jpg",
+   "format": "TV",
+   "studio": "A-1 Pictures",
+   "genres": [
+    "Комедия",
+    "Романтика"
+   ],
+   "episodes": null,
+   "season": null,
+   "seasonYear": null,
+   "startDate": null,
+   "popularity": 24318,
+   "synopsis": "Второй сезон сериала «Сделай героиню Осугиру!»",
+   "url": "https://anilist.co/anime/189796",
+   "sequel": {
+    "season": 2
+   },
+   "prequel": {
+    "anilistId": 171457,
+    "title": "Слишком много проигравших героинь!",
+    "catalogId": "makeine-too-many-losing-heroines-171457"
+   }
+  },
+  {
+   "anilistId": 179981,
+   "catalogId": null,
+   "title": "Неправильный способ использования исцеляющей магии, 2 сезон",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "Chiyu Mahou no Machigatta Tsukaikata 2nd Season",
+   "titleEnglish": "The Wrong Way to Use Healing Magic Season 2",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/b179981-lQBJEMgq7yfy.png",
+   "format": "TV",
+   "studio": null,
+   "genres": [
+    "Экшен",
+    "Фэнтези"
+   ],
+   "episodes": null,
+   "season": null,
+   "seasonYear": null,
+   "startDate": null,
+   "popularity": 24198,
+   "synopsis": "Анонсирован на панели «СПЕЦИАЛЬНЫЙ РАЗГОВОР в прямом эфире о неправильном способе использования исцеляющей магии» на канале Otakon 2024, втором сезоне Chiyu Mahou no Machigatta Tsukaikata.",
+   "url": "https://anilist.co/anime/179981",
+   "sequel": {
+    "season": 2
+   },
+   "prequel": {
+    "anilistId": 137908,
+    "title": "The Wrong Way to Use Healing Magic",
+    "catalogId": null
+   }
+  },
+  {
+   "anilistId": 213656,
+   "catalogId": null,
+   "title": "Вистория: Меч и жезл 3",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "Tsue to Tsurugi no Wistoria Season 3",
+   "titleEnglish": null,
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx213656-qtf5YfNxZbEa.jpg",
+   "format": "TV",
+   "studio": null,
+   "genres": [
+    "Экшен",
+    "Приключения",
+    "Драма",
+    "Фэнтези"
+   ],
+   "episodes": null,
+   "season": null,
+   "seasonYear": null,
+   "startDate": null,
+   "popularity": 23660,
+   "synopsis": "Третий сезон Tsue to Tsurugi no Wistoria.",
+   "url": "https://anilist.co/anime/213656",
+   "sequel": {
+    "season": 3
+   },
+   "prequel": {
+    "anilistId": 182300,
+    "title": "Вистория: Меч и жезл 2",
+    "catalogId": "wistoria-wand-and-sword-season-2-182300"
+   }
+  },
+  {
+   "anilistId": 209963,
+   "catalogId": null,
+   "title": "Приговорённый стать героем 2",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "Yuusha Kei ni Shosu: Choubatsu Yuusha 9004-tai Keimu Kiroku 2nd Season",
+   "titleEnglish": "Sentenced to Be a Hero Season 2",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx209963-LjQB2OV2jJMd.jpg",
+   "format": "TV",
+   "studio": "Studio KAI",
+   "genres": [
+    "Экшен",
+    "Драма",
+    "Фэнтези"
+   ],
+   "episodes": null,
+   "season": null,
+   "seasonYear": null,
+   "startDate": null,
+   "popularity": 19951,
+   "synopsis": "Второй сезон Yuusha Kei ni Shosu: Choubatsu Yuusha 9004-tai Keimu Kiroku.",
+   "url": "https://anilist.co/anime/209963",
+   "sequel": {
+    "season": 2
+   },
+   "prequel": {
+    "anilistId": 167152,
+    "title": "Приговорённый стать героем",
+    "catalogId": "sentenced-to-be-a-hero-167152"
+   }
+  },
+  {
+   "anilistId": 205081,
+   "catalogId": null,
+   "title": "Kaguya-sama wa Kokurasetai: Kanketsu-hen",
+   "franchise": "Госпожа Кагуя: В любви как на войне",
+   "titleAuto": false,
+   "titleOriginal": "Kaguya-sama wa Kokurasetai: Kanketsu-hen",
+   "titleEnglish": null,
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx205081-h34dlv9iprh6.png",
+   "format": "MOVIE",
+   "studio": null,
+   "genres": [
+    "Комедия",
+    "Психология",
+    "Романтика",
+    "Повседневность"
+   ],
+   "episodes": 1,
+   "season": null,
+   "seasonYear": null,
+   "startDate": null,
+   "popularity": 19213,
+   "synopsis": "Театрализованное завершение «Кагуя-сама ва Кокурасетай», основанное на оригинальной истории, написанной Ака Акасакой. Примечание. Название и отношения являются предварительными и могут быть изменены.",
+   "url": "https://anilist.co/anime/205081",
+   "prequel": {
+    "anilistId": 194884,
+    "title": "Kaguya-sama: Love Is War -Stairway to Adulthood-",
+    "catalogId": null
+   }
+  },
+  {
+   "anilistId": 199342,
+   "catalogId": null,
+   "title": "Лето, когда погас свет 2",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "Hikaru ga Shinda Natsu 2nd Season",
+   "titleEnglish": null,
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx199342-T4ESffzfVCB5.jpg",
+   "format": "TV",
+   "studio": null,
+   "genres": [
+    "Ужасы",
+    "Детектив",
+    "Психология",
+    "Сверхъестественное",
+    "Триллер"
+   ],
+   "episodes": null,
+   "season": null,
+   "seasonYear": null,
+   "startDate": null,
+   "popularity": 19030,
+   "synopsis": "Второй сезон Хикару га Шинда Нацу.",
+   "url": "https://anilist.co/anime/199342",
+   "sequel": {
+    "season": 2
+   },
+   "prequel": {
+    "anilistId": 177689,
+    "title": "Лето, когда погас свет",
+    "catalogId": "the-summer-hikaru-died-177689"
+   }
+  },
+  {
+   "anilistId": 153676,
+   "catalogId": null,
+   "title": "Скейт: бесконечность 2",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "SK∞ 2nd Season",
+   "titleEnglish": null,
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx153676-aOhiYKkUoX5y.png",
+   "format": "TV",
+   "studio": "bones film",
+   "genres": [
+    "Экшен",
+    "Комедия",
+    "Драма",
+    "Спорт"
+   ],
+   "episodes": null,
+   "season": null,
+   "seasonYear": null,
+   "startDate": null,
+   "popularity": 18204,
+   "synopsis": "Второй сезон SK∞ (Sk8 Бесконечность). Примечание: во время мероприятия «Sk8 Masquerade of Love» Aniplex сообщила, что в разработке находится новый аниме-проект для оригинального телевизионного аниме SK∞. Намного позже, в конце специального мероприятия «∞НЕДЕЛЯ», было объявлено об OVA вместе со вторым сезоном.",
+   "url": "https://anilist.co/anime/153676",
+   "sequel": {
+    "season": 2
+   },
+   "prequel": {
+    "anilistId": 124153,
+    "title": "Скейт: бесконечность",
+    "catalogId": "sk8-the-infinity-124153"
+   }
+  },
+  {
+   "anilistId": 219904,
+   "catalogId": null,
+   "title": "Re:ZERO – Жизнь с нуля в альтернативном мире 5",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "Re:Zero kara Hajimeru Isekai Seikatsu 5th Season",
+   "titleEnglish": null,
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx219904-DQOTtKhwpB8S.jpg",
+   "format": "TV",
+   "studio": null,
+   "genres": [
+    "Экшен",
+    "Приключения",
+    "Драма",
+    "Фэнтези",
+    "Психология",
+    "Романтика",
+    "Триллер"
+   ],
+   "episodes": null,
+   "season": null,
+   "seasonYear": null,
+   "startDate": null,
+   "popularity": 17909,
+   "synopsis": "Пятый сезон Re:Zero кара Хаджимеру Исэкай Сейкацу.",
+   "url": "https://anilist.co/anime/219904",
+   "sequel": {
+    "season": 5
+   },
+   "prequel": {
+    "anilistId": 189046,
+    "title": "Re:ZERO – Жизнь с нуля в альтернативном мире 4",
+    "catalogId": "re-zero-starting-life-in-another-world-season-4-189046"
+   }
+  },
+  {
+   "anilistId": 199404,
+   "catalogId": null,
+   "title": "Синий Замок Нео Эгоистическая Лига",
+   "franchise": null,
+   "titleAuto": true,
+   "titleOriginal": "Blue Lock: NEO EGOIST LEAGUE",
+   "titleEnglish": "BLUE LOCK NEO EGOIST LEAGUE",
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx199404-zpQfeRq7AftA.jpg",
+   "format": "TV",
+   "studio": "8-bit",
+   "genres": [
+    "Экшен",
+    "Драма",
+    "Спорт"
+   ],
+   "episodes": null,
+   "season": null,
+   "seasonYear": null,
+   "startDate": null,
+   "popularity": 17549,
+   "synopsis": "Третий сезон Blue Lock.",
+   "url": "https://anilist.co/anime/199404",
+   "prequel": {
+    "anilistId": 163146,
+    "title": "BLUE LOCK Season 2",
+    "catalogId": null
+   }
+  },
+  {
+   "anilistId": 185543,
+   "catalogId": null,
+   "title": "Nozomanu Fushi no Boukensha 2nd Season",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "Nozomanu Fushi no Boukensha 2nd Season",
+   "titleEnglish": null,
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx185543-4QjQQx36Rx6V.png",
+   "format": "ONA",
+   "studio": null,
+   "genres": [
+    "Экшен",
+    "Приключения",
+    "Фэнтези"
+   ],
+   "episodes": null,
+   "season": null,
+   "seasonYear": null,
+   "startDate": null,
+   "popularity": 15973,
+   "synopsis": "Второй сезон Nozomanu Fushi no Boukensha.",
+   "url": "https://anilist.co/anime/185543",
+   "sequel": {
+    "season": 2
+   },
+   "prequel": {
+    "anilistId": 147642,
+    "title": "The Unwanted Undead Adventurer",
+    "catalogId": null
+   }
+  },
+  {
+   "anilistId": 195201,
+   "catalogId": null,
+   "title": "Клинок, Рассекающий Демонов: Бесконечный Замок 3",
+   "franchise": null,
+   "titleAuto": false,
+   "titleOriginal": "Kimetsu no Yaiba: Mugenjou-hen Movie 3",
+   "titleEnglish": null,
+   "poster": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/default.jpg",
+   "format": "MOVIE",
+   "studio": "ufotable",
+   "genres": [
+    "Экшен",
+    "Приключения",
+    "Драма",
+    "Сверхъестественное"
+   ],
+   "episodes": 1,
+   "season": null,
+   "seasonYear": null,
+   "startDate": null,
+   "popularity": 14724,
+   "synopsis": "Третья часть экранизации театральной трилогии арки «Бесконечный замок».",
+   "url": "https://anilist.co/anime/195201",
+   "sequel": {
+    "season": 3
+   },
+   "prequel": {
+    "anilistId": 195200,
+    "title": "Клинок, Рассекающий Демонов: Бесконечный Замок. Часть 2",
+    "catalogId": null
+   }
+  }
+ ]
+}
