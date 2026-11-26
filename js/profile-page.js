@@ -26,12 +26,15 @@
   function initial(name) { return (String(name || '?').match(/[\p{L}\p{N}]/u) || ['?'])[0].toUpperCase(); }
 
   // Аватар: картинка выбранной аватарки внутри рамки; буква — только у «Инициала»
-  function avatarNode(avatarId, frame, extraCls) {
-    var node = el('span', 'pf-avatar ' + frameClass(frame) + (extraCls ? ' ' + extraCls : ''));
-    fillAvatar(node, avatarId);
+  // keepFrame — показать рамку даже у арта «целиком» (превью рамок); иначе такой арт занимает место рамки
+  function avatarNode(avatarId, frame, keepFrame) {
+    var node = el('span', 'pf-avatar ' + frameClass(frame));
+    fillAvatar(node, avatarId, keepFrame);
     return node;
   }
-  function fillAvatar(node, avatarId) {
+  function fillAvatar(node, avatarId, keepFrame) {
+    // «Алая луна» — арт целиком и крупно, до внешнего ободка, без кольца рамки вокруг
+    node.classList.toggle('pf-art-full', !keepFrame && P.avatarFit(avatarId) === 'contain');
     var url = avatarId && avatarId !== 'avatar_initial' ? P.avatarUrl(avatarId) : null;
     if (url) {
       var img = new Image();
@@ -139,7 +142,7 @@
       b.disabled = !u[id];
       b.setAttribute('aria-pressed', String(selectedFrame() === id));
       b.title = u[id] ? r.desc : 'Заблокировано: ' + P.rewardSource(id);
-      b.append(avatarNode(selectedAvatar(), id), el('span', null, r.name));
+      b.append(avatarNode(selectedAvatar(), id, true), el('span', null, r.name));
       frames.appendChild(b);
     });
   }
@@ -218,7 +221,7 @@
       var r = P.REWARDS[id];
       var li = el('li', 'item rarity-' + r.rarity + (u[id] ? '' : ' is-locked'));
       var icon = el('span', 'item-icon');
-      if (r.type === 'frame') icon.appendChild(avatarNode(selectedAvatar(), id));
+      if (r.type === 'frame') icon.appendChild(avatarNode(selectedAvatar(), id, true));
       else if (r.type === 'avatar') icon.appendChild(avatarNode(id, 'frame_common'));
       else icon.textContent = r.icon;
       li.append(icon, el('span', 'item-type', TYPE_NAMES[r.type] + ' · ' + RARITY_NAMES[r.rarity]), el('span', 'item-name', r.name), el('span', 'item-desc', r.desc));
@@ -294,7 +297,7 @@
       var r = P.REWARDS[id];
       var li = el('li');
       if (r.type === 'avatar') li.appendChild(avatarNode(id, 'frame_crimson'));
-      else if (r.type === 'frame') li.appendChild(avatarNode(selectedAvatar(), id));
+      else if (r.type === 'frame') li.appendChild(avatarNode(selectedAvatar(), id, true));
       li.appendChild(el('span', null, (r.type === 'avatar' || r.type === 'frame' ? '' : r.icon + ' ') + 'Новая награда: ' + r.name + ' (' + TYPE_NAMES[r.type].toLowerCase() + ')' + (r.type === 'title' && player.selectedTitle === id ? ' — надето' : '')));
       list.appendChild(li);
     });

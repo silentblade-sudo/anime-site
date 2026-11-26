@@ -268,7 +268,7 @@
         var img = new Image();
         img.alt = '';
         img.loading = 'lazy';
-        if (AP.avatarFit && AP.avatarFit(m.avatar) === 'contain') img.className = 'is-contain';
+        if (AP.avatarFit && AP.avatarFit(m.avatar) === 'contain') { img.className = 'is-contain'; ava.classList.add('is-art-full'); }
         img.src = url;
         ava.appendChild(img);
       } else {

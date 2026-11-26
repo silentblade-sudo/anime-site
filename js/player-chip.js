@@ -26,7 +26,7 @@
       var img = new Image();
       img.alt = '';
       img.decoding = 'async';
-      if (P.avatarFit(d.avatar) === 'contain') img.className = 'is-contain';
+      if (P.avatarFit(d.avatar) === 'contain') { img.className = 'is-contain'; av.classList.add('pf-art-full'); }
       img.src = url;
       av.appendChild(img);
     } else {
