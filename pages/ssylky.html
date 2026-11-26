@@ -1780,7 +1780,6 @@ body.modal-open { overflow: hidden; }
             <div class="avatar-upload-overlay">📷</div>
           </div>
           <a href="../index.html" class="site-back-link">← На сайт</a>
-          <button class="logout-btn" id="logout-btn">🚪 Выйти</button>
         </div>
       </nav>
 
@@ -2906,7 +2905,9 @@ class UltimateAnimeLibrary {
         this.renderColumn(status);
       }
     });
-    document.getElementById('logout-btn').addEventListener('click', () => this.logout());
+    // кнопки «Выйти» в шапке больше нет (выход — в профиле Игрока и на странице входа)
+    const logoutBtn = document.getElementById('logout-btn');
+    if (logoutBtn) logoutBtn.addEventListener('click', () => this.logout());
     document.addEventListener('click', (e) => {
       const link = e.target.closest('[data-watch-id]');
       if (link) this.markWatched(link.dataset.watchId);  // ссылка откроется в новой вкладке как обычно
