@@ -1,6 +1,7 @@
 {
   "hosting": {
     "public": ".",
+    "predeploy": ["node tools/validate-data.mjs"],
     "ignore": [
       "firebase.json",
       ".firebaserc",
@@ -22,6 +23,20 @@
       {
         "source": "**/*.@(css|js)",
         "headers": [{ "key": "Cache-Control", "value": "public, max-age=3600" }]
+      },
+      {
+        "source": "data/@(schedule|site-events).json",
+        "headers": [
+          { "key": "Cache-Control", "value": "no-cache" },
+          { "key": "Content-Type", "value": "application/json; charset=utf-8" }
+        ]
+      },
+      {
+        "source": "data/@(anime|anime-synonyms).json",
+        "headers": [
+          { "key": "Cache-Control", "value": "public, max-age=3600" },
+          { "key": "Content-Type", "value": "application/json; charset=utf-8" }
+        ]
       },
       {
         "source": "**/*.html",

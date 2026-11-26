@@ -29,7 +29,9 @@
   var CATS = { quest: 'Задания', reward: 'Награды', episode: 'Серии', site: 'Сайт' };
   var CAT_ICONS = { quest: '📜', reward: '🎁', episode: '📺', site: '📣' };
 
-  // События самого сайта (новые разделы и возможности) — показываются каждому игроку один раз
+  // События самого сайта (новые разделы и возможности) — показываются каждому игроку один раз.
+  // Основной список — data/site-events.json на Firebase Hosting (правится без изменения кода);
+  // этот — запасной, если файл не загрузился.
   var SITE_EVENTS = [
     { id: 'site:profile', icon: '⚔️', title: 'Открыт Терминал Системы', text: 'Квесты, уровни, звания, рамки-порталы и аватарки — в профиле Игрока.', page: 'pages/profile.html', at: '2026-11-26T12:00:00Z' },
     { id: 'site:schedule', icon: '📅', title: 'График выхода аниме', text: 'Новые серии онгоингов, премьеры и сезоны — с таймерами до выхода.', page: 'pages/news.html#schedule', at: '2026-11-26T10:00:00Z' },
@@ -118,9 +120,13 @@
   // ───────── источники ─────────
   function href(page) { return /^https?:/i.test(page) ? page : ROOT + page; }
 
-  function siteEvents() {
-    return SITE_EVENTS.map(function (e) {
-      return { id: e.id, cat: 'site', icon: e.icon, title: e.title, text: e.text, href: href(e.page), at: Date.parse(e.at) };
+  // Событие с датой в будущем — анонс по расписанию: появится в ленте, когда наступит его время
+  function siteEvents(list) {
+    return (list || SITE_EVENTS).filter(function (e) {
+      var at = Date.parse(e && e.at);
+      return e && typeof e.id === 'string' && /^site:/.test(e.id) && e.title && at && at <= now();
+    }).map(function (e) {
+      return { id: e.id, cat: 'site', icon: e.icon, title: e.title, text: e.text, href: e.page ? href(e.page) : '', at: Date.parse(e.at) };
     });
   }
 
@@ -214,14 +220,23 @@
     try { last = Number(sessionStorage.getItem(stamp)) || 0; } catch (e) {}
     if (!force && now() - last < CHECK_EVERY) return;
     var forUid = uid;
-    fetch(ROOT + 'data/schedule.json', { cache: 'no-cache' })
-      .then(function (r) { return r.ok ? r.json() : null; })
-      .then(function (data) {
-        if (!data || !uid || uid !== forUid) return;
+    // статичные JSON с Firebase Hosting (cache: no-cache — браузер сверяет ETag, тело качается только при изменении)
+    var getJson = function (file) {
+      return fetch(ROOT + 'data/' + file, { cache: 'no-cache' })
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .catch(function () { return null; });
+    };
+    Promise.all([getJson('schedule.json'), getJson('site-events.json')]).then(function (res) {
+      if (!uid || uid !== forUid) return;
+      var schedule = res[0], site = res[1];
+      var list = [];
+      if (site && Array.isArray(site.events)) list = list.concat(siteEvents(site.events));
+      if (schedule && (schedule.ongoing || schedule.premieres || schedule.sequels)) {
+        list = list.concat(scheduleEvents(schedule, player));
         try { sessionStorage.setItem(stamp, String(now())); } catch (e) {}
-        push(scheduleEvents(data, player));
-      })
-      .catch(function () {});
+      }
+      if (list.length) push(list);
+    });
   }
 
   // ───────── включение для вошедшего ─────────
