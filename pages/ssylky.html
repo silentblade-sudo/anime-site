@@ -434,6 +434,17 @@ body {
   color: white;
   margin-left: 10px;
 }
+.nav-login-link {
+  margin-left: 4px;
+  padding: 2px 9px;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.nav-login-link:hover { background: rgba(255, 255, 255, 0.26); }
 .nav-search {
   flex: 1;
   max-width: 500px;
@@ -1561,9 +1572,9 @@ body.modal-open { overflow: hidden; }
   <div class="character dragon">🐉</div>
 </div>
 
-<div class="loading-overlay" id="loading-overlay">
+<div class="loading-overlay active" id="loading-overlay">
   <div class="loading-spinner"></div>
-  <div class="loading-text" id="loading-text">Подключение к облаку...</div>
+  <div class="loading-text" id="loading-text">Загрузка коллекции...</div>
 </div>
 
 <!-- ========== КНОПКА УСТАНОВКИ PWA ========== -->
@@ -1625,136 +1636,8 @@ body.modal-open { overflow: hidden; }
   </div>
 </div>
 
-<!-- ========== СТРАНИЦА АВТОРИЗАЦИИ ========== -->
-<div id="page-register" class="page active">
-  <div class="anime-verse">
-    <div class="anime-reg-container">
-      <div class="anime-reg-card">
-        <a href="../index.html" class="site-back-link">← На сайт</a>
-        <div class="anime-logo">
-          <span class="logo-icon">🎌</span>
-          <h1 class="gradient-text">AnimeVerse</h1>
-          <p class="subtitle">Твоя вселенная аниме в облаке ☁️</p>
-        </div>
-
-        <div class="pending-add-hint" id="pending-add-hint" hidden></div>
-
-        <div class="cloud-status" id="cloud-status">
-          <span class="cloud-dot" id="cloud-dot"></span>
-          <span id="cloud-status-text">Проверка подключения...</span>
-        </div>
-
-        <div class="config-info" id="config-info" style="display:none">
-          <strong>⚠️ Firebase не настроен!</strong><br>
-          Открой код и замени <code>firebaseConfig</code> своими ключами из Firebase Console.
-          Без этого облачная синхронизация работать не будет.
-        </div>
-
-        <div class="auth-tabs">
-          <button class="auth-tab active" data-tab="login">🔐 Вход</button>
-          <button class="auth-tab" data-tab="register">✨ Регистрация</button>
-        </div>
-
-        <form id="login-form">
-          <div class="form-group">
-            <div class="floating-label">
-              <input type="email" id="login-email" placeholder=" " required>
-              <label>E-mail</label>
-            </div>
-            <span class="error-message" id="login-email-error"></span>
-          </div>
-          <div class="form-group">
-            <div class="floating-label">
-              <input type="password" id="login-password" placeholder=" " required>
-              <label>Пароль</label>
-            </div>
-            <span class="error-message" id="login-password-error"></span>
-          </div>
-          <button type="submit" class="anime-btn anime-btn-primary pulse-animation" style="width:100%">
-            🚀 Войти в облако
-          </button>
-          <div class="form-footer">
-            <a href="#" id="guest-mode-btn" class="anime-btn anime-btn-link">👤 Гостевой режим (локально)</a>
-          </div>
-        </form>
-
-        <form id="registration-form" style="display:none">
-          <div class="form-group">
-            <div class="floating-label">
-              <input type="text" id="username" placeholder=" " required>
-              <label>Имя пользователя</label>
-            </div>
-            <span class="error-message" id="username-error"></span>
-          </div>
-          <div class="form-group">
-            <div class="floating-label">
-              <input type="email" id="email" placeholder=" " required>
-              <label>E-mail</label>
-            </div>
-            <span class="error-message" id="email-error"></span>
-          </div>
-          <div class="form-group">
-            <div class="floating-label">
-              <input type="password" id="password" placeholder=" " required>
-              <label>Пароль</label>
-            </div>
-            <span class="error-message" id="password-error"></span>
-            <div class="password-strength">
-              <div class="strength-bar"></div>
-              <span class="strength-text"></span>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="glowing-label">🎭 Любимый жанр</label>
-            <div class="genre-pills">
-              <label class="pill"><input type="radio" name="favorite-genre" value="shonen" checked><span class="pill-content">🔥 Сёнэн</span></label>
-              <label class="pill"><input type="radio" name="favorite-genre" value="shojo"><span class="pill-content">💖 Сёдзё</span></label>
-              <label class="pill"><input type="radio" name="favorite-genre" value="seinen"><span class="pill-content">🥋 Сэйнэн</span></label>
-              <label class="pill"><input type="radio" name="favorite-genre" value="slice-of-life"><span class="pill-content">☕ Повседневность</span></label>
-            </div>
-          </div>
-          <div class="futuristic-checkbox">
-            <label class="checkbox-label">
-              <input type="checkbox" id="rules">
-              <span class="checkbox-custom"></span>
-              <span class="checkbox-text">Я принимаю <a href="#" id="rules-link">Правила Аниме-Вселенной</a></span>
-            </label>
-            <span class="error-message" id="rules-error"></span>
-          </div>
-          <button type="submit" class="anime-btn anime-btn-primary pulse-animation" style="width:100%">
-            ✨ Создать аккаунт в облаке
-          </button>
-        </form>
-
-        <div class="auth-divider"><span>или</span></div>
-        <button type="button" class="google-btn" id="google-login-btn">
-          <svg class="google-icon" viewBox="0 0 48 48" width="20" height="20" aria-hidden="true">
-            <path fill="#FFC107" d="M43.6 20.1H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.6-.4-3.9z"/>
-            <path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/>
-            <path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-7.9l-6.5 5C9.5 39.6 16.2 44 24 44z"/>
-            <path fill="#1976D2" d="M43.6 20.1H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.6-.4-3.9z"/>
-          </svg>
-          <span>Войти через Google</span>
-        </button>
-        <span class="error-message google-error" id="google-login-error" role="alert"></span>
-      </div>
-    </div>
-  </div>
-
-  <div id="rules-modal" class="anime-modal">
-    <div class="anime-modal-content">
-      <span class="close">&times;</span>
-      <h2 style="color:var(--text-primary);margin-bottom:20px">📜 Конституция Аниме-Вселенной</h2>
-      <div class="rule-item"><span class="rule-number">01</span><span>Не спамить и не токсичить</span></div>
-      <div class="rule-item"><span class="rule-number">02</span><span>Уважать чужой вкус</span></div>
-      <div class="rule-item"><span class="rule-number">03</span><span>Делиться годнотой</span></div>
-      <div class="rule-item"><span class="rule-number">04</span><span>Не спойлерить без предупреждения</span></div>
-    </div>
-  </div>
-</div>
-
 <!-- ========== ГЛАВНАЯ ========== -->
-<div id="page-main" class="page">
+<div id="page-main" class="page active">
   <div class="anime-verse-main">
     <div class="anime-container">
 
@@ -2454,250 +2337,47 @@ const VOICE_DATABASE = [
 // 🎌 АВТОРИЗАЦИЯ
 // ============================================================
 class AuthManager {
+  // Отдельного экрана входа в AnimeVerse больше нет. Вход — общий для всего сайта (pages/login.html):
+  //   • есть вошедший аккаунт (тот же Firebase Auth) → коллекция грузится из облака;
+  //   • нет аккаунта или облако недоступно → сразу локальный (гостевой) режим.
   constructor() {
-    this.loginForm = document.getElementById('login-form');
-    this.registerForm = document.getElementById('registration-form');
-    this.tabs = document.querySelectorAll('.auth-tab');
-    this.rulesModal = document.getElementById('rules-modal');
     this.isGuestMode = false;
+    this.started = false;
     this.init();
   }
 
   init() {
-    this.setupTabs();
-    this.setupModal();
-    this.setupPasswordStrength();
-    this.bindEvents();
-    this.updateCloudStatus();
-
-    if (firebaseService.isAvailable) {
-      // Итог входа через переход на страницу Google (если всплывающее окно было заблокировано)
-      const cameFromGoogle = window.takeGoogleRedirectFlag();
-      firebaseAuth.getRedirectResult().then((res) => {
-        if (cameFromGoogle && !(res && res.user)) this.showNotification('Вход через Google отменён', 'info');
-      }).catch((err) => {
-        // при открытии файлом с диска эта ошибка приходит всегда — показываем её только по нажатию кнопки
-        if (!err || !err.code || err.code === 'auth/operation-not-supported-in-this-environment') return;
-        if (window.isAuthCancel(err.code)) {
-          if (cameFromGoogle) this.showNotification('Вход через Google отменён', 'info');
-        } else {
-          document.getElementById('google-login-error').textContent = this.translateFirebaseError(err.code);
-        }
-      });
-      firebaseService.onAuthStateChanged((user) => {
-        if (user) {
-          console.log('🔑 Авто-вход через Firebase:', user.email);
-          this.goToMain(user);
-        }
-      });
-    } else {
-      document.getElementById('config-info').style.display = 'block';
-      document.getElementById('cloud-status-text').textContent = '⚠️ Firebase не настроен';
-      document.getElementById('cloud-dot').classList.add('error');
-    }
-  }
-
-  updateCloudStatus() {
-    const statusText = document.getElementById('cloud-status-text');
-    const dot = document.getElementById('cloud-dot');
-    if (firebaseService.isAvailable) {
-      statusText.textContent = '✅ Облако подключено';
-      dot.classList.add('connected');
-    } else {
-      statusText.textContent = '⚠️ Только локальный режим';
-      dot.classList.add('error');
-    }
-  }
-
-  setupTabs() {
-    this.tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        this.tabs.forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-        const target = tab.dataset.tab;
-        this.loginForm.style.display = target === 'login' ? 'block' : 'none';
-        this.registerForm.style.display = target === 'register' ? 'block' : 'none';
-      });
-    });
-  }
-
-  setupModal() {
-    const modal = this.rulesModal;
-    const btn = document.getElementById('rules-link');
-    const close = modal.querySelector('.close');
-    btn.onclick = (e) => { e.preventDefault(); modal.style.display = 'block'; };
-    close.onclick = () => { modal.style.display = 'none'; };
-    window.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; };
-  }
-
-  setupPasswordStrength() {
-    const passwordInput = document.getElementById('password');
-    const strengthBar = document.querySelector('.strength-bar');
-    const strengthText = document.querySelector('.strength-text');
-    passwordInput.addEventListener('input', () => {
-      const strength = this.checkPasswordStrength(passwordInput.value);
-      strengthBar.style.width = strength.percentage + '%';
-      strengthBar.style.background = strength.color;
-      strengthText.textContent = strength.text;
-    });
-  }
-
-  checkPasswordStrength(password) {
-    let strength = 0;
-    if (password.length >= 6) strength += 20;
-    if (password.length >= 8) strength += 20;
-    if (/[A-Z]/.test(password)) strength += 20;
-    if (/[0-9]/.test(password)) strength += 20;
-    if (/[^A-Za-z0-9]/.test(password)) strength += 20;
-    if (strength <= 20) return { percentage: 20, color: '#ff6b6b', text: 'Слабый' };
-    if (strength <= 40) return { percentage: 40, color: '#fb7d3c', text: 'Средний' };
-    if (strength <= 60) return { percentage: 60, color: '#ffa64d', text: 'Хороший' };
-    if (strength <= 80) return { percentage: 80, color: '#1dd1a1', text: 'Сильный' };
-    return { percentage: 100, color: '#10ac84', text: 'Максимальный' };
-  }
-
-  bindEvents() {
-    this.loginForm.addEventListener('submit', (e) => this.handleLogin(e));
-    this.registerForm.addEventListener('submit', (e) => this.handleRegister(e));
-    document.getElementById('guest-mode-btn').addEventListener('click', (e) => {
-      e.preventDefault();
-      this.enterGuestMode();
-    });
-    document.getElementById('google-login-btn').addEventListener('click', () => this.handleGoogleLogin());
-  }
-
-  async handleGoogleLogin() {
-    const btn = document.getElementById('google-login-btn');
-    const errorEl = document.getElementById('google-login-error');
-    errorEl.textContent = '';
-    if (!firebaseService.isAvailable) {
-      errorEl.textContent = '⚠️ Облако недоступно — используй гостевой режим.';
-      return;
-    }
-    btn.disabled = true;
-    this.showLoading('Вход через Google...');
-    try {
-      const user = await firebaseService.loginWithGoogle();
+    if (!firebaseService.isAvailable) { this.enterGuestMode(); return; }
+    // если SDK/сеть «зависли» — не держим пользователя на загрузке
+    const fallback = setTimeout(() => { if (!this.started) this.enterGuestMode(); }, 6000);
+    firebaseService.onAuthStateChanged((user) => {
+      clearTimeout(fallback);
       if (user) {
-        this.showNotification(`✅ Добро пожаловать, ${user.displayName || user.email}!`);
-        // Главный экран коллекции открывает onAuthStateChanged; на случай задержки — открываем сами
-        if (!document.getElementById('page-main').classList.contains('active')) this.goToMain(user);
+        // вход (в том числе на другой вкладке) → облачная коллекция этого аккаунта
+        if (!this.currentUid || this.currentUid !== user.uid) this.goToMain(user);
+      } else if (!this.started || this.currentUid) {
+        // первый ответ «не вошёл» или выход из аккаунта → локальный режим
+        this.enterGuestMode();
       }
-    } catch (err) {
-      this.hideLoading();
-      if (window.isAuthCancel(err.code)) {
-        this.showNotification('Вход через Google отменён', 'info'); // обычное действие пользователя — в консоль не пишем
-      } else {
-        errorEl.textContent = this.translateFirebaseError(err.code);
-        console.warn('Google sign-in:', err.code || err.message);
-      }
-    } finally {
-      btn.disabled = false;
-    }
-  }
-
-  async handleLogin(e) {
-    e.preventDefault();
-    const email = document.getElementById('login-email').value.trim();
-    const password = document.getElementById('login-password').value;
-    const emailError = document.getElementById('login-email-error');
-    const passwordError = document.getElementById('login-password-error');
-    emailError.textContent = '';
-    passwordError.textContent = '';
-
-    if (!firebaseService.isAvailable) {
-      this.showNotification('⚠️ Firebase не настроен. Используй гостевой режим.', 'error');
-      return;
-    }
-
-    this.showLoading('Вход в облако...');
-    try {
-      await firebaseService.login(email, password);
-      this.showNotification('✅ Добро пожаловать!');
-    } catch (err) {
-      this.hideLoading();
-      const msg = this.translateFirebaseError(err.code);
-      if (err.code === 'auth/invalid-email' || err.code === 'auth/missing-email') {
-        emailError.textContent = msg;
-      } else {
-        passwordError.textContent = msg;
-      }
-    }
-  }
-
-  async handleRegister(e) {
-    e.preventDefault();
-    const username = document.getElementById('username').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const password = document.getElementById('password').value;
-    const rules = document.getElementById('rules').checked;
-
-    const usernameError = document.getElementById('username-error');
-    const emailError = document.getElementById('email-error');
-    const passwordError = document.getElementById('password-error');
-    const rulesError = document.getElementById('rules-error');
-    
-    usernameError.textContent = '';
-    emailError.textContent = '';
-    passwordError.textContent = '';
-    rulesError.textContent = '';
-
-    let hasError = false;
-    if (username.length < 3) { usernameError.textContent = 'Минимум 3 символа'; hasError = true; }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { emailError.textContent = 'Некорректный email'; hasError = true; }
-    if (password.length < 6) { passwordError.textContent = 'Минимум 6 символов'; hasError = true; }
-    if (!rules) { rulesError.textContent = 'Примите правила'; hasError = true; }
-    if (hasError) return;
-
-    if (!firebaseService.isAvailable) {
-      this.showNotification('⚠️ Firebase не настроен. Используй гостевой режим.', 'error');
-      return;
-    }
-
-    this.showLoading('Создание аккаунта...');
-    try {
-      const favoriteGenre = document.querySelector('input[name="favorite-genre"]:checked')?.value || 'shonen';
-      await firebaseService.register(email, password, { username, favoriteGenre });
-      this.showNotification('🎉 Аккаунт создан!');
-    } catch (err) {
-      this.hideLoading();
-      const msg = this.translateFirebaseError(err.code);
-      emailError.textContent = msg;
-    }
-  }
-
-  translateFirebaseError(code) {
-    if (window.ANIME_AUTH_ERRORS && window.ANIME_AUTH_ERRORS[code]) return window.ANIME_AUTH_ERRORS[code];
-    const errors = {
-      'auth/email-already-in-use': 'Этот email уже зарегистрирован',
-      'auth/invalid-email': 'Некорректный email',
-      'auth/weak-password': 'Слабый пароль (мин. 6 символов)',
-      'auth/user-not-found': 'Пользователь не найден',
-      'auth/wrong-password': 'Неверный пароль',
-      'auth/invalid-credential': 'Неверные данные для входа',
-      'auth/too-many-requests': 'Слишком много попыток. Попробуй позже',
-      'auth/network-request-failed': 'Ошибка сети'
-    };
-    return errors[code] || 'Ошибка: ' + code;
+    });
   }
 
   enterGuestMode() {
     this.isGuestMode = true;
-    const guestUser = {
-      uid: 'guest_' + Date.now(),
-      displayName: 'Гость',
-      email: 'guest@local',
-      isGuest: true
-    };
-    localStorage.setItem('guestUser', JSON.stringify(guestUser));
+    let guestUser = null;
+    try { guestUser = JSON.parse(localStorage.getItem('guestUser') || 'null'); } catch (_) {}
+    if (!guestUser || !guestUser.isGuest) {
+      guestUser = { uid: 'guest_' + Date.now(), displayName: 'Гость', email: 'guest@local', isGuest: true };
+      try { localStorage.setItem('guestUser', JSON.stringify(guestUser)); } catch (_) {}
+    }
     this.goToMain(guestUser);
   }
 
   goToMain(user) {
     this.hideLoading();
-    document.getElementById('page-register').classList.remove('active');
+    this.started = true;
+    this.currentUid = user.isGuest ? null : user.uid;
     document.getElementById('page-main').classList.add('active');
-    window.scrollTo(0, 0);
 
     if (!user.isGuest && firebaseService.isAvailable) firebaseService.ensureProfile(user);
 
@@ -2919,10 +2599,8 @@ class UltimateAnimeLibrary {
     if (firebaseService.isAvailable && !this.isGuest) {
       await firebaseService.logout();
     }
-    localStorage.removeItem('guestUser');
-    document.getElementById('page-main').classList.remove('active');
-    document.getElementById('page-register').classList.add('active');
-    window.scrollTo(0, 0);
+    if (this.isGuest || !firebaseService.isAvailable) window.authManager && window.authManager.enterGuestMode();
+    // для облачного аккаунта локальный режим включит onAuthStateChanged
   }
 
   setupRatingStars() {
@@ -3293,7 +2971,8 @@ class UltimateAnimeLibrary {
     const badge = document.getElementById('nav-cloud-badge');
     if (badge) {
       if (this.isGuest || !firebaseService.isAvailable) {
-        badge.innerHTML = '<span class="cloud-dot" style="background:#feab57"></span><span>💾 Локально</span>';
+        badge.innerHTML = '<span class="cloud-dot" style="background:#feab57"></span><span>💾 Локально</span>'
+          + (firebaseService.isAvailable ? '<a class="nav-login-link" href="login.html?returnUrl=%2Fpages%2Fssylky.html" title="Войти в аккаунт сайта — коллекция будет храниться в облаке">Войти</a>' : '');
         document.getElementById('cloud-info').textContent = 'Локальное хранение';
       } else {
         badge.innerHTML = '<span class="cloud-dot connected"></span><span>☁️ Cloud</span>';
@@ -3902,20 +3581,6 @@ function setupBookmarklet() {
 // 🚀 ЗАПУСК
 // ============================================================
 document.addEventListener('DOMContentLoaded', () => {
-  if (pendingAdd) {
-    const hint = document.getElementById('pending-add-hint');
-    if (hint) {
-      const text = document.createElement('div');
-      text.textContent = `🔗 Войди или выбери гостевой режим — «${pendingAdd.title || 'аниме'}» сразу подставится в форму добавления.`;
-      const guestBtn = document.createElement('button');
-      guestBtn.type = 'button';
-      guestBtn.className = 'hint-guest-btn';
-      guestBtn.textContent = '👤 Продолжить как гость';
-      guestBtn.addEventListener('click', () => window.authManager && window.authManager.enterGuestMode());
-      hint.replaceChildren(text, guestBtn);
-      hint.hidden = false;
-    }
-  }
   setupBookmarklet();
   window.authManager = new AuthManager();
 });

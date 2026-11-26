@@ -226,14 +226,16 @@
 .view-btn-label { white-space: nowrap; }
 .search-wrapper.has-view-toggle { max-width: 1240px; }
 
-/* Сетка: контейнер на всю ширину */
-.anime-list.catalog-wide { box-sizing: border-box; max-width: min(1890px, calc(100% - 48px)) !important; }
-/* «Список» на широком экране — шире прежних 900px, но строки описаний остаются читаемыми */
-body[data-catalog-view="list"] .anime-list { max-width: min(1320px, calc(100% - 40px)); box-sizing: border-box; }
-body[data-catalog-view="list"] .anime-list .anime-list { max-width: none; }
+/* «Жанры»: и сетка, и список — на всю доступную ширину экрана, только боковые поля по 24px */
+.anime-list.catalog-wide { box-sizing: border-box; width: auto !important; max-width: calc(100% - 48px) !important; margin-left: auto !important; margin-right: auto !important; }
+body[data-catalog-view="list"] .anime-list { width: auto; max-width: calc(100% - 48px) !important; margin-left: auto; margin-right: auto; box-sizing: border-box; }
+body[data-catalog-view="list"] .anime-list .anime-list { max-width: none !important; }
 /* очень широкие экраны: колонки сетки чуть крупнее, чтобы карточки не мельчили */
 @media (min-width: 1600px) { .catalog-grid { grid-template-columns: repeat(auto-fill, minmax(196px, 1fr)) !important; } }
-@media (max-width: 768px) { .anime-list.catalog-wide { max-width: none !important; } }
+@media (max-width: 768px) {
+  .anime-list.catalog-wide,
+  body[data-catalog-view="list"] .anime-list { max-width: none !important; }
+}
 /* Вложенный блок .anime-list (страницы сёнэн/сёдзё): в сетке без своих полей и рамки — иначе отступы двойные */
 .anime-list .anime-list.catalog-wide {
   max-width: none !important;
