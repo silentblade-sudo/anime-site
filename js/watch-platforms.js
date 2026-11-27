@@ -11,7 +11,7 @@
  *   suffix — необязательное слово, которое добавляется к названию в запросе (например, «аниме»);
  *   note   — короткая пометка мелким шрифтом (доступность, подписка).
  *
- * Адреса проверены 19.11.2026: поиск по ссылке подставляет запрос и показывает результаты.
+ * Адреса проверены 19.11.2026 (VK Видео — 27.11.2026): поиск по ссылке подставляет запрос и показывает результаты.
  * Не подошли (запрос из адреса игнорируется или сайт недоступен): IVI, KION, PREMIER, START,
  * HIDIVE, Wink (из части регионов открывается страница блокировки).
  */
@@ -20,10 +20,12 @@ window.WATCH_PLATFORMS = [
   { group: 'Онлайн-кинотеатры', name: 'Кинопоиск', url: 'https://www.kinopoisk.ru/index.php?kp_query={q}', query: 'ru' },
   { group: 'Онлайн-кинотеатры', name: 'Okko',      url: 'https://okko.tv/search/{q}',                     query: 'ru' },
 
-  // Официальные бесплатные каналы правообладателей и общий поиск YouTube
-  { group: 'Бесплатно на YouTube', name: 'Muse Asia',     url: 'https://www.youtube.com/@MuseAsia/search?query={q}',   query: 'en', note: 'официально' },
-  { group: 'Бесплатно на YouTube', name: 'Ani-One Asia',  url: 'https://www.youtube.com/@AniOneAsia/search?query={q}', query: 'en', note: 'официально' },
-  { group: 'Бесплатно на YouTube', name: 'Поиск YouTube', url: 'https://www.youtube.com/results?search_query={q}',     query: 'ru', suffix: 'аниме' },
+  // Официальные бесплатные каналы правообладателей, общий поиск YouTube и VK Видео
+  { group: 'Бесплатно: YouTube и VK Видео', name: 'Muse Asia',     url: 'https://www.youtube.com/@MuseAsia/search?query={q}',   query: 'en', note: 'официально' },
+  { group: 'Бесплатно: YouTube и VK Видео', name: 'Ani-One Asia',  url: 'https://www.youtube.com/@AniOneAsia/search?query={q}', query: 'en', note: 'официально' },
+  { group: 'Бесплатно: YouTube и VK Видео', name: 'Поиск YouTube', url: 'https://www.youtube.com/results?search_query={q}',     query: 'ru', suffix: 'аниме' },
+  // VK Видео: поиск по адресу vkvideo.ru/search?q= (проверено 27.11.2026 — запрос подставляется в поле, выдача по тайтлу)
+  { group: 'Бесплатно: YouTube и VK Видео', name: 'VK Видео',      url: 'https://vkvideo.ru/search?q={q}',                      query: 'ru', suffix: 'аниме', note: 'бесплатно' },
 
   // Зарубежные стриминги
   { group: 'Зарубежные стриминги', name: 'Crunchyroll', url: 'https://www.crunchyroll.com/search?q={q}',       query: 'en', note: 'не во всех странах' },

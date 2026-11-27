@@ -1,0 +1,60 @@
+rules_version = '2';
+
+// Правила Firestore проекта anime-world-3a951 — полный текст для Firebase Console → Firestore Database → Rules.
+// Файл намеренно НЕ подключён в firebase.json: правила публикуются вручную из консоли.
+//
+//   users/{userId}            — профиль и коллекция AnimeVerse, профиль Игрока, уведомления: только владелец
+//   chat_messages/{messageId} — чат сообщества: читают все, пишут вошедшие от своего имени, удаляет админ
+//   festivals/{festivalId}    — фестивали на pages/news.html: читают все, меняет только админ
+//   всё остальное             — закрыто
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Администратор сайта (Firebase Console → Authentication → UID; тот же UID — в js/chat-core.js → ADMIN_UIDS)
+    function isChatAdmin() {
+      return request.auth != null && request.auth.uid == 'rZMCKbIfA3NZX7Nj1YiXCB4aib22';
+    }
+
+    // ───────── Профиль пользователя ─────────
+    // Пишут: pages/login.html, pages/ssylky.html (AnimeVerse), js/player-core.js, js/player-notify.js —
+    // всегда set(..., { merge: true }) в свой документ.
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // ───────── Чат сообщества (js/chat-core.js) ─────────
+    match /chat_messages/{messageId} {
+      allow read: if true;
+
+      allow create: if request.auth != null
+        && request.resource.data.keys().hasOnly(['text', 'uid', 'name', 'createdAt', 'avatar'])
+        && request.resource.data.keys().hasAll(['text', 'uid', 'name', 'createdAt'])
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.text is string
+        && request.resource.data.text.trim().size() > 0
+        && request.resource.data.text.size() <= 500
+        && request.resource.data.name is string
+        && request.resource.data.name.size() > 0
+        && request.resource.data.name.size() <= 40
+        && request.resource.data.createdAt == request.time
+        // аватарка — необязательна: id картинки из img/avatars/ (строка до 200 символов вида avatar_xxx);
+        // личная «Алая луна» — только у администратора
+        && (!('avatar' in request.resource.data)
+            || (request.resource.data.avatar is string
+                && request.resource.data.avatar.size() <= 200
+                && request.resource.data.avatar.matches('^avatar_[a-z0-9_]{1,40}$')
+                && (!(request.resource.data.avatar in ['avatar_exclusive_crimson_moon', 'crimson-moon'])
+                    || isChatAdmin())));
+
+      allow update: if false;
+      allow delete: if isChatAdmin();
+    }
+
+    // ───────── Фестивали и премьеры (js/news-page.js — только чтение) ─────────
+    match /festivals/{festivalId} {
+      allow read: if true;
+      allow write: if isChatAdmin();
+    }
+  }
+}
