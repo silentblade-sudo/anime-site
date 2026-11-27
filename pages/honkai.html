@@ -8,7 +8,7 @@
   <link rel="icon" href="../img/logo-32.png" type="image/png" sizes="32x32">
   <link rel="icon" href="../img/logo-192.png" type="image/png" sizes="192x192">
   <link rel="apple-touch-icon" href="../img/logo-180.png">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Russo+One&family=JetBrains+Mono:wght@500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/site-search.css">
   <link rel="stylesheet" href="../css/back-to-top.css">
   <link rel="stylesheet" href="../css/theme.css">
@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="../css/player.css">
   <link rel="stylesheet" href="../css/chat.css">
   <link rel="stylesheet" href="../css/games.css">
+  <link rel="stylesheet" href="../css/game-honkai.css">
 </head>
 <body class="game-honkai">
   <header class="site-header">
@@ -36,135 +37,187 @@
     </div>
   </header>
 
-  <section class="g-hero" aria-labelledby="gameTitle">
-    <img class="g-cover" src="../img/games/honkai-cover.svg" alt="Обложка: Honkai Impact 3rd" width="220" height="330" decoding="async">
-    <div>
-      <p class="g-crumbs"><a href="../index.html">Главная</a> / <a href="games.html">Аниме игры</a> / Honkai Impact 3rd</p>
-      <h1 id="gameTitle">Honkai Impact <span>3rd</span></h1>
-      <p class="g-lead">Динамичная экшен-RPG от miHoYo (HoYoverse) о Валькириях, которые сражаются с Хонкаем — силой, способной уничтожить цивилизацию. Стремительные бои, кинематографичный сюжет и вселенная Honkai, которую позже продолжила Honkai: Star Rail.</p>
-      <ul class="g-chips" aria-label="Коротко об игре">
-        <li>Экшен-RPG, hack-and-slash</li>
-        <li>miHoYo / HoYoverse</li>
-        <li>Android, iOS, ПК</li>
-        <li>Бесплатно (внутриигровые покупки)</li>
-      </ul>
-      <div class="g-actions">
-        <a class="g-btn is-primary" href="https://honkaiimpact3.hoyoverse.com/" target="_blank" rel="noopener noreferrer">Официальный сайт ↗</a>
-        <a class="g-btn is-ghost" href="games.html">← Все игры</a>
+  <section class="hi-hero hi-wrap" aria-labelledby="gameTitle">
+    <div class="hi-hero-inner hi-cut">
+      <div>
+        <p class="hi-kicker hi-mono"><a href="../index.html">ГЛАВНАЯ</a> / <a href="games.html">АНИМЕ ИГРЫ</a> / БРИФИНГ: HONKAI IMPACT 3RD</p>
+        <h1 id="gameTitle">Honkai Impact <span>3rd</span></h1>
+        <p class="hi-lead">Динамичная экшен-RPG от miHoYo (HoYoverse) о Валькириях, которые сражаются с Хонкаем — силой, способной уничтожить цивилизацию. Стремительные бои, кинематографичный сюжет и мрачная научная фантастика за яркой аниме-картинкой.</p>
+        <ul class="hi-readouts" aria-label="Коротко об игре">
+          <li><small>ЖАНР</small>Экшен-RPG, слэшер</li>
+          <li><small>СТУДИЯ</small>miHoYo / HoYoverse</li>
+          <li><small>ПЛАТФОРМЫ</small>Android, iOS, ПК</li>
+          <li><small>ДОСТУП</small>Бесплатно, гача</li>
+        </ul>
+        <div class="hi-actions">
+          <a class="hi-btn hi-cut is-primary" href="https://honkaiimpact3.hoyoverse.com/" target="_blank" rel="noopener noreferrer">Официальный сайт ↗</a>
+          <a class="hi-btn hi-cut" href="games.html">← Все игры</a>
+        </div>
+      </div>
+      <div class="hi-frame">
+        <img src="../img/games/honkai-cover.svg" alt="Обложка: Honkai Impact 3rd" width="230" height="345" decoding="async">
       </div>
     </div>
   </section>
 
-  <nav class="g-tabs" aria-label="Разделы страницы">
-    <a href="#about">Об игре</a>
-    <a href="#world">Мир</a>
-    <a href="#combat">Бой</a>
-    <a href="#modes">Режимы</a>
-    <a href="#valkyries">Валькирии</a>
-    <a href="#other">Другие игры</a>
+  <nav class="hi-nav hi-wrap hi-cut" aria-label="Разделы страницы">
+    <a href="#about"><b>01</b>Об игре</a>
+    <a href="#world"><b>02</b>Мир</a>
+    <a href="#combat"><b>03</b>Бой</a>
+    <a href="#modes"><b>04</b>Режимы</a>
+    <a href="#valkyries"><b>05</b>Валькирии</a>
+    <a href="#other"><b>06</b>Другие игры</a>
   </nav>
 
-  <main class="g-main">
-    <section class="g-panel" id="about" aria-labelledby="aboutTitle">
-      <h2 class="g-title" id="aboutTitle">Об игре</h2>
-      <div class="g-split">
+  <main class="hi-main hi-wrap">
+    <section class="hi-sec hi-cut" id="about" aria-labelledby="aboutTitle">
+      <div class="hi-sec-head"><span class="hi-mono">// 01 — ОБЗОР</span><h2 id="aboutTitle">Об игре</h2></div>
+      <div class="hi-split">
         <div>
-          <p><strong>Honkai Impact 3rd</strong> — трёхмерный слэшер с элементами RPG. Игрок собирает отряд из трёх Валькирий — девушек-воительниц, способных противостоять Хонкаю, — и проходит главы сюжета, боссов и испытания, переключаясь между героинями прямо в бою.</p>
-          <p>Игра вышла в 2016 году и с тех пор регулярно обновляется: каждая крупная версия добавляет главы истории, новых Валькирий, события и режимы. Сюжет подаётся через полноценные анимационные ролики, комиксы и интерактивные эпизоды — серия славится кинематографичной постановкой.</p>
-          <p>После завершения первой большой сюжетной арки история продолжилась во <strong>второй части</strong>, а мир Honkai стал основой целой франшизы HoYoverse.</p>
+          <p><strong>Honkai Impact 3rd</strong> — трёхмерный слэшер с элементами RPG. Игрок — капитан боевого корабля — собирает отряд из трёх Валькирий и ведёт их через главы сюжета, боссов и испытания, переключаясь между героинями прямо в бою.</p>
+          <p>Игра вышла в 2016 году и с тех пор регулярно обновляется: каждая крупная версия добавляет главы истории, новых Валькирий, события и режимы. Сюжет подаётся через анимационные ролики, комиксы и интерактивные эпизоды — серия славится кинематографичной постановкой.</p>
+          <p>После завершения первой большой сюжетной арки история продолжилась во <strong>второй части</strong>, а вселенную Honkai позже развила Honkai: Star Rail.</p>
         </div>
-        <table class="g-info">
-          <caption>ПАСПОРТ ИГРЫ</caption>
-          <tr><th scope="row">Разработчик</th><td>miHoYo (HoYoverse)</td></tr>
-          <tr><th scope="row">Релиз</th><td>2016 (Китай), затем по всему миру</td></tr>
-          <tr><th scope="row">Жанр</th><td>Экшен-RPG, слэшер</td></tr>
-          <tr><th scope="row">Платформы</th><td>Android, iOS, ПК (Windows)</td></tr>
-          <tr><th scope="row">Модель</th><td>Free-to-play, гача-система</td></tr>
-          <tr><th scope="row">Движок</th><td>Unity</td></tr>
+        <table class="hi-term">
+          <caption>ДОСЬЕ ПРОЕКТА</caption>
+          <tr><th scope="row">developer</th><td>miHoYo (HoYoverse)</td></tr>
+          <tr><th scope="row">release</th><td>2016 (Китай), затем весь мир</td></tr>
+          <tr><th scope="row">genre</th><td>Экшен-RPG, слэшер</td></tr>
+          <tr><th scope="row">platforms</th><td>Android, iOS, ПК (Windows)</td></tr>
+          <tr><th scope="row">model</th><td>Free-to-play, гача</td></tr>
+          <tr><th scope="row">engine</th><td>Unity</td></tr>
         </table>
       </div>
     </section>
 
-    <section class="g-panel" id="world" aria-labelledby="worldTitle">
-      <h2 class="g-title" id="worldTitle">Мир и атмосфера</h2>
-      <p class="g-intro">Мрачная научная фантастика, где за яркой аниме-картинкой стоят катастрофы, жертвы и вечная борьба за «всё прекрасное в этом мире».</p>
-      <div class="g-grid is-3">
-        <article class="g-card"><div class="g-card-icon" aria-hidden="true">🌀</div><h3>Хонкай</h3><p>Загадочная сила, которая веками обрушивает на человечество катастрофы, порождает чудовищ и заражает людей. Цивилизация живёт в постоянной обороне.</p></article>
-        <article class="g-card"><div class="g-card-icon" aria-hidden="true">👑</div><h3>Херршеры</h3><p>Воплощения Хонкая с огромной властью — главные угрозы сюжета. Их появление способно стереть целые города, а их ядра — величайшая тайна мира.</p></article>
-        <article class="g-card"><div class="g-card-icon" aria-hidden="true">⚔️</div><h3>Шиксаль и Валькирии</h3><p>Древняя организация «Шиксаль» готовит Валькирий — бойцов, чьё тело выдерживает силу Хонкая. Им доверяют самые опасные операции.</p></article>
-        <article class="g-card"><div class="g-card-icon" aria-hidden="true">🏫</div><h3>Академия Святой Фрейи</h3><p>Школа Валькирий, где начинают путь главные героини. Учёба, дружба и тренировки — передышка между сражениями.</p></article>
-        <article class="g-card"><div class="g-card-icon" aria-hidden="true">🚀</div><h3>Гиперион</h3><p>Боевой корабль-база отряда. Отсюда капитан — сам игрок — отправляет Валькирий на задания по всему миру.</p></article>
-        <article class="g-card"><div class="g-card-icon" aria-hidden="true">🔥</div><h3>Прошлая эпоха</h3><p>До нынешней цивилизации существовала другая, проигравшая войну с Хонкаем. Её герои и наследие — ключ ко многим загадкам сюжета.</p></article>
+    <section class="hi-sec hi-cut" id="world" aria-labelledby="worldTitle">
+      <div class="hi-sec-head"><span class="hi-mono">// 02 — АРХИВ ШИКСАЛЯ</span><h2 id="worldTitle">Мир и атмосфера</h2>
+        <p>Мрачная научная фантастика, где за яркой аниме-картинкой стоят катастрофы, жертвы и вечная борьба «за всё прекрасное в этом мире».</p></div>
+      <div class="hi-archive">
+        <article class="hi-rec hi-cut"><code>ARC-01</code><h3>Хонкай</h3><p>Загадочная сила, которая веками обрушивает на человечество катастрофы, порождает чудовищ и заражает людей. Цивилизация живёт в постоянной обороне.</p></article>
+        <article class="hi-rec hi-cut"><code>ARC-02</code><h3>Херршеры</h3><p>Воплощения Хонкая с огромной властью — главные угрозы сюжета. Их пробуждение способно стереть целые города, а их ядра — величайшая тайна мира.</p></article>
+        <article class="hi-rec hi-cut"><code>ARC-03</code><h3>Шиксаль и Валькирии</h3><p>Древняя организация «Шиксаль» готовит Валькирий — бойцов, чьё тело выдерживает силу Хонкая. Им доверяют самые опасные операции.</p></article>
+        <article class="hi-rec hi-cut"><code>ARC-04</code><h3>Академия Святой Фрейи</h3><p>Школа Валькирий, где начинают путь главные героини. Учёба, дружба и тренировки — передышка между сражениями.</p></article>
+        <article class="hi-rec hi-cut"><code>ARC-05</code><h3>Гиперион</h3><p>Боевой корабль-база отряда. Отсюда капитан — сам игрок — отправляет Валькирий на задания по всему миру.</p></article>
+        <article class="hi-rec hi-cut"><code>ARC-06</code><h3>Прошлая эпоха</h3><p>До нынешней цивилизации существовала другая, проигравшая войну с Хонкаем. Её герои и наследие — ключ ко многим загадкам сюжета.</p></article>
       </div>
     </section>
 
-    <section class="g-panel" id="combat" aria-labelledby="combatTitle">
-      <h2 class="g-title" id="combatTitle">Боевая система</h2>
-      <p class="g-intro">Бой строится на уклонениях, комбо и смене героинь: правильная команда и тайминг важнее «прокачки ради прокачки».</p>
-      <div class="g-grid is-3">
-        <article class="g-card"><div class="g-card-icon" aria-hidden="true">🔺</div><h3>Типы Валькирий</h3><p>Механический (MECH), биологический (BIO) и псионический (PSY) типы образуют треугольник преимуществ: MECH > BIO > PSY > MECH. Отдельно стоят квантовый (QUA) и мнимый (IMG) типы.</p></article>
-        <article class="g-card"><div class="g-card-icon" aria-hidden="true">⏱️</div><h3>Идеальное уклонение</h3><p>Уклонение в последний момент запускает особые эффекты — у многих Валькирий это замедление времени вокруг врагов (Time Fracture), окно для безопасного урона.</p></article>
-        <article class="g-card"><div class="g-card-icon" aria-hidden="true">🔄</div><h3>Команда и QTE</h3><p>В отряде три героини. Смена в нужный момент — например, когда враг оглушён или заморожен, — запускает эффектную QTE-атаку и продолжает комбо без пауз.</p></article>
-        <article class="g-card"><div class="g-card-icon" aria-hidden="true">💥</div><h3>Ультимейт</h3><p>Шкала SP копится в бою и открывает ультимативный навык — от превращения героини до разрушительного удара по всей арене.</p></article>
-        <article class="g-card"><div class="g-card-icon" aria-hidden="true">🗡️</div><h3>Оружие и стигматы</h3><p>У каждой Валькирии оружие и три стигмата (верхний, средний и нижний). Комплект стигматов одного набора даёт сильные бонусы и меняет стиль игры.</p></article>
-        <article class="g-card"><div class="g-card-icon" aria-hidden="true">🔥</div><h3>Стихии урона</h3><p>Помимо физического урона есть огненный, ледяной и молниевый. Сочетание стихий, типов и баффов команды — основа сильных отрядов.</p></article>
+    <section class="hi-sec hi-cut" id="combat" aria-labelledby="combatTitle">
+      <div class="hi-sec-head"><span class="hi-mono">// 03 — БОЕВОЙ ПРОТОКОЛ</span><h2 id="combatTitle">Боевая система</h2>
+        <p>Бой строится на уклонениях, комбо и смене героинь: правильная команда и тайминг важнее «прокачки ради прокачки».</p></div>
+      <div class="hi-combat">
+        <figure class="hi-diagram hi-cut">
+          <svg viewBox="0 0 300 300" role="img" aria-labelledby="triTitle triDesc">
+            <title id="triTitle">Треугольник типов Валькирий</title>
+            <desc id="triDesc">MECH сильнее BIO, BIO сильнее PSY, PSY сильнее MECH; QUA и IMG сильны друг против друга.</desc>
+            <defs><marker id="hiArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#38e1ff"/></marker></defs>
+            <g fill="none" stroke="#38e1ff" stroke-width="2" marker-end="url(#hiArrow)">
+              <path d="M128 62 L64 168"/>
+              <path d="M78 196 L212 196"/>
+              <path d="M236 168 L172 62"/>
+            </g>
+            <g font-family="JetBrains Mono, Consolas, monospace" font-weight="700" font-size="15" text-anchor="middle">
+              <circle cx="150" cy="40" r="30" fill="#17213f" stroke="#ffd36b" stroke-width="2"/><text x="150" y="45" fill="#ffd36b">MECH</text>
+              <circle cx="52" cy="196" r="30" fill="#17213f" stroke="#7fffa0" stroke-width="2"/><text x="52" y="201" fill="#7fffa0">BIO</text>
+              <circle cx="248" cy="196" r="30" fill="#17213f" stroke="#ff7ac8" stroke-width="2"/><text x="248" y="201" fill="#ff7ac8">PSY</text>
+              <circle cx="96" cy="262" r="24" fill="#17213f" stroke="#b46bff" stroke-width="2"/><text x="96" y="267" fill="#b46bff" font-size="13">QUA</text>
+              <circle cx="204" cy="262" r="24" fill="#17213f" stroke="#38e1ff" stroke-width="2"/><text x="204" y="267" fill="#38e1ff" font-size="13">IMG</text>
+            </g>
+            <path d="M124 262 L176 262" stroke="#b46bff" stroke-width="2" stroke-dasharray="4 4"/>
+            <text x="150" y="254" fill="#93a0c4" font-family="JetBrains Mono, Consolas, monospace" font-size="11" text-anchor="middle">⇄</text>
+          </svg>
+          <figcaption><p>Стрелка указывает, кого тип побеждает. QUA и IMG — особая пара, сильная друг против друга.</p></figcaption>
+        </figure>
+        <ol class="hi-steps">
+          <li><b>Типы Валькирий</b><span>Механический (MECH), биологический (BIO) и псионический (PSY) типы образуют треугольник преимуществ; квантовый (QUA) и мнимый (IMG) сильны друг против друга. Правильный тип против врага — ощутимый бонус урона.</span></li>
+          <li><b>Идеальное уклонение</b><span>Уклонение в последний момент запускает особые эффекты — у многих Валькирий это замедление времени вокруг врагов (Time Fracture), окно для безопасного урона.</span></li>
+          <li><b>Команда и QTE</b><span>В отряде три героини. Смена в нужный момент — например, когда враг оглушён, подброшен или заморожен, — запускает эффектную QTE-атаку и продолжает комбо без пауз.</span></li>
+          <li><b>Ультимейт и SP</b><span>Шкала SP копится в бою и открывает ультимативный навык — от превращения героини до разрушительного удара по всей арене.</span></li>
+          <li><b>Оружие и стигматы</b><span>У каждой Валькирии оружие и три стигмата (верхний, средний и нижний). Комплект из одного набора даёт сильные бонусы и меняет стиль игры.</span></li>
+          <li><b>Стихии урона</b><span>Помимо физического урона есть огненный, ледяной и молниевый. Сочетание стихий, типов и баффов команды — основа сильных отрядов.</span></li>
+        </ol>
       </div>
     </section>
 
-    <section class="g-panel" id="modes" aria-labelledby="modesTitle">
-      <h2 class="g-title" id="modesTitle">Режимы и активности</h2>
-      <div class="g-grid is-3">
-        <article class="g-card"><div class="g-card-icon" aria-hidden="true">📖</div><h3>Сюжетная кампания</h3><p>Главы основной истории с катсценами, диалогами и боссами. Многие главы — полноценные эпизоды с собственной атмосферой и механиками.</p></article>
-        <article class="g-card"><div class="g-card-icon" aria-hidden="true">🗺️</div><h3>Открытые зоны</h3><p>Крупные исследуемые локации со своими заданиями, головоломками и сюжетом — передышка от коротких боевых этапов.</p></article>
-        <article class="g-card"><div class="g-card-icon" aria-hidden="true">🌌</div><h3>Бездна</h3><p>Соревновательный режим с еженедельными боями: игроки поднимаются по лигам, проходя сложные этапы с ограничениями.</p></article>
-        <article class="g-card"><div class="g-card-icon" aria-hidden="true">🏟️</div><h3>Мемориальная арена</h3><p>Сражения с сильными боссами на время. Результат влияет на рейтинг — нужна точная команда и знание паттернов врага.</p></article>
-        <article class="g-card"><div class="g-card-icon" aria-hidden="true">♾️</div><h3>Элизийское царство</h3><p>Режим в духе рогалика: забег с выбором усилений-печатей, где каждая попытка складывается по-новому.</p></article>
-        <article class="g-card"><div class="g-card-icon" aria-hidden="true">🤝</div><h3>Армада и совместные бои</h3><p>Гильдии игроков, совместные рейды против боссов и командные события.</p></article>
+    <section class="hi-sec hi-cut" id="modes" aria-labelledby="modesTitle">
+      <div class="hi-sec-head"><span class="hi-mono">// 04 — ОПЕРАЦИИ</span><h2 id="modesTitle">Режимы и активности</h2></div>
+      <div class="hi-modes">
+        <article class="hi-mode hi-cut"><div class="hi-mode-ico" aria-hidden="true">📖</div><h3>Сюжетная кампания</h3><p>Главы основной истории с катсценами, диалогами и боссами. Многие главы — полноценные эпизоды со своей атмосферой и механиками.</p></article>
+        <article class="hi-mode hi-cut"><div class="hi-mode-ico" aria-hidden="true">🗺️</div><h3>Открытые зоны</h3><p>Крупные исследуемые локации со своими заданиями, головоломками и сюжетом — передышка от коротких боевых этапов.</p></article>
+        <article class="hi-mode hi-cut"><div class="hi-mode-ico" aria-hidden="true">🌌</div><h3>Бездна</h3><p>Соревновательный режим с еженедельными боями: игроки поднимаются по лигам, проходя сложные этапы с ограничениями.</p></article>
+        <article class="hi-mode hi-cut"><div class="hi-mode-ico" aria-hidden="true">🏟️</div><h3>Мемориальная арена</h3><p>Сражения с сильными боссами на время. Результат влияет на рейтинг — нужна точная команда и знание паттернов врага.</p></article>
+        <article class="hi-mode hi-cut"><div class="hi-mode-ico" aria-hidden="true">♾️</div><h3>Элизийское царство</h3><p>Режим в духе рогалика: забег с выбором усилений-печатей, где каждая попытка складывается по-новому.</p></article>
+        <article class="hi-mode hi-cut"><div class="hi-mode-ico" aria-hidden="true">🤝</div><h3>Армада и совместные бои</h3><p>Гильдии игроков, совместные рейды против боссов и командные события.</p></article>
       </div>
     </section>
 
-    <section class="g-panel" id="valkyries" aria-labelledby="valkTitle">
-      <h2 class="g-title" id="valkTitle">Знаковые Валькирии</h2>
-      <p class="g-intro">У многих героинь несколько боевых форм («костюмов» — отдельных персонажей со своими навыками). Ниже — основные лица истории без подробных спойлеров.</p>
-      <div class="g-grid is-4">
-        <article class="g-card g-person">
-          <div class="g-person-head"><span class="g-emblem" style="--c:#ffd36b" aria-hidden="true">KK</span><div><h3>Киана Каслана</h3><small>Главная героиня</small></div></div>
-          <p>Неунывающая, упрямая и бесконечно добрая Валькирия. Её судьба тесно связана с тайной Хонкая — и именно вокруг неё строится главная история.</p>
+    <section class="hi-sec hi-cut" id="valkyries" aria-labelledby="valkTitle">
+      <div class="hi-sec-head"><span class="hi-mono">// 05 — ЛИЧНЫЕ ДЕЛА</span><h2 id="valkTitle">Знаковые Валькирии</h2>
+        <p>У многих героинь несколько боевых форм — отдельных персонажей со своими навыками. Ниже — основные лица истории без подробных спойлеров.</p></div>
+      <div class="hi-valks">
+        <article class="hi-valk hi-cut">
+          <div class="hi-valk-bar"><span>VALK-01</span><span>ДОПУСК: ОТКРЫТ</span></div>
+          <div class="hi-valk-body">
+            <div class="hi-valk-head"><span class="hi-hex" style="--c:#ffd36b" aria-hidden="true">KK</span><div><h3>Киана Каслана</h3><small>Главная героиня</small></div></div>
+            <p>Неунывающая, упрямая и бесконечно добрая Валькирия. Её судьба тесно связана с тайной Хонкая — именно вокруг неё строится главная история.</p>
+          </div>
         </article>
-        <article class="g-card g-person">
-          <div class="g-person-head"><span class="g-emblem" style="--c:#b38dff" aria-hidden="true">RM</span><div><h3>Райдэн Мэй</h3><small>Подруга и опора</small></div></div>
-          <p>Спокойная и заботливая девушка с катаной и силой молнии. Ради близких готова на всё — её линия одна из самых драматичных.</p>
+        <article class="hi-valk hi-cut">
+          <div class="hi-valk-bar"><span>VALK-02</span><span>ДОПУСК: ОТКРЫТ</span></div>
+          <div class="hi-valk-body">
+            <div class="hi-valk-head"><span class="hi-hex" style="--c:#b38dff" aria-hidden="true">RM</span><div><h3>Райдэн Мэй</h3><small>Подруга и опора</small></div></div>
+            <p>Спокойная и заботливая девушка с катаной и силой молнии. Ради близких готова на всё — её линия одна из самых драматичных.</p>
+          </div>
         </article>
-        <article class="g-card g-person">
-          <div class="g-person-head"><span class="g-emblem" style="--c:#9fd6ff" aria-hidden="true">BZ</span><div><h3>Броня Зайчик</h3><small>Гений техники</small></div></div>
-          <p>Немногословная любительница видеоигр и инженерный гений. Сражается огромными боевыми машинами собственной разработки.</p>
+        <article class="hi-valk hi-cut">
+          <div class="hi-valk-bar"><span>VALK-03</span><span>ДОПУСК: ОТКРЫТ</span></div>
+          <div class="hi-valk-body">
+            <div class="hi-valk-head"><span class="hi-hex" style="--c:#9fd6ff" aria-hidden="true">BZ</span><div><h3>Броня Зайчик</h3><small>Гений техники</small></div></div>
+            <p>Немногословная любительница видеоигр и инженерный гений. Сражается огромными боевыми машинами собственной разработки.</p>
+          </div>
         </article>
-        <article class="g-card g-person">
-          <div class="g-person-head"><span class="g-emblem" style="--c:#ff6b5a" aria-hidden="true">HM</span><div><h3>Химеко Мурата</h3><small>Капитан и наставница</small></div></div>
-          <p>Командир отряда и учитель героинь. Взрослая, решительная, владеет тяжёлым мечом — сердце первых глав истории.</p>
+        <article class="hi-valk hi-cut">
+          <div class="hi-valk-bar"><span>VALK-04</span><span>ДОПУСК: ОТКРЫТ</span></div>
+          <div class="hi-valk-body">
+            <div class="hi-valk-head"><span class="hi-hex" style="--c:#ff6b5a" aria-hidden="true">HM</span><div><h3>Химеко Мурата</h3><small>Капитан и наставница</small></div></div>
+            <p>Командир отряда и учитель героинь. Взрослая, решительная, владеет тяжёлым мечом — сердце первых глав истории.</p>
+          </div>
         </article>
-        <article class="g-card g-person">
-          <div class="g-person-head"><span class="g-emblem" style="--c:#ff9ad6" aria-hidden="true">TA</span><div><h3>Тереза Апокалипсис</h3><small>Директор академии</small></div></div>
-          <p>Глава Академии Святой Фрейи, выглядящая как ребёнок. Заботится о Валькириях как о семье и сражается гигантским крестом-оружием.</p>
+        <article class="hi-valk hi-cut">
+          <div class="hi-valk-bar"><span>VALK-05</span><span>ДОПУСК: ОТКРЫТ</span></div>
+          <div class="hi-valk-body">
+            <div class="hi-valk-head"><span class="hi-hex" style="--c:#ff9ad6" aria-hidden="true">TA</span><div><h3>Тереза Апокалипсис</h3><small>Директор академии</small></div></div>
+            <p>Глава Академии Святой Фрейи, выглядящая как ребёнок. Заботится о Валькириях как о семье и сражается гигантским крестом-оружием.</p>
+          </div>
         </article>
-        <article class="g-card g-person">
-          <div class="g-person-head"><span class="g-emblem" style="--c:#7fd6a8" aria-hidden="true">FH</span><div><h3>Фу Хуа</h3><small>Древняя воительница</small></div></div>
-          <p>Мастер боевых искусств и наставница с очень долгой историей. Сдержанная снаружи, она хранит память о прошлых эпохах.</p>
+        <article class="hi-valk hi-cut">
+          <div class="hi-valk-bar"><span>VALK-06</span><span>ДОПУСК: ОТКРЫТ</span></div>
+          <div class="hi-valk-body">
+            <div class="hi-valk-head"><span class="hi-hex" style="--c:#7fd6a8" aria-hidden="true">FH</span><div><h3>Фу Хуа</h3><small>Древняя воительница</small></div></div>
+            <p>Мастер боевых искусств и наставница с очень долгой историей. Сдержанная снаружи, она хранит память о прошлых эпохах.</p>
+          </div>
         </article>
-        <article class="g-card g-person">
-          <div class="g-person-head"><span class="g-emblem" style="--c:#7aa6ff" aria-hidden="true">SV</span><div><h3>Зеле Воллерай</h3><small>Две стороны</small></div></div>
-          <p>Робкая и нежная девушка, у которой есть вторая, дерзкая и опасная сторона. Вместе они учатся доверять друг другу.</p>
+        <article class="hi-valk hi-cut">
+          <div class="hi-valk-bar"><span>VALK-07</span><span>ДОПУСК: ОТКРЫТ</span></div>
+          <div class="hi-valk-body">
+            <div class="hi-valk-head"><span class="hi-hex" style="--c:#7aa6ff" aria-hidden="true">SV</span><div><h3>Зеле Воллерай</h3><small>Две стороны</small></div></div>
+            <p>Робкая и нежная девушка, у которой есть вторая, дерзкая и опасная сторона. Вместе они учатся доверять друг другу.</p>
+          </div>
         </article>
-        <article class="g-card g-person">
-          <div class="g-person-head"><span class="g-emblem" style="--c:#ff7ac8" aria-hidden="true">EL</span><div><h3>Элизия</h3><small>Из прошлой эпохи</small></div></div>
-          <p>Обаятельная героиня древнего отряда, сражавшегося с Хонкаем задолго до нынешних событий. Одна из любимиц фанатов.</p>
+        <article class="hi-valk hi-cut">
+          <div class="hi-valk-bar"><span>VALK-08</span><span>ДОПУСК: ОТКРЫТ</span></div>
+          <div class="hi-valk-body">
+            <div class="hi-valk-head"><span class="hi-hex" style="--c:#ff7ac8" aria-hidden="true">EL</span><div><h3>Элизия</h3><small>Из прошлой эпохи</small></div></div>
+            <p>Обаятельная героиня древнего отряда, сражавшегося с Хонкаем задолго до нынешних событий. Одна из любимиц фанатов.</p>
+          </div>
         </article>
       </div>
-      <p class="g-note">💡 Совет новичку: собирайте отряд вокруг одного типа и стихии, учитесь идеальному уклонению и не распыляйте ресурсы на всех героинь сразу.</p>
+      <div class="hi-sys hi-cut"><span class="hi-mono">SYS://СОВЕТ</span><span>Собирайте отряд вокруг одного типа и стихии, учитесь идеальному уклонению и не распыляйте ресурсы на всех героинь сразу.</span></div>
     </section>
 
-    <section class="g-panel" id="other" aria-labelledby="otherTitle">
-      <h2 class="g-title" id="otherTitle">Другие игры</h2>
+    <section class="hi-sec hi-cut" id="other" aria-labelledby="otherTitle">
+      <div class="hi-sec-head"><span class="hi-mono">// 06 — ДРУГИЕ МИССИИ</span><h2 id="otherTitle">Другие игры</h2></div>
       <div class="g-games is-3">
         <a class="g-game" href="page.html">
           <img src="../img/miside/cover-thumb.webp" alt="" width="96" height="144" loading="lazy" decoding="async">

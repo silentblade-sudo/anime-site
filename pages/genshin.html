@@ -8,7 +8,7 @@
   <link rel="icon" href="../img/logo-32.png" type="image/png" sizes="32x32">
   <link rel="icon" href="../img/logo-192.png" type="image/png" sizes="192x192">
   <link rel="apple-touch-icon" href="../img/logo-180.png">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/site-search.css">
   <link rel="stylesheet" href="../css/back-to-top.css">
   <link rel="stylesheet" href="../css/theme.css">
@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="../css/player.css">
   <link rel="stylesheet" href="../css/chat.css">
   <link rel="stylesheet" href="../css/games.css">
+  <link rel="stylesheet" href="../css/game-genshin.css">
 </head>
 <body class="game-genshin">
   <header class="site-header">
@@ -36,28 +37,28 @@
     </div>
   </header>
 
-  <section class="g-hero" aria-labelledby="gameTitle">
-    <img class="g-cover" src="../img/games/genshin-cover.svg" alt="Обложка: Genshin Impact" width="220" height="330" decoding="async">
+  <section class="gi-hero gi-wrap gi-frame-gold" aria-labelledby="gameTitle">
+    <div class="gi-cover"><img src="../img/games/genshin-cover.svg" alt="Обложка: Genshin Impact" width="220" height="330" decoding="async"></div>
     <div>
-      <p class="g-crumbs"><a href="../index.html">Главная</a> / <a href="games.html">Аниме игры</a> / Genshin Impact</p>
+      <p class="gi-crumbs"><a href="../index.html">Главная</a> · <a href="games.html">Аниме игры</a> · Дневник путешественника</p>
       <h1 id="gameTitle">Genshin <span>Impact</span></h1>
-      <p class="g-lead">Приключенческая RPG с огромным открытым миром Тейвата. Путешественник ищет потерянного близнеца, проходя через семь земель, каждой из которых правит свой бог-Архонт и своя стихия.</p>
-      <ul class="g-chips" aria-label="Коротко об игре">
+      <p class="gi-lead">Приключенческая RPG с огромным открытым миром Тейвата. Путешественник ищет потерянного близнеца, проходя через семь земель, каждой из которых правит свой бог-Архонт и своя стихия.</p>
+      <ul class="gi-stamps" aria-label="Коротко об игре">
         <li>Action-RPG, открытый мир</li>
-        <li>HoYoverse (miHoYo)</li>
-        <li>ПК, PS4/PS5, Xbox Series, Android, iOS</li>
-        <li>Бесплатно (внутриигровые покупки)</li>
+        <li>HoYoverse</li>
+        <li>ПК · PS4/PS5 · Xbox Series · Android · iOS</li>
+        <li>Бесплатно</li>
       </ul>
-      <div class="g-actions">
-        <a class="g-btn is-primary" href="https://genshin.hoyoverse.com/ru/" target="_blank" rel="noopener noreferrer">Официальный сайт ↗</a>
-        <a class="g-btn is-ghost" href="games.html">← Все игры</a>
+      <div class="gi-actions">
+        <a class="gi-btn is-primary" href="https://genshin.hoyoverse.com/ru/" target="_blank" rel="noopener noreferrer">Официальный сайт ↗</a>
+        <a class="gi-btn" href="games.html">← Все игры</a>
       </div>
     </div>
   </section>
 
-  <nav class="g-tabs" aria-label="Разделы страницы">
+  <nav class="gi-nav gi-wrap" aria-label="Разделы страницы">
     <a href="#about">Об игре</a>
-    <a href="#teyvat">Тейват</a>
+    <a href="#teyvat">Маршрут</a>
     <a href="#elements">Стихии</a>
     <a href="#team">Отряд</a>
     <a href="#explore">Исследование</a>
@@ -65,127 +66,114 @@
     <a href="#other">Другие игры</a>
   </nav>
 
-  <main class="g-main">
-    <section class="g-panel" id="about" aria-labelledby="aboutTitle">
-      <h2 class="g-title" id="aboutTitle">Об игре</h2>
-      <div class="g-split">
+  <main class="gi-main gi-wrap">
+    <section class="gi-chapter" id="about" aria-labelledby="aboutTitle">
+      <div class="gi-chapter-head"><small>Глава I</small><h2 id="aboutTitle">Об игре</h2></div>
+      <div class="gi-page gi-journal">
         <div>
-          <p><strong>Genshin Impact</strong> вышла 28 сентября 2020 года и стала одной из самых популярных игр в мире. Это action-RPG с огромным бесшовным миром: по нему можно бегать, лазать по скалам, парить на планере и плавать — почти любая гора на горизонте достижима.</p>
+          <p class="gi-dropcap"><strong>Genshin Impact</strong> вышла 28 сентября 2020 года и стала одной из самых популярных игр в мире. Это action-RPG с огромным бесшовным миром: по нему можно бегать, лазать по скалам, парить на планере и плавать — почти любая гора на горизонте достижима.</p>
           <p>Главный герой — <strong>Путешественник</strong>, пришедший из другого мира. Неизвестное божество разлучило его с близнецом, и вместе с маленькой спутницей <strong>Паймон</strong> он отправляется по землям Тейвата, чтобы найти родного человека и узнать правду о богах.</p>
-          <p>Игра регулярно получает крупные обновления: новые регионы, сюжетные главы, персонажей и события. Сюжет подаётся в задании Архонтов (главная история), заданиях легенд персонажей и мировых заданиях.</p>
+          <p>Игра регулярно получает крупные обновления: новые регионы, сюжетные главы, персонажей и события. Сюжет раскрывается в заданиях Архонтов (главная история), заданиях легенд персонажей и мировых заданиях.</p>
         </div>
-        <table class="g-info">
-          <caption>ПАСПОРТ ИГРЫ</caption>
-          <tr><th scope="row">Разработчик</th><td>HoYoverse (miHoYo)</td></tr>
-          <tr><th scope="row">Релиз</th><td>28 сентября 2020</td></tr>
-          <tr><th scope="row">Жанр</th><td>Action-RPG, открытый мир</td></tr>
-          <tr><th scope="row">Платформы</th><td>ПК, PS4, PS5, Xbox Series X|S, Android, iOS</td></tr>
-          <tr><th scope="row">Модель</th><td>Free-to-play, гача («Молитвы»)</td></tr>
-          <tr><th scope="row">Кооператив</th><td>До 4 игроков в мире</td></tr>
-        </table>
+        <div class="gi-ticket">
+          <h3>Путевой лист</h3>
+          <dl>
+            <dt>Разработчик</dt><dd>HoYoverse (miHoYo)</dd>
+            <dt>Релиз</dt><dd>28 сентября 2020</dd>
+            <dt>Жанр</dt><dd>Action-RPG, открытый мир</dd>
+            <dt>Платформы</dt><dd>ПК, PS4, PS5, Xbox Series X|S, Android, iOS</dd>
+            <dt>Модель</dt><dd>Free-to-play, «Молитвы»</dd>
+            <dt>Кооператив</dt><dd>До 4 игроков</dd>
+          </dl>
+        </div>
       </div>
     </section>
 
-    <section class="g-panel" id="teyvat" aria-labelledby="teyvatTitle">
-      <h2 class="g-title" id="teyvatTitle">Тейват: семь земель</h2>
-      <p class="g-intro">Каждой нацией правит Архонт — бог одной из семи стихий, и у каждой свой идеал, архитектура, музыка и культура. Люди, отмеченные богами, получают <b>Глаз Бога</b> — артефакт, позволяющий управлять стихией.</p>
-      <div class="g-grid is-4">
-        <article class="g-card"><div class="g-card-icon" aria-hidden="true">🍃</div><h3>Мондштадт</h3><p>Город свободы в зелёных долинах. Земля Анемо и бога ветров — с вином, бардами и рыцарями Ордо Фавониус.</p><span class="g-tag">Анемо · свобода</span></article>
-        <article class="g-card"><div class="g-card-icon" aria-hidden="true">⛰️</div><h3>Ли Юэ</h3><p>Торговая гавань у древних гор. Земля Гео и бога контрактов, где каждое слово — договор.</p><span class="g-tag">Гео · контракты</span></article>
-        <article class="g-card"><div class="g-card-icon" aria-hidden="true">⚡</div><h3>Инадзума</h3><p>Островное государство под вечной грозой. Земля Электро и правительницы, стремящейся к вечности.</p><span class="g-tag">Электро · вечность</span></article>
-        <article class="g-card"><div class="g-card-icon" aria-hidden="true">🌿</div><h3>Сумеру</h3><p>Джунгли и пустыни вокруг великой Академии. Земля Дендро и бога мудрости.</p><span class="g-tag">Дендро · мудрость</span></article>
-        <article class="g-card"><div class="g-card-icon" aria-hidden="true">💧</div><h3>Фонтейн</h3><p>Город изобретений, оперы и громких судов. Земля Гидро, где во всём ищут справедливость.</p><span class="g-tag">Гидро · справедливость</span></article>
-        <article class="g-card"><div class="g-card-icon" aria-hidden="true">🔥</div><h3>Натлан</h3><p>Земля вулканов и племён, чтящих доблесть. Земля Пиро и бога войны.</p><span class="g-tag">Пиро · война</span></article>
-        <article class="g-card"><div class="g-card-icon" aria-hidden="true">❄️</div><h3>Снежная</h3><p>Холодная северная держава Царицы — родина Фатуи. Её земли открываются в сюжете постепенно.</p><span class="g-tag">Крио · Фатуи</span></article>
-        <article class="g-card"><div class="g-card-icon" aria-hidden="true">🕳️</div><h3>Скрытые земли</h3><p>Подземные шахты Разлома, затонувшая Энканомия, глубины морей — тайны под картой Тейвата.</p><span class="g-tag">Подземелья · тайны</span></article>
+    <section class="gi-chapter" id="teyvat" aria-labelledby="teyvatTitle">
+      <div class="gi-chapter-head"><small>Глава II</small><h2 id="teyvatTitle">Маршрут по Тейвату</h2>
+        <p>Каждой нацией правит Архонт — бог одной из семи стихий. Люди, отмеченные богами, получают Глаз Бога — артефакт, позволяющий управлять стихией.</p></div>
+      <div class="gi-route">
+        <article class="gi-stop" style="--c:#74c2a8"><h3>Мондштадт</h3><em>Анемо · свобода</em><p>Город свободы в зелёных долинах — с вином, бардами и рыцарями Ордо Фавониус. Здесь начинается путешествие.</p></article>
+        <article class="gi-stop" style="--c:#f0b232"><h3>Ли Юэ</h3><em>Гео · контракты</em><p>Торговая гавань у древних каменных гор, где каждое слово — договор, а история измеряется тысячелетиями.</p></article>
+        <article class="gi-stop" style="--c:#b38dc1"><h3>Инадзума</h3><em>Электро · вечность</em><p>Островное государство под вечной грозой, правительница которого стремится к неизменности.</p></article>
+        <article class="gi-stop" style="--c:#a5c83b"><h3>Сумеру</h3><em>Дендро · мудрость</em><p>Джунгли и пустыни вокруг великой Академии — земля учёных, снов и древних руин.</p></article>
+        <article class="gi-stop" style="--c:#4cc2f1"><h3>Фонтейн</h3><em>Гидро · справедливость</em><p>Город изобретений, оперы и громких судебных процессов, где во всём ищут справедливость.</p></article>
+        <article class="gi-stop" style="--c:#ef7938"><h3>Натлан</h3><em>Пиро · война</em><p>Земля вулканов и племён, чтящих доблесть и память о павших героях.</p></article>
+        <article class="gi-stop" style="--c:#9fd6e3"><h3>Снежная</h3><em>Крио · Фатуи</em><p>Холодная северная держава Царицы и родина Фатуи; её земли открываются в сюжете постепенно.</p></article>
+        <article class="gi-stop" style="--c:#e6c27a"><h3>Скрытые земли</h3><em>Подземелья · тайны</em><p>Шахты Разлома, затонувшая Энканомия, морские глубины — тайны под картой Тейвата.</p></article>
       </div>
     </section>
 
-    <section class="g-panel" id="elements" aria-labelledby="elemTitle">
-      <h2 class="g-title" id="elemTitle">Стихийные реакции</h2>
-      <p class="g-intro">Главная идея боя: наложите на врага одну стихию, затем ударьте другой — и получите реакцию с особым эффектом. Сильные отряды строятся именно вокруг реакций.</p>
-      <div class="g-grid is-4">
-        <div class="g-card g-react"><i class="g-dot" style="--c:#ef7938"></i><div><b>Пар (Vaporize)</b><span>Гидро + Пиро — усиленный урон одной атаки.</span></div></div>
-        <div class="g-card g-react"><i class="g-dot" style="--c:#9fd6e3"></i><div><b>Таяние (Melt)</b><span>Пиро + Крио — мощный множитель урона.</span></div></div>
-        <div class="g-card g-react"><i class="g-dot" style="--c:#b38dc1"></i><div><b>Перегрузка (Overloaded)</b><span>Пиро + Электро — взрыв по области.</span></div></div>
-        <div class="g-card g-react"><i class="g-dot" style="--c:#c5b3ff"></i><div><b>Сверхпроводник (Superconduct)</b><span>Крио + Электро — снижает физическую защиту.</span></div></div>
-        <div class="g-card g-react"><i class="g-dot" style="--c:#4cc2f1"></i><div><b>Заряд (Electro-Charged)</b><span>Гидро + Электро — урон током со временем.</span></div></div>
-        <div class="g-card g-react"><i class="g-dot" style="--c:#bfe9f5"></i><div><b>Заморозка (Frozen)</b><span>Гидро + Крио — враг скован льдом.</span></div></div>
-        <div class="g-card g-react"><i class="g-dot" style="--c:#74c2a8"></i><div><b>Рассеивание (Swirl)</b><span>Анемо + стихия — разносит её по врагам вокруг.</span></div></div>
-        <div class="g-card g-react"><i class="g-dot" style="--c:#f0b232"></i><div><b>Кристаллизация (Crystallize)</b><span>Гео + стихия — создаёт защитный щит.</span></div></div>
-        <div class="g-card g-react"><i class="g-dot" style="--c:#ff9f5a"></i><div><b>Горение (Burning)</b><span>Дендро + Пиро — огонь, который держится на враге.</span></div></div>
-        <div class="g-card g-react"><i class="g-dot" style="--c:#a5c83b"></i><div><b>Цветение (Bloom)</b><span>Дендро + Гидро — взрывающиеся дендро-ядра.</span></div></div>
-        <div class="g-card g-react"><i class="g-dot" style="--c:#cbe06a"></i><div><b>Катализ (Quicken)</b><span>Дендро + Электро — усиливает следующие удары.</span></div></div>
-        <div class="g-card g-react"><i class="g-dot" style="--c:#e6c27a"></i><div><b>Резонанс стихий</b><span>Два героя одной стихии в отряде дают общий бонус.</span></div></div>
+    <section class="gi-chapter" id="elements" aria-labelledby="elemTitle">
+      <div class="gi-chapter-head"><small>Глава III</small><h2 id="elemTitle">Семь стихий и реакции</h2>
+        <p>Наложите на врага одну стихию, затем ударьте другой — и получите реакцию с особым эффектом. Сильные отряды строятся именно вокруг реакций.</p></div>
+      <div class="gi-wheel" aria-label="Семь стихий Тейвата">
+        <div class="gi-orb"><i style="--c:#74c2a8" aria-hidden="true"></i><span>Анемо</span></div>
+        <div class="gi-orb"><i style="--c:#f0b232" aria-hidden="true"></i><span>Гео</span></div>
+        <div class="gi-orb"><i style="--c:#b38dc1" aria-hidden="true"></i><span>Электро</span></div>
+        <div class="gi-orb"><i style="--c:#a5c83b" aria-hidden="true"></i><span>Дендро</span></div>
+        <div class="gi-orb"><i style="--c:#4cc2f1" aria-hidden="true"></i><span>Гидро</span></div>
+        <div class="gi-orb"><i style="--c:#ef7938" aria-hidden="true"></i><span>Пиро</span></div>
+        <div class="gi-orb"><i style="--c:#9fd6e3" aria-hidden="true"></i><span>Крио</span></div>
+      </div>
+      <div class="gi-recipes">
+        <article class="gi-recipe"><div class="gi-mix"><i style="--c:#4cc2f1"></i><i style="--c:#ef7938"></i>Гидро + Пиро</div><b>Пар (Vaporize)</b><span>Усиленный урон одной атаки.</span></article>
+        <article class="gi-recipe"><div class="gi-mix"><i style="--c:#ef7938"></i><i style="--c:#9fd6e3"></i>Пиро + Крио</div><b>Таяние (Melt)</b><span>Мощный множитель урона.</span></article>
+        <article class="gi-recipe"><div class="gi-mix"><i style="--c:#ef7938"></i><i style="--c:#b38dc1"></i>Пиро + Электро</div><b>Перегрузка (Overloaded)</b><span>Взрыв по области.</span></article>
+        <article class="gi-recipe"><div class="gi-mix"><i style="--c:#9fd6e3"></i><i style="--c:#b38dc1"></i>Крио + Электро</div><b>Сверхпроводник (Superconduct)</b><span>Снижает физическую защиту.</span></article>
+        <article class="gi-recipe"><div class="gi-mix"><i style="--c:#4cc2f1"></i><i style="--c:#b38dc1"></i>Гидро + Электро</div><b>Заряд (Electro-Charged)</b><span>Урон током со временем.</span></article>
+        <article class="gi-recipe"><div class="gi-mix"><i style="--c:#4cc2f1"></i><i style="--c:#9fd6e3"></i>Гидро + Крио</div><b>Заморозка (Frozen)</b><span>Враг скован льдом.</span></article>
+        <article class="gi-recipe"><div class="gi-mix"><i style="--c:#74c2a8"></i><i style="--c:#e6c27a"></i>Анемо + стихия</div><b>Рассеивание (Swirl)</b><span>Разносит стихию по врагам вокруг.</span></article>
+        <article class="gi-recipe"><div class="gi-mix"><i style="--c:#f0b232"></i><i style="--c:#e6c27a"></i>Гео + стихия</div><b>Кристаллизация (Crystallize)</b><span>Создаёт защитный щит.</span></article>
+        <article class="gi-recipe"><div class="gi-mix"><i style="--c:#a5c83b"></i><i style="--c:#ef7938"></i>Дендро + Пиро</div><b>Горение (Burning)</b><span>Огонь, который держится на враге.</span></article>
+        <article class="gi-recipe"><div class="gi-mix"><i style="--c:#a5c83b"></i><i style="--c:#4cc2f1"></i>Дендро + Гидро</div><b>Цветение (Bloom)</b><span>Взрывающиеся дендро-ядра.</span></article>
+        <article class="gi-recipe"><div class="gi-mix"><i style="--c:#a5c83b"></i><i style="--c:#b38dc1"></i>Дендро + Электро</div><b>Катализ (Quicken)</b><span>Усиливает следующие удары.</span></article>
+        <article class="gi-recipe"><div class="gi-mix"><i style="--c:#e6c27a"></i><i style="--c:#e6c27a"></i>Два героя одной стихии</div><b>Резонанс стихий</b><span>Общий бонус всему отряду.</span></article>
       </div>
     </section>
 
-    <section class="g-panel" id="team" aria-labelledby="teamTitle">
-      <h2 class="g-title" id="teamTitle">Командный геймплей</h2>
-      <div class="g-grid is-4">
-        <article class="g-card"><div class="g-card-icon" aria-hidden="true">👥</div><h3>Отряд из четырёх</h3><p>В бою активен один герой, остальные — в резерве. Переключение мгновенное: задача — сменять героев так, чтобы навыки и реакции шли без пауз.</p></article>
-        <article class="g-card"><div class="g-card-icon" aria-hidden="true">✨</div><h3>Навык и взрыв стихий</h3><p>У каждого героя элементальный навык (короткая перезарядка) и взрыв стихий — мощный приём, который заряжается энергией из боя.</p></article>
-        <article class="g-card"><div class="g-card-icon" aria-hidden="true">🎯</div><h3>Роли в команде</h3><p>Основной урон, поддержка и «вспомогательный урон», лечение и щиты. Хороший отряд закрывает все роли и строится вокруг реакций.</p></article>
-        <article class="g-card"><div class="g-card-icon" aria-hidden="true">📈</div><h3>Развитие героя</h3><p>Уровни и возвышение, таланты, оружие и пять артефактов. Наборы артефактов дают бонусы, а созвездия открывают новые эффекты.</p></article>
+    <section class="gi-chapter" id="team" aria-labelledby="teamTitle">
+      <div class="gi-chapter-head"><small>Глава IV</small><h2 id="teamTitle">Командный геймплей</h2></div>
+      <div class="gi-notes is-4">
+        <article class="gi-note"><div class="gi-ico" aria-hidden="true">👥</div><h3>Отряд из четырёх</h3><p>В бою активен один герой, остальные — в резерве. Переключение мгновенное: задача — сменять героев так, чтобы навыки и реакции шли без пауз.</p></article>
+        <article class="gi-note"><div class="gi-ico" aria-hidden="true">✨</div><h3>Навык и взрыв стихий</h3><p>У каждого героя элементальный навык (короткая перезарядка) и взрыв стихий — мощный приём, который заряжается энергией из боя.</p></article>
+        <article class="gi-note"><div class="gi-ico" aria-hidden="true">🎯</div><h3>Роли в команде</h3><p>Основной урон, поддержка и «вспомогательный урон», лечение и щиты. Хороший отряд закрывает все роли и строится вокруг реакций.</p></article>
+        <article class="gi-note"><div class="gi-ico" aria-hidden="true">📈</div><h3>Развитие героя</h3><p>Уровни и возвышение, таланты, оружие и пять артефактов. Наборы артефактов дают бонусы, а созвездия открывают новые эффекты.</p></article>
       </div>
     </section>
 
-    <section class="g-panel" id="explore" aria-labelledby="exploreTitle">
-      <h2 class="g-title" id="exploreTitle">Исследование и активности</h2>
-      <div class="g-grid is-4">
-        <article class="g-card"><div class="g-card-icon" aria-hidden="true">🪂</div><h3>Свобода передвижения</h3><p>Лазание по скалам, полёт на планере, плавание и особые способы перемещения в каждом регионе.</p></article>
-        <article class="g-card"><div class="g-card-icon" aria-hidden="true">🗿</div><h3>Статуи Семи и телепорты</h3><p>Статуи открывают карту и лечат отряд, точки телепортации ускоряют путешествия по огромному миру.</p></article>
-        <article class="g-card"><div class="g-card-icon" aria-hidden="true">🧩</div><h3>Сундуки и головоломки</h3><p>Окулусы, загадки с механизмами, испытания на время и спрятанные сундуки — мир щедро награждает любопытных.</p></article>
-        <article class="g-card"><div class="g-card-icon" aria-hidden="true">🏛️</div><h3>Подземелья и боссы</h3><p>Подземелья с наградами за артефакты и материалы, мировые и еженедельные боссы с уникальными механиками.</p></article>
-        <article class="g-card"><div class="g-card-icon" aria-hidden="true">🌀</div><h3>Витая Бездна</h3><p>Испытание для сильных отрядов: этажи с ограничением по времени, обновляющиеся раз в цикл.</p></article>
-        <article class="g-card"><div class="g-card-icon" aria-hidden="true">🎭</div><h3>Театр «Воображариум»</h3><p>Режим, где отряд собирается из разрешённых стихий и гостевых героев, — проверка всей коллекции персонажей.</p></article>
-        <article class="g-card"><div class="g-card-icon" aria-hidden="true">🫖</div><h3>Чайник безмятежности</h3><p>Личное царство-дом: обустройте сад и комнаты, пригласите героев в гости.</p></article>
-        <article class="g-card"><div class="g-card-icon" aria-hidden="true">🃏</div><h3>Священный призыв семерых</h3><p>Карточная игра внутри игры: колоды из персонажей, турниры и отдельная прокачка.</p></article>
+    <section class="gi-chapter" id="explore" aria-labelledby="exploreTitle">
+      <div class="gi-chapter-head"><small>Глава V</small><h2 id="exploreTitle">Исследование и занятия</h2></div>
+      <div class="gi-notes is-4">
+        <article class="gi-note"><div class="gi-ico" aria-hidden="true">🪂</div><h3>Свобода передвижения</h3><p>Лазание по скалам, полёт на планере, плавание и особые способы перемещения в каждом регионе.</p></article>
+        <article class="gi-note"><div class="gi-ico" aria-hidden="true">🗿</div><h3>Статуи Семи</h3><p>Статуи открывают карту и лечат отряд, а точки телепортации ускоряют путешествия.</p></article>
+        <article class="gi-note"><div class="gi-ico" aria-hidden="true">🧩</div><h3>Сундуки и загадки</h3><p>Окулусы, механизмы, испытания на время и спрятанные сундуки — мир награждает любопытных.</p></article>
+        <article class="gi-note"><div class="gi-ico" aria-hidden="true">🏛️</div><h3>Подземелья и боссы</h3><p>Подземелья за артефакты и материалы, мировые и еженедельные боссы с уникальными механиками.</p></article>
+        <article class="gi-note"><div class="gi-ico" aria-hidden="true">🌀</div><h3>Витая Бездна</h3><p>Испытание для сильных отрядов: этажи с ограничением по времени, обновляющиеся раз в цикл.</p></article>
+        <article class="gi-note"><div class="gi-ico" aria-hidden="true">🎭</div><h3>Театр «Воображариум»</h3><p>Отряд собирается из разрешённых стихий и гостевых героев — проверка всей коллекции.</p></article>
+        <article class="gi-note"><div class="gi-ico" aria-hidden="true">🫖</div><h3>Чайник безмятежности</h3><p>Личное царство-дом: обустройте сад и комнаты, пригласите героев в гости.</p></article>
+        <article class="gi-note"><div class="gi-ico" aria-hidden="true">🃏</div><h3>Священный призыв семерых</h3><p>Карточная игра внутри игры: колоды из персонажей, турниры и отдельная прокачка.</p></article>
       </div>
     </section>
 
-    <section class="g-panel" id="chars" aria-labelledby="charsTitle">
-      <h2 class="g-title" id="charsTitle">Ключевые персонажи</h2>
-      <p class="g-intro">Путеводные лица главной истории: спутники Путешественника и Архонты, правящие землями Тейвата.</p>
-      <div class="g-grid is-4">
-        <article class="g-card g-person">
-          <div class="g-person-head"><span class="g-emblem" style="--c:#e6c27a" aria-hidden="true">П</span><div><h3>Путешественник</h3><small>Главный герой</small></div></div>
-          <p>Странник из другого мира — Итэр или Люмин на выбор игрока. Может пользоваться силами нескольких стихий.</p>
-        </article>
-        <article class="g-card g-person">
-          <div class="g-person-head"><span class="g-emblem" style="--c:#f4f4ff" aria-hidden="true">Па</span><div><h3>Паймон</h3><small>Спутница и гид</small></div></div>
-          <p>Маленькая болтливая летающая спутница. Объясняет мир, даёт прозвища всем вокруг и обожает вкусно поесть.</p>
-        </article>
-        <article class="g-card g-person">
-          <div class="g-person-head"><span class="g-emblem" style="--c:#74c2a8" aria-hidden="true">В</span><div><h3>Венти</h3><small>Архонт Анемо</small></div></div>
-          <p>Беззаботный бард из Мондштадта, любитель вина и песен. За лёгким характером скрывается древний бог ветров.</p>
-        </article>
-        <article class="g-card g-person">
-          <div class="g-person-head"><span class="g-emblem" style="--c:#f0b232" aria-hidden="true">Ч</span><div><h3>Чжун Ли</h3><small>Архонт Гео</small></div></div>
-          <p>Консультант похоронного бюро в Ли Юэ, знаток истории и традиций. Его спокойствие — от прожитых тысячелетий.</p>
-        </article>
-        <article class="g-card g-person">
-          <div class="g-person-head"><span class="g-emblem" style="--c:#b38dc1" aria-hidden="true">Р</span><div><h3>Райдэн Сёгун</h3><small>Архонт Электро</small></div></div>
-          <p>Правительница Инадзумы, стремящаяся к вечности. Её решения определяют судьбу всей островной страны.</p>
-        </article>
-        <article class="g-card g-person">
-          <div class="g-person-head"><span class="g-emblem" style="--c:#a5c83b" aria-hidden="true">Н</span><div><h3>Нахида</h3><small>Архонт Дендро</small></div></div>
-          <p>Юная богиня мудрости Сумеру. Любознательная и добрая, она понимает людей через их мечты и мысли.</p>
-        </article>
-        <article class="g-card g-person">
-          <div class="g-person-head"><span class="g-emblem" style="--c:#4cc2f1" aria-hidden="true">Ф</span><div><h3>Фурина</h3><small>Архонт Гидро</small></div></div>
-          <p>Звезда сцены Фонтейна, обожающая театр и внимание публики. Её история — одна из самых трогательных в игре.</p>
-        </article>
-        <article class="g-card g-person">
-          <div class="g-person-head"><span class="g-emblem" style="--c:#ef7938" aria-hidden="true">М</span><div><h3>Мавуика</h3><small>Архонт Пиро</small></div></div>
-          <p>Решительная предводительница Натлана, ведущая свой народ в битвах за выживание земли вулканов.</p>
-        </article>
+    <section class="gi-chapter" id="chars" aria-labelledby="charsTitle">
+      <div class="gi-chapter-head"><small>Глава VI</small><h2 id="charsTitle">Спутники и Архонты</h2>
+        <p>Путеводные лица главной истории: спутники Путешественника и боги, правящие землями Тейвата.</p></div>
+      <div class="gi-medals">
+        <article class="gi-medal" style="--c:#e6c27a"><span class="gi-face" aria-hidden="true">П</span><h3>Путешественник</h3><small>Главный герой</small><p>Странник из другого мира — Итэр или Люмин на выбор игрока. Может пользоваться силами нескольких стихий.</p></article>
+        <article class="gi-medal" style="--c:#cfd8ff"><span class="gi-face" aria-hidden="true">Па</span><h3>Паймон</h3><small>Спутница и гид</small><p>Маленькая болтливая летающая спутница. Объясняет мир, даёт прозвища всем вокруг и обожает вкусно поесть.</p></article>
+        <article class="gi-medal" style="--c:#74c2a8"><span class="gi-face" aria-hidden="true">В</span><h3>Венти</h3><small>Архонт Анемо</small><p>Беззаботный бард из Мондштадта, любитель вина и песен. За лёгким характером скрывается древний бог ветров.</p></article>
+        <article class="gi-medal" style="--c:#f0b232"><span class="gi-face" aria-hidden="true">Ч</span><h3>Чжун Ли</h3><small>Архонт Гео</small><p>Консультант похоронного бюро в Ли Юэ, знаток истории и традиций. Его спокойствие — от прожитых тысячелетий.</p></article>
+        <article class="gi-medal" style="--c:#b38dc1"><span class="gi-face" aria-hidden="true">Р</span><h3>Райдэн Сёгун</h3><small>Архонт Электро</small><p>Правительница Инадзумы, стремящаяся к вечности. Её решения определяют судьбу всей островной страны.</p></article>
+        <article class="gi-medal" style="--c:#a5c83b"><span class="gi-face" aria-hidden="true">Н</span><h3>Нахида</h3><small>Архонт Дендро</small><p>Юная богиня мудрости Сумеру. Любознательная и добрая, она понимает людей через их мечты и мысли.</p></article>
+        <article class="gi-medal" style="--c:#4cc2f1"><span class="gi-face" aria-hidden="true">Ф</span><h3>Фурина</h3><small>Архонт Гидро</small><p>Звезда сцены Фонтейна, обожающая театр и внимание публики. Её история — одна из самых трогательных в игре.</p></article>
+        <article class="gi-medal" style="--c:#ef7938"><span class="gi-face" aria-hidden="true">М</span><h3>Мавуика</h3><small>Архонт Пиро</small><p>Решительная предводительница Натлана, ведущая свой народ в битвах за выживание земли вулканов.</p></article>
       </div>
-      <p class="g-note">💡 Совет новичку: проходите задания Архонтов по порядку — они открывают регионы и системы игры, а стартовых бесплатных героев достаточно для всего основного сюжета.</p>
+      <p class="gi-tip">🧭 Совет новичку: проходите задания Архонтов по порядку — они открывают регионы и системы игры, а стартовых бесплатных героев достаточно для всего основного сюжета.</p>
     </section>
 
-    <section class="g-panel" id="other" aria-labelledby="otherTitle">
-      <h2 class="g-title" id="otherTitle">Другие игры</h2>
+    <section class="gi-chapter gi-other" id="other" aria-labelledby="otherTitle">
+      <div class="gi-chapter-head"><small>Эпилог</small><h2 id="otherTitle">Другие игры</h2></div>
       <div class="g-games is-3">
         <a class="g-game" href="page.html">
           <img src="../img/miside/cover-thumb.webp" alt="" width="96" height="144" loading="lazy" decoding="async">

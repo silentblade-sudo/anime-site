@@ -1,0 +1,295 @@
+/* Genshin Impact — тема «дневник путешественника по Тейвату»: ночное небо, тёплое золото,
+   пергаментные страницы, маршрут по семи землям и колесо стихий.
+   Подключается только на pages/genshin.html поверх css/games.css (шапка/футер сайта). */
+
+body.game-genshin {
+  --gi-night: #0c1630;
+  --gi-night-2: #13244a;
+  --gi-gold: #e6c27a;
+  --gi-gold-2: #f6e3b4;
+  --gi-paper: #f4ead3;
+  --gi-paper-2: #eadcbc;
+  --gi-ink: #3b2c1a;
+  --gi-ink-soft: #6b5638;
+  --gi-teal: #59c3c3;
+  --g-accent: #e6c27a;
+  --g-accent-2: #f6e3b4;
+  --g-line: rgba(230, 194, 122, 0.4);
+  --g-accent-soft: rgba(230, 194, 122, 0.14);
+  color: #f3ead6;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(255, 255, 255, 0.7) 0 1px, transparent 1.5px) 0 0 / 220px 220px,
+    radial-gradient(circle at 70% 60%, rgba(255, 255, 255, 0.5) 0 1px, transparent 1.5px) 0 0 / 300px 300px,
+    radial-gradient(ellipse 80% 500px at 50% -120px, rgba(230, 194, 122, 0.25), transparent 70%),
+    linear-gradient(180deg, var(--gi-night), var(--gi-night-2) 55%, #1d2a3a);
+  background-attachment: fixed;
+}
+.game-genshin .gi-wrap { width: min(1240px, calc(100% - 48px)); margin-left: auto; margin-right: auto; }
+.game-genshin .gi-serif { font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif; }
+
+/* золотая «гравированная» рамка */
+.gi-frame-gold {
+  border: 1px solid rgba(230, 194, 122, 0.55);
+  box-shadow: inset 0 0 0 4px rgba(12, 22, 48, 0.6), inset 0 0 0 5px rgba(230, 194, 122, 0.35), 0 16px 40px rgba(0, 0, 0, 0.45);
+}
+
+/* ───────── обложка дневника (герой) ───────── */
+.gi-hero {
+  margin: 30px auto 0;
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 34px;
+  align-items: center;
+  padding: 32px 34px;
+  border-radius: 20px;
+  background:
+    radial-gradient(circle at 85% 20%, rgba(89, 195, 195, 0.18), transparent 45%),
+    linear-gradient(135deg, rgba(230, 194, 122, 0.14), rgba(12, 22, 48, 0.4) 60%),
+    rgba(12, 22, 48, 0.85);
+}
+.gi-cover { position: relative; }
+.gi-cover img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid var(--gi-gold);
+  box-shadow: 0 0 0 6px rgba(230, 194, 122, 0.15), 0 18px 36px rgba(0, 0, 0, 0.5);
+}
+.gi-crumbs { margin: 0 0 6px; font-size: 14px; color: #c9b993; }
+.gi-crumbs a { color: #c9b993; text-decoration: none; }
+.gi-crumbs a:hover { color: var(--gi-gold-2); }
+.gi-hero h1 { margin: 0; font: 700 clamp(36px, 5vw, 60px)/1 'Cormorant Garamond', Georgia, serif; color: var(--gi-gold-2); letter-spacing: 0.02em; text-shadow: 0 2px 18px rgba(230, 194, 122, 0.35); }
+.gi-hero h1 span { color: var(--gi-gold); font-style: italic; }
+.gi-lead { max-width: 720px; margin: 12px 0 0; font-size: 17.5px; color: #e9dfc6; }
+.gi-stamps { display: flex; flex-wrap: wrap; gap: 10px; margin: 18px 0 0; padding: 0; list-style: none; }
+.gi-stamps li {
+  padding: 5px 14px;
+  border: 1.5px dashed rgba(230, 194, 122, 0.7);
+  border-radius: 8px;
+  color: var(--gi-gold-2);
+  font-size: 13.5px;
+  transform: rotate(-1deg);
+}
+.gi-stamps li:nth-child(even) { transform: rotate(1.2deg); }
+.gi-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+.gi-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 10px 22px;
+  border: 1.5px solid var(--gi-gold);
+  border-radius: 999px;
+  color: var(--gi-gold-2);
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.gi-btn:hover { background: rgba(230, 194, 122, 0.14); box-shadow: 0 0 16px rgba(230, 194, 122, 0.35); }
+.gi-btn.is-primary { background: linear-gradient(180deg, #f3d99b, #d6a84f); color: #2b1d0a; border-color: #f3d99b; }
+.gi-btn.is-primary:hover { filter: brightness(1.06); }
+
+/* ───────── закладки дневника ───────── */
+.gi-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  margin: 18px auto 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px;
+  border-radius: 999px;
+  background: rgba(12, 22, 48, 0.94);
+  border: 1px solid rgba(230, 194, 122, 0.4);
+  backdrop-filter: blur(8px);
+}
+.gi-nav a {
+  padding: 8px 16px;
+  border-radius: 999px;
+  color: #e9dfc6;
+  font-weight: 600;
+  font-size: 14.5px;
+  text-decoration: none;
+  transition: background-color 0.2s, color 0.2s;
+}
+.gi-nav a:hover, .gi-nav a:focus-visible { background: rgba(230, 194, 122, 0.18); color: var(--gi-gold-2); }
+
+/* ───────── главы ───────── */
+.gi-main { flex: 1; margin: 24px auto 56px; display: grid; gap: 26px; }
+.gi-chapter { scroll-margin-top: 80px; }
+.gi-chapter-head { text-align: center; margin: 0 0 16px; }
+.gi-chapter-head small { display: block; color: var(--gi-gold); letter-spacing: 0.3em; font-size: 12px; text-transform: uppercase; }
+.gi-chapter-head h2 { margin: 2px 0 0; font: 700 clamp(26px, 3.2vw, 36px)/1.15 'Cormorant Garamond', Georgia, serif; color: var(--gi-gold-2); }
+.gi-chapter-head h2::before, .gi-chapter-head h2::after { content: '✦'; margin: 0 14px; font-size: 0.55em; color: var(--gi-gold); vertical-align: middle; }
+.gi-chapter-head p { max-width: 760px; margin: 8px auto 0; color: #d9ccae; }
+
+/* пергаментная страница */
+.gi-page {
+  padding: 30px 32px;
+  border-radius: 14px;
+  color: var(--gi-ink);
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(255, 255, 255, 0.55), transparent 55%),
+    radial-gradient(ellipse at 100% 100%, rgba(160, 120, 60, 0.18), transparent 50%),
+    linear-gradient(180deg, var(--gi-paper), var(--gi-paper-2));
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45), inset 0 0 0 1px rgba(120, 90, 40, 0.25);
+}
+.gi-page p { margin: 0 0 12px; color: var(--gi-ink); font-size: 16.5px; }
+.gi-page p:last-child { margin-bottom: 0; }
+.gi-page strong { color: #8a5a12; }
+.gi-dropcap::first-letter { float: left; margin: 4px 10px 0 0; font: 700 64px/0.8 'Cormorant Garamond', Georgia, serif; color: #a86f18; }
+.gi-journal { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 30px; align-items: start; }
+
+/* путевой лист */
+.gi-ticket { border: 2px dashed rgba(138, 90, 18, 0.55); border-radius: 12px; padding: 14px 16px; background: rgba(255, 255, 255, 0.35); }
+.gi-ticket h3 { margin: 0 0 8px; font: 700 20px 'Cormorant Garamond', Georgia, serif; color: #8a5a12; text-align: center; }
+.gi-ticket dl { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 6px 12px; margin: 0; font-size: 14.5px; }
+.gi-ticket dt { color: var(--gi-ink-soft); }
+.gi-ticket dd { margin: 0; color: var(--gi-ink); font-weight: 600; }
+
+/* маршрут по семи землям */
+.gi-route { position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; counter-reset: gi; }
+.gi-stop {
+  counter-increment: gi;
+  position: relative;
+  padding: 18px 16px 16px;
+  border-radius: 14px;
+  background: rgba(12, 22, 48, 0.82);
+  border: 1px solid rgba(230, 194, 122, 0.3);
+  border-top: 4px solid var(--c);
+}
+.gi-stop::before {
+  content: counter(gi);
+  position: absolute;
+  top: -16px;
+  right: 14px;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--c);
+  color: #0c1630;
+  font: 700 15px 'Cormorant Garamond', Georgia, serif;
+  box-shadow: 0 0 12px var(--c);
+}
+.gi-stop h3 { margin: 0 0 4px; font: 700 21px 'Cormorant Garamond', Georgia, serif; color: var(--gi-gold-2); }
+.gi-stop em { display: block; margin-bottom: 6px; font-style: normal; font-size: 12.5px; letter-spacing: 0.06em; color: var(--c); }
+.gi-stop p { margin: 0; font-size: 14.5px; line-height: 1.6; color: #d9ccae; }
+
+/* колесо стихий */
+.gi-wheel { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-bottom: 20px; }
+.gi-orb { display: flex; flex-direction: column; align-items: center; gap: 6px; width: 84px; }
+.gi-orb i {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #fff 0, var(--c) 45%, rgba(0, 0, 0, 0.4) 100%);
+  box-shadow: 0 0 16px var(--c);
+}
+.gi-orb span { font-size: 13.5px; color: #f3ead6; }
+.gi-recipes { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.gi-recipe {
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(244, 234, 211, 0.95);
+  color: var(--gi-ink);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
+}
+.gi-recipe .gi-mix { display: flex; align-items: center; gap: 6px; margin-bottom: 4px; font-size: 12.5px; color: var(--gi-ink-soft); }
+.gi-recipe .gi-mix i { width: 13px; height: 13px; border-radius: 50%; background: var(--c); box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.7); }
+.gi-recipe b { display: block; font: 700 18px 'Cormorant Garamond', Georgia, serif; color: #6a3f08; }
+.gi-recipe span { font-size: 14px; color: var(--gi-ink-soft); }
+
+/* заметки о команде и исследовании */
+.gi-notes { display: grid; gap: 14px; }
+.gi-notes.is-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.gi-note {
+  position: relative;
+  padding: 18px 16px 16px;
+  border-radius: 6px;
+  background: linear-gradient(180deg, #fbf3df, #efe1bf);
+  color: var(--gi-ink);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.35);
+}
+.gi-note::before { /* булавка */
+  content: '';
+  position: absolute;
+  top: -7px;
+  left: 50%;
+  width: 14px;
+  height: 14px;
+  margin-left: -7px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #ffe7a6, #b8781c);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+.gi-note .gi-ico { font-size: 22px; }
+.gi-note h3 { margin: 6px 0 6px; font: 700 19px 'Cormorant Garamond', Georgia, serif; color: #6a3f08; }
+.gi-note p { margin: 0; font-size: 14.5px; line-height: 1.6; color: var(--gi-ink-soft); }
+
+/* медальоны персонажей */
+.gi-medals { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+.gi-medal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px 16px 18px;
+  border-radius: 16px;
+  background: rgba(12, 22, 48, 0.82);
+  border: 1px solid rgba(230, 194, 122, 0.3);
+}
+.gi-medal .gi-face {
+  display: grid;
+  place-items: center;
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.35), var(--c) 55%, #0c1630 100%);
+  border: 3px solid var(--gi-gold);
+  box-shadow: 0 0 0 4px rgba(12, 22, 48, 0.9), 0 0 0 5px var(--c), 0 0 20px var(--c);
+  color: #fff;
+  font: 700 26px 'Cormorant Garamond', Georgia, serif;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+.gi-medal h3 { margin: 12px 0 2px; font: 700 21px 'Cormorant Garamond', Georgia, serif; color: var(--gi-gold-2); }
+.gi-medal small { color: var(--c); font-size: 12.5px; letter-spacing: 0.06em; }
+.gi-medal p { margin: 8px 0 0; font-size: 14.5px; line-height: 1.6; color: #d9ccae; }
+
+.gi-tip { margin-top: 18px; padding: 14px 18px; border-radius: 12px; border: 1px solid rgba(230, 194, 122, 0.45); background: rgba(230, 194, 122, 0.1); color: #f0e4c6; }
+
+/* «другие игры» — пергамент */
+.game-genshin .gi-other { padding: 22px; border-radius: 16px; background: rgba(12, 22, 48, 0.82); border: 1px solid rgba(230, 194, 122, 0.35); }
+.game-genshin .g-game { background: rgba(244, 234, 211, 0.08); border-color: rgba(230, 194, 122, 0.25); }
+
+/* ───────── адаптивность ───────── */
+@media (max-width: 1100px) {
+  .gi-route, .gi-recipes, .gi-notes.is-4, .gi-medals { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 900px) {
+  .gi-journal { grid-template-columns: 1fr; }
+  .gi-hero { grid-template-columns: 170px minmax(0, 1fr); gap: 22px; }
+}
+@media (max-width: 640px) {
+  .game-genshin .gi-wrap { width: calc(100% - 24px); }
+  .gi-hero { grid-template-columns: 1fr; padding: 22px 16px; }
+  .gi-cover { width: 160px; }
+  .gi-actions .gi-btn { flex: 1 1 100%; justify-content: center; }
+  .gi-nav { border-radius: 16px; gap: 2px; padding: 6px; }
+  .gi-nav a { padding: 7px 10px; font-size: 13.5px; }
+  .gi-page { padding: 22px 18px; }
+  .gi-route, .gi-notes.is-4, .gi-medals { grid-template-columns: 1fr; }
+  .gi-recipes { grid-template-columns: 1fr 1fr; }
+  .gi-recipe b { font-size: 16.5px; }
+  .gi-orb { width: 70px; }
+  .gi-chapter-head h2::before, .gi-chapter-head h2::after { margin: 0 8px; }
+}
+@media (max-width: 380px) {
+  .gi-recipes { grid-template-columns: 1fr; }
+}

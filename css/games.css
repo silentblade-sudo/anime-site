@@ -325,7 +325,7 @@ img { max-width: 100%; }
 /* крупная карточка игры на хабе: сетка не шире 1040px — обложки остаются аккуратными (~240×360) */
 .g-games.is-hub { max-width: 1040px; margin: 0 auto; }
 .g-games.is-hub .g-game { grid-template-columns: 1fr; padding: 0; overflow: hidden; align-items: stretch; }
-.g-games.is-hub .g-game img { width: 100%; border-radius: 0; }
+.g-games.is-hub .g-game img { width: 100%; border-radius: 0; align-self: start; }   /* не растягивать по высоте строки сетки */
 .g-games.is-hub .g-game div { padding: 14px 16px 16px; }
 
 /* футер */
@@ -347,7 +347,7 @@ img { max-width: 100%; }
 }
 @media (max-width: 900px) {
   .g-split { grid-template-columns: 1fr; }
-  .g-grid.is-3, .g-games.is-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .g-grid.is-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .g-hero { grid-template-columns: 160px minmax(0, 1fr); gap: 22px; }
 }
 @media (max-width: 640px) {

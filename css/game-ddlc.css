@@ -1,0 +1,291 @@
+/* Doki Doki Literature Club! — тема «тетрадь Литературного клуба»: светлая пастель, линованная бумага,
+   рукописные заголовки, стикеры и скотч — и едва заметные тревожные штрихи (без спойлеров).
+   Подключается только на pages/ddlc.html поверх css/games.css (шапка/футер сайта остаются тёмными). */
+
+body.game-ddlc {
+  --dd-paper: #fffafc;
+  --dd-pink: #ff7eb6;
+  --dd-pink-2: #ffd3e6;
+  --dd-rose: #d6427f;
+  --dd-ink: #4a3540;
+  --dd-ink-soft: #7d6571;
+  --dd-line: #cfe0f5;
+  --dd-margin: #f3a3b8;
+  --c-monika: #5fb760;
+  --c-sayori: #5aa9e6;
+  --c-natsuki: #ff6fae;
+  --c-yuri: #9b6ddb;
+  --g-accent: #ff7eb6;
+  --g-accent-2: #d6427f;
+  --g-line: rgba(214, 66, 127, 0.3);
+  --g-accent-soft: rgba(255, 126, 182, 0.14);
+  color: var(--dd-ink);
+  background:
+    radial-gradient(circle at 10% 20%, rgba(255, 126, 182, 0.16) 0 6px, transparent 7px) 0 0 / 140px 140px,
+    radial-gradient(circle at 60% 70%, rgba(155, 109, 219, 0.1) 0 4px, transparent 5px) 0 0 / 180px 180px,
+    linear-gradient(180deg, #ffeef6, #fff6fa 40%, #f7eef8);
+  background-attachment: fixed;
+}
+.game-ddlc .dd-wrap { width: min(1180px, calc(100% - 48px)); margin-left: auto; margin-right: auto; }
+.game-ddlc .dd-hand { font-family: 'Caveat', 'Segoe Print', 'Comic Sans MS', cursive; }
+
+/* линованный лист с полями */
+.dd-sheet {
+  position: relative;
+  padding: 30px 32px 30px 64px;
+  border-radius: 6px;
+  background:
+    linear-gradient(90deg, transparent 44px, var(--dd-margin) 44px, var(--dd-margin) 46px, transparent 46px),
+    repeating-linear-gradient(180deg, var(--dd-paper) 0 31px, var(--dd-line) 31px 32px),
+    var(--dd-paper);
+  box-shadow: 0 2px 0 #f2d7e3, 0 14px 30px rgba(120, 60, 90, 0.16);
+}
+.dd-sheet p { margin: 0 0 12px; font-size: 16.5px; line-height: 2; }   /* строки ложатся на линовку */
+.dd-sheet p:last-child { margin-bottom: 0; }
+.dd-sheet strong { color: var(--dd-rose); }
+
+/* кусочек скотча */
+.dd-tape::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  width: 110px;
+  height: 26px;
+  margin-left: -55px;
+  background: rgba(255, 211, 230, 0.85);
+  border: 1px dashed rgba(214, 66, 127, 0.3);
+  transform: rotate(-3deg);
+}
+
+/* ───────── герой: обложка, приклеенная в тетрадь ───────── */
+.dd-hero {
+  margin: 30px auto 0;
+  display: grid;
+  grid-template-columns: 230px minmax(0, 1fr);
+  gap: 36px;
+  align-items: center;
+}
+.dd-polaroid {
+  position: relative;
+  padding: 12px 12px 40px;
+  background: #fff;
+  box-shadow: 0 14px 30px rgba(120, 60, 90, 0.22);
+  transform: rotate(-3deg);
+}
+.dd-polaroid img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+}
+.dd-polaroid figcaption { position: absolute; left: 0; right: 0; bottom: 6px; text-align: center; font: 700 22px 'Caveat', cursive; color: var(--dd-rose); }
+.dd-crumbs { margin: 0 0 4px; font-size: 14px; color: var(--dd-ink-soft); }
+.dd-crumbs a { color: var(--dd-ink-soft); text-decoration: none; }
+.dd-crumbs a:hover { color: var(--dd-rose); }
+.dd-hero h1 { margin: 0; font: 700 clamp(44px, 6vw, 74px)/0.95 'Caveat', cursive; color: var(--dd-rose); text-shadow: 3px 3px 0 #fff, 5px 5px 0 var(--dd-pink-2); }
+.dd-hero h1 span { display: block; font-size: 0.6em; color: #b84f86; }
+.dd-lead { max-width: 680px; margin: 14px 0 0; font-size: 17.5px; color: var(--dd-ink); }
+.dd-stickers { display: flex; flex-wrap: wrap; gap: 10px; margin: 18px 0 0; padding: 0; list-style: none; }
+.dd-stickers li {
+  padding: 5px 14px;
+  border-radius: 4px;
+  background: #fff4b8;
+  box-shadow: 0 3px 6px rgba(120, 60, 90, 0.15);
+  font-size: 14px;
+  color: #6a5520;
+  transform: rotate(-1.5deg);
+}
+.dd-stickers li:nth-child(2) { background: #d9f2ff; color: #2c5a78; transform: rotate(1deg); }
+.dd-stickers li:nth-child(3) { background: #e9ffd9; color: #3e6a25; transform: rotate(-0.5deg); }
+.dd-stickers li:nth-child(4) { background: #ffe1ef; color: #8a2f5c; transform: rotate(1.5deg); }
+.dd-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+.dd-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 10px 22px;
+  border: 2px solid var(--dd-rose);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--dd-rose);
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 4px 0 var(--dd-pink-2);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.dd-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 0 var(--dd-pink-2); }
+.dd-btn.is-primary { background: var(--dd-pink); border-color: var(--dd-pink); color: #fff; box-shadow: 0 4px 0 #e0558f; }
+
+/* предупреждение — розовая записка с тёмной кромкой */
+.dd-warning {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  margin: 26px auto 0;
+  padding: 16px 20px;
+  border-radius: 10px;
+  background: #fff;
+  border: 2px solid #f2b6cf;
+  border-left: 6px solid #2a1f25;
+  box-shadow: 0 8px 20px rgba(120, 60, 90, 0.14);
+}
+.dd-warning-icon { font-size: 26px; line-height: 1; }
+.dd-warning b { color: #2a1f25; }
+.dd-warning p { margin: 4px 0 0; color: var(--dd-ink); }
+
+/* ───────── закладки-разделители ───────── */
+.dd-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  margin: 20px auto 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px;
+  border-radius: 14px;
+  background: rgba(255, 250, 252, 0.96);
+  box-shadow: 0 6px 16px rgba(120, 60, 90, 0.12);
+  backdrop-filter: blur(8px);
+}
+.dd-nav a {
+  padding: 7px 16px;
+  border-radius: 8px 8px 2px 2px;
+  border-bottom: 3px solid var(--t, var(--dd-pink));
+  background: color-mix(in srgb, var(--t, var(--dd-pink)) 12%, #fff);
+  color: var(--dd-ink);
+  font-weight: 700;
+  font-size: 14.5px;
+  text-decoration: none;
+}
+.dd-nav a:nth-child(2) { --t: var(--c-monika); }
+.dd-nav a:nth-child(3) { --t: var(--c-sayori); }
+.dd-nav a:nth-child(4) { --t: var(--c-natsuki); }
+.dd-nav a:nth-child(5) { --t: var(--c-yuri); }
+.dd-nav a:hover, .dd-nav a:focus-visible { background: color-mix(in srgb, var(--t, var(--dd-pink)) 26%, #fff); }
+
+/* ───────── разделы ───────── */
+.dd-main { flex: 1; margin: 26px auto 56px; display: grid; gap: 30px; }
+.dd-sec { scroll-margin-top: 80px; }
+.dd-sec-head { margin: 0 0 14px; }
+.dd-sec-head h2 { margin: 0; font: 700 clamp(32px, 3.6vw, 42px)/1.05 'Caveat', cursive; color: var(--dd-rose); }
+.dd-sec-head p { margin: 4px 0 0; color: var(--dd-ink-soft); }
+.dd-sec-head h2::after { /* «сбоящая» черта под заголовком — тихий тревожный акцент */
+  content: '';
+  display: block;
+  width: 120px;
+  height: 3px;
+  margin-top: 4px;
+  background: linear-gradient(90deg, var(--dd-pink) 0 70%, transparent 70% 74%, #2a1f25 74% 82%, transparent 82% 86%, var(--dd-pink) 86%);
+  border-radius: 2px;
+}
+
+.dd-split { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 28px; align-items: start; }
+
+/* карточка-«анкета» клуба */
+.dd-form { position: relative; padding: 22px 18px 18px; background: #fff; border-radius: 8px; box-shadow: 0 10px 24px rgba(120, 60, 90, 0.16); transform: rotate(1deg); }
+.dd-form h3 { margin: 0 0 10px; text-align: center; font: 700 26px 'Caveat', cursive; color: var(--dd-rose); }
+.dd-form dl { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 6px 12px; margin: 0; font-size: 14.5px; }
+.dd-form dt { color: var(--dd-ink-soft); }
+.dd-form dd { margin: 0; font-weight: 700; color: var(--dd-ink); border-bottom: 1px dotted #e6c7d6; }
+
+/* день в клубе */
+.dd-day { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; counter-reset: dd; }
+.dd-step {
+  counter-increment: dd;
+  position: relative;
+  padding: 18px 16px 16px;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 8px 18px rgba(120, 60, 90, 0.12);
+}
+.dd-step::before { content: counter(dd); display: inline-grid; place-items: center; width: 30px; height: 30px; margin-bottom: 6px; border-radius: 50%; background: var(--dd-pink-2); color: var(--dd-rose); font: 700 20px 'Caveat', cursive; }
+.dd-step h3 { margin: 0 0 4px; font-size: 16.5px; color: var(--dd-ink); }
+.dd-step p { margin: 0; font-size: 14.5px; line-height: 1.6; color: var(--dd-ink-soft); }
+
+/* стихи: листки в цвете героинь */
+.dd-poems { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.dd-poem {
+  position: relative;
+  padding: 24px 20px 20px;
+  background: repeating-linear-gradient(180deg, #fff 0 27px, color-mix(in srgb, var(--c) 22%, #fff) 27px 28px);
+  border-top: 5px solid var(--c);
+  border-radius: 4px;
+  box-shadow: 0 10px 22px rgba(120, 60, 90, 0.14);
+}
+.dd-poem:nth-child(1) { transform: rotate(-1deg); }
+.dd-poem:nth-child(3) { transform: rotate(1deg); }
+.dd-poem h3 { margin: 0 0 6px; font: 700 28px 'Caveat', cursive; color: var(--c); }
+.dd-poem p { margin: 0; font-size: 15px; line-height: 1.85; color: var(--dd-ink); }
+.dd-poem .dd-words { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.dd-poem .dd-words span { padding: 1px 10px; border-radius: 999px; background: color-mix(in srgb, var(--c) 15%, #fff); border: 1px solid color-mix(in srgb, var(--c) 45%, #fff); font: 700 19px 'Caveat', cursive; color: var(--c); }
+.dd-hint { margin-top: 16px; padding: 12px 16px; border-radius: 10px; background: #fff; border: 1px dashed var(--dd-pink); color: var(--dd-ink); }
+
+/* участницы клуба — бейджи */
+.dd-members { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+.dd-member {
+  overflow: hidden;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 10px 24px rgba(120, 60, 90, 0.16);
+  transition: transform 0.2s;
+}
+.dd-member:hover { transform: translateY(-3px) rotate(-0.4deg); }
+.dd-member-top { padding: 14px 16px 12px; background: var(--c); color: #fff; }
+.dd-member-top small { display: block; font-size: 11.5px; letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.9; }
+.dd-member-top h3 { margin: 2px 0 0; font: 700 32px/1 'Caveat', cursive; }
+.dd-member-body { padding: 14px 16px 16px; }
+.dd-member-body em { display: block; margin-bottom: 6px; font-style: normal; font-weight: 700; color: var(--c); font-size: 14px; }
+.dd-member-body p { margin: 0; font-size: 14.5px; line-height: 1.65; color: var(--dd-ink-soft); }
+.dd-sign { display: block; margin-top: 10px; text-align: right; font: 700 24px 'Caveat', cursive; color: var(--c); }
+/* тихий сбой при наведении на подпись — едва заметное «что-то не так» */
+.dd-member:hover .dd-sign { animation: dd-flick 0.6s steps(2) 1; }
+@keyframes dd-flick { 0% { transform: translateX(0); } 40% { transform: translateX(2px) skewX(-6deg); filter: hue-rotate(40deg); } 60% { transform: translateX(-1px); } 100% { transform: none; } }
+
+/* особенности подачи */
+.dd-feats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.dd-feat { padding: 18px 16px; border-radius: 14px; background: #fff; box-shadow: 0 8px 18px rgba(120, 60, 90, 0.12); border: 1px solid #f6d6e4; }
+.dd-feat .dd-ico { font-size: 22px; }
+.dd-feat h3 { margin: 6px 0 6px; font-size: 16.5px; color: var(--dd-ink); }
+.dd-feat p { margin: 0; font-size: 14.5px; line-height: 1.6; color: var(--dd-ink-soft); }
+.dd-feat.is-uneasy { background: linear-gradient(180deg, #fff, #fbf3f6); border-color: #e3c4d2; position: relative; overflow: hidden; }
+.dd-feat.is-uneasy::after { content: ''; position: absolute; left: 0; right: 0; bottom: 18px; height: 2px; background: repeating-linear-gradient(90deg, #2a1f25 0 14px, transparent 14px 22px); opacity: 0.18; }
+
+/* «другие игры» — на белых карточках */
+.game-ddlc .dd-other { padding: 22px; border-radius: 16px; background: #fff; box-shadow: 0 10px 24px rgba(120, 60, 90, 0.12); }
+.game-ddlc .dd-other .g-game { background: #fff7fb; border-color: #f6d6e4; }
+.game-ddlc .dd-other .g-game b { color: var(--dd-ink); }
+.game-ddlc .dd-other .g-game span { color: var(--dd-ink-soft); }
+
+/* ───────── адаптивность ───────── */
+@media (max-width: 1100px) {
+  .dd-members, .dd-day { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 900px) {
+  .dd-split { grid-template-columns: 1fr; }
+  .dd-form { max-width: 380px; }
+  .dd-poems, .dd-feats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .dd-poems .dd-poem:last-child { grid-column: 1 / -1; }
+  .dd-hero { grid-template-columns: 180px minmax(0, 1fr); gap: 24px; }
+}
+@media (max-width: 640px) {
+  .game-ddlc .dd-wrap { width: calc(100% - 24px); }
+  .dd-hero { grid-template-columns: 1fr; }
+  .dd-polaroid { width: 170px; }
+  .dd-actions .dd-btn { flex: 1 1 100%; justify-content: center; }
+  .dd-nav a { padding: 6px 10px; font-size: 13.5px; }
+  .dd-sheet { padding: 22px 16px 22px 40px; background:
+    linear-gradient(90deg, transparent 26px, var(--dd-margin) 26px, var(--dd-margin) 28px, transparent 28px),
+    repeating-linear-gradient(180deg, var(--dd-paper) 0 31px, var(--dd-line) 31px 32px), var(--dd-paper); }
+  .dd-members, .dd-day, .dd-poems, .dd-feats { grid-template-columns: 1fr; }
+  .dd-poems .dd-poem:last-child { grid-column: auto; }
+  .dd-poem, .dd-poem:nth-child(1), .dd-poem:nth-child(3), .dd-form { transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dd-member, .dd-btn { transition: none; }
+  .dd-member:hover .dd-sign { animation: none; }
+}

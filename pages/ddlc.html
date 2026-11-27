@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Doki Doki Literature Club! — Аниме игры — Anime Fan Club</title>
-  <meta name="description" content="Doki Doki Literature Club!: визуальная новелла Team Salvato — атмосфера, поэтическая мини-игра, героини Литературного клуба, предупреждения о содержании без спойлеров.">
+  <meta name="description" content="Doki Doki Literature Club!: визуальная новелла Team Salvato — клуб, поэтическая мини-игра, участницы и особенности подачи без спойлеров.">
   <link rel="icon" href="../img/logo-32.png" type="image/png" sizes="32x32">
   <link rel="icon" href="../img/logo-192.png" type="image/png" sizes="192x192">
   <link rel="apple-touch-icon" href="../img/logo-180.png">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Caveat:wght@600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/site-search.css">
   <link rel="stylesheet" href="../css/back-to-top.css">
   <link rel="stylesheet" href="../css/theme.css">
@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="../css/player.css">
   <link rel="stylesheet" href="../css/chat.css">
   <link rel="stylesheet" href="../css/games.css">
+  <link rel="stylesheet" href="../css/game-ddlc.css">
 </head>
 <body class="game-ddlc">
   <header class="site-header">
@@ -36,112 +37,137 @@
     </div>
   </header>
 
-  <section class="g-hero" aria-labelledby="gameTitle">
-    <img class="g-cover" src="../img/games/ddlc-cover.svg" alt="Обложка: Doki Doki Literature Club!" width="220" height="330" decoding="async">
+  <section class="dd-hero dd-wrap" aria-labelledby="gameTitle">
+    <figure class="dd-polaroid dd-tape">
+      <img src="../img/games/ddlc-cover.svg" alt="Обложка: Doki Doki Literature Club!" width="230" height="345" decoding="async">
+      <figcaption>наш клуб ♥</figcaption>
+    </figure>
     <div>
-      <p class="g-crumbs"><a href="../index.html">Главная</a> / <a href="games.html">Аниме игры</a> / Doki Doki Literature Club!</p>
+      <p class="dd-crumbs"><a href="../index.html">Главная</a> › <a href="games.html">Аниме игры</a> › Литературный клуб</p>
       <h1 id="gameTitle">Doki Doki <span>Literature Club!</span></h1>
-      <p class="g-lead">Милая визуальная новелла о школьном Литературном клубе, стихах и четырёх необычных девушках… которая очень быстро перестаёт быть просто милой. Лучшее, что можно сделать, — начать её, зная как можно меньше.</p>
-      <ul class="g-chips" aria-label="Коротко об игре">
-        <li>Визуальная новелла, психологический хоррор</li>
+      <p class="dd-lead">Милая визуальная новелла о школьном Литературном клубе, стихах и четырёх необычных девушках… которая очень быстро перестаёт быть просто милой. Лучшее, что можно сделать, — начать её, зная как можно меньше.</p>
+      <ul class="dd-stickers" aria-label="Коротко об игре">
+        <li>Визуальная новелла · психологический хоррор</li>
         <li>Team Salvato</li>
-        <li>ПК (Windows, macOS, Linux)</li>
+        <li>ПК: Windows, macOS, Linux</li>
         <li>Бесплатно</li>
       </ul>
-      <div class="g-actions">
-        <a class="g-btn is-primary" href="https://ddlc.moe/" target="_blank" rel="noopener noreferrer">Официальный сайт ↗</a>
-        <a class="g-btn" href="https://store.steampowered.com/app/698780/Doki_Doki_Literature_Club/" target="_blank" rel="noopener noreferrer">Steam ↗</a>
-        <a class="g-btn is-ghost" href="games.html">← Все игры</a>
+      <div class="dd-actions">
+        <a class="dd-btn is-primary" href="https://ddlc.moe/" target="_blank" rel="noopener noreferrer">Официальный сайт ↗</a>
+        <a class="dd-btn" href="https://store.steampowered.com/app/698780/Doki_Doki_Literature_Club/" target="_blank" rel="noopener noreferrer">Steam ↗</a>
+        <a class="dd-btn" href="games.html">← Все игры</a>
       </div>
     </div>
   </section>
 
-  <nav class="g-tabs" aria-label="Разделы страницы">
-    <a href="#warning">Предупреждение</a>
+  <aside class="dd-warning dd-wrap" id="warning" aria-label="Предупреждение о содержании">
+    <span class="dd-warning-icon" aria-hidden="true">⚠️</span>
+    <div>
+      <b>Игра не подходит детям и впечатлительным людям</b>
+      <p>Так предупреждают сами разработчики. За пастельной обложкой скрываются тревожные сцены и темы депрессии, тревожности и самоповреждения. Если такие темы для вас тяжелы — отложите игру или играйте в компании.</p>
+    </div>
+  </aside>
+
+  <nav class="dd-nav dd-wrap" aria-label="Разделы страницы">
     <a href="#about">Об игре</a>
+    <a href="#day">День в клубе</a>
     <a href="#poems">Стихи</a>
-    <a href="#club">Клуб</a>
+    <a href="#club">Участницы</a>
     <a href="#style">Подача</a>
     <a href="#other">Другие игры</a>
   </nav>
 
-  <main class="g-main">
-    <section class="g-warning" id="warning" role="note" aria-label="Предупреждение о содержании">
-      <span class="g-warning-icon" aria-hidden="true">⚠️</span>
-      <div>
-        <b>Игра не подходит детям и впечатлительным людям</b>
-        <p>Так предупреждают сами разработчики при запуске. За пастельной обложкой скрываются тревожные сцены и темы депрессии, тревожности и самоповреждения. Если такие темы для вас тяжелы — отложите игру или играйте в компании.</p>
-      </div>
-    </section>
-
-    <section class="g-panel" id="about" aria-labelledby="aboutTitle">
-      <h2 class="g-title" id="aboutTitle">Об игре</h2>
-      <div class="g-split">
-        <div>
+  <main class="dd-main dd-wrap">
+    <section class="dd-sec" id="about" aria-labelledby="aboutTitle">
+      <div class="dd-sec-head"><h2 id="aboutTitle">Об игре</h2></div>
+      <div class="dd-split">
+        <div class="dd-sheet">
           <p><strong>Doki Doki Literature Club!</strong> — визуальная новелла студии <strong>Team Salvato</strong> (автор — Дэн Сальвато), выпущенная бесплатно 22 сентября 2017 года. Игра быстро стала культовой благодаря тому, как обращается с ожиданиями игрока.</p>
           <p>Главный герой — обычный старшеклассник, которого подруга детства <strong>Саёри</strong> уговаривает вступить в Литературный клуб. Там его встречают президент клуба <strong>Моника</strong> и участницы <strong>Нацуки</strong> и <strong>Юри</strong>. Впереди — подготовка к школьному фестивалю, обмен стихами и разговоры после уроков.</p>
-          <p>В 2021 году вышло расширенное издание <strong>Doki Doki Literature Club Plus!</strong> — для консолей и ПК, с дополнительными побочными историями, новой музыкой и галереей артов.</p>
+          <p>В 2021 году вышло расширенное издание <strong>Doki Doki Literature Club Plus!</strong> — для консолей и ПК, с дополнительными побочными историями, новой музыкой и галереей материалов.</p>
         </div>
-        <table class="g-info">
-          <caption>ПАСПОРТ ИГРЫ</caption>
-          <tr><th scope="row">Разработчик</th><td>Team Salvato</td></tr>
-          <tr><th scope="row">Релиз</th><td>22 сентября 2017</td></tr>
-          <tr><th scope="row">Жанр</th><td>Визуальная новелла, психологический хоррор</td></tr>
-          <tr><th scope="row">Платформы</th><td>ПК (Windows, macOS, Linux)</td></tr>
-          <tr><th scope="row">Цена</th><td>Бесплатно</td></tr>
-          <tr><th scope="row">Издание Plus!</th><td>2021 — PS4/PS5, Xbox, Switch, ПК</td></tr>
-        </table>
+        <div class="dd-form dd-tape">
+          <h3>Анкета клуба</h3>
+          <dl>
+            <dt>Студия</dt><dd>Team Salvato</dd>
+            <dt>Релиз</dt><dd>22 сентября 2017</dd>
+            <dt>Жанр</dt><dd>Визуальная новелла, психологический хоррор</dd>
+            <dt>Платформы</dt><dd>Windows, macOS, Linux</dd>
+            <dt>Цена</dt><dd>Бесплатно</dd>
+            <dt>Plus!</dt><dd>2021 — PS4/PS5, Xbox, Switch, ПК</dd>
+          </dl>
+        </div>
       </div>
     </section>
 
-    <section class="g-panel" id="poems" aria-labelledby="poemsTitle">
-      <h2 class="g-title" id="poemsTitle">Поэтическая мини-игра</h2>
-      <p class="g-intro">Перед каждым собранием клуба герой сочиняет стихотворение: из набора слов нужно выбрать те, что понравятся одной из участниц. От выбора зависит, с кем из девушек он проведёт больше времени.</p>
-      <div class="g-grid is-3">
-        <article class="g-card"><div class="g-card-icon" aria-hidden="true">🌸</div><h3>Слова для Саёри</h3><p>Простые, светлые и эмоциональные: о счастье, грусти, дружбе и тёплых моментах.</p></article>
-        <article class="g-card"><div class="g-card-icon" aria-hidden="true">🧁</div><h3>Слова для Нацуки</h3><p>Милые и короткие: всё, что звучит мягко, по-детски и «кавайно».</p></article>
-        <article class="g-card"><div class="g-card-icon" aria-hidden="true">🕯️</div><h3>Слова для Юри</h3><p>Сложные, образные и мрачноватые — для тех, кто любит глубокие метафоры.</p></article>
-      </div>
-      <p class="g-note">✍️ Каждое стихотворение потом обсуждают в клубе — у каждой героини свой почерк и своя манера писать, и по стихам можно многое о них понять.</p>
-    </section>
-
-    <section class="g-panel" id="club" aria-labelledby="clubTitle">
-      <h2 class="g-title" id="clubTitle">Литературный клуб</h2>
-      <p class="g-intro">Четыре участницы — четыре характера. Описания — только то, что игрок узнаёт в самом начале.</p>
-      <div class="g-grid is-4">
-        <article class="g-card g-person">
-          <div class="g-person-head"><span class="g-emblem" style="--c:#7fd67f" aria-hidden="true">M</span><div><h3>Моника</h3><small>Президент клуба</small></div></div>
-          <p>Уверенная, умная и всеми любимая. Основала клуб и старается, чтобы каждому участнику в нём было хорошо, а каждое собрание проходило интересно.</p>
-        </article>
-        <article class="g-card g-person">
-          <div class="g-person-head"><span class="g-emblem" style="--c:#8fd0ff" aria-hidden="true">S</span><div><h3>Саёри</h3><small>Подруга детства</small></div></div>
-          <p>Солнечная, рассеянная и вечно опаздывающая. Это она привела героя в клуб — и больше всего на свете хочет, чтобы все были счастливы.</p>
-        </article>
-        <article class="g-card g-person">
-          <div class="g-person-head"><span class="g-emblem" style="--c:#ff8fc5" aria-hidden="true">N</span><div><h3>Нацуки</h3><small>Мастер капкейков</small></div></div>
-          <p>Резкая на словах, но заботливая. Обожает мангу, печёт сладости и горячо спорит, что милое — тоже искусство.</p>
-        </article>
-        <article class="g-card g-person">
-          <div class="g-person-head"><span class="g-emblem" style="--c:#b48cff" aria-hidden="true">Y</span><div><h3>Юри</h3><small>Тихая читательница</small></div></div>
-          <p>Застенчивая и вежливая, любит чай и книги с мрачной атмосферой. Раскрывается, когда разговор заходит о литературе.</p>
-        </article>
+    <section class="dd-sec" id="day" aria-labelledby="dayTitle">
+      <div class="dd-sec-head"><h2 id="dayTitle">Один день в клубе</h2><p>Как устроен игровой цикл — без единого спойлера.</p></div>
+      <div class="dd-day">
+        <article class="dd-step"><h3>Уроки</h3><p>Обычный школьный день — до звонка, после которого начинается самое интересное.</p></article>
+        <article class="dd-step"><h3>Собрание клуба</h3><p>Чай, сладости, разговоры о книгах и планы на школьный фестиваль.</p></article>
+        <article class="dd-step"><h3>Стихотворение</h3><p>Вечером герой сочиняет стих, выбирая слова, которые понравятся одной из девушек.</p></article>
+        <article class="dd-step"><h3>Обсуждение</h3><p>На следующий день участницы читают стихи друг друга и делятся впечатлениями.</p></article>
       </div>
     </section>
 
-    <section class="g-panel" id="style" aria-labelledby="styleTitle">
-      <h2 class="g-title" id="styleTitle">Особенности подачи (без спойлеров)</h2>
-      <div class="g-grid is-3">
-        <article class="g-card"><div class="g-card-icon" aria-hidden="true">🎀</div><h3>Классическая школьная новелла</h3><p>Пастельные цвета, аниме-спрайты, весёлая музыка и типичные ситуации жанра — первые часы игра выглядит именно так.</p></article>
-        <article class="g-card"><div class="g-card-icon" aria-hidden="true">🎭</div><h3>Игра с ожиданиями</h3><p>DDLC знает правила жанра и сознательно ими пользуется. Самое сильное в ней — моменты, к которым невозможно подготовиться.</p></article>
-        <article class="g-card"><div class="g-card-icon" aria-hidden="true">📝</div><h3>Детали имеют значение</h3><p>Стихи, реплики и мелочи интерфейса складываются в общую картину. Внимательный игрок заметит гораздо больше.</p></article>
-        <article class="g-card"><div class="g-card-icon" aria-hidden="true">🎵</div><h3>Музыка</h3><p>Лёгкий саундтрек с главной мелодией клуба, которая звучит по-разному в разных сценах и меняет настроение эпизодов.</p></article>
-        <article class="g-card"><div class="g-card-icon" aria-hidden="true">🧭</div><h3>Как лучше играть</h3><p>Не ищите спойлеры, не спешите, сохраняйтесь и проходите игру до конца — история раскрывается целиком только при полном прохождении.</p></article>
-        <article class="g-card"><div class="g-card-icon" aria-hidden="true">➕</div><h3>Версия Plus!</h3><p>Для тех, кто прошёл оригинал: дополнительные истории о жизни клуба, новая музыка и коллекция материалов.</p></article>
+    <section class="dd-sec" id="poems" aria-labelledby="poemsTitle">
+      <div class="dd-sec-head"><h2 id="poemsTitle">Поэтическая мини-игра</h2><p>Из набора слов нужно выбрать те, что понравятся одной из участниц. От выбора зависит, с кем герой проведёт больше времени.</p></div>
+      <div class="dd-poems">
+        <article class="dd-poem" style="--c:var(--c-sayori)">
+          <h3>Для Саёри</h3>
+          <p>Простые, светлые и эмоциональные слова — о счастье, грусти, дружбе и тёплых моментах.</p>
+          <div class="dd-words" aria-label="Примеры слов в этом духе"><span>солнце</span><span>объятия</span><span>дождь</span></div>
+        </article>
+        <article class="dd-poem" style="--c:var(--c-natsuki)">
+          <h3>Для Нацуки</h3>
+          <p>Милые и короткие слова — всё, что звучит мягко, по-детски и очаровательно.</p>
+          <div class="dd-words" aria-label="Примеры слов в этом духе"><span>котёнок</span><span>конфета</span><span>прыжок</span></div>
+        </article>
+        <article class="dd-poem" style="--c:var(--c-yuri)">
+          <h3>Для Юри</h3>
+          <p>Сложные, образные и мрачноватые слова — для тех, кто любит глубокие метафоры.</p>
+          <div class="dd-words" aria-label="Примеры слов в этом духе"><span>пламя</span><span>вечность</span><span>тень</span></div>
+        </article>
+      </div>
+      <p class="dd-hint">✍️ Слова выше — примеры в духе каждой героини, а не точный список из игры. Каждое стихотворение потом обсуждают в клубе — по стихам можно многое понять о самих девушках.</p>
+    </section>
+
+    <section class="dd-sec" id="club" aria-labelledby="clubTitle">
+      <div class="dd-sec-head"><h2 id="clubTitle">Участницы клуба</h2><p>Только то, что игрок узнаёт в самом начале.</p></div>
+      <div class="dd-members">
+        <article class="dd-member" style="--c:var(--c-monika)">
+          <div class="dd-member-top"><small>Президент клуба</small><h3>Моника</h3></div>
+          <div class="dd-member-body"><em>Уверенная, умная и всеми любимая</em><p>Основала клуб и старается, чтобы каждому участнику было в нём хорошо, а каждое собрание проходило интересно.</p><span class="dd-sign" aria-hidden="true">~ Моника</span></div>
+        </article>
+        <article class="dd-member" style="--c:var(--c-sayori)">
+          <div class="dd-member-top"><small>Подруга детства</small><h3>Саёри</h3></div>
+          <div class="dd-member-body"><em>Солнечная и вечно опаздывающая</em><p>Это она привела героя в клуб — и больше всего на свете хочет, чтобы все вокруг были счастливы.</p><span class="dd-sign" aria-hidden="true">~ Саёри</span></div>
+        </article>
+        <article class="dd-member" style="--c:var(--c-natsuki)">
+          <div class="dd-member-top"><small>Мастер капкейков</small><h3>Нацуки</h3></div>
+          <div class="dd-member-body"><em>Резкая на словах, но заботливая</em><p>Обожает мангу, печёт сладости и горячо спорит, что милое — тоже настоящее искусство.</p><span class="dd-sign" aria-hidden="true">~ Нацуки</span></div>
+        </article>
+        <article class="dd-member" style="--c:var(--c-yuri)">
+          <div class="dd-member-top"><small>Тихая читательница</small><h3>Юри</h3></div>
+          <div class="dd-member-body"><em>Застенчивая и вежливая</em><p>Любит чай и книги с мрачной атмосферой. Раскрывается, когда разговор заходит о литературе.</p><span class="dd-sign" aria-hidden="true">~ Юри</span></div>
+        </article>
       </div>
     </section>
 
-    <section class="g-panel" id="other" aria-labelledby="otherTitle">
-      <h2 class="g-title" id="otherTitle">Другие игры</h2>
+    <section class="dd-sec" id="style" aria-labelledby="styleTitle">
+      <div class="dd-sec-head"><h2 id="styleTitle">Особенности подачи</h2><p>Без спойлеров: только то, чем игра запоминается.</p></div>
+      <div class="dd-feats">
+        <article class="dd-feat"><div class="dd-ico" aria-hidden="true">🎀</div><h3>Классическая школьная новелла</h3><p>Пастельные цвета, аниме-спрайты, весёлая музыка и типичные ситуации жанра — первые часы игра выглядит именно так.</p></article>
+        <article class="dd-feat is-uneasy"><div class="dd-ico" aria-hidden="true">🎭</div><h3>Игра с ожиданиями</h3><p>DDLC знает правила жанра и сознательно ими пользуется. Самое сильное в ней — моменты, к которым невозможно подготовиться.</p></article>
+        <article class="dd-feat is-uneasy"><div class="dd-ico" aria-hidden="true">📝</div><h3>Детали имеют значение</h3><p>Стихи, реплики и мелочи интерфейса складываются в общую картину. Внимательный игрок заметит гораздо больше.</p></article>
+        <article class="dd-feat"><div class="dd-ico" aria-hidden="true">🎵</div><h3>Музыка</h3><p>Лёгкий саундтрек с главной мелодией клуба, которая звучит по-разному в разных сценах и меняет настроение эпизодов.</p></article>
+        <article class="dd-feat"><div class="dd-ico" aria-hidden="true">🧭</div><h3>Как лучше играть</h3><p>Не ищите спойлеры, не спешите, сохраняйтесь и проходите игру до конца — история раскрывается целиком только при полном прохождении.</p></article>
+        <article class="dd-feat"><div class="dd-ico" aria-hidden="true">➕</div><h3>Версия Plus!</h3><p>Для тех, кто прошёл оригинал: дополнительные истории о жизни клуба, новая музыка и коллекция материалов.</p></article>
+      </div>
+    </section>
+
+    <section class="dd-sec dd-other" id="other" aria-labelledby="otherTitle">
+      <div class="dd-sec-head"><h2 id="otherTitle">Другие игры</h2></div>
       <div class="g-games is-3">
         <a class="g-game" href="page.html">
           <img src="../img/miside/cover-thumb.webp" alt="" width="96" height="144" loading="lazy" decoding="async">
