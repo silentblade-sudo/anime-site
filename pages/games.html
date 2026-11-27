@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Аниме игры — Anime Fan Club</title>
+  <meta name="description" content="Аниме игры на Anime Fan Club: MiSide, Honkai Impact 3rd, Genshin Impact и Doki Doki Literature Club! — сюжет, механики и персонажи.">
+  <link rel="icon" href="../img/logo-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="../img/logo-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="../img/logo-180.png">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/site-search.css">
+  <link rel="stylesheet" href="../css/back-to-top.css">
+  <link rel="stylesheet" href="../css/theme.css">
+  <link rel="stylesheet" href="../css/palette.css">
+  <link rel="stylesheet" href="../css/player.css">
+  <link rel="stylesheet" href="../css/chat.css">
+  <link rel="stylesheet" href="../css/games.css">
+</head>
+<body class="game-hub">
+  <header class="site-header">
+    <div class="header-actions">
+      <a class="logo" href="../index.html" aria-label="Anime Fan Club — на главную">
+        <img class="logo-img" src="../img/logo-header.webp" alt="" width="44" height="44">
+        <span class="logo-text">Anime Fan Club</span>
+      </a>
+      <nav class="top-nav" aria-label="Разделы сайта">
+        <a class="btn-home" href="../index.html">На главную</a>
+        <a class="btn-home" href="movies.html">Каталог</a>
+        <a class="btn-home" href="games.html" aria-current="page">Аниме игры</a>
+        <a class="btn-home" href="chat.html">Чат</a>
+      </nav>
+      <a class="player-chip is-guest" data-player-chip href="login.html">👤 Вход</a>
+      <!-- поиск аниме и фильмов по всему сайту (js/site-search.js) -->
+      <div data-site-search></div>
+    </div>
+  </header>
+
+  <section class="g-hero" aria-labelledby="gameTitle" style="grid-template-columns:1fr">
+    <div>
+      <p class="g-crumbs"><a href="../index.html">Главная</a> / Аниме игры</p>
+      <h1 id="gameTitle">Аниме <span>игры</span></h1>
+      <p class="g-lead">Игры в аниме-стилистике, о которых мы пишем подробно: сюжет и мир, механики, режимы и персонажи. Выберите игру — у каждой свой раздел.</p>
+    </div>
+  </section>
+
+  <main class="g-main">
+    <section class="g-panel" aria-labelledby="hubTitle">
+      <h2 class="g-title" id="hubTitle">Все игры</h2>
+      <div class="g-games is-4 is-hub">
+        <a class="g-game" href="page.html">
+          <img src="../img/miside/cover-thumb.webp" alt="" width="300" height="450" loading="lazy" decoding="async">
+          <div><b>MiSide</b><span>Хоррор под маской симулятора свиданий</span></div>
+        </a>
+        <a class="g-game" href="honkai.html">
+          <img src="../img/games/honkai-cover.svg" alt="" width="300" height="450" loading="lazy" decoding="async">
+          <div><b>Honkai Impact 3rd</b><span>Экшен-RPG о Валькириях и Хонкае</span></div>
+        </a>
+        <a class="g-game" href="genshin.html">
+          <img src="../img/games/genshin-cover.svg" alt="" width="300" height="450" loading="lazy" decoding="async">
+          <div><b>Genshin Impact</b><span>Открытый мир Тейвата и семь стихий</span></div>
+        </a>
+        <a class="g-game" href="ddlc.html">
+          <img src="../img/games/ddlc-cover.svg" alt="" width="300" height="450" loading="lazy" decoding="async">
+          <div><b>Doki Doki Literature Club!</b><span>Визуальная новелла с двойным дном</span></div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="g-footer">
+    <p>&copy; 2026 Anime Fan Club · <a href="../index.html">На главную</a> · <a href="games.html">Аниме игры</a> · <a href="movies.html">Каталог</a></p>
+    <p>Фан-раздел. Названия игр и персонажей принадлежат их правообладателям; обложки на этих страницах нарисованы для сайта.</p>
+  </footer>
+
+  <script src="../js/movies-data.js"></script>
+  <script src="../js/anime-search.js"></script>
+  <script src="../js/site-search.js"></script>
+  <script src="../js/back-to-top.js" defer></script><!-- кнопка «Наверх» -->
+<!-- чат сообщества: кнопка в правом нижнем углу (js/chat-core.js + js/chat-widget.js) -->
+<script src="../js/chat-core.js" defer></script>
+<script src="../js/chat-widget.js" defer></script>
+<!-- профиль Игрока: мини-карточка и колокольчик уведомлений в шапке -->
+<script src="../js/player-core.js" defer></script>
+<script src="../js/player-notify.js" defer></script>
+<script src="../js/player-chip.js" defer></script>
+</body>
+</html>

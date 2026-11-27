@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" width="400" height="600" role="img" aria-label="Honkai Impact 3rd — обложка Anime Fan Club">
+  <!-- Собственная обложка Anime Fan Club (не официальный арт): кристалл Хонкая, клинки и звёзды -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0.4" y2="1">
+      <stop offset="0" stop-color="#0b1030"/>
+      <stop offset="0.55" stop-color="#2a0a33"/>
+      <stop offset="1" stop-color="#0d0410"/>
+    </linearGradient>
+    <radialGradient id="core" cx="50%" cy="40%" r="45%">
+      <stop offset="0" stop-color="#ff7ac8" stop-opacity="0.75"/>
+      <stop offset="0.5" stop-color="#9b3cff" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#9b3cff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="shard" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd1f0"/>
+      <stop offset="0.45" stop-color="#c86bff"/>
+      <stop offset="1" stop-color="#4b1689"/>
+    </linearGradient>
+    <linearGradient id="slash" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ff7ac8" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#ffe1f4"/>
+      <stop offset="1" stop-color="#ff7ac8" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="600" fill="url(#bg)"/>
+  <g fill="#fff" opacity="0.7">
+    <circle cx="40" cy="60" r="1.4"/><circle cx="350" cy="90" r="1.8"/><circle cx="300" cy="40" r="1"/><circle cx="80" cy="180" r="1.2"/>
+    <circle cx="360" cy="230" r="1.2"/><circle cx="30" cy="330" r="1.6"/><circle cx="370" cy="360" r="1"/><circle cx="120" cy="30" r="1"/>
+  </g>
+  <circle cx="200" cy="240" r="190" fill="url(#core)"/>
+  <!-- кольцо-печать -->
+  <g fill="none" stroke="#e7b6ff" stroke-opacity="0.45">
+    <circle cx="200" cy="240" r="128" stroke-width="1.5"/>
+    <circle cx="200" cy="240" r="112" stroke-width="1" stroke-dasharray="4 7"/>
+    <path d="M200 100 L320 240 L200 380 L80 240 Z" stroke-width="1.2"/>
+  </g>
+  <!-- кристалл Хонкая -->
+  <g>
+    <polygon points="200,128 238,226 200,352 162,226" fill="url(#shard)"/>
+    <polygon points="200,128 238,226 200,236" fill="#fff" opacity="0.28"/>
+    <polygon points="162,226 200,236 200,352" fill="#2a0a4f" opacity="0.45"/>
+    <polygon points="148,196 170,236 150,292 130,240" fill="url(#shard)" opacity="0.85"/>
+    <polygon points="252,196 270,240 250,292 230,236" fill="url(#shard)" opacity="0.85"/>
+    <polygon points="118,250 132,272 120,306 106,276" fill="url(#shard)" opacity="0.6"/>
+    <polygon points="282,250 294,276 280,306 268,272" fill="url(#shard)" opacity="0.6"/>
+  </g>
+  <!-- клинки-росчерки -->
+  <g>
+    <rect x="-40" y="300" width="480" height="3" fill="url(#slash)" transform="rotate(-24 200 300)"/>
+    <rect x="-40" y="320" width="480" height="1.5" fill="url(#slash)" opacity="0.7" transform="rotate(-24 200 320)"/>
+    <rect x="-40" y="160" width="480" height="1.5" fill="url(#slash)" opacity="0.5" transform="rotate(18 200 160)"/>
+  </g>
+  <rect x="0" y="420" width="400" height="180" fill="#0d0410" opacity="0.55"/>
+  <text x="200" y="478" text-anchor="middle" font-family="Orbitron, Segoe UI, Arial, sans-serif" font-weight="700" font-size="54" letter-spacing="6" fill="#fff">HONKAI</text>
+  <text x="200" y="516" text-anchor="middle" font-family="Orbitron, Segoe UI, Arial, sans-serif" font-weight="700" font-size="22" letter-spacing="8" fill="#ff7ac8">IMPACT 3rd</text>
+  <text x="200" y="560" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="14" letter-spacing="3" fill="#cdb7e6">ВАЛЬКИРИИ ПРОТИВ ХОНКАЯ</text>
+</svg>

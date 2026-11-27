@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" width="400" height="600" role="img" aria-label="Doki Doki Literature Club! — обложка Anime Fan Club">
+  <!-- Собственная обложка Anime Fan Club (не официальный арт): тетрадь клуба, сердечки и едва заметный сбой -->
+  <defs>
+    <pattern id="lines" width="400" height="28" patternUnits="userSpaceOnUse">
+      <rect width="400" height="28" fill="#fff6fa"/>
+      <line x1="0" y1="27" x2="400" y2="27" stroke="#bcd4f2" stroke-width="1.2"/>
+    </pattern>
+    <linearGradient id="pink" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ff9ccb"/>
+      <stop offset="1" stop-color="#ff5fa2"/>
+    </linearGradient>
+    <path id="heart" d="M0 6 C0 -2 10 -4 12 4 C14 -4 24 -2 24 6 C24 14 12 20 12 24 C12 20 0 14 0 6 Z"/>
+  </defs>
+  <rect width="400" height="600" fill="url(#lines)"/>
+  <line x1="62" y1="0" x2="62" y2="600" stroke="#f3a3b8" stroke-width="2"/>
+  <g fill="#e9e1e6"><circle cx="30" cy="80" r="9"/><circle cx="30" cy="300" r="9"/><circle cx="30" cy="520" r="9"/></g>
+  <!-- сердечки -->
+  <g fill="url(#pink)">
+    <use href="#heart" transform="translate(290 70) scale(1.6)"/>
+    <use href="#heart" transform="translate(330 140) scale(0.9)"/>
+    <use href="#heart" transform="translate(95 120) scale(1.1) rotate(-14)"/>
+    <use href="#heart" transform="translate(250 230) scale(0.7) rotate(12)"/>
+  </g>
+  <!-- раскрытая книга -->
+  <g transform="translate(200 300)">
+    <path d="M-120 -40 Q-60 -62 0 -36 L0 70 Q-60 46 -120 66 Z" fill="#ffffff" stroke="#d96b9c" stroke-width="2.5"/>
+    <path d="M120 -40 Q60 -62 0 -36 L0 70 Q60 46 120 66 Z" fill="#ffffff" stroke="#d96b9c" stroke-width="2.5"/>
+    <g stroke="#e9b3c9" stroke-width="2" stroke-linecap="round">
+      <line x1="-100" y1="-28" x2="-22" y2="-22"/><line x1="-100" y1="-10" x2="-30" y2="-6"/><line x1="-100" y1="8" x2="-24" y2="12"/><line x1="-100" y1="26" x2="-40" y2="30"/>
+      <line x1="22" y1="-22" x2="100" y2="-28"/><line x1="30" y1="-6" x2="100" y2="-10"/><line x1="24" y1="12" x2="100" y2="8"/>
+    </g>
+    <!-- перо -->
+    <path d="M70 40 L132 -46 Q140 -40 134 -32 L76 46 Z" fill="#ff7eb6" stroke="#b8457a" stroke-width="2"/>
+  </g>
+  <!-- едва заметный сбой -->
+  <g opacity="0.5">
+    <rect x="62" y="402" width="210" height="5" fill="#2b2b2b"/>
+    <rect x="160" y="409" width="140" height="3" fill="#ff5fa2"/>
+  </g>
+  <text x="200" y="478" text-anchor="middle" font-family="'Comic Sans MS', 'Segoe Print', 'Segoe UI', sans-serif" font-weight="700" font-size="52" fill="#ff5fa2" stroke="#ffffff" stroke-width="5" paint-order="stroke">Doki Doki</text>
+  <text x="200" y="520" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-weight="700" font-size="26" fill="#d6427f">Literature Club!</text>
+  <text x="200" y="566" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="14" letter-spacing="3" fill="#9a6b82">ДОБРО ПОЖАЛОВАТЬ В КЛУБ</text>
+</svg>
