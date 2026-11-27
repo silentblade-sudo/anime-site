@@ -289,3 +289,22 @@ body.game-ddlc {
   .dd-member, .dd-btn { transition: none; }
   .dd-member:hover .dd-sign { animation: none; }
 }
+
+/* ───────── протагонист — «анкета нового участника» на всю ширину ───────── */
+.dd-newbie {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 18px;
+  align-items: center;
+  margin-bottom: 18px;
+  padding: 18px 20px;
+  border-radius: 16px;
+  background: #fff;
+  border: 2px dashed #f2b6cf;
+  box-shadow: 0 10px 24px rgba(120, 60, 90, 0.12);
+}
+.dd-newbie .dd-badge { display: grid; place-items: center; width: 64px; height: 64px; border-radius: 50%; background: var(--dd-pink-2); color: var(--dd-rose); font: 700 30px 'Caveat', cursive; }
+.dd-newbie h3 { margin: 0; font: 700 30px/1 'Caveat', cursive; color: var(--dd-ink); }
+.dd-newbie small { display: block; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--dd-ink-soft); }
+.dd-newbie p { margin: 6px 0 0; color: var(--dd-ink-soft); }
+.dd-cast-note { margin-top: 16px; padding: 12px 16px; border-radius: 10px; background: #fff; border: 1px dashed var(--dd-pink); color: var(--dd-ink); }

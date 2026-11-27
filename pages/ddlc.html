@@ -72,7 +72,7 @@
     <a href="#about">Об игре</a>
     <a href="#day">День в клубе</a>
     <a href="#poems">Стихи</a>
-    <a href="#club">Участницы</a>
+    <a href="#club">Персонажи</a>
     <a href="#style">Подача</a>
     <a href="#other">Другие игры</a>
   </nav>
@@ -133,7 +133,15 @@
     </section>
 
     <section class="dd-sec" id="club" aria-labelledby="clubTitle">
-      <div class="dd-sec-head"><h2 id="clubTitle">Участницы клуба</h2><p>Только то, что игрок узнаёт в самом начале.</p></div>
+      <div class="dd-sec-head"><h2 id="clubTitle">Все персонажи клуба</h2><p>Полный состав игры — пять персонажей. Только то, что игрок узнаёт в самом начале.</p></div>
+      <article class="dd-newbie">
+        <span class="dd-badge" aria-hidden="true">?</span>
+        <div>
+          <small>Новый участник · протагонист</small>
+          <h3>Главный герой</h3>
+          <p>Обычный старшеклассник, от лица которого идёт история; имя игрок вводит сам. Без особых увлечений — пока подруга детства не уговаривает его заглянуть в Литературный клуб.</p>
+        </div>
+      </article>
       <div class="dd-members">
         <article class="dd-member" style="--c:var(--c-monika)">
           <div class="dd-member-top"><small>Президент клуба</small><h3>Моника</h3></div>
@@ -152,6 +160,7 @@
           <div class="dd-member-body"><em>Застенчивая и вежливая</em><p>Любит чай и книги с мрачной атмосферой. Раскрывается, когда разговор заходит о литературе.</p><span class="dd-sign" aria-hidden="true">~ Юри</span></div>
         </article>
       </div>
+      <p class="dd-cast-note">📋 Других персонажей на экране в игре нет: весь состав — главный герой и четыре участницы клуба. В издании Plus! побочные истории рассказывают о тех же героинях.</p>
     </section>
 
     <section class="dd-sec" id="style" aria-labelledby="styleTitle">
@@ -194,6 +203,7 @@
   <script src="../js/anime-search.js"></script>
   <script src="../js/site-search.js"></script>
   <script src="../js/back-to-top.js" defer></script><!-- кнопка «Наверх» -->
+  <script src="../js/game-roster.js" defer></script><!-- поиск по ростеру персонажей -->
 <!-- чат сообщества: кнопка в правом нижнем углу (js/chat-core.js + js/chat-widget.js) -->
 <script src="../js/chat-core.js" defer></script>
 <script src="../js/chat-widget.js" defer></script>

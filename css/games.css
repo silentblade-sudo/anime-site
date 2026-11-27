@@ -375,3 +375,35 @@ img { max-width: 100%; }
 @media (prefers-reduced-motion: reduce) {
   .g-card, .g-game, .g-btn, .btn-home { transition: none; }
 }
+
+/* ───────── полный ростер персонажей (honkai.html, genshin.html; js/game-roster.js) ─────────
+   .fill-4 — сетка 4 → 2 → 1 колонки, у которой последний ряд растягивается, чтобы не было «висящих» карточек */
+.fill-4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+@media (min-width: 1101px) {
+  .fill-4 > :last-child:nth-child(4n+1) { grid-column: span 4; }
+  .fill-4 > :last-child:nth-child(4n+2),
+  .fill-4 > :nth-last-child(2):nth-child(4n+1) { grid-column: span 2; }
+  .fill-4 > :last-child:nth-child(4n+3) { grid-column: span 2; }
+}
+@media (max-width: 1100px) {
+  .fill-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .fill-4 > :last-child:nth-child(2n+1) { grid-column: span 2; }
+}
+@media (max-width: 640px) {
+  .fill-4 { grid-template-columns: 1fr; }
+  .fill-4 > :last-child:nth-child(n) { grid-column: auto; }
+}
+/* во время поиска растяжку отключаем — найденные карточки идут обычной сеткой */
+.is-filtered > .fill-4 > * { grid-column: auto !important; }
+.roster-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; margin: 0 0 18px; }
+.roster-tools input {
+  flex: 1 1 260px;
+  min-height: 44px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font: inherit;
+  font-size: 16px;
+}
+.roster-tools [data-roster-count] { font-size: 14px; opacity: 0.85; }
+.roster-jump { display: flex; flex-wrap: wrap; gap: 6px; }
+.roster-jump a { padding: 4px 10px; border-radius: 999px; font-size: 13.5px; text-decoration: none; }

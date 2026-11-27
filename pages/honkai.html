@@ -130,7 +130,7 @@
           <figcaption><p>Стрелка указывает, кого тип побеждает. QUA и IMG — особая пара, сильная друг против друга.</p></figcaption>
         </figure>
         <ol class="hi-steps">
-          <li><b>Типы Валькирий</b><span>Механический (MECH), биологический (BIO) и псионический (PSY) типы образуют треугольник преимуществ; квантовый (QUA) и мнимый (IMG) сильны друг против друга. Правильный тип против врага — ощутимый бонус урона.</span></li>
+          <li><b>Типы Валькирий</b><span>Механический (MECH), биологический (BIO) и псионический (PSY) типы образуют треугольник преимуществ; квантовый (QUA) и мнимый (IMG) сильны друг против друга, а во второй части появился тип SD. Правильный тип против врага — ощутимый бонус урона.</span></li>
           <li><b>Идеальное уклонение</b><span>Уклонение в последний момент запускает особые эффекты — у многих Валькирий это замедление времени вокруг врагов (Time Fracture), окно для безопасного урона.</span></li>
           <li><b>Команда и QTE</b><span>В отряде три героини. Смена в нужный момент — например, когда враг оглушён, подброшен или заморожен, — запускает эффектную QTE-атаку и продолжает комбо без пауз.</span></li>
           <li><b>Ультимейт и SP</b><span>Шкала SP копится в бою и открывает ультимативный навык — от превращения героини до разрушительного удара по всей арене.</span></li>
@@ -153,66 +153,462 @@
     </section>
 
     <section class="hi-sec hi-cut" id="valkyries" aria-labelledby="valkTitle">
-      <div class="hi-sec-head"><span class="hi-mono">// 05 — ЛИЧНЫЕ ДЕЛА</span><h2 id="valkTitle">Знаковые Валькирии</h2>
-        <p>У многих героинь несколько боевых форм — отдельных персонажей со своими навыками. Ниже — основные лица истории без подробных спойлеров.</p></div>
-      <div class="hi-valks">
-        <article class="hi-valk hi-cut">
-          <div class="hi-valk-bar"><span>VALK-01</span><span>ДОПУСК: ОТКРЫТ</span></div>
-          <div class="hi-valk-body">
-            <div class="hi-valk-head"><span class="hi-hex" style="--c:#ffd36b" aria-hidden="true">KK</span><div><h3>Киана Каслана</h3><small>Главная героиня</small></div></div>
-            <p>Неунывающая, упрямая и бесконечно добрая Валькирия. Её судьба тесно связана с тайной Хонкая — именно вокруг неё строится главная история.</p>
-          </div>
-        </article>
-        <article class="hi-valk hi-cut">
-          <div class="hi-valk-bar"><span>VALK-02</span><span>ДОПУСК: ОТКРЫТ</span></div>
-          <div class="hi-valk-body">
-            <div class="hi-valk-head"><span class="hi-hex" style="--c:#b38dff" aria-hidden="true">RM</span><div><h3>Райдэн Мэй</h3><small>Подруга и опора</small></div></div>
-            <p>Спокойная и заботливая девушка с катаной и силой молнии. Ради близких готова на всё — её линия одна из самых драматичных.</p>
-          </div>
-        </article>
-        <article class="hi-valk hi-cut">
-          <div class="hi-valk-bar"><span>VALK-03</span><span>ДОПУСК: ОТКРЫТ</span></div>
-          <div class="hi-valk-body">
-            <div class="hi-valk-head"><span class="hi-hex" style="--c:#9fd6ff" aria-hidden="true">BZ</span><div><h3>Броня Зайчик</h3><small>Гений техники</small></div></div>
-            <p>Немногословная любительница видеоигр и инженерный гений. Сражается огромными боевыми машинами собственной разработки.</p>
-          </div>
-        </article>
-        <article class="hi-valk hi-cut">
-          <div class="hi-valk-bar"><span>VALK-04</span><span>ДОПУСК: ОТКРЫТ</span></div>
-          <div class="hi-valk-body">
-            <div class="hi-valk-head"><span class="hi-hex" style="--c:#ff6b5a" aria-hidden="true">HM</span><div><h3>Химеко Мурата</h3><small>Капитан и наставница</small></div></div>
-            <p>Командир отряда и учитель героинь. Взрослая, решительная, владеет тяжёлым мечом — сердце первых глав истории.</p>
-          </div>
-        </article>
-        <article class="hi-valk hi-cut">
-          <div class="hi-valk-bar"><span>VALK-05</span><span>ДОПУСК: ОТКРЫТ</span></div>
-          <div class="hi-valk-body">
-            <div class="hi-valk-head"><span class="hi-hex" style="--c:#ff9ad6" aria-hidden="true">TA</span><div><h3>Тереза Апокалипсис</h3><small>Директор академии</small></div></div>
-            <p>Глава Академии Святой Фрейи, выглядящая как ребёнок. Заботится о Валькириях как о семье и сражается гигантским крестом-оружием.</p>
-          </div>
-        </article>
-        <article class="hi-valk hi-cut">
-          <div class="hi-valk-bar"><span>VALK-06</span><span>ДОПУСК: ОТКРЫТ</span></div>
-          <div class="hi-valk-body">
-            <div class="hi-valk-head"><span class="hi-hex" style="--c:#7fd6a8" aria-hidden="true">FH</span><div><h3>Фу Хуа</h3><small>Древняя воительница</small></div></div>
-            <p>Мастер боевых искусств и наставница с очень долгой историей. Сдержанная снаружи, она хранит память о прошлых эпохах.</p>
-          </div>
-        </article>
-        <article class="hi-valk hi-cut">
-          <div class="hi-valk-bar"><span>VALK-07</span><span>ДОПУСК: ОТКРЫТ</span></div>
-          <div class="hi-valk-body">
-            <div class="hi-valk-head"><span class="hi-hex" style="--c:#7aa6ff" aria-hidden="true">SV</span><div><h3>Зеле Воллерай</h3><small>Две стороны</small></div></div>
-            <p>Робкая и нежная девушка, у которой есть вторая, дерзкая и опасная сторона. Вместе они учатся доверять друг другу.</p>
-          </div>
-        </article>
-        <article class="hi-valk hi-cut">
-          <div class="hi-valk-bar"><span>VALK-08</span><span>ДОПУСК: ОТКРЫТ</span></div>
-          <div class="hi-valk-body">
-            <div class="hi-valk-head"><span class="hi-hex" style="--c:#ff7ac8" aria-hidden="true">EL</span><div><h3>Элизия</h3><small>Из прошлой эпохи</small></div></div>
-            <p>Обаятельная героиня древнего отряда, сражавшегося с Хонкаем задолго до нынешних событий. Одна из любимиц фанатов.</p>
-          </div>
-        </article>
+      <div class="hi-sec-head"><span class="hi-mono">// 05 — ЛИЧНЫЕ ДЕЛА</span><h2 id="valkTitle">Все Валькирии и персонажи</h2>
+        <p>Полный реестр играбельных Валькирий со всеми их боевыми костюмами (каждый костюм — отдельный персонаж со своими навыками и типом), а также ключевые сюжетные персонажи. Без подробных спойлеров.</p></div>
+      <div class="roster-tools">
+        <input type="search" data-roster-search placeholder="Поиск: имя, костюм или тип (MECH, BIO…)" aria-label="Поиск по Валькириям и костюмам">
+        <span class="hi-mono" data-roster-count>Всего: 56</span>
       </div>
+      <nav class="roster-jump" aria-label="Группы ростера"><a href="#hi-part1">Часть 1 · 31</a><a href="#hi-part2">Часть 2 · 9</a><a href="#hi-npc">Сюжетные · 16</a></nav>
+      <ul class="hi-legend" aria-label="Типы костюмов" style="margin-top:14px"><li><b style="--t:#ffd36b">MECH</b></li><li><b style="--t:#7fffa0">BIO</b></li><li><b style="--t:#ff7ac8">PSY</b></li><li><b style="--t:#b46bff">QUA</b></li><li><b style="--t:#38e1ff">IMG</b></li><li><b style="--t:#ffffff">SD</b></li><li>· S / A / B — ранг костюма при получении</li></ul>
+      <div class="hi-roster-group" id="hi-part1" data-roster-group>
+        <h3>Валькирии первой части <span class="hi-mono">31 героинь</span></h3>
+        <div class="fill-4">
+        <article class="hi-unit hi-cut" data-roster-item data-search="Киана Каслана Kiana Kaslana White Comet Valkyrie Ranger Void Drifter Divine Prayer Knight Moonbeam Herrscher of the Void Herrscher of Flamescion Herrscher of Finality Ba-Dum! Fiery Wishing Star BIO IMG MECH PSY SD">
+          <div class="hi-valk-bar"><span>VALK-01</span><span>9 костюмов</span></div>
+          <div class="hi-unit-body">
+            <div class="hi-unit-head"><span class="hi-hex" style="--c:#b38dff" aria-hidden="true">КК</span><h4>Киана Каслана<small>Kiana Kaslana</small></h4></div>
+            <p>Главная героиня: неунывающая, упрямая и бесконечно добрая. Её судьба тесно связана с тайной Хонкая.</p>
+            <ul class="hi-suits" aria-label="Боевые костюмы"><li style="--t:#ffd36b"><b>MECH</b>White Comet <i>B</i></li><li style="--t:#ffd36b"><b>MECH</b>Valkyrie Ranger <i>A</i></li><li style="--t:#ffd36b"><b>MECH</b>Void Drifter <i>A</i></li><li style="--t:#ff7ac8"><b>PSY</b>Divine Prayer <i>A</i></li><li style="--t:#7fffa0"><b>BIO</b>Knight Moonbeam <i>S</i></li><li style="--t:#7fffa0"><b>BIO</b>Herrscher of the Void <i>S</i></li><li style="--t:#ff7ac8"><b>PSY</b>Herrscher of Flamescion <i>S</i></li><li style="--t:#38e1ff"><b>IMG</b>Herrscher of Finality <i>S</i></li><li style="--t:#ffffff"><b>SD</b>Ba-Dum! Fiery Wishing Star <i>S</i></li></ul>
+          </div>
+        </article>
+        <article class="hi-unit hi-cut" data-roster-item data-search="Райдэн Мэй Raiden Mei Crimson Impulse Valkyrie Bladestrike Striker Fulminata Shadow Dash Danzai Spectramancer Lightning Empress Herrscher of Thunder Herrscher of Origin Xentinel · Dawnbearing Crescent BIO IMG MECH PSY">
+          <div class="hi-valk-bar"><span>VALK-02</span><span>9 костюмов</span></div>
+          <div class="hi-unit-body">
+            <div class="hi-unit-head"><span class="hi-hex" style="--c:#9fd6ff" aria-hidden="true">РМ</span><h4>Райдэн Мэй<small>Raiden Mei</small></h4></div>
+            <p>Спокойная и заботливая подруга Кианы с катаной и силой молнии; её линия — одна из самых драматичных.</p>
+            <ul class="hi-suits" aria-label="Боевые костюмы"><li style="--t:#7fffa0"><b>BIO</b>Crimson Impulse <i>B</i></li><li style="--t:#7fffa0"><b>BIO</b>Valkyrie Bladestrike <i>A</i></li><li style="--t:#7fffa0"><b>BIO</b>Striker Fulminata <i>A</i></li><li style="--t:#ffd36b"><b>MECH</b>Shadow Dash <i>A</i></li><li style="--t:#ffd36b"><b>MECH</b>Danzai Spectramancer <i>A</i></li><li style="--t:#ff7ac8"><b>PSY</b>Lightning Empress <i>S</i></li><li style="--t:#ff7ac8"><b>PSY</b>Herrscher of Thunder <i>S</i></li><li style="--t:#38e1ff"><b>IMG</b>Herrscher of Origin <i>S</i></li><li style="--t:#ffd36b"><b>MECH</b>Xentinel · Dawnbearing Crescent <i>S</i></li></ul>
+          </div>
+        </article>
+        <article class="hi-unit hi-cut" data-roster-item data-search="Броня Зайчик Bronya Zaychik Valkyrie Chariot Snowy Sniper Yamabuki Armor Drive Kometa Wolf&#x27;s Dawn Dimension Breaker Black Nucleus Herrscher of Reason Haxxor Bunny Silverwing: N-EX Herrscher of Truth BIO IMG MECH PSY">
+          <div class="hi-valk-bar"><span>VALK-03</span><span>11 костюмов</span></div>
+          <div class="hi-unit-body">
+            <div class="hi-unit-head"><span class="hi-hex" style="--c:#ff6b5a" aria-hidden="true">БЗ</span><h4>Броня Зайчик<small>Bronya Zaychik</small></h4></div>
+            <p>Немногословная любительница видеоигр и инженерный гений, сражается боевыми машинами собственной разработки.</p>
+            <ul class="hi-suits" aria-label="Боевые костюмы"><li style="--t:#ff7ac8"><b>PSY</b>Valkyrie Chariot <i>B</i></li><li style="--t:#7fffa0"><b>BIO</b>Snowy Sniper <i>A</i></li><li style="--t:#ff7ac8"><b>PSY</b>Yamabuki Armor <i>A</i></li><li style="--t:#ff7ac8"><b>PSY</b>Drive Kometa <i>A</i></li><li style="--t:#ff7ac8"><b>PSY</b>Wolf&#x27;s Dawn <i>A</i></li><li style="--t:#ffd36b"><b>MECH</b>Dimension Breaker <i>S</i></li><li style="--t:#7fffa0"><b>BIO</b>Black Nucleus <i>S</i></li><li style="--t:#ffd36b"><b>MECH</b>Herrscher of Reason <i>S</i></li><li style="--t:#ff7ac8"><b>PSY</b>Haxxor Bunny <i>A</i></li><li style="--t:#7fffa0"><b>BIO</b>Silverwing: N-EX <i>S</i></li><li style="--t:#38e1ff"><b>IMG</b>Herrscher of Truth <i>S</i></li></ul>
+          </div>
+        </article>
+        <article class="hi-unit hi-cut" data-roster-item data-search="Химеко Мурата Murata Himeko Battle Storm Valkyrie Triumph Scarlet Fusion Blood Rose Kriegsmesser Vermilion Knight: Eclipse BIO MECH PSY">
+          <div class="hi-valk-bar"><span>VALK-04</span><span>6 костюмов</span></div>
+          <div class="hi-unit-body">
+            <div class="hi-unit-head"><span class="hi-hex" style="--c:#ff9ad6" aria-hidden="true">ХМ</span><h4>Химеко Мурата<small>Murata Himeko</small></h4></div>
+            <p>Капитан отряда и наставница героинь, мастер тяжёлого меча — сердце первых глав истории.</p>
+            <ul class="hi-suits" aria-label="Боевые костюмы"><li style="--t:#7fffa0"><b>BIO</b>Battle Storm <i>B</i></li><li style="--t:#7fffa0"><b>BIO</b>Valkyrie Triumph <i>A</i></li><li style="--t:#ffd36b"><b>MECH</b>Scarlet Fusion <i>A</i></li><li style="--t:#ff7ac8"><b>PSY</b>Blood Rose <i>S</i></li><li style="--t:#ff7ac8"><b>PSY</b>Kriegsmesser <i>A</i></li><li style="--t:#ffd36b"><b>MECH</b>Vermilion Knight: Eclipse <i>S</i></li></ul>
+          </div>
+        </article>
+        <article class="hi-unit hi-cut" data-roster-item data-search="Яэ Сакура Yae Sakura Gyakushinn Miko Goushinnso Memento Flame Sakitama Darkbolt Jonin BIO MECH">
+          <div class="hi-valk-bar"><span>VALK-05</span><span>4 костюма</span></div>
+          <div class="hi-unit-body">
+            <div class="hi-unit-head"><span class="hi-hex" style="--c:#7fd6a8" aria-hidden="true">ЯС</span><h4>Яэ Сакура<small>Yae Sakura</small></h4></div>
+            <p>Жрица с катаной и лисьими ушками, чья история уходит в прошлое на сотни лет.</p>
+            <ul class="hi-suits" aria-label="Боевые костюмы"><li style="--t:#7fffa0"><b>BIO</b>Gyakushinn Miko <i>A</i></li><li style="--t:#ffd36b"><b>MECH</b>Goushinnso Memento <i>S</i></li><li style="--t:#7fffa0"><b>BIO</b>Flame Sakitama <i>A</i></li><li style="--t:#7fffa0"><b>BIO</b>Darkbolt Jonin <i>A</i></li></ul>
+          </div>
+        </article>
+        <article class="hi-unit hi-cut" data-roster-item data-search="Тереза Апокалипсис Theresa Apocalypse Valkyrie Pledge Violet Executer Twilight Paladin Sakuno Rondo Celestial Hymn Luna Kindred Starlit Astrologos Lunar Vow: Crimson Love Schicksal&#x27;s Imperative BIO MECH PSY QUA">
+          <div class="hi-valk-bar"><span>VALK-06</span><span>9 костюмов</span></div>
+          <div class="hi-unit-body">
+            <div class="hi-unit-head"><span class="hi-hex" style="--c:#7aa6ff" aria-hidden="true">ТА</span><h4>Тереза Апокалипсис<small>Theresa Apocalypse</small></h4></div>
+            <p>Директор Академии Святой Фрейи, выглядящая как ребёнок; заботится о Валькириях как о семье.</p>
+            <ul class="hi-suits" aria-label="Боевые костюмы"><li style="--t:#ff7ac8"><b>PSY</b>Valkyrie Pledge <i>A</i></li><li style="--t:#ffd36b"><b>MECH</b>Violet Executer <i>S</i></li><li style="--t:#ffd36b"><b>MECH</b>Twilight Paladin <i>S</i></li><li style="--t:#ff7ac8"><b>PSY</b>Sakuno Rondo <i>A</i></li><li style="--t:#7fffa0"><b>BIO</b>Celestial Hymn <i>S</i></li><li style="--t:#7fffa0"><b>BIO</b>Luna Kindred <i>A</i></li><li style="--t:#7fffa0"><b>BIO</b>Starlit Astrologos <i>A</i></li><li style="--t:#ff7ac8"><b>PSY</b>Lunar Vow: Crimson Love <i>S</i></li><li style="--t:#b46bff"><b>QUA</b>Schicksal&#x27;s Imperative <i>S</i></li></ul>
+          </div>
+        </article>
+        <article class="hi-unit hi-cut" data-roster-item data-search="Фу Хуа Fu Hua Valkyrie Accipiter Hawk of the Fog Phoenix Night Squire Shadow Knight Azure Empyrea Herrscher of Sentience Fenghuang of Vicissitude BIO MECH PSY">
+          <div class="hi-valk-bar"><span>VALK-07</span><span>8 костюмов</span></div>
+          <div class="hi-unit-body">
+            <div class="hi-unit-head"><span class="hi-hex" style="--c:#ff7ac8" aria-hidden="true">ФХ</span><h4>Фу Хуа<small>Fu Hua</small></h4></div>
+            <p>Мастер боевых искусств и наставница с очень долгой историей, хранящая память о прошлых эпохах.</p>
+            <ul class="hi-suits" aria-label="Боевые костюмы"><li style="--t:#ff7ac8"><b>PSY</b>Valkyrie Accipiter <i>A</i></li><li style="--t:#ff7ac8"><b>PSY</b>Hawk of the Fog <i>A</i></li><li style="--t:#ff7ac8"><b>PSY</b>Phoenix <i>S</i></li><li style="--t:#7fffa0"><b>BIO</b>Night Squire <i>A</i></li><li style="--t:#ffd36b"><b>MECH</b>Shadow Knight <i>S</i></li><li style="--t:#ff7ac8"><b>PSY</b>Azure Empyrea <i>S</i></li><li style="--t:#7fffa0"><b>BIO</b>Herrscher of Sentience <i>S</i></li><li style="--t:#7fffa0"><b>BIO</b>Fenghuang of Vicissitude <i>S</i></li></ul>
+          </div>
+        </article>
+        <article class="hi-unit hi-cut" data-roster-item data-search="Каллен Каслана Kallen Kaslana Ritual Imayoh Sixth Serenade Sündenjäger MECH PSY">
+          <div class="hi-valk-bar"><span>VALK-08</span><span>3 костюма</span></div>
+          <div class="hi-unit-body">
+            <div class="hi-unit-head"><span class="hi-hex" style="--c:#ffd36b" aria-hidden="true">КК</span><h4>Каллен Каслана<small>Kallen Kaslana</small></h4></div>
+            <p>Валькирия Шиксаля далёкого прошлого с парными пистолетами, близкая подруга Сакуры.</p>
+            <ul class="hi-suits" aria-label="Боевые костюмы"><li style="--t:#ffd36b"><b>MECH</b>Ritual Imayoh <i>A</i></li><li style="--t:#ff7ac8"><b>PSY</b>Sixth Serenade <i>S</i></li><li style="--t:#ffd36b"><b>MECH</b>Sündenjäger <i>A</i></li></ul>
+          </div>
+        </article>
+        <article class="hi-unit hi-cut" data-roster-item data-search="Рита Россвайс Rita Rossweisse Umbral Rose Phantom Iron Argent Knight: Artemis Fallen Rosemary Spina Astera Miss Espionage BIO IMG MECH PSY QUA">
+          <div class="hi-valk-bar"><span>VALK-09</span><span>6 костюмов</span></div>
+          <div class="hi-unit-body">
+            <div class="hi-unit-head"><span class="hi-hex" style="--c:#b38dff" aria-hidden="true">РР</span><h4>Рита Россвайс<small>Rita Rossweisse</small></h4></div>
+            <p>Элегантная Валькирия Шиксаля в образе горничной: вежливая улыбка и смертоносная коса.</p>
+            <ul class="hi-suits" aria-label="Боевые костюмы"><li style="--t:#ff7ac8"><b>PSY</b>Umbral Rose <i>A</i></li><li style="--t:#ffd36b"><b>MECH</b>Phantom Iron <i>A</i></li><li style="--t:#7fffa0"><b>BIO</b>Argent Knight: Artemis <i>S</i></li><li style="--t:#b46bff"><b>QUA</b>Fallen Rosemary <i>S</i></li><li style="--t:#ffd36b"><b>MECH</b>Spina Astera <i>S</i></li><li style="--t:#38e1ff"><b>IMG</b>Miss Espionage <i>S</i></li></ul>
+          </div>
+        </article>
+        <article class="hi-unit hi-cut" data-roster-item data-search="Зеле Воллерай Seele Vollerei Swallowtail Phantasm Stygian Nymph Starchasm Nyx Herrscher of Rebirth Wings of Panacea PSY QUA SD">
+          <div class="hi-valk-bar"><span>VALK-10</span><span>5 костюмов</span></div>
+          <div class="hi-unit-body">
+            <div class="hi-unit-head"><span class="hi-hex" style="--c:#9fd6ff" aria-hidden="true">ЗВ</span><h4>Зеле Воллерай<small>Seele Vollerei</small></h4></div>
+            <p>Робкая девушка со второй, дерзкой стороной; вместе они учатся доверять друг другу.</p>
+            <ul class="hi-suits" aria-label="Боевые костюмы"><li style="--t:#b46bff"><b>QUA</b>Swallowtail Phantasm <i>A</i></li><li style="--t:#b46bff"><b>QUA</b>Stygian Nymph <i>S</i></li><li style="--t:#b46bff"><b>QUA</b>Starchasm Nyx <i>S</i></li><li style="--t:#ff7ac8"><b>PSY</b>Herrscher of Rebirth <i>S</i></li><li style="--t:#ffffff"><b>SD</b>Wings of Panacea <i>S</i></li></ul>
+          </div>
+        </article>
+        <article class="hi-unit hi-cut" data-roster-item data-search="Лилия Оленева Liliya Olenyeva Blueberry Blitz MECH">
+          <div class="hi-valk-bar"><span>VALK-11</span><span>1 костюм</span></div>
+          <div class="hi-unit-body">
+            <div class="hi-unit-head"><span class="hi-hex" style="--c:#ff6b5a" aria-hidden="true">ЛО</span><h4>Лилия Оленева<small>Liliya Olenyeva</small></h4></div>
+            
+            <ul class="hi-suits" aria-label="Боевые костюмы"><li style="--t:#ffd36b"><b>MECH</b>Blueberry Blitz <i>A</i></li></ul>
+          </div>
+        </article>
+        <article class="hi-unit hi-cut" data-roster-item data-search="Розалия Оленева Rozaliya Olenyeva Molotov Cherry Fervent Tempo Δ PSY">
+          <div class="hi-valk-bar"><span>VALK-12</span><span>2 костюма</span></div>
+          <div class="hi-unit-body">
+            <div class="hi-unit-head"><span class="hi-hex" style="--c:#ff9ad6" aria-hidden="true">РО</span><h4>Розалия Оленева<small>Rozaliya Olenyeva</small></h4></div>
+            
+            <ul class="hi-suits" aria-label="Боевые костюмы"><li style="--t:#ff7ac8"><b>PSY</b>Molotov Cherry <i>S</i></li><li style="--t:#ff7ac8"><b>PSY</b>Fervent Tempo Δ <i>S</i></li></ul>
+          </div>
+        </article>
+        <article class="hi-unit hi-cut" data-roster-item data-search="Дюрандаль Durandal Valkyrie Gloria Bright Knight: Excelsis Dea Anchora Palatinus Equinox Reign Solaris BIO IMG MECH QUA">
+          <div class="hi-valk-bar"><span>VALK-13</span><span>5 костюмов</span></div>
+          <div class="hi-unit-body">
+            <div class="hi-unit-head"><span class="hi-hex" style="--c:#7fd6a8" aria-hidden="true">Д</span><h4>Дюрандаль<small>Durandal</small></h4></div>
+            <p>Сильнейшая Валькирия Шиксаля, благородная рыцарь с копьём.</p>
+            <ul class="hi-suits" aria-label="Боевые костюмы"><li style="--t:#b46bff"><b>QUA</b>Valkyrie Gloria <i>A</i></li><li style="--t:#ffd36b"><b>MECH</b>Bright Knight: Excelsis <i>S</i></li><li style="--t:#7fffa0"><b>BIO</b>Dea Anchora <i>S</i></li><li style="--t:#38e1ff"><b>IMG</b>Palatinus Equinox <i>S</i></li><li style="--t:#38e1ff"><b>IMG</b>Reign Solaris <i>S</i></li></ul>
+          </div>
+        </article>
+        <article class="hi-unit hi-cut" data-roster-item data-search="Аска Asuka Blazing Hope BIO">
+          <div class="hi-valk-bar"><span>VALK-14</span><span>1 костюм</span></div>
+          <div class="hi-unit-body">
+            <div class="hi-unit-head"><span class="hi-hex" style="--c:#7aa6ff" aria-hidden="true">А</span><h4>Аска<small>Asuka</small></h4></div>
+            <p>Гостья из коллаборации с аниме «Евангелион».</p>
+            <ul class="hi-suits" aria-label="Боевые костюмы"><li style="--t:#7fffa0"><b>BIO</b>Blazing Hope <i>A</i></li></ul>
+          </div>
+        </article>
+        <article class="hi-unit hi-cut" data-roster-item data-search="Фишль Fischl Prinzessin der Verurteilung! BIO">
+          <div class="hi-valk-bar"><span>VALK-15</span><span>1 костюм</span></div>
+          <div class="hi-unit-body">
+            <div class="hi-unit-head"><span class="hi-hex" style="--c:#ff7ac8" aria-hidden="true">Ф</span><h4>Фишль<small>Fischl</small></h4></div>
+            <p>Гостья из коллаборации с Genshin Impact.</p>
+            <ul class="hi-suits" aria-label="Боевые костюмы"><li style="--t:#7fffa0"><b>BIO</b>Prinzessin der Verurteilung! <i>A</i></li></ul>
+          </div>
+        </article>
+        <article class="hi-unit hi-cut" data-roster-item data-search="Элизия Elysia Miss Pink Elf♪ Herrscher of Human: Ego Hi♪ Love Elf♥ PSY SD">
+          <div class="hi-valk-bar"><span>VALK-16</span><span>3 костюма</span></div>
+          <div class="hi-unit-body">
+            <div class="hi-unit-head"><span class="hi-hex" style="--c:#ffd36b" aria-hidden="true">Э</span><h4>Элизия<small>Elysia</small></h4></div>
+            <p>Одна из Огнеборцев — легендарного отряда прошлой эпохи, сражавшегося с Хонкаем. Обаятельная любимица фанатов.</p>
+            <ul class="hi-suits" aria-label="Боевые костюмы"><li style="--t:#ff7ac8"><b>PSY</b>Miss Pink Elf♪ <i>S</i></li><li style="--t:#ff7ac8"><b>PSY</b>Herrscher of Human: Ego <i>S</i></li><li style="--t:#ffffff"><b>SD</b>Hi♪ Love Elf♥ <i>S</i></li></ul>
+          </div>
+        </article>
+        <article class="hi-unit hi-cut" data-roster-item data-search="Мёбиус Mobius Infinite Ouroboros MECH">
+          <div class="hi-valk-bar"><span>VALK-17</span><span>1 костюм</span></div>
+          <div class="hi-unit-body">
+            <div class="hi-unit-head"><span class="hi-hex" style="--c:#b38dff" aria-hidden="true">М</span><h4>Мёбиус<small>Mobius</small></h4></div>
+            <p>Одна из Огнеборцев — легендарного отряда прошлой эпохи, сражавшегося с Хонкаем.</p>
+            <ul class="hi-suits" aria-label="Боевые костюмы"><li style="--t:#ffd36b"><b>MECH</b>Infinite Ouroboros <i>S</i></li></ul>
+          </div>
+        </article>
+        <article class="hi-unit hi-cut" data-roster-item data-search="Наташа Чоара Natasha Cioara Midnight Absinthe IMG">
+          <div class="hi-valk-bar"><span>VALK-18</span><span>1 костюм</span></div>
+          <div class="hi-unit-body">
+            <div class="hi-unit-head"><span class="hi-hex" style="--c:#9fd6ff" aria-hidden="true">НЧ</span><h4>Наташа Чоара<small>Natasha Cioara</small></h4></div>
+            
+            <ul class="hi-suits" aria-label="Боевые костюмы"><li style="--t:#38e1ff"><b>IMG</b>Midnight Absinthe <i>A</i></li></ul>
+          </div>
+        </article>
+        <article class="hi-unit hi-cut" data-roster-item data-search="Кэрол Пеппер Carole Pepper Sweet &#x27;n&#x27; Spicy MECH">
+          <div class="hi-valk-bar"><span>VALK-19</span><span>1 костюм</span></div>
+          <div class="hi-unit-body">
+            <div class="hi-unit-head"><span class="hi-hex" style="--c:#ff6b5a" aria-hidden="true">КП</span><h4>Кэрол Пеппер<small>Carole Pepper</small></h4></div>
+            
+            <ul class="hi-suits" aria-label="Боевые костюмы"><li style="--t:#ffd36b"><b>MECH</b>Sweet &#x27;n&#x27; Spicy <i>A</i></li></ul>
+          </div>
+        </article>
+        <article class="hi-unit hi-cut" data-roster-item data-search="Пардофелис Pardofelis Reverist Calico IMG">
+          <div class="hi-valk-bar"><span>VALK-20</span><span>1 костюм</span></div>
+          <div class="hi-unit-body">
+            <div class="hi-unit-head"><span class="hi-hex" style="--c:#ff9ad6" aria-hidden="true">П</span><h4>Пардофелис<small>Pardofelis</small></h4></div>
+            <p>Одна из Огнеборцев — легендарного отряда прошлой эпохи, сражавшегося с Хонкаем.</p>
+            <ul class="hi-suits" aria-label="Боевые костюмы"><li style="--t:#38e1ff"><b>IMG</b>Reverist Calico <i>A</i></li></ul>
+          </div>
+        </article>
+        <article class="hi-unit hi-cut" data-roster-item data-search="Апония Aponia Disciplinary Perdition BIO">
+          <div class="hi-valk-bar"><span>VALK-21</span><span>1 костюм</span></div>
+          <div class="hi-unit-body">
+            <div class="hi-unit-head"><span class="hi-hex" style="--c:#7fd6a8" aria-hidden="true">А</span><h4>Апония<small>Aponia</small></h4></div>
+            <p>Одна из Огнеборцев — легендарного отряда прошлой эпохи, сражавшегося с Хонкаем.</p>
+            <ul class="hi-suits" aria-label="Боевые костюмы"><li style="--t:#7fffa0"><b>BIO</b>Disciplinary Perdition <i>S</i></li></ul>
+          </div>
+        </article>
+        <article class="hi-unit hi-cut" data-roster-item data-search="Эдем Eden Golden Diva IMG">
+          <div class="hi-valk-bar"><span>VALK-22</span><span>1 костюм</span></div>
+          <div class="hi-unit-body">
+            <div class="hi-unit-head"><span class="hi-hex" style="--c:#7aa6ff" aria-hidden="true">Э</span><h4>Эдем<small>Eden</small></h4></div>
+            <p>Одна из Огнеборцев — легендарного отряда прошлой эпохи, сражавшегося с Хонкаем.</p>
+            <ul class="hi-suits" aria-label="Боевые костюмы"><li style="--t:#38e1ff"><b>IMG</b>Golden Diva <i>A</i></li></ul>
+          </div>
+        </article>
+        <article class="hi-unit hi-cut" data-roster-item data-search="Гризео Griseo Starry Impression Cosmic Expression PSY SD">
+          <div class="hi-valk-bar"><span>VALK-23</span><span>2 костюма</span></div>
+          <div class="hi-unit-body">
+            <div class="hi-unit-head"><span class="hi-hex" style="--c:#ff7ac8" aria-hidden="true">Г</span><h4>Гризео<small>Griseo</small></h4></div>
+            <p>Одна из Огнеборцев — легендарного отряда прошлой эпохи, сражавшегося с Хонкаем.</p>
+            <ul class="hi-suits" aria-label="Боевые костюмы"><li style="--t:#ff7ac8"><b>PSY</b>Starry Impression <i>A</i></li><li style="--t:#ffffff"><b>SD</b>Cosmic Expression <i>A</i></li></ul>
+          </div>
+        </article>
+        <article class="hi-unit hi-cut" data-roster-item data-search="Вилл-V Vill-V Helical Contraption QUA">
+          <div class="hi-valk-bar"><span>VALK-24</span><span>1 костюм</span></div>
+          <div class="hi-unit-body">
+            <div class="hi-unit-head"><span class="hi-hex" style="--c:#ffd36b" aria-hidden="true">В</span><h4>Вилл-V<small>Vill-V</small></h4></div>
+            <p>Одна из Огнеборцев — легендарного отряда прошлой эпохи, сражавшегося с Хонкаем.</p>
+            <ul class="hi-suits" aria-label="Боевые костюмы"><li style="--t:#b46bff"><b>QUA</b>Helical Contraption <i>S</i></li></ul>
+          </div>
+        </article>
+        <article class="hi-unit hi-cut" data-roster-item data-search="Ли Сушан Li Sushang Jade Knight Peregrine Sword BIO PSY">
+          <div class="hi-valk-bar"><span>VALK-25</span><span>2 костюма</span></div>
+          <div class="hi-unit-body">
+            <div class="hi-unit-head"><span class="hi-hex" style="--c:#b38dff" aria-hidden="true">ЛС</span><h4>Ли Сушан<small>Li Sushang</small></h4></div>
+            
+            <ul class="hi-suits" aria-label="Боевые костюмы"><li style="--t:#ff7ac8"><b>PSY</b>Jade Knight <i>S</i></li><li style="--t:#7fffa0"><b>BIO</b>Peregrine Sword <i>S</i></li></ul>
+          </div>
+        </article>
+        <article class="hi-unit hi-cut" data-roster-item data-search="Ай Гиперион Λ Ai Hyperion Λ Chrono Navi MECH">
+          <div class="hi-valk-bar"><span>VALK-26</span><span>1 костюм</span></div>
+          <div class="hi-unit-body">
+            <div class="hi-unit-head"><span class="hi-hex" style="--c:#9fd6ff" aria-hidden="true">АГ</span><h4>Ай Гиперион Λ<small>Ai Hyperion Λ</small></h4></div>
+            <p>Искусственный интеллект боевого корабля «Гиперион» — верная помощница капитана.</p>
+            <ul class="hi-suits" aria-label="Боевые костюмы"><li style="--t:#ffd36b"><b>MECH</b>Chrono Navi <i>A</i></li></ul>
+          </div>
+        </article>
+        <article class="hi-unit hi-cut" data-roster-item data-search="Сюзанна Манатт Susannah Manatt Valkyrie Quicksand QUA">
+          <div class="hi-valk-bar"><span>VALK-27</span><span>1 костюм</span></div>
+          <div class="hi-unit-body">
+            <div class="hi-unit-head"><span class="hi-hex" style="--c:#ff6b5a" aria-hidden="true">СМ</span><h4>Сюзанна Манатт<small>Susannah Manatt</small></h4></div>
+            
+            <ul class="hi-suits" aria-label="Боевые костюмы"><li style="--t:#b46bff"><b>QUA</b>Valkyrie Quicksand <i>A</i></li></ul>
+          </div>
+        </article>
+        <article class="hi-unit hi-cut" data-roster-item data-search="Мистельн Шариак Misteln Schariac Dreamweaver MECH">
+          <div class="hi-valk-bar"><span>VALK-28</span><span>1 костюм</span></div>
+          <div class="hi-unit-body">
+            <div class="hi-unit-head"><span class="hi-hex" style="--c:#ff9ad6" aria-hidden="true">МШ</span><h4>Мистельн Шариак<small>Misteln Schariac</small></h4></div>
+            
+            <ul class="hi-suits" aria-label="Боевые костюмы"><li style="--t:#ffd36b"><b>MECH</b>Dreamweaver <i>S</i></li></ul>
+          </div>
+        </article>
+        <article class="hi-unit hi-cut" data-roster-item data-search="Прометей PROMETHEUS Terminal Aide 0017 IMG">
+          <div class="hi-valk-bar"><span>VALK-29</span><span>1 костюм</span></div>
+          <div class="hi-unit-body">
+            <div class="hi-unit-head"><span class="hi-hex" style="--c:#7fd6a8" aria-hidden="true">П</span><h4>Прометей<small>PROMETHEUS</small></h4></div>
+            
+            <ul class="hi-suits" aria-label="Боевые костюмы"><li style="--t:#38e1ff"><b>IMG</b>Terminal Aide 0017 <i>A</i></li></ul>
+          </div>
+        </article>
+        <article class="hi-unit hi-cut" data-roster-item data-search="Сигурэ Кира Shigure Kira Sugary Starburst MECH">
+          <div class="hi-valk-bar"><span>VALK-30</span><span>1 костюм</span></div>
+          <div class="hi-unit-body">
+            <div class="hi-unit-head"><span class="hi-hex" style="--c:#7aa6ff" aria-hidden="true">СК</span><h4>Сигурэ Кира<small>Shigure Kira</small></h4></div>
+            
+            <ul class="hi-suits" aria-label="Боевые костюмы"><li style="--t:#ffd36b"><b>MECH</b>Sugary Starburst <i>A</i></li></ul>
+          </div>
+        </article>
+        <article class="hi-unit hi-cut" data-roster-item data-search="Сирин Sirin Miracle ☆ Magical Girl MECH">
+          <div class="hi-valk-bar"><span>VALK-31</span><span>1 костюм</span></div>
+          <div class="hi-unit-body">
+            <div class="hi-unit-head"><span class="hi-hex" style="--c:#ff7ac8" aria-hidden="true">С</span><h4>Сирин<small>Sirin</small></h4></div>
+            <p>Девочка из прошлого, связанная с Херршером Пустоты.</p>
+            <ul class="hi-suits" aria-label="Боевые костюмы"><li style="--t:#ffd36b"><b>MECH</b>Miracle ☆ Magical Girl <i>S</i></li></ul>
+          </div>
+        </article>
+        </div>
+      </div>
+      <div class="hi-roster-group" id="hi-part2" data-roster-group>
+        <h3>Валькирии второй части <span class="hi-mono">9 героинь</span></h3>
+        <div class="fill-4">
+        <article class="hi-unit hi-cut" data-roster-item data-search="Сенадина Senadina Deepspace Anchor: First Light SD">
+          <div class="hi-valk-bar"><span>VALK-32</span><span>1 костюм</span></div>
+          <div class="hi-unit-body">
+            <div class="hi-unit-head"><span class="hi-hex" style="--c:#ffd36b" aria-hidden="true">С</span><h4>Сенадина<small>Senadina</small></h4></div>
+            
+            <ul class="hi-suits" aria-label="Боевые костюмы"><li style="--t:#ffffff"><b>SD</b>Deepspace Anchor: First Light <i>S</i></li></ul>
+          </div>
+        </article>
+        <article class="hi-unit hi-cut" data-roster-item data-search="Корали 6626 Планк Coralie 6626 Planck Valkyrie Blastmetal Behold! Fate-Defying Dragon MECH PSY">
+          <div class="hi-valk-bar"><span>VALK-33</span><span>2 костюма</span></div>
+          <div class="hi-unit-body">
+            <div class="hi-unit-head"><span class="hi-hex" style="--c:#b38dff" aria-hidden="true">КП</span><h4>Корали 6626 Планк<small>Coralie 6626 Planck</small></h4></div>
+            
+            <ul class="hi-suits" aria-label="Боевые костюмы"><li style="--t:#ff7ac8"><b>PSY</b>Valkyrie Blastmetal <i>A</i></li><li style="--t:#ffd36b"><b>MECH</b>Behold! Fate-Defying Dragon <i>S</i></li></ul>
+          </div>
+        </article>
+        <article class="hi-unit hi-cut" data-roster-item data-search="Эрдёш Хелия Erdős Helia Valkyrie Boltstorm Planar Armament: Warped Spacetime BIO MECH">
+          <div class="hi-valk-bar"><span>VALK-34</span><span>2 костюма</span></div>
+          <div class="hi-unit-body">
+            <div class="hi-unit-head"><span class="hi-hex" style="--c:#9fd6ff" aria-hidden="true">ЭХ</span><h4>Эрдёш Хелия<small>Erdős Helia</small></h4></div>
+            
+            <ul class="hi-suits" aria-label="Боевые костюмы"><li style="--t:#ffd36b"><b>MECH</b>Valkyrie Boltstorm <i>A</i></li><li style="--t:#7fffa0"><b>BIO</b>Planar Armament: Warped Spacetime <i>S</i></li></ul>
+          </div>
+        </article>
+        <article class="hi-unit hi-cut" data-roster-item data-search="Телема Нутриску Thelema Nutriscu Mad Pleasure: Shadowbringer MECH">
+          <div class="hi-valk-bar"><span>VALK-35</span><span>1 костюм</span></div>
+          <div class="hi-unit-body">
+            <div class="hi-unit-head"><span class="hi-hex" style="--c:#ff6b5a" aria-hidden="true">ТН</span><h4>Телема Нутриску<small>Thelema Nutriscu</small></h4></div>
+            
+            <ul class="hi-suits" aria-label="Боевые костюмы"><li style="--t:#ffd36b"><b>MECH</b>Mad Pleasure: Shadowbringer <i>S</i></li></ul>
+          </div>
+        </article>
+        <article class="hi-unit hi-cut" data-roster-item data-search="«Фонарь» &quot;Lantern&quot; Lone Destruction: Shadowchaser PSY">
+          <div class="hi-valk-bar"><span>VALK-36</span><span>1 костюм</span></div>
+          <div class="hi-unit-body">
+            <div class="hi-unit-head"><span class="hi-hex" style="--c:#ff9ad6" aria-hidden="true">Ф</span><h4>«Фонарь»<small>&quot;Lantern&quot;</small></h4></div>
+            
+            <ul class="hi-suits" aria-label="Боевые костюмы"><li style="--t:#ff7ac8"><b>PSY</b>Lone Destruction: Shadowchaser <i>S</i></li></ul>
+          </div>
+        </article>
+        <article class="hi-unit hi-cut" data-roster-item data-search="Сунцюэ Songque Jovial Deception: Shadowdimmer SD">
+          <div class="hi-valk-bar"><span>VALK-37</span><span>1 костюм</span></div>
+          <div class="hi-unit-body">
+            <div class="hi-unit-head"><span class="hi-hex" style="--c:#7fd6a8" aria-hidden="true">С</span><h4>Сунцюэ<small>Songque</small></h4></div>
+            
+            <ul class="hi-suits" aria-label="Боевые костюмы"><li style="--t:#ffffff"><b>SD</b>Jovial Deception: Shadowdimmer <i>S</i></li></ul>
+          </div>
+        </article>
+        <article class="hi-unit hi-cut" data-roster-item data-search="Вита Vita Lone Planetfarer MECH">
+          <div class="hi-valk-bar"><span>VALK-38</span><span>1 костюм</span></div>
+          <div class="hi-unit-body">
+            <div class="hi-unit-head"><span class="hi-hex" style="--c:#7aa6ff" aria-hidden="true">В</span><h4>Вита<small>Vita</small></h4></div>
+            
+            <ul class="hi-suits" aria-label="Боевые костюмы"><li style="--t:#ffd36b"><b>MECH</b>Lone Planetfarer <i>S</i></li></ul>
+          </div>
+        </article>
+        <article class="hi-unit hi-cut" data-roster-item data-search="Искорка Sparkle Thousand-Faced Maestro: Cameo! QUA">
+          <div class="hi-valk-bar"><span>VALK-39</span><span>1 костюм</span></div>
+          <div class="hi-unit-body">
+            <div class="hi-unit-head"><span class="hi-hex" style="--c:#ff7ac8" aria-hidden="true">И</span><h4>Искорка<small>Sparkle</small></h4></div>
+            <p>Гостья из Honkai: Star Rail.</p>
+            <ul class="hi-suits" aria-label="Боевые костюмы"><li style="--t:#b46bff"><b>QUA</b>Thousand-Faced Maestro: Cameo! <i>S</i></li></ul>
+          </div>
+        </article>
+        <article class="hi-unit hi-cut" data-roster-item data-search="Искательница снов Dreamseeker Herrscher of Time IMG">
+          <div class="hi-valk-bar"><span>VALK-40</span><span>1 костюм</span></div>
+          <div class="hi-unit-body">
+            <div class="hi-unit-head"><span class="hi-hex" style="--c:#ffd36b" aria-hidden="true">ИС</span><h4>Искательница снов<small>Dreamseeker</small></h4></div>
+            
+            <ul class="hi-suits" aria-label="Боевые костюмы"><li style="--t:#38e1ff"><b>IMG</b>Herrscher of Time <i>S</i></li></ul>
+          </div>
+        </article>
+        </div>
+      </div>
+      <div class="hi-roster-group" id="hi-npc" data-roster-group>
+        <h3>Ключевые сюжетные персонажи <span class="hi-mono">неиграбельные · 16</span></h3>
+        <div class="fill-4">
+        <article class="hi-unit hi-npc hi-cut" data-roster-item data-search="Отто Апокалипсис Otto Apocalypse">
+          <div class="hi-valk-bar"><span>NPC-01</span><span>СЮЖЕТ</span></div>
+          <div class="hi-unit-body">
+            <div class="hi-unit-head"><span class="hi-hex" aria-hidden="true">ОА</span><h4>Отто Апокалипсис<small>Otto Apocalypse</small></h4></div>
+            <p>Верховный епископ Шиксаля и расчётливый стратег — главный антагонист первой части.</p>
+          </div>
+        </article>
+        <article class="hi-unit hi-npc hi-cut" data-roster-item data-search="Кевин Каслана Kevin Kaslana">
+          <div class="hi-valk-bar"><span>NPC-02</span><span>СЮЖЕТ</span></div>
+          <div class="hi-unit-body">
+            <div class="hi-unit-head"><span class="hi-hex" aria-hidden="true">КК</span><h4>Кевин Каслана<small>Kevin Kaslana</small></h4></div>
+            <p>Лидер Огнеборцев прошлой эпохи и сильнейший воин той цивилизации.</p>
+          </div>
+        </article>
+        <article class="hi-unit hi-npc hi-cut" data-roster-item data-search="Вельт Джойс Welt Joyce">
+          <div class="hi-valk-bar"><span>NPC-03</span><span>СЮЖЕТ</span></div>
+          <div class="hi-unit-body">
+            <div class="hi-unit-head"><span class="hi-hex" aria-hidden="true">ВД</span><h4>Вельт Джойс<small>Welt Joyce</small></h4></div>
+            <p>Бывший Херршер Разума, ставший лидером организации «Анти-Энтропия».</p>
+          </div>
+        </article>
+        <article class="hi-unit hi-npc hi-cut" data-roster-item data-search="Вельт Ян Welt Yang">
+          <div class="hi-valk-bar"><span>NPC-04</span><span>СЮЖЕТ</span></div>
+          <div class="hi-unit-body">
+            <div class="hi-unit-head"><span class="hi-hex" aria-hidden="true">ВЯ</span><h4>Вельт Ян<small>Welt Yang</small></h4></div>
+            <p>Первый носитель имени Вельт и прежний лидер «Анти-Энтропии»; позже — один из героев Honkai: Star Rail.</p>
+          </div>
+        </article>
+        <article class="hi-unit hi-npc hi-cut" data-roster-item data-search="Зигфрид Каслана Siegfried Kaslana">
+          <div class="hi-valk-bar"><span>NPC-05</span><span>СЮЖЕТ</span></div>
+          <div class="hi-unit-body">
+            <div class="hi-unit-head"><span class="hi-hex" aria-hidden="true">ЗК</span><h4>Зигфрид Каслана<small>Siegfried Kaslana</small></h4></div>
+            <p>Отец Кианы, легендарный боец рода Каслана.</p>
+          </div>
+        </article>
+        <article class="hi-unit hi-npc hi-cut" data-roster-item data-search="Сесилия Шариак Cecilia Schariac">
+          <div class="hi-valk-bar"><span>NPC-06</span><span>СЮЖЕТ</span></div>
+          <div class="hi-unit-body">
+            <div class="hi-unit-head"><span class="hi-hex" aria-hidden="true">СШ</span><h4>Сесилия Шариак<small>Cecilia Schariac</small></h4></div>
+            <p>Мать Кианы, одна из сильнейших Валькирий Шиксаля.</p>
+          </div>
+        </article>
+        <article class="hi-unit hi-npc hi-cut" data-roster-item data-search="Фредерика Никола Тесла Frederica Nikola Tesla">
+          <div class="hi-valk-bar"><span>NPC-07</span><span>СЮЖЕТ</span></div>
+          <div class="hi-unit-body">
+            <div class="hi-unit-head"><span class="hi-hex" aria-hidden="true">ФН</span><h4>Фредерика Никола Тесла<small>Frederica Nikola Tesla</small></h4></div>
+            <p>Гениальный инженер «Анти-Энтропии».</p>
+          </div>
+        </article>
+        <article class="hi-unit hi-npc hi-cut" data-roster-item data-search="Лизерль Альберт Эйнштейн Lieserl Albert Einstein">
+          <div class="hi-valk-bar"><span>NPC-08</span><span>СЮЖЕТ</span></div>
+          <div class="hi-unit-body">
+            <div class="hi-unit-head"><span class="hi-hex" aria-hidden="true">ЛА</span><h4>Лизерль Альберт Эйнштейн<small>Lieserl Albert Einstein</small></h4></div>
+            <p>Учёная «Анти-Энтропии», исследовательница природы Хонкая.</p>
+          </div>
+        </article>
+        <article class="hi-unit hi-npc hi-cut" data-roster-item data-search="Рёма Райдэн Raiden Ryoma">
+          <div class="hi-valk-bar"><span>NPC-09</span><span>СЮЖЕТ</span></div>
+          <div class="hi-unit-body">
+            <div class="hi-unit-head"><span class="hi-hex" aria-hidden="true">РР</span><h4>Рёма Райдэн<small>Raiden Ryoma</small></h4></div>
+            <p>Отец Райдэн Мэй, глава корпорации.</p>
+          </div>
+        </article>
+        <article class="hi-unit hi-npc hi-cut" data-roster-item data-search="Доктор МЭЙ Dr. MEI">
+          <div class="hi-valk-bar"><span>NPC-10</span><span>СЮЖЕТ</span></div>
+          <div class="hi-unit-body">
+            <div class="hi-unit-head"><span class="hi-hex" aria-hidden="true">ДМ</span><h4>Доктор МЭЙ<small>Dr. MEI</small></h4></div>
+            <p>Учёная прошлой эпохи, руководившая борьбой цивилизации с Хонкаем.</p>
+          </div>
+        </article>
+        <article class="hi-unit hi-npc hi-cut" data-roster-item data-search="Бенарес Benares">
+          <div class="hi-valk-bar"><span>NPC-11</span><span>СЮЖЕТ</span></div>
+          <div class="hi-unit-body">
+            <div class="hi-unit-head"><span class="hi-hex" aria-hidden="true">Б</span><h4>Бенарес<small>Benares</small></h4></div>
+            <p>Хонкай-зверь — огромный дракон, одно из сильнейших созданий Хонкая.</p>
+          </div>
+        </article>
+        <article class="hi-unit hi-npc hi-cut" data-roster-item data-search="Кальпас Kalpas">
+          <div class="hi-valk-bar"><span>NPC-12</span><span>СЮЖЕТ</span></div>
+          <div class="hi-unit-body">
+            <div class="hi-unit-head"><span class="hi-hex" aria-hidden="true">К</span><h4>Кальпас<small>Kalpas</small></h4></div>
+            <p>Одна из Огнеборцев — легендарного отряда прошлой эпохи, сражавшегося с Хонкаем.</p>
+          </div>
+        </article>
+        <article class="hi-unit hi-npc hi-cut" data-roster-item data-search="Су Su">
+          <div class="hi-valk-bar"><span>NPC-13</span><span>СЮЖЕТ</span></div>
+          <div class="hi-unit-body">
+            <div class="hi-unit-head"><span class="hi-hex" aria-hidden="true">С</span><h4>Су<small>Su</small></h4></div>
+            <p>Одна из Огнеборцев — легендарного отряда прошлой эпохи, сражавшегося с Хонкаем.</p>
+          </div>
+        </article>
+        <article class="hi-unit hi-npc hi-cut" data-roster-item data-search="Косма Kosma">
+          <div class="hi-valk-bar"><span>NPC-14</span><span>СЮЖЕТ</span></div>
+          <div class="hi-unit-body">
+            <div class="hi-unit-head"><span class="hi-hex" aria-hidden="true">К</span><h4>Косма<small>Kosma</small></h4></div>
+            <p>Одна из Огнеборцев — легендарного отряда прошлой эпохи, сражавшегося с Хонкаем.</p>
+          </div>
+        </article>
+        <article class="hi-unit hi-npc hi-cut" data-roster-item data-search="Сакура прошлой эпохи Sakura">
+          <div class="hi-valk-bar"><span>NPC-15</span><span>СЮЖЕТ</span></div>
+          <div class="hi-unit-body">
+            <div class="hi-unit-head"><span class="hi-hex" aria-hidden="true">СП</span><h4>Сакура прошлой эпохи<small>Sakura</small></h4></div>
+            <p>Одна из Огнеборцев — легендарного отряда прошлой эпохи, сражавшегося с Хонкаем.</p>
+          </div>
+        </article>
+        <article class="hi-unit hi-npc hi-cut" data-roster-item data-search="Адам Adam">
+          <div class="hi-valk-bar"><span>NPC-16</span><span>СЮЖЕТ</span></div>
+          <div class="hi-unit-body">
+            <div class="hi-unit-head"><span class="hi-hex" aria-hidden="true">А</span><h4>Адам<small>Adam</small></h4></div>
+            <p>Главный герой побочного режима A Post-Honkai Odyssey.</p>
+          </div>
+        </article>
+        </div>
+      </div>
+      <p class="hi-mono" style="margin:16px 0 0;font-size:12px;color:var(--hi-muted)">ИСТОЧНИК: список боевых костюмов Honkai Impact 3 Wiki (версия 9.1), сверено 27.11.2026 · 40 играбельных Валькирий, 111 костюмов. Официальной русской локализации у игры нет, поэтому названия костюмов даны на английском.</p>
       <div class="hi-sys hi-cut"><span class="hi-mono">SYS://СОВЕТ</span><span>Собирайте отряд вокруг одного типа и стихии, учитесь идеальному уклонению и не распыляйте ресурсы на всех героинь сразу.</span></div>
     </section>
 
@@ -244,6 +640,7 @@
   <script src="../js/anime-search.js"></script>
   <script src="../js/site-search.js"></script>
   <script src="../js/back-to-top.js" defer></script><!-- кнопка «Наверх» -->
+  <script src="../js/game-roster.js" defer></script><!-- поиск по ростеру персонажей -->
 <!-- чат сообщества: кнопка в правом нижнем углу (js/chat-core.js + js/chat-widget.js) -->
 <script src="../js/chat-core.js" defer></script>
 <script src="../js/chat-widget.js" defer></script>
